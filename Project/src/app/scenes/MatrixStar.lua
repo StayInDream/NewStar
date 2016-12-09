@@ -2,8 +2,12 @@ local MatrixStar = class("MatrixStar",function()
 	return display.newLayer()
 end)
 
-local STAR_RES_LIST = {"blue.png","green.png",
-"orange.png","red.png","purple.png"}
+local STAR_RES_LIST = {"#1000.png","#1001.png",
+"#1002.png","#1003.png","#1004.png"}
+
+--被选中时的星星图
+local STAR_RES_LIST_SELECT = {"#bg_1000.png","#bg_1001.png",
+"#bg_1002.png","#bg_1003.png","#bg_1004.png"}
 
 HSCORETAG = 100
 LEVELTAG = 101
@@ -35,9 +39,8 @@ function MatrixStar:ctor()
     self:setLabel(self.Hscore,self.Level,self.Goal,self.Cscore)  
 	self:initMatrix()  
     self:setTouchEnabled(true)
-    
-    self:addTouchEventListener(function(event, x, y)
-        return self:onTouch(event, x, y) 
+    self:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
+       return self:onTouch(event, event.x, event.y) 
     end, false)
 
 end  
@@ -51,13 +54,14 @@ function MatrixStar:initMatrix()
         ]]
     math.randomseed(os.time())    
     for row = 1, ROW do
-        local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2
+        local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 120
         self.STAR[row] = {}
         for col = 1, COL do
             self.STAR[row][col] = {}
             local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-            local i=math.random(1,5)
+            local i = math.random(1,5)
             local star = display.newSprite(STAR_RES_LIST[i])
+            star:setScale(0.5)
             self.STAR[row][col][1] = star
             self.STAR[row][col][2] = i
             self.STAR[row][col][3] = false
@@ -70,32 +74,32 @@ function MatrixStar:initMatrix()
 end
 
 function MatrixStar:setLabel(Hscore,Level,Goal,Cscore)
-    local HscoreUI = ui.newTTFLabel({
+    local HscoreUI = cc.ui.UILabel.new({
         text = string.format("HighestScore: %s", tostring(Hscore)),
         x, y = display.left, display.top, 
     })
     HscoreUI:setScale(SCALE)
     HscoreUI:setPosition(display.right, display.cy)
-    HscoreUI:setPosition(display.cx, display.top - SCALE * HscoreUI:getContentSize().height)
+    HscoreUI:setPosition(display.left, display.top - SCALE * HscoreUI:getContentSize().height)
     self:addChild(HscoreUI)
     HscoreUI:setTag(HSCORETAG)
 
-    local LevelUI = ui.newTTFLabel({
+    local LevelUI =  cc.ui.UILabel.new({
         text = string.format("Level: %s".." ".."Goal: %s", tostring(Level),tostring(Goal)),
         x, y = display.left, display.top, 
     })
     LevelUI:setScale(SCALE)
-    LevelUI:setPosition(display.cx, display.top - SCALE * (HscoreUI:getContentSize().height + 
+    LevelUI:setPosition(display.left, display.top - SCALE * (HscoreUI:getContentSize().height + 
             LevelUI:getContentSize().height))
     self:addChild(LevelUI)
     LevelUI:setTag(LEVELTAG)
 
-    local CscoreUI = ui.newTTFLabel({
+    local CscoreUI =  cc.ui.UILabel.new({
         text = string.format("CurrentScore: %s", tostring(Cscore)),
         x, y = display.left, display.top, 
     })
     CscoreUI:setScale(SCALE)
-    CscoreUI:setPosition(display.cx, display.top - SCALE * (HscoreUI:getContentSize().height + 
+    CscoreUI:setPosition(display.left, display.top - SCALE * (HscoreUI:getContentSize().height + 
             LevelUI:getContentSize().height + CscoreUI:getContentSize().height))
     self:addChild(CscoreUI)
     CscoreUI:setTag(CSCORETAG)
@@ -103,9 +107,8 @@ end
 
 function MatrixStar:onTouch(eventType, x, y)  
 --    if eventType ~= "began" then return end
-    i = math.floor(y / STAR_HEIGHT) + 1
+    i = math.floor((y-120) / STAR_HEIGHT) +1
     j = math.floor(x / STAR_WIDTH) + 1
-
     if i < 1 or i > ROW or j < 1 or j > COL then 
         return 
     end 
@@ -125,13 +128,14 @@ function MatrixStar:onTouch(eventType, x, y)
     end
 
     self:UpdateMatrix()
+    self:updateStar()
     if self:isEnd() == true then 
         local num = self:getStarNum()
         if num < LEFT_STAR then
             local left = LEFT_STAR - num 
             self.Cscore = self.Cscore + left * left * STARGAIN
         end
-        local LeftStar = ui.newTTFLabel({
+        local LeftStar = cc.ui.UILabel.new({
         text = string.format("There Are  %s Stars Left !", tostring(num)),
         x, y = display.left, display.top, 
         })
@@ -150,7 +154,6 @@ function MatrixStar:onTouch(eventType, x, y)
 end
 
 function MatrixStar:updateScore(select)
-    print(select)
     self.Cscore = self.Cscore + select * select * STARGAIN
     if(self.Cscore > self.Hscore)  then
         self.Hscore = self.Cscore
@@ -171,29 +174,38 @@ function MatrixStar:deleteSelectStar()
     while #travel ~= 0 do
         if i + 1 <= ROW and self.STAR[i][j][3] ~= true and 
             self.STAR[i][j][2] == self.STAR[i + 1][j][2] then
+            local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
+            self.STAR[i + 1][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i+1][j][1],i+1,j})
         end
 
         if i-1 >= 1 and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i-1][j][2] then
+           local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
+            self.STAR[i - 1][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i-1][j][1],i-1,j})
         end
 
         if j+1 <= COL and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i][j+1][2] then
+            local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
+            self.STAR[i][j+1][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i][j+1][1],i,j+1}) 
         end
 
         if j-1 >= 1 and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i][j-1][2] then
+            local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
+            self.STAR[i][j-1][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i][j-1][1],i,j-1})
         end
         
         if self.STAR[i][j][3] ~= true then
            self.STAR[i][j][3] = true
+           local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
+           self.STAR[i][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
            table.insert(self.SELECT_STAR,{self.STAR[i][j][1],i,j})
         end
-
         table.remove(travel,1)  --table没有类似双向队列的功能直接删除第一个元素
         if #travel ~= 0 then 
             i, j = travel[1][2], travel[1][3] --取出表的第一个元素
@@ -204,6 +216,14 @@ function MatrixStar:deleteSelectStar()
         self.STAR[i][j][3] = nil 
         self.SELECT_STAR = {}
         return false
+        -- else
+        --     for i=1,#self.SELECT_STAR  do
+        --         --替换成选中的精灵图样
+        --         local  color = self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][2] --颜色
+        --         local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[color])         --选中的图样
+        --         self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
+        --     end
+
     end 
     return true
 end
@@ -213,7 +233,7 @@ function MatrixStar:updateStar()
         for j = 1, COL do
             if self.STAR[i][j][1] ~= nil then 
                 local posX, posY = self.STAR[i][j][1]:getPosition()
-                self:updatePos(posX,posY,i,j)
+                self:updatePos(posX,posY ,i,j)
             end
         end
     end
@@ -242,7 +262,7 @@ end
 
 function MatrixStar:updatePos(posX,posY,i,j)
     if posY ~= self.STAR[i][j][5] then
-        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5] - MOVESPEED)
+        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5] - MOVESPEED +120)
         if self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
              self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
              local x, y = self.STAR[i][j][1]:getPosition()

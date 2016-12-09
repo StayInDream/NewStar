@@ -124,13 +124,13 @@ function MenuScene:ctor()
                 self.NewGameButton:setButtonEnabled(false)
             end,
             listener = function()
-                app:ShowCDKEY()
+                app:StartNewGame()
             end,
         })
         :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 400)
         :addTo(self) 
 
-    --新游戏
+    --继续游戏
     self.ContinueGameButton = BubbleButton.new({
             image = GAME_IMAGE.popstar_continue,
             sound = GAME_SOUND.pselect,
@@ -139,7 +139,7 @@ function MenuScene:ctor()
                 self.ContinueGameButton:setButtonEnabled(false)
             end,
             listener = function()
-                app:ShowCDKEY()
+                app:ContinueGame()
             end,
         })
         :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 500)

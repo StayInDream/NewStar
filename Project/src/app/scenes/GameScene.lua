@@ -5,10 +5,10 @@ local GameScene = class("GameScene", function()
 end)
 
 function GameScene:ctor()
-    local bg = display.newSprite("bg_mainscene.jpg",display.cx,display.cy)
+    local bg = display.newSprite(GAME_IMAGE.front,display.cx,display.cy)
     self:addChild(bg)
     
-    self.Matrix = require("scenes.MatrixStar").new()
+    self.Matrix = require("app.scenes.MatrixStar").new()
     self:addChild(self.Matrix)
     local x = 1
     self:scheduleUpdate(function() 
