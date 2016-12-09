@@ -102,4 +102,11 @@ function GameScene:goNextLevel()
     end)}))
 end
 
+
+function GameScene:onEnter()
+end
+
+function GameScene:onExit()
+end
+
 return GameScene

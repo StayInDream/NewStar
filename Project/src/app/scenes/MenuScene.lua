@@ -1,4 +1,5 @@
 local BubbleButton = import("..views.BubbleButton")
+local CCLabelChange = import("..views.CCLabelChange")
 
 local MenuScene = class("MenuScene", function()
     return display.newScene("MenuScene")
@@ -8,7 +9,6 @@ function MenuScene:ctor()
     self.bg = display.newSprite(GAME_IMAGE.Bg_Stage)
     self.bg:setPosition(display.cx, display.cy )
 	self:addChild(self.bg)
-
 	
 	self.coin_bar  = display.newSprite(GAME_IMAGE.coin_bar, display.cx - self.bg:getContentSize().width / 2 + 100,display.cy + self.bg:getContentSize().height / 2  - 30)
     self:addChild(self.coin_bar)
@@ -127,7 +127,7 @@ function MenuScene:ctor()
                 app:StartNewGame()
             end,
         })
-        :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 400)
+        :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 450)
         :addTo(self) 
 
     --继续游戏
@@ -142,14 +142,51 @@ function MenuScene:ctor()
                 app:ContinueGame()
             end,
         })
-        :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 500)
+        :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 550)
         :addTo(self) 
+
+    -- 特权礼包
+    self.TeQuanButton =  cc.ui.UIPushButton.new({normal =  "image/trqunrukou.png", pressed =  "image/trqunrukou.png"})
+        :align(display.CENTER,  display.cx + self.bg:getContentSize().width / 2 - 100 , display.cy +  self.bg:getContentSize().height / 2 - 350)
+        :onButtonClicked(function()
+            audio.playSound(GAME_SOUND.pselect)
+           -- app:enterMenuScene()
+        end)
+        :addTo(self)
+    local sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.5, 1.3, 1.3, 1), 
+            cc.ScaleTo:create(0.5, 1, 1, 1), 
+            })
+
+        transition.execute( self.TeQuanButton, sequenceAction, 
+            {
+            delay = 0.23,
+            onCompleted = function ( )
+                print(1111)
+            end
+            -- onCompleted = function ()
+            -- print(1111)
+            --   transition.execute(self.TeQuanButton, sequenceAction)
+            -- end
+            } )
+
+    --  
+    -- local label = display.newTTFLabel({
+    --     text = "0",
+    --     font = "arial",
+    --     size = 64})
+
+    --       label:setPosition(display.cx - 100, display.cy)
+    --     :addChild(label)
+    --      local action = CCLabelChange:create(label, 60, 1, 100)
+  
+    --      action:playAction()       
 
 end
 
 function MenuScene:onEnter()
-	if device.platform ~= "android" then return end
-
+    audio.playMusic(GAME_SOUND.Bgm_01)
+    if device.platform ~= "android" then return end
 	    -- avoid unmeant back
 	    self:performWithDelay(function()
 	        -- keypad layer, for android

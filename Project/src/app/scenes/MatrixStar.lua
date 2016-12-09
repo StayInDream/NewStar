@@ -107,11 +107,12 @@ end
 
 function MatrixStar:onTouch(eventType, x, y)  
 --    if eventType ~= "began" then return end
-    i = math.floor((y-120) / STAR_HEIGHT) +1
+    i = math.floor((y-120) / STAR_HEIGHT) + 1
     j = math.floor(x / STAR_WIDTH) + 1
-    if i < 1 or i > ROW or j < 1 or j > COL then 
+    if i < 1 or i > ROW or j < 1 or j > COL or self.clearNeed ~= UNNEEDCLEAR then
         return 
     end 
+    audio.playSound(GAME_SOUND.ppop)
     
     self.SELECT_STAR = {}   --将选中的星星清空
 
@@ -128,29 +129,32 @@ function MatrixStar:onTouch(eventType, x, y)
     end
 
     self:UpdateMatrix()
-    self:updateStar()
+    
     if self:isEnd() == true then 
         local num = self:getStarNum()
         if num < LEFT_STAR then
             local left = LEFT_STAR - num 
             self.Cscore = self.Cscore + left * left * STARGAIN
         end
-        local LeftStar = cc.ui.UILabel.new({
-        text = string.format("There Are  %s Stars Left !", tostring(num)),
-        x, y = display.left, display.top, 
-        })
-        LeftStar:setPosition(display.right, display.cy)
-        LeftStar:setScale(SCALE*SCALE)
-        self:addChild(LeftStar)
-        LeftStar:runAction(transition.sequence({transition.moveTo(LeftStar,
-        {time = MOVEDELAY, x = display.left, y = display.cy}),
-        CCCallFunc:create(function()
-        self:removeChild(LeftStar)
-        local CscoreUI = self:getChildByTag(CSCORETAG)
-        CscoreUI:setString(string.format("CurrentScore: %s",tostring(self.Cscore)))
-        self.clearNeed = NEEDCLEAR
-        end)}))
+         self.clearNeed = NEEDCLEAR
+        -- local LeftStar = cc.ui.UILabel.new({
+        -- text = string.format("There Are  %s Stars Left !", tostring(num)),
+        -- x, y = display.left, display.top, 
+        -- })
+        -- LeftStar:setPosition(display.right, display.cy)
+        -- LeftStar:setScale(SCALE*SCALE)
+        -- self:addChild(LeftStar)
+        -- LeftStar:runAction(transition.sequence({transition.moveTo(LeftStar,
+        -- {time = MOVEDELAY, x = display.left, y = display.cy}),
+        -- CCCallFunc:create(function()
+        -- self:removeChild(LeftStar)
+        -- local CscoreUI = self:getChildByTag(CSCORETAG)
+        -- CscoreUI:setString(string.format("CurrentScore: %s",tostring(self.Cscore)))
+        -- self.clearNeed = NEEDCLEAR
+        -- end)}))
     end
+
+    self:updateStar()
 end
 
 function MatrixStar:updateScore(select)
@@ -166,6 +170,7 @@ end
 
 function MatrixStar:deleteSelectStar()
     local travel = {}  --当作一个队列使用，用于选出周围与触摸星星颜色相同的星星
+    local travel_ = {} 
     if self.STAR[i][j][1] == nil then
         return
     end 
@@ -175,44 +180,53 @@ function MatrixStar:deleteSelectStar()
         if i + 1 <= ROW and self.STAR[i][j][3] ~= true and 
             self.STAR[i][j][2] == self.STAR[i + 1][j][2] then
             local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-            self.STAR[i + 1][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
+           -- self.STAR[i + 1][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i+1][j][1],i+1,j})
+            table.insert(travel_, {self.STAR[i+1][j][1],i+1,j})
         end
 
         if i-1 >= 1 and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i-1][j][2] then
            local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-            self.STAR[i - 1][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
+           -- self.STAR[i - 1][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i-1][j][1],i-1,j})
+            table.insert(travel_, {self.STAR[i-1][j][1],i-1,j})
         end
 
         if j+1 <= COL and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i][j+1][2] then
             local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-            self.STAR[i][j+1][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
+            --self.STAR[i][j+1][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i][j+1][1],i,j+1}) 
+              table.insert(travel_, {self.STAR[i][j+1][1],i,j+1}) 
         end
 
         if j-1 >= 1 and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i][j-1][2] then
             local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-            self.STAR[i][j-1][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
+           -- self.STAR[i][j-1][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i][j-1][1],i,j-1})
+             table.insert(travel_, {self.STAR[i][j-1][1],i,j-1})
         end
         
         if self.STAR[i][j][3] ~= true then
            self.STAR[i][j][3] = true
            local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-           self.STAR[i][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
+          -- self.STAR[i][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
            table.insert(self.SELECT_STAR,{self.STAR[i][j][1],i,j})
         end
+        
         table.remove(travel,1)  --table没有类似双向队列的功能直接删除第一个元素
         if #travel ~= 0 then 
             i, j = travel[1][2], travel[1][3] --取出表的第一个元素
         end  
     end
-
+print(#self.SELECT_STAR)
     if #self.SELECT_STAR <= 1 then
+
+        local frame = display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]]) 
+        self.STAR[i][j][1]:setTexture(frame:getTexture())
+
         self.STAR[i][j][3] = nil 
         self.SELECT_STAR = {}
         return false
@@ -253,7 +267,7 @@ function MatrixStar:ClearLeftStarOneByOne()
             if self.STAR[i][j][1] ~= nil then
                 self:removeChild(self.STAR[i][j][1])
                 self.STAR[i][j][1] = nil 
-                return false
+               -- return false
             end
         end
     end

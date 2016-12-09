@@ -16,8 +16,26 @@ function MyApp:run()
 
      -- preload all sounds
     for k, v in pairs(GAME_SOUND) do
-        audio.preloadSound(v)
+        if k ~= "Bgm_01" and k ~= "advbg" then
+            audio.preloadSound(v)
+         else
+            audio.preloadMusic(v)
+        end
     end
+    
+    -- 动画缓存
+    -- display.addSpriteFrames("lqfRoleWalk.plist","lqfRoleWalk.png")
+ 
+    -- local sprite = display.newSprite("#lqfDownStop.png")
+    -- sprite:align(display.CENTER,display.cx,display.cy)
+    -- sprite:addTo(self)
+    -- sprite:setScale(2)
+     
+    -- local frames = display.newFrames("lqfDownWalk%d.png",1,2)
+    -- local animation = display.newAnimation(frames,0.5/2)
+    -- display.setAnimationCache("lqfDownWalk",animation)
+    -- sprite:playAnimationForever(display.getAnimationCache("lqfDownWalk"))
+
     self:enterMenuScene()
 end
 
