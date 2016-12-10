@@ -170,7 +170,12 @@ function MenuScene:ctor()
     --     :addChild(label)
     --      local action = CCLabelChange:create(label, 60, 1, 100)
   
-    --      action:playAction()       
+    --      action:playAction()     
+
+       -- 添加背景粒子特效
+    local particle = cc.ParticleSystemQuad:create(GAME_PARTICE.Particle_TileDebris)
+    :align(display.CENTER, display.cx, display.cy)
+    self:addChild(particle,1)  
 
 end
 

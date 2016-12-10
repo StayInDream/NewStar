@@ -63,5 +63,21 @@ GAME_IMAGE = {
 	trqunrukou        = "image/trqunrukou.png",
 }
 
+GAME_PARTICE = {
+	pop_star1000_particle      = "particle/pop_star1000.plist",
+	pop_star1001_particle      = "particle/pop_star1001.plist",
+	pop_star1002_particle      = "particle/pop_star1002.plist",
+	pop_star1003_particle      = "particle/pop_star1003.plist",
+	pop_star1004_particle      = "particle/pop_star1004.plist",
+	pop_star1100_particle      = "particle/pop_star1100.plist",
+	pop_star1101_particle      = "particle/pop_star1101.plist",
+	pop_star1102_particle      = "particle/pop_star1102.plist",
+	pop_star1103_particle      = "particle/pop_star1103.plist",
+	pop_star1104_particle      = "particle/pop_star1104.plist",
+
+	Particle_Star              = "particle/poptile/Particle_Star.plist",
+	Particle_TileDebris        = "particle/poptile/Particle_TileDebris.plist",
+}
+
 GAME_TEXTURE_DATA_FILENAME  = "popstar.plist"
 GAME_TEXTURE_IMAGE_FILENAME = "popstar.png"

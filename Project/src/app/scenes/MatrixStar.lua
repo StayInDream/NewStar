@@ -9,6 +9,9 @@ local STAR_RES_LIST = {"#1000.png","#1001.png",
 local STAR_RES_LIST_SELECT = {"#bg_1000.png","#bg_1001.png",
 "#bg_1002.png","#bg_1003.png","#bg_1004.png"}
 
+local STAR_PARTICLE = {GAME_PARTICE.pop_star1000_particle,GAME_PARTICE.pop_star1001_particle,
+GAME_PARTICE.pop_star1002_particle,GAME_PARTICE.pop_star1003_particle,GAME_PARTICE.pop_star1004_particle}
+
 HSCORETAG = 100
 LEVELTAG = 101
 CSCORETAG = 102
@@ -44,8 +47,8 @@ function MatrixStar:ctor()
     end, false)
 
       -- 添加背景粒子特效
-    local particle = cc.ParticleSystemQuad:create("gameBack.plist")
-    self:addChild(particle,-2)
+   -- local particle = cc.ParticleSystemQuad:create("gameBack.plist")
+    --self:addChild(particle,-2)
 
 end  
 
@@ -223,6 +226,9 @@ function MatrixStar:deleteSelectStar()
         table.remove(travel,1)  --table没有类似双向队列的功能直接删除第一个元素
         audio.playSound(GAME_SOUND.ppop)
         if #travel ~= 0 then 
+            -- local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[travel[1][2]])
+            --     particle:setPosition(travel[1][1]:getPosition())
+            --     self:addChild(particle,1)  
             i, j = travel[1][2], travel[1][3] --取出表的第一个元素
         end  
     end
@@ -269,6 +275,9 @@ function MatrixStar:ClearLeftStarOneByOne()
     for i = 1, ROW do
         for j = 1, COL do
             if self.STAR[i][j][1] ~= nil then
+                local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[i][j][2]])
+                particle:setPosition(self.STAR[i][j][1]:getPosition())
+                self:addChild(particle,1)  
                 self:removeChild(self.STAR[i][j][1])
                 self.STAR[i][j][1] = nil 
                -- return false
