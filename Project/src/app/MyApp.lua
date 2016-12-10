@@ -12,6 +12,8 @@ end
 
 function MyApp:run()
     cc.FileUtils:getInstance():addSearchPath("res/")
+    cc.Director:getInstance():setContentScaleFactor(480 / CONFIG_SCREEN_WIDTH)
+
     display.addSpriteFrames(GAME_TEXTURE_DATA_FILENAME, GAME_TEXTURE_IMAGE_FILENAME)
 
      -- preload all sounds

@@ -154,21 +154,11 @@ function MenuScene:ctor()
         end)
         :addTo(self)
     local sequenceAction = transition.sequence({
-            cc.ScaleTo:create(0.5, 1.3, 1.3, 1), 
+            cc.ScaleTo:create(0.5, 1.2, 1.2, 1), 
             cc.ScaleTo:create(0.5, 1, 1, 1), 
             })
 
-        transition.execute( self.TeQuanButton, sequenceAction, 
-            {
-            delay = 0.23,
-            onCompleted = function ( )
-                print(1111)
-            end
-            -- onCompleted = function ()
-            -- print(1111)
-            --   transition.execute(self.TeQuanButton, sequenceAction)
-            -- end
-            } )
+      transition.execute(self.TeQuanButton, cc.RepeatForever:create( sequenceAction ))
 
     --  
     -- local label = display.newTTFLabel({

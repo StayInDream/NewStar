@@ -112,7 +112,7 @@ function MatrixStar:onTouch(eventType, x, y)
     if i < 1 or i > ROW or j < 1 or j > COL or self.clearNeed ~= UNNEEDCLEAR then
         return 
     end 
-    audio.playSound(GAME_SOUND.ppop)
+   
     
     self.SELECT_STAR = {}   --将选中的星星清空
 
@@ -217,11 +217,11 @@ function MatrixStar:deleteSelectStar()
         end
         
         table.remove(travel,1)  --table没有类似双向队列的功能直接删除第一个元素
+        audio.playSound(GAME_SOUND.ppop)
         if #travel ~= 0 then 
             i, j = travel[1][2], travel[1][3] --取出表的第一个元素
         end  
     end
-print(#self.SELECT_STAR)
     if #self.SELECT_STAR <= 1 then
 
         local frame = display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]]) 
