@@ -1,3 +1,5 @@
+local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
+
 local MatrixStar = class("MatrixStar",function()
 	return display.newLayer()
 end)
@@ -31,6 +33,8 @@ local STARGAIN = 5      --星星得分基数
 
 local MOVESPEED = 4     --星星的移动速度
 
+local  mHandle = nil
+
 function MatrixStar:ctor()
     self.Hscore = 0
     self.Level = 1
@@ -50,6 +54,15 @@ function MatrixStar:ctor()
    -- local particle = cc.ParticleSystemQuad:create("gameBack.plist")
     --self:addChild(particle,-2)
 
+    -- self:addNodeEventListener(cc.NODE_ENTER_FRAME_EVENT, handler(self, self.deleteOneStar))
+    -- self:unscheduleUpdate
+    --self:scheduleUpdate()
+   -- scheduler.performWithDelayGlobal(deleteOneStar, 0.3)  
+
+    -- if mHandle == nil then
+    --     mHandle = scheduler.scheduleGlobal(self:deleteOneStar(), 0.2)
+    --     scheduler.unscheduleGlobal(mHandle)
+    -- end
 end  
 
 function MatrixStar:initMatrix()  
@@ -61,7 +74,7 @@ function MatrixStar:initMatrix()
         ]]
     math.randomseed(os.time())    
     for row = 1, ROW do
-        local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 120
+        local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 96
         self.STAR[row] = {}
         for col = 1, COL do
             self.STAR[row][col] = {}
@@ -112,9 +125,9 @@ function MatrixStar:setLabel(Hscore,Level,Goal,Cscore)
     CscoreUI:setTag(CSCORETAG)
 end
 
-function MatrixStar:onTouch(eventType, x, y)  
+ function MatrixStar:onTouch(eventType, x, y)  
 --    if eventType ~= "began" then return end
-    i = math.floor((y-120) / STAR_HEIGHT) + 1
+    i = math.floor((y-96) / STAR_HEIGHT) + 1
     j = math.floor(x / STAR_WIDTH) + 1
     if i < 1 or i > ROW or j < 1 or j > COL or self.clearNeed ~= UNNEEDCLEAR then
         return 
@@ -129,21 +142,33 @@ function MatrixStar:onTouch(eventType, x, y)
 
     self:updateScore(#self.SELECT_STAR)
 
-    for num = 1, #self.SELECT_STAR do 
-        local row , col = self.SELECT_STAR[num][2], self.SELECT_STAR[num][3]
+    local function deleteOneStar(dt)
+    -- body
+        local deleteStar = {}
+          deleteStar = table.remove(self.SELECT_STAR)
+        if deleteStar ~= nil and #deleteStar ~= 0 then
+    --print(111 ,os.clock())
+        local row , col = deleteStar[2], deleteStar[3]
+        --audio.playSound(GAME_SOUND.ppop)
+        local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
+                particle:setPosition(self.STAR[row][col][1]:getPosition())
+                particle:setAutoRemoveOnFinish(true)
+                self:addChild(particle,1)  
+
         self:removeChild(self.STAR[row][col][1]) 
         self.STAR[row][col][1] = nil 
-    end
-
-    self:UpdateMatrix()
-    
-    if self:isEnd() == true then 
-        local num = self:getStarNum()
-        if num < LEFT_STAR then
-            local left = LEFT_STAR - num 
-            self.Cscore = self.Cscore + left * left * STARGAIN
         end
-         self.clearNeed = NEEDCLEAR
+
+        if #self.SELECT_STAR <=0 then
+             self:UpdateMatrix()
+    
+        if self:isEnd() == true then 
+            local num = self:getStarNum()
+            if num < LEFT_STAR then
+                local left = LEFT_STAR - num 
+                self.Cscore = self.Cscore + left * left * STARGAIN
+            end
+             self.clearNeed = NEEDCLEAR
         -- local LeftStar = cc.ui.UILabel.new({
         -- text = string.format("There Are  %s Stars Left !", tostring(num)),
         -- x, y = display.left, display.top, 
@@ -159,10 +184,59 @@ function MatrixStar:onTouch(eventType, x, y)
         -- CscoreUI:setString(string.format("CurrentScore: %s",tostring(self.Cscore)))
         -- self.clearNeed = NEEDCLEAR
         -- end)}))
+        end
+
+        self:updateStar()
+        scheduler.unscheduleGlobal(mHandle)
+        mHandle = nil
+        end
     end
 
-    self:updateStar()
+    mHandle = scheduler.scheduleGlobal(deleteOneStar, 0.1)
+    
+
+    --self:scheduleUpdate
+    -- for num = 1, #self.SELECT_STAR do 
+    --     local row , col = self.SELECT_STAR[num][2], self.SELECT_STAR[num][3]
+    --     audio.playSound(GAME_SOUND.ppop)
+    --     local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
+    --             particle:setPosition(self.SELECT_STAR[num][1]:getPosition())
+    --             particle:setAutoRemoveOnFinish(true)
+    --             self:addChild(particle,1)  
+
+    --     self:removeChild(self.STAR[row][col][1]) 
+    --     self.STAR[row][col][1] = nil 
+    -- end
+
+    -- self:UpdateMatrix()
+    
+    -- if self:isEnd() == true then 
+    --     local num = self:getStarNum()
+    --     if num < LEFT_STAR then
+    --         local left = LEFT_STAR - num 
+    --         self.Cscore = self.Cscore + left * left * STARGAIN
+    --     end
+    --      self.clearNeed = NEEDCLEAR
+    --     -- local LeftStar = cc.ui.UILabel.new({
+    --     -- text = string.format("There Are  %s Stars Left !", tostring(num)),
+    --     -- x, y = display.left, display.top, 
+    --     -- })
+    --     -- LeftStar:setPosition(display.right, display.cy)
+    --     -- LeftStar:setScale(SCALE*SCALE)
+    --     -- self:addChild(LeftStar)
+    --     -- LeftStar:runAction(transition.sequence({transition.moveTo(LeftStar,
+    --     -- {time = MOVEDELAY, x = display.left, y = display.cy}),
+    --     -- CCCallFunc:create(function()
+    --     -- self:removeChild(LeftStar)
+    --     -- local CscoreUI = self:getChildByTag(CSCORETAG)
+    --     -- CscoreUI:setString(string.format("CurrentScore: %s",tostring(self.Cscore)))
+    --     -- self.clearNeed = NEEDCLEAR
+    --     -- end)}))
+    -- end
+
+    -- self:updateStar()
 end
+
 
 function MatrixStar:updateScore(select)
     self.Cscore = self.Cscore + select * select * STARGAIN
@@ -177,7 +251,6 @@ end
 
 function MatrixStar:deleteSelectStar()
     local travel = {}  --当作一个队列使用，用于选出周围与触摸星星颜色相同的星星
-    local travel_ = {} 
     if self.STAR[i][j][1] == nil then
         return
     end 
@@ -186,52 +259,35 @@ function MatrixStar:deleteSelectStar()
     while #travel ~= 0 do
         if i + 1 <= ROW and self.STAR[i][j][3] ~= true and 
             self.STAR[i][j][2] == self.STAR[i + 1][j][2] then
-            local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-           -- self.STAR[i + 1][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i+1][j][1],i+1,j})
-            table.insert(travel_, {self.STAR[i+1][j][1],i+1,j})
         end
 
         if i-1 >= 1 and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i-1][j][2] then
-           local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-           -- self.STAR[i - 1][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i-1][j][1],i-1,j})
-            table.insert(travel_, {self.STAR[i-1][j][1],i-1,j})
         end
 
         if j+1 <= COL and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i][j+1][2] then
-            local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-            --self.STAR[i][j+1][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i][j+1][1],i,j+1}) 
-              table.insert(travel_, {self.STAR[i][j+1][1],i,j+1}) 
         end
 
         if j-1 >= 1 and self.STAR[i][j][3] ~= true and
             self.STAR[i][j][2] ==self.STAR[i][j-1][2] then
-            local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-           -- self.STAR[i][j-1][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
             table.insert(travel, {self.STAR[i][j-1][1],i,j-1})
-             table.insert(travel_, {self.STAR[i][j-1][1],i,j-1})
         end
         
         if self.STAR[i][j][3] ~= true then
            self.STAR[i][j][3] = true
-           local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]])         --选中的图样
-          -- self.STAR[i][j][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
            table.insert(self.SELECT_STAR,{self.STAR[i][j][1],i,j})
         end
         
         table.remove(travel,1)  --table没有类似双向队列的功能直接删除第一个元素
-        audio.playSound(GAME_SOUND.ppop)
         if #travel ~= 0 then 
-            -- local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[travel[1][2]])
-            --     particle:setPosition(travel[1][1]:getPosition())
-            --     self:addChild(particle,1)  
             i, j = travel[1][2], travel[1][3] --取出表的第一个元素
         end  
     end
+
     if #self.SELECT_STAR <= 1 then
 
         local frame = display.newSprite(STAR_RES_LIST_SELECT[self.STAR[i][j][2]]) 
@@ -263,12 +319,42 @@ function MatrixStar:updateStar()
     end
 
     if self.clearNeed == NEEDCLEAR then 
-        if self:ClearLeftStarOneByOne() == true then
-            self.clearNeed = CLEAROVER
-        end
+        local  function MClearLeftStarOneByOne()
+            local deleteStar = {}
+            deleteStar = table.remove(self.STAR)
+              print(deleteStar[2] ,os.clock())
+            if deleteStar ~= nil and #deleteStar ~= 0 then
+            print(111 ,os.clock())
+            local row , col = deleteStar[2], deleteStar[3]
+            --audio.playSound(GAME_SOUND.ppop)
+            local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
+                    particle:setPosition(self.STAR[row][col][1]:getPosition())
+                    particle:setAutoRemoveOnFinish(true)
+                    self:addChild(particle,1)  
+
+            self:removeChild(self.STAR[row][col][1]) 
+            self.STAR[row][col][1] = nil 
+            end
+
+            if #self.STAR <= 0 then
+                self.clearNeed = CLEAROVER
+                scheduler.unscheduleGlobal(mHandle)
+                mHandle = nil
+            end
+
+        end 
+
+
+
+        mHandle = scheduler.scheduleGlobal(MClearLeftStarOneByOne, 0.1)
+        -- if self:ClearLeftStarOneByOne() == true then
+        --     self.clearNeed = CLEAROVER
+        --
     end
 
 end
+
+
 
 function MatrixStar:ClearLeftStarOneByOne()
     local num = 0
@@ -277,7 +363,8 @@ function MatrixStar:ClearLeftStarOneByOne()
             if self.STAR[i][j][1] ~= nil then
                 local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[i][j][2]])
                 particle:setPosition(self.STAR[i][j][1]:getPosition())
-                self:addChild(particle,1)  
+                particle:setAutoRemoveOnFinish(true)
+                self:addChild(particle,6)  
                 self:removeChild(self.STAR[i][j][1])
                 self.STAR[i][j][1] = nil 
                -- return false
@@ -289,7 +376,7 @@ end
 
 function MatrixStar:updatePos(posX,posY,i,j)
     if posY ~= self.STAR[i][j][5] then
-        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5] - MOVESPEED +120)
+        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5] - MOVESPEED + 96)
         if self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
              self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
              local x, y = self.STAR[i][j][1]:getPosition()
@@ -405,5 +492,23 @@ function MatrixStar:getStarNum()
     end
     return num  
 end
+
+-- function MatrixStar:deleteStarsOneByone(  )
+
+--     for num = 1, #self.SELECT_STAR do 
+--         local row , col = self.SELECT_STAR[num][2], self.SELECT_STAR[num][3]
+--         audio.playSound(GAME_SOUND.ppop)
+--         local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
+--                 particle:setPosition(self.SELECT_STAR[num][1]:getPosition())
+--                 particle:setAutoRemoveOnFinish(true)
+--                 self:addChild(particle,1)  
+
+--         self:removeChild(self.STAR[row][col][1]) 
+--         self.STAR[row][col][1] = nil 
+--     end
+--     scheduler.performWithDelayGlobal(self:deleteOneStar(), 0.3)  
+-- end
+
+
 
 return MatrixStar

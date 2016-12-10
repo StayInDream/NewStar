@@ -11,13 +11,13 @@
     <key>blendFuncDestination</key>
     <integer>770</integer>
     <key>blendFuncSource</key>
-    <integer>0</integer>
+    <integer>1</integer>
     <key>duration</key>
-    <real>0.1</real>
+    <real>0.2</real>
     <key>emitterType</key>
     <real>0</real>
     <key>emissionRate</key>
-    <real>700</real>
+    <real>270</real>
     <key>finishColorAlpha</key>
     <real>1</real>
     <key>finishColorBlue</key>
@@ -37,7 +37,7 @@
     <key>rotationStart</key>
     <real>0</real>
     <key>rotationStartVariance</key>
-    <real>0</real>
+    <real>360</real>
     <key>rotationEnd</key>
     <real>0</real>
     <key>rotationEndVariance</key>
@@ -51,7 +51,7 @@
     <key>gravityy</key>
     <real>-700</real>
     <key>maxParticles</key>
-    <real>700</real>
+    <real>400</real>
     <key>maxRadius</key>
     <real>0</real>
     <key>maxRadiusVariance</key>
@@ -73,9 +73,9 @@
     <key>rotatePerSecondVariance</key>
     <real>0</real>
     <key>sourcePositionVariancex</key>
-    <real>0</real>
+    <real>5</real>
     <key>sourcePositionVariancey</key>
-    <real>0</real>
+    <real>5</real>
     <key>sourcePositionx</key>
     <real>0</real>
     <key>sourcePositiony</key>
@@ -110,5 +110,7 @@
     <real>0</real>
     <key>textureFileName</key>
     <string>pop_stars.png</string>
+  </dict>
+</plist><string>pop_stars.png</string>
   </dict>
 </plist>

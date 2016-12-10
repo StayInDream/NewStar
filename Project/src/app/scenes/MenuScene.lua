@@ -180,7 +180,7 @@ function MenuScene:ctor()
 end
 
 function MenuScene:onEnter()
-    audio.playMusic(GAME_SOUND.Bgm_01)
+   -- audio.playMusic(GAME_SOUND.Bgm_01)
     if device.platform ~= "android" then return end
 	    -- avoid unmeant back
 	    self:performWithDelay(function()
