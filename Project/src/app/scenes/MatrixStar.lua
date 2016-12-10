@@ -43,6 +43,10 @@ function MatrixStar:ctor()
        return self:onTouch(event, event.x, event.y) 
     end, false)
 
+      -- 添加背景粒子特效
+    local particle = cc.ParticleSystemQuad:create("gameBack.plist")
+    self:addChild(particle,-2)
+
 end  
 
 function MatrixStar:initMatrix()  
