@@ -78,4 +78,9 @@ function MyApp:ContinueGame()
     --self:enterScene("GameScene", nil, "fade", 0.6, display.COLOR_WHITE)
 end
 
+function MyApp:TeQuanButtonClick()
+    
+    --self:enterScene("GameScene", nil, "fade", 0.6, display.COLOR_WHITE)
+end
+
 return MyApp

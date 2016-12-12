@@ -1,4 +1,5 @@
 local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
+local BubbleButton = import("..views.BubbleButton")
 
 local MatrixStar = class("MatrixStar",function()
 	return display.newLayer()
@@ -35,6 +36,17 @@ local MOVESPEED = 4     --星星的移动速度
 
 local  mHandle = nil
 
+local node_title = nil --标头 显示分数道具等
+local layer_stars = nil --星星逻辑层
+
+local lbl_stage     = nil --关卡
+local lbl_target    = nil --目标分数
+local lbl_curscore  = nil --得分
+local lbl_diamond   = nil --钻石数量
+local lbl_prop1     = nil --道具1
+local lbl_prop2     = nil --道具2
+local lbl_prop3     = nil --道具3
+
 function MatrixStar:ctor()
     self.Hscore = 0
     self.Level = 1
@@ -43,38 +55,310 @@ function MatrixStar:ctor()
     self.STAR = {}
     self.SELECT_STAR = {}  --保存颜色相同的星星
     self.clearNeed = UNNEEDCLEAR  -- 是否需要清除剩余的星星
-    self:setLabel(self.Hscore,self.Level,self.Goal,self.Cscore)  
+    --self:setLabel(self.Hscore,self.Level,self.Goal,self.Cscore)  
+    self:initTitles()  
 	self:initMatrix()  
     self:setTouchEnabled(true)
     self:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
        return self:onTouch(event, event.x, event.y) 
     end, false)
 
-      -- 添加背景粒子特效
-   -- local particle = cc.ParticleSystemQuad:create("gameBack.plist")
-    --self:addChild(particle,-2)
+      --添加背景粒子特效
+   local particle = cc.ParticleSystemQuad:create("gameBack.plist")
+    self:addChild(particle,-2)
 
-    -- self:addNodeEventListener(cc.NODE_ENTER_FRAME_EVENT, handler(self, self.deleteOneStar))
-    -- self:unscheduleUpdate
-    --self:scheduleUpdate()
-   -- scheduler.performWithDelayGlobal(deleteOneStar, 0.3)  
-
-    -- if mHandle == nil then
-    --     mHandle = scheduler.scheduleGlobal(self:deleteOneStar(), 0.2)
-    --     scheduler.unscheduleGlobal(mHandle)
-    -- end
 end  
 
+--标头显示
+function MatrixStar:initTitles() 
+    -- body
+    node_title = display.newNode()
+    self:addChild(node_title)
+
+    lbl_stage = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  =  "第一关",
+        font = "arial",
+        size = 25,
+        })
+    :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 60, display.top - 30)
+    :addTo(node_title)
+
+    lbl_target = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  =  "目标 10000",
+        font = "arial",
+        size = 27,
+        })
+    :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 240, display.top - 30)
+    :addTo(node_title)
+
+    lbl_curscore = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  =  "0",
+        font = "arial",
+        size = 27,
+        })
+    :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 240, display.top - 90)
+    :addTo(node_title)
+
+    -- 宝石按钮
+    self.AddDiamondButton =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.coin_bar, pressed =  GAME_IMAGE.coin_bar})
+        :align(display.CENTER,  display.left + 70, display.top - 90)
+        :onButtonClicked(function()
+            audio.playSound(GAME_SOUND.pselect)
+           -- app:enterMenuScene()
+        end)
+        :setScale(0.8)
+        :addTo(node_title)
+    local sp_jiahao = display.newSprite(GAME_IMAGE.jiahao, display.left + 42,  display.top - 95) 
+        :addTo(node_title) 
+        :setScale(0.9)  
+
+    lbl_diamond = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  =  "10000",
+        font = "arial",
+        size = 18,
+    })
+    :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 80, display.top - 87)
+    :addTo(node_title)
+
+    --道具 1 重新布局
+     self.Prop1Btn =  BubbleButton.new({
+            image = GAME_IMAGE.Props_Rainbow,
+            sound = GAME_SOUND.pselect,
+            prepare = function()
+                self.Prop1Btn:setButtonEnabled(false)
+            end,
+            listener = function()
+                self:Prop1_onclick()
+            end,
+        })
+        :align(display.top,  display.right - 50, display.top - 30)
+        :setScale(0.8)
+        :addTo(node_title)
+    local sp_coinbar01 = display.newSprite(GAME_IMAGE.coin_bar, self.Prop1Btn:getPositionX() - 5, self.Prop1Btn:getPositionY() - 36) 
+        :addTo(node_title) 
+        :setScale(0.6)  
+
+    lbl_prop1 = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  =  "1000",
+        font = "arial",
+        size = 18,
+    })
+    :align(cc.ui.TEXT_VALIGN_CENTER,self.Prop1Btn:getPositionX(), self.Prop1Btn:getPositionY() - 34)
+    :addTo(node_title)
+
+    --道具 2
+     self.Prop2Btn =  BubbleButton.new({
+            image = GAME_IMAGE.Props_Bomb,
+            sound = GAME_SOUND.pselect,
+            prepare = function()
+                self.Prop2Btn:setButtonEnabled(false)
+            end,
+            listener = function()
+                self:Prop2_onclick()
+            end,
+        })
+        :align(display.top,  display.right - 50, display.top - 100)
+        :setScale(0.8)
+        :addTo(node_title)
+    local sp_coinbar02 = display.newSprite(GAME_IMAGE.coin_bar, self.Prop2Btn:getPositionX() - 5, self.Prop2Btn:getPositionY() - 36) 
+        :addTo(node_title) 
+        :setScale(0.6)  
+
+    lbl_prop2 = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  =  "1000",
+        font = "arial",
+        size = 18,
+    })
+    :align(cc.ui.TEXT_VALIGN_CENTER,self.Prop2Btn:getPositionX(), self.Prop2Btn:getPositionY() - 34)
+    :addTo(node_title)
+
+    --道具 3
+     self.Prop3Btn =  BubbleButton.new({
+            image = GAME_IMAGE.Props_Paint,
+            sound = GAME_SOUND.pselect,
+            prepare = function()
+                self.Prop3Btn:setButtonEnabled(false)
+            end,
+            listener = function()
+                self:Prop3_onclick()
+            end,
+        })
+        :align(display.top,  display.right - 50, display.top - 170)
+        :setScale(0.8)
+        :addTo(node_title)
+    local sp_coinbar03 = display.newSprite(GAME_IMAGE.coin_bar, self.Prop3Btn:getPositionX() - 5, self.Prop3Btn:getPositionY() - 36) 
+        :addTo(node_title) 
+        :setScale(0.6)  
+
+    lbl_prop3 = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  =  "1000",
+        font = "arial",
+        size = 18,
+    })
+    :align(cc.ui.TEXT_VALIGN_CENTER,self.Prop3Btn:getPositionX(), self.Prop3Btn:getPositionY() - 34)
+    :addTo(node_title)
+
+    transition.fadeIn(self.Prop3Btn, {time = 15})
+end
+
+-- 道具 1 点击事件
+function MatrixStar:Prop1_onclick()
+      audio.playSound(GAME_SOUND.pselect)
+      self:ResetStar()  
+end
+
+-- 道具 2 点击事件
+function MatrixStar:Prop2_onclick()
+      audio.playSound(GAME_SOUND.pselect)
+
+end
+
+-- 道具 3 点击事件
+function MatrixStar:Prop3_onclick()
+      audio.playSound(GAME_SOUND.pselect)
+
+end
+
+function MatrixStar:ResetStar()
+    -- body
+    local markStars = {}  --保存重排后的星星
+    local leftStars = {}  --保存重排前的星星
+    for i = 1, ROW do
+        for j = 1, COL do
+            if self.STAR[i][j][1] ~= nil then
+                table.insert(leftStars, self.STAR[i][j])
+            end
+        end
+    end
+
+    if  #leftStars % 2 > 0 then --剩余数量为奇数
+        table.insert(markStars, table.remove(leftStars))
+    end
+local  indx = 1
+    while #leftStars > 0 do
+        --todo
+        math.randomseed(os.time())  
+        local  travel_1 = table.remove(leftStars, math.random(1,#leftStars))
+        local  travel_2 = table.remove(leftStars, math.random(1,#leftStars))
+
+       print(".................")
+
+        print(indx .."-".. travel_1[2]  .."-"..travel_1[4] .."-"..travel_1[5] .."-"..travel_1[6] .."-"..travel_1[7] )
+        print(indx .."-".. travel_2[2]  .."-"..travel_2[4] .."-"..travel_2[5] .."-"..travel_2[6] .."-"..travel_2[7] )
+
+        local x = travel_1[1]:getPositionX()
+        local y = travel_1[1]:getPositionY()
+
+        travel_1[1]:setPosition(travel_2[1]:getPosition())
+        travel_2[1]:setPosition(x,y)
+        self.STAR[travel_1[6]][travel_1[7]][1] = travel_2[1]
+        self.STAR[travel_2[6]][travel_2[7]][1] = travel_1[1]
+        self.STAR[travel_1[6]][travel_1[7]][2] = travel_2[2]
+        self.STAR[travel_2[6]][travel_2[7]][2] = travel_1[2]
+        self.STAR[travel_1[6]][travel_1[7]][4] = travel_2[4]
+        self.STAR[travel_2[6]][travel_2[7]][4] = travel_1[4]
+        self.STAR[travel_1[6]][travel_1[7]][5] = travel_2[5]
+        self.STAR[travel_2[6]][travel_2[7]][5] = travel_1[5]
+
+
+       --  local value = nil
+
+       --  value = travel_1[2]
+       --  travel_1[2] = travel_2[2]
+       --  travel_2[2] = value
+
+       --  value = travel_1[3]
+       --  travel_1[3] = travel_2[3]
+       --  travel_2[3] = value
+
+       --  value = travel_1[4]
+       --  travel_1[4] = travel_2[4]
+       --  travel_2[4] = value
+
+       --  value = travel_1[5]
+       --  travel_1[5] = travel_2[5]
+       --  travel_2[5] = value
+
+       --  value = travel_1[6]
+       --  travel_1[6] = travel_2[6]
+       --  travel_2[6] = value
+
+       --  value = travel_1[7]
+       --  travel_1[7] = travel_2[7]
+       --  travel_2[7] = value
+       -- -- local ppp = self:STAR[travel_1[6]][travel_1[7]][1]
+        
+
+        table.insert(markStars, travel_1)
+        table.insert(markStars, travel_2)
+        print(indx .. "-"..travel_1[2]  .."-".. travel_1[4] .."-"..travel_1[5] .."-"..travel_1[6] .."-"..travel_1[7] )
+        print(indx .."-".. travel_2[2]  .."-"..travel_2[4] .."-"..travel_2[5] .."-"..travel_2[6] .."-"..travel_2[7] )
+        indx = indx + 1
+
+    end
+    -- for i=1,ROW do
+    --     local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
+    --     self.STAR[row] = {}
+    --     for j=1,COL do
+    --         self.STAR[row][col] = {}
+    --         local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
+    --     end
+    -- end
+
+    -- for i=1,#markStars do
+    --     local row = markStars[i][6]
+    --     local col = markStars[i][7]
+       
+    --     self.STAR[row][col][1] = markStars[i][1]
+    --     self.STAR[row][col][2] = markStars[i][2]
+    --     self.STAR[row][col][3] = markStars[i][3]
+    --     self.STAR[row][col][4] = markStars[i][4]
+    --     self.STAR[row][col][5] = markStars[i][5]
+    --     self.STAR[row][col][6] = markStars[i][6]
+    --     self.STAR[row][col][7] = markStars[i][7]
+ 
+    -- end
+        
+        -- for i = 1, ROW do
+        --     for j = 1, COL do
+        --         if self.STAR[i][j][1] ~= nil then
+
+        --          -- print(self.STAR[i][j][1]:)  
+        --                 print(i .."-------" ..j .. " 行-列=>" .. self.STAR[i][j][6] .."-" .. self.STAR[i][j][7] .. " 颜色"..self.STAR[i][j][2])
+        --                 self.STAR[i][j][3] = false
+        --                 self.STAR[i][j][4] = (j-1) * STAR_WIDTH + STAR_WIDTH/2
+        --                 self.STAR[i][j][5] = (i-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
+        --                 self.STAR[i][j][6] = i
+        --                 self.STAR[i][j][7] = j
+
+        --             print(i .."****" ..j .. " 行-列=>" .. self.STAR[i][j][6] .."-" .. self.STAR[i][j][7] .. " 颜色"..self.STAR[i][j][2])
+        --         end
+        --     end
+        -- end
+
+end
+
 function MatrixStar:initMatrix()  
-    --[[self.STAR[i][j]是一个表，其中i表示星星矩阵的行，j表示列，它包含四个元素
+    --[[self.STAR[i][j]是一个表，其中i表示星星矩阵的行，j表示列，它包含6个元素
         self.STAR[i][j][1]表示星星精灵
         self.STAR[i][j][2]表示该精灵的样色 
         self.STAR[i][j][3]表示该精灵是否被选中
-        self.STAR[i][j][4]表示该精灵的位置           
+        self.STAR[i][j][4]表示该精灵的坐标x
+        self.STAR[i][j][5]表示该精灵的坐标y
+        self.STAR[i][j][6]表示该精灵所在行
+        self.STAR[i][j][7]表示该精灵所在的列
+
         ]]
     math.randomseed(os.time())    
     for row = 1, ROW do
-        local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 96
+        local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
         self.STAR[row] = {}
         for col = 1, COL do
             self.STAR[row][col] = {}
@@ -88,6 +372,9 @@ function MatrixStar:initMatrix()
             star:setPosition(x,y)
             self.STAR[row][col][4] = x
             self.STAR[row][col][5] = y
+            self.STAR[row][col][6] = row
+            self.STAR[row][col][7] = col
+            self.STAR[row][col][1]:setTag(i)
             self:addChild(star)
         end
     end
@@ -127,7 +414,7 @@ end
 
  function MatrixStar:onTouch(eventType, x, y)  
 --    if eventType ~= "began" then return end
-    i = math.floor((y-96) / STAR_HEIGHT) + 1
+    i = math.floor((y-72) / STAR_HEIGHT) + 1
     j = math.floor(x / STAR_WIDTH) + 1
     if i < 1 or i > ROW or j < 1 or j > COL or self.clearNeed ~= UNNEEDCLEAR then
         return 
@@ -140,11 +427,14 @@ end
         return
     end
 
-    self:updateScore(#self.SELECT_STAR)
+   -- self:updateScore(#self.SELECT_STAR)
 
     local function deleteOneStar(dt)
     -- body
         local deleteStar = {}
+        for i=1,#self.SELECT_STAR do
+            print(self.SELECT_STAR[i][2] .." -->".. self.SELECT_STAR[i][3])
+        end
           deleteStar = table.remove(self.SELECT_STAR)
         if deleteStar ~= nil and #deleteStar ~= 0 then
     --print(111 ,os.clock())
@@ -154,13 +444,14 @@ end
                 particle:setPosition(self.STAR[row][col][1]:getPosition())
                 particle:setAutoRemoveOnFinish(true)
                 self:addChild(particle,1)  
-
+        print(row .. "--" .. col)
+        print(self.STAR[row][col][2] .. "--" .. self.STAR[row][col][4] .. "--" .. self.STAR[row][col][5] .. "--" .. self.STAR[row][col][6] .. "--" .. self.STAR[row][col][7])
         self:removeChild(self.STAR[row][col][1]) 
         self.STAR[row][col][1] = nil 
         end
 
         if #self.SELECT_STAR <=0 then
-             self:UpdateMatrix()
+            -- self:UpdateMatrix()
     
         if self:isEnd() == true then 
             local num = self:getStarNum()
@@ -191,50 +482,8 @@ end
         mHandle = nil
         end
     end
-
+--deleteOneStar()
     mHandle = scheduler.scheduleGlobal(deleteOneStar, 0.1)
-    
-
-    --self:scheduleUpdate
-    -- for num = 1, #self.SELECT_STAR do 
-    --     local row , col = self.SELECT_STAR[num][2], self.SELECT_STAR[num][3]
-    --     audio.playSound(GAME_SOUND.ppop)
-    --     local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
-    --             particle:setPosition(self.SELECT_STAR[num][1]:getPosition())
-    --             particle:setAutoRemoveOnFinish(true)
-    --             self:addChild(particle,1)  
-
-    --     self:removeChild(self.STAR[row][col][1]) 
-    --     self.STAR[row][col][1] = nil 
-    -- end
-
-    -- self:UpdateMatrix()
-    
-    -- if self:isEnd() == true then 
-    --     local num = self:getStarNum()
-    --     if num < LEFT_STAR then
-    --         local left = LEFT_STAR - num 
-    --         self.Cscore = self.Cscore + left * left * STARGAIN
-    --     end
-    --      self.clearNeed = NEEDCLEAR
-    --     -- local LeftStar = cc.ui.UILabel.new({
-    --     -- text = string.format("There Are  %s Stars Left !", tostring(num)),
-    --     -- x, y = display.left, display.top, 
-    --     -- })
-    --     -- LeftStar:setPosition(display.right, display.cy)
-    --     -- LeftStar:setScale(SCALE*SCALE)
-    --     -- self:addChild(LeftStar)
-    --     -- LeftStar:runAction(transition.sequence({transition.moveTo(LeftStar,
-    --     -- {time = MOVEDELAY, x = display.left, y = display.cy}),
-    --     -- CCCallFunc:create(function()
-    --     -- self:removeChild(LeftStar)
-    --     -- local CscoreUI = self:getChildByTag(CSCORETAG)
-    --     -- CscoreUI:setString(string.format("CurrentScore: %s",tostring(self.Cscore)))
-    --     -- self.clearNeed = NEEDCLEAR
-    --     -- end)}))
-    -- end
-
-    -- self:updateStar()
 end
 
 
@@ -376,10 +625,12 @@ end
 
 function MatrixStar:updatePos(posX,posY,i,j)
     if posY ~= self.STAR[i][j][5] then
-        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5] - MOVESPEED + 96)
+        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5] - MOVESPEED + 72)
         if self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
              self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
              local x, y = self.STAR[i][j][1]:getPosition()
+             self.STAR[i][j][6] = i
+             self.STAR[i][j][7] = j
         end
     end
 
@@ -387,6 +638,8 @@ function MatrixStar:updatePos(posX,posY,i,j)
         self.STAR[i][j][1]:setPositionX(self.STAR[i][j][4] - MOVESPEED)
         if self.STAR[i][j][1]:getPositionX() < self.STAR[i][j][4]  then
              self.STAR[i][j][1]:setPositionX(self.STAR[i][j][4])
+             self.STAR[i][j][6] = i
+             self.STAR[i][j][7] = j
         end
     end
 end

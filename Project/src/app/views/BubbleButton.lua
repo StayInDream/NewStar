@@ -5,7 +5,7 @@ local BubbleButton = {}
 function BubbleButton.new(params)
     local listener = params.listener
     local button -- pre-reference
-
+    local curScale = nil
     params.listener = function(tag)
         if params.prepare then
             params.prepare()
@@ -19,7 +19,10 @@ function BubbleButton.new(params)
 
             local scaleX = button:getScaleX() * (size.width + offset) / size.width
             local scaleY = button:getScaleY() * (size.height - offset) / size.height
-
+            if curScale == nil then
+                curScale = button:getScale()
+            end
+            
             transition.moveTo(button, {y = y - offset, time = time})
             transition.scaleTo(button, {
                 scaleX     = scaleX,
@@ -37,8 +40,8 @@ function BubbleButton.new(params)
 
             transition.moveTo(button, {y = y + offset, time = time / 2})
             transition.scaleTo(button, {
-                scaleX     = 1.0,
-                scaleY     = 1.0,
+                scaleX     = curScale,
+                scaleY     = curScale,
                 time       = time,
                 onComplete = onComplete,
             })
@@ -51,6 +54,7 @@ function BubbleButton.new(params)
                 zoom1(10, 0.10, function()
                     zoom2(10, 0.11, function()
                         button:setButtonEnabled(true)
+                        curScale = nil
                         listener(tag)
                     end)
                 end)

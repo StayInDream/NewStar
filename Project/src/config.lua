@@ -61,6 +61,10 @@ GAME_IMAGE = {
 	popstar_continue  = "image/popstar_continue.png",
 	popstar_start     = "image/popstar_start.png",
 	trqunrukou        = "image/trqunrukou.png",
+	jiahao            = "image/jiahao.png",
+	Props_Bomb        = "image/Props_Bomb.png",
+	Props_Paint       = "image/Props_Paint.png",
+	Props_Rainbow     = "image/Props_Rainbow.png",
 }
 
 GAME_PARTICE = {

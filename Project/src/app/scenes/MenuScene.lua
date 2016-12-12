@@ -1,5 +1,6 @@
 local BubbleButton = import("..views.BubbleButton")
 local CCLabelChange = import("..views.CCLabelChange")
+local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
 
 local MenuScene = class("MenuScene", function()
     return display.newScene("MenuScene")
@@ -10,32 +11,63 @@ function MenuScene:ctor()
     self.bg:setPosition(display.cx, display.cy )
 	self:addChild(self.bg)
 	
+    local layer_logging = display.newLayer() --loading 层
+    self:addChild(layer_logging,1)
+    local layer_menu = display.newLayer() --菜单按钮层
+    self:addChild(layer_menu,1)
+    layer_menu:setVisible(false)
+
+    local lbl_warning = cc.ui.UILabel.new({
+            UILabelType = 2,
+            text  =  "             健康游戏忠告\n抵制不良游戏，拒绝盗版游戏。\n注意自我保护，谨防上当受骗。\n适度游戏益脑，沉迷游戏伤身。\n合理安排时间，享受健康生活。",
+            font = "arial",
+            size = 25,
+            --align = cc.TEXT_ALIGNMENT_LEFT,
+            valign = cc.VERTICAL_TEXT_ALIGNMENT_TOP,
+            dimensions = cc.size(400, 200),
+        })
+        :align(cc.ui.TEXT_VALIGN_CENTER, display.cx + 20, display.cy )
+        :addTo(layer_logging)
+        local lbl_loading = cc.ui.UILabel.new({
+            UILabelType = 2,
+            text = "加载中...",
+            size = 25,
+            })
+        :align(cc.ui.TEXT_ALIGN_CENTER, display.cx + 15, display.bottom + 30)
+        :addTo(layer_logging)
+
+        scheduler.performWithDelayGlobal(function ()
+                layer_logging:setVisible(false)
+                layer_menu:setVisible(true)
+            end, 0.1)
+
+
+
+--[[菜单层设置  ---start ]]
+
 	self.coin_bar  = display.newSprite(GAME_IMAGE.coin_bar, display.cx - self.bg:getContentSize().width / 2 + 100,display.cy + self.bg:getContentSize().height / 2  - 30)
-    self:addChild(self.coin_bar)
-     local lbl_coin = cc.ui.UILabel.new({
+    layer_menu:addChild(self.coin_bar)
+    local lbl_coin = cc.ui.UILabel.new({
         UILabelType = 2,
         text  =  "0",
         size = 20
     })
         :align(cc.ui.TEXT_ALIGN_CENTER, display.cx - self.bg:getContentSize().width / 2 + 115, display.cy + self.bg:getContentSize().height / 2 - 25)
-        :addTo(self)
+        :addTo(layer_menu)
 
 	self.jinbi_tiao  = display.newSprite(GAME_IMAGE.jinbi_tiao, display.cx - self.bg:getContentSize().width / 2 + 270,display.cy + self.bg:getContentSize().height / 2 - 30)
-    self:addChild(self.jinbi_tiao)
+    layer_menu:addChild(self.jinbi_tiao)
     local lbl_jinbi = cc.ui.UILabel.new({
         UILabelType = 2,
         text  =  "1234578",
         size = 20
     })
         :align(cc.ui.TEXT_ALIGN_CENTER,  display.cx - self.bg:getContentSize().width / 2 + 285, display.cy + self.bg:getContentSize().height / 2 - 25)
-        :addTo(self)
-
-
-    --self:addChild(label)
+        :addTo(layer_menu)
 
     self.logo  = display.newSprite(GAME_IMAGE.logo_xin_1)
     self.logo:setPosition(display.cx, display.cy + self.logo:getContentSize().height  + 100)
-    self:addChild(self.logo)
+    layer_menu:addChild(self.logo)
 	transition.moveTo( self.logo, {time = 0.7, y = display.cy +  self.logo:getContentSize().height , easing = "BOUNCEOUT"})
 
     -- add buttons 
@@ -53,7 +85,7 @@ function MenuScene:ctor()
             end,
         })
         :align(display.BOTTOM, display.cx - self.bg:getContentSize().width / 2 + 70, display.cy -  self.bg:getContentSize().height / 2 + 50)
-        :addTo(self)
+        :addTo(layer_menu)
 
 	-- 邮件
     self.EmailButton = BubbleButton.new({
@@ -68,7 +100,7 @@ function MenuScene:ctor()
             end,
         })
         :align(display.BOTTOM, display.cx - self.bg:getContentSize().width / 2 + 160, display.cy -  self.bg:getContentSize().height / 2 + 50)
-        :addTo(self)
+        :addTo(layer_menu)
 
 	--商城
     self.ShopButton = BubbleButton.new({
@@ -83,7 +115,7 @@ function MenuScene:ctor()
             end,
         })
         :align(display.BOTTOM, display.cx - self.bg:getContentSize().width / 2 + 250, display.cy -  self.bg:getContentSize().height / 2 + 50)
-        :addTo(self) 
+        :addTo(layer_menu) 
 
 	--排行榜
     self.RankButton = BubbleButton.new({
@@ -98,7 +130,7 @@ function MenuScene:ctor()
             end,
         })
         :align(display.BOTTOM, display.cx - self.bg:getContentSize().width / 2+ 340, display.cy -  self.bg:getContentSize().height / 2 + 50)
-        :addTo(self) 
+        :addTo(layer_menu) 
 
 	--兑换码
     self.CDKEYButton = BubbleButton.new({
@@ -113,7 +145,7 @@ function MenuScene:ctor()
             end,
         })
         :align(display.BOTTOM, display.cx - self.bg:getContentSize().width / 2 + 430, display.cy -  self.bg:getContentSize().height / 2 + 50)
-        :addTo(self) 
+        :addTo(layer_menu) 
 
     --新游戏
     self.NewGameButton = BubbleButton.new({
@@ -128,7 +160,7 @@ function MenuScene:ctor()
             end,
         })
         :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 450)
-        :addTo(self) 
+        :addTo(layer_menu) 
 
     --继续游戏
     self.ContinueGameButton = BubbleButton.new({
@@ -143,7 +175,7 @@ function MenuScene:ctor()
             end,
         })
         :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 550)
-        :addTo(self) 
+        :addTo(layer_menu) 
 
     -- 特权礼包
     self.TeQuanButton =  cc.ui.UIPushButton.new({normal =  "image/trqunrukou.png", pressed =  "image/trqunrukou.png"})
@@ -152,7 +184,7 @@ function MenuScene:ctor()
             audio.playSound(GAME_SOUND.pselect)
            -- app:enterMenuScene()
         end)
-        :addTo(self)
+        :addTo(layer_menu)
     local sequenceAction = transition.sequence({
             cc.ScaleTo:create(0.5, 1.2, 1.2, 1), 
             cc.ScaleTo:create(0.5, 1, 1, 1), 
@@ -175,7 +207,7 @@ function MenuScene:ctor()
        -- 添加背景粒子特效
     local particle = cc.ParticleSystemQuad:create(GAME_PARTICE.Particle_TileDebris)
     :align(display.CENTER, display.cx, display.cy)
-    self:addChild(particle,1)  
+    layer_menu:addChild(particle,1)  
 
 end
 
