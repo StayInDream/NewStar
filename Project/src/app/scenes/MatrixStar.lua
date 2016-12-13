@@ -226,14 +226,15 @@ function MatrixStar:Prop3_onclick()
 
 end
 
-function MatrixStar:ResetStar()
+--星星重排
+function MatrixStar:ResetStar( )
     -- body
     local markStars = {}  --保存重排后的星星
     local leftStars = {}  --保存重排前的星星
     for i = 1, ROW do
         for j = 1, COL do
             if self.STAR[i][j][1] ~= nil then
-                table.insert(leftStars, self.STAR[i][j])
+                table.insert(leftStars, {self.STAR[i][j], i , j })
             end
         end
     end
@@ -241,108 +242,55 @@ function MatrixStar:ResetStar()
     if  #leftStars % 2 > 0 then --剩余数量为奇数
         table.insert(markStars, table.remove(leftStars))
     end
-local  indx = 1
+
     while #leftStars > 0 do
         --todo
-        math.randomseed(os.time())  
         local  travel_1 = table.remove(leftStars, math.random(1,#leftStars))
         local  travel_2 = table.remove(leftStars, math.random(1,#leftStars))
 
-       print(".................")
+       -- print( "a ==> ".. self.STAR[travel_1[2]][travel_1[3]][2] .. "  x ==> " .. self.STAR[travel_1[2]][travel_1[3]][4] .." y==> " .. self.STAR[travel_1[2]][travel_1[3]][5])
+       -- print( "a ==> ".. self.STAR[travel_2[2]][travel_2[3]][2] .. "  x ==> " .. self.STAR[travel_2[2]][travel_2[3]][4] .." y==> " .. self.STAR[travel_2[2]][travel_2[3]][5])
 
-        print(indx .."-".. travel_1[2]  .."-"..travel_1[4] .."-"..travel_1[5] .."-"..travel_1[6] .."-"..travel_1[7] )
-        print(indx .."-".. travel_2[2]  .."-"..travel_2[4] .."-"..travel_2[5] .."-"..travel_2[6] .."-"..travel_2[7] )
+        local posx,posy =  self.STAR[travel_1[2]][travel_1[3]][1]:getPosition()  
 
-        local x = travel_1[1]:getPositionX()
-        local y = travel_1[1]:getPositionY()
+        --移动动画    
 
-        travel_1[1]:setPosition(travel_2[1]:getPosition())
-        travel_2[1]:setPosition(x,y)
-        self.STAR[travel_1[6]][travel_1[7]][1] = travel_2[1]
-        self.STAR[travel_2[6]][travel_2[7]][1] = travel_1[1]
-        self.STAR[travel_1[6]][travel_1[7]][2] = travel_2[2]
-        self.STAR[travel_2[6]][travel_2[7]][2] = travel_1[2]
-        self.STAR[travel_1[6]][travel_1[7]][4] = travel_2[4]
-        self.STAR[travel_2[6]][travel_2[7]][4] = travel_1[4]
-        self.STAR[travel_1[6]][travel_1[7]][5] = travel_2[5]
-        self.STAR[travel_2[6]][travel_2[7]][5] = travel_1[5]
+        self.STAR[travel_1[2]][travel_1[3]][1]:setPosition(self.STAR[travel_2[2]][travel_2[3]][1]:getPosition())
+        self.STAR[travel_2[2]][travel_2[3]][1]:setPosition(posx, posy)
+
+        local value = self.STAR[travel_1[2]][travel_1[3]]
+        local x1 , y1 = value[4], value[5]
+        local x2 , y2 = self.STAR[travel_2[2]][travel_2[3]][4], self.STAR[travel_2[2]][travel_2[3]][5] --
+        local sp , index = value[1], value[2]
+        self.STAR[travel_1[2]][travel_1[3]] = self.STAR[travel_2[2]][travel_2[3]]
+        self.STAR[travel_2[2]][travel_2[3]] =  value
+        self.STAR[travel_1[2]][travel_1[3]][4] = x2
+        self.STAR[travel_1[2]][travel_1[3]][5] = y2
+        self.STAR[travel_2[2]][travel_2[3]][4] = x1
+        self.STAR[travel_2[2]][travel_2[3]][5] = y1
+
+       -- print( "b ==> ".. self.STAR[travel_1[2]][travel_1[3]][2] .. "  x ==> " .. self.STAR[travel_1[2]][travel_1[3]][4] .." y==> " .. self.STAR[travel_1[2]][travel_1[3]][5])
+        --print( "b ==> ".. self.STAR[travel_2[2]][travel_2[3]][2] .. "  x ==> " .. self.STAR[travel_2[2]][travel_2[3]][4] .." y==> " .. self.STAR[travel_2[2]][travel_2[3]][5])
+
+     --   print("...........................................")
 
 
-       --  local value = nil
 
-       --  value = travel_1[2]
-       --  travel_1[2] = travel_2[2]
-       --  travel_2[2] = value
-
-       --  value = travel_1[3]
-       --  travel_1[3] = travel_2[3]
-       --  travel_2[3] = value
-
-       --  value = travel_1[4]
-       --  travel_1[4] = travel_2[4]
-       --  travel_2[4] = value
-
-       --  value = travel_1[5]
-       --  travel_1[5] = travel_2[5]
-       --  travel_2[5] = value
-
-       --  value = travel_1[6]
-       --  travel_1[6] = travel_2[6]
-       --  travel_2[6] = value
-
-       --  value = travel_1[7]
-       --  travel_1[7] = travel_2[7]
-       --  travel_2[7] = value
-       -- -- local ppp = self:STAR[travel_1[6]][travel_1[7]][1]
-        
-
-        table.insert(markStars, travel_1)
-        table.insert(markStars, travel_2)
-        print(indx .. "-"..travel_1[2]  .."-".. travel_1[4] .."-"..travel_1[5] .."-"..travel_1[6] .."-"..travel_1[7] )
-        print(indx .."-".. travel_2[2]  .."-"..travel_2[4] .."-"..travel_2[5] .."-"..travel_2[6] .."-"..travel_2[7] )
-        indx = indx + 1
+        -- table.insert(markStars, travel_1)
+        -- table.insert(markStars, travel_2)
 
     end
-    -- for i=1,ROW do
-    --     local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
-    --     self.STAR[row] = {}
-    --     for j=1,COL do
-    --         self.STAR[row][col] = {}
-    --         local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-    --     end
-    -- end
-
-    -- for i=1,#markStars do
-    --     local row = markStars[i][6]
-    --     local col = markStars[i][7]
-       
-    --     self.STAR[row][col][1] = markStars[i][1]
-    --     self.STAR[row][col][2] = markStars[i][2]
-    --     self.STAR[row][col][3] = markStars[i][3]
-    --     self.STAR[row][col][4] = markStars[i][4]
-    --     self.STAR[row][col][5] = markStars[i][5]
-    --     self.STAR[row][col][6] = markStars[i][6]
-    --     self.STAR[row][col][7] = markStars[i][7]
- 
-    -- end
-        
-        -- for i = 1, ROW do
-        --     for j = 1, COL do
-        --         if self.STAR[i][j][1] ~= nil then
-
-        --          -- print(self.STAR[i][j][1]:)  
-        --                 print(i .."-------" ..j .. " 行-列=>" .. self.STAR[i][j][6] .."-" .. self.STAR[i][j][7] .. " 颜色"..self.STAR[i][j][2])
-        --                 self.STAR[i][j][3] = false
-        --                 self.STAR[i][j][4] = (j-1) * STAR_WIDTH + STAR_WIDTH/2
-        --                 self.STAR[i][j][5] = (i-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
-        --                 self.STAR[i][j][6] = i
-        --                 self.STAR[i][j][7] = j
-
-        --             print(i .."****" ..j .. " 行-列=>" .. self.STAR[i][j][6] .."-" .. self.STAR[i][j][7] .. " 颜色"..self.STAR[i][j][2])
-        --         end
-        --     end
-        -- end
-
+     for i = 1, ROW do
+        for j = 1, COL do
+            if self.STAR[i][j][1] ~= nil then
+                local y = (i-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
+                local x = (j-1) * STAR_WIDTH + STAR_WIDTH/2
+                self.STAR[i][j][4] = x
+                self.STAR[i][j][5] = y
+            end
+        end
+    end
+    
 end
 
 function MatrixStar:initMatrix()  
@@ -374,7 +322,6 @@ function MatrixStar:initMatrix()
             self.STAR[row][col][5] = y
             self.STAR[row][col][6] = row
             self.STAR[row][col][7] = col
-            self.STAR[row][col][1]:setTag(i)
             self:addChild(star)
         end
     end
@@ -427,32 +374,28 @@ end
         return
     end
 
-   -- self:updateScore(#self.SELECT_STAR)
+    --self:updateScore(#self.SELECT_STAR)
 
     local function deleteOneStar(dt)
     -- body
         local deleteStar = {}
-        for i=1,#self.SELECT_STAR do
-            print(self.SELECT_STAR[i][2] .." -->".. self.SELECT_STAR[i][3])
-        end
-          deleteStar = table.remove(self.SELECT_STAR)
+        deleteStar = table.remove(self.SELECT_STAR)
         if deleteStar ~= nil and #deleteStar ~= 0 then
-    --print(111 ,os.clock())
         local row , col = deleteStar[2], deleteStar[3]
-        --audio.playSound(GAME_SOUND.ppop)
+        audio.playSound(GAME_SOUND.ppop)
         local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
                 particle:setPosition(self.STAR[row][col][1]:getPosition())
                 particle:setAutoRemoveOnFinish(true)
                 self:addChild(particle,1)  
-        print(row .. "--" .. col)
-        print(self.STAR[row][col][2] .. "--" .. self.STAR[row][col][4] .. "--" .. self.STAR[row][col][5] .. "--" .. self.STAR[row][col][6] .. "--" .. self.STAR[row][col][7])
         self:removeChild(self.STAR[row][col][1]) 
+
         self.STAR[row][col][1] = nil 
+        self.STAR[row][col] = {}
         end
 
         if #self.SELECT_STAR <=0 then
-            -- self:UpdateMatrix()
-    
+            self:UpdateMatrix()
+
         if self:isEnd() == true then 
             local num = self:getStarNum()
             if num < LEFT_STAR then
@@ -477,13 +420,16 @@ end
         -- end)}))
         end
 
-        self:updateStar()
         scheduler.unscheduleGlobal(mHandle)
         mHandle = nil
+        self:updateStar()
         end
     end
---deleteOneStar()
+    --deleteOneStar()
     mHandle = scheduler.scheduleGlobal(deleteOneStar, 0.1)
+
+
+
 end
 
 
@@ -571,9 +517,9 @@ function MatrixStar:updateStar()
         local  function MClearLeftStarOneByOne()
             local deleteStar = {}
             deleteStar = table.remove(self.STAR)
-              print(deleteStar[2] ,os.clock())
+            --  print(deleteStar[2] ,os.clock())
             if deleteStar ~= nil and #deleteStar ~= 0 then
-            print(111 ,os.clock())
+           -- print(111 ,os.clock())
             local row , col = deleteStar[2], deleteStar[3]
             --audio.playSound(GAME_SOUND.ppop)
             local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
@@ -625,12 +571,10 @@ end
 
 function MatrixStar:updatePos(posX,posY,i,j)
     if posY ~= self.STAR[i][j][5] then
-        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5] - MOVESPEED + 72)
+        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5] - MOVESPEED )
         if self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
              self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
              local x, y = self.STAR[i][j][1]:getPosition()
-             self.STAR[i][j][6] = i
-             self.STAR[i][j][7] = j
         end
     end
 
@@ -638,8 +582,7 @@ function MatrixStar:updatePos(posX,posY,i,j)
         self.STAR[i][j][1]:setPositionX(self.STAR[i][j][4] - MOVESPEED)
         if self.STAR[i][j][1]:getPositionX() < self.STAR[i][j][4]  then
              self.STAR[i][j][1]:setPositionX(self.STAR[i][j][4])
-             self.STAR[i][j][6] = i
-             self.STAR[i][j][7] = j
+              local x, y = self.STAR[i][j][1]:getPosition()
         end
     end
 end
@@ -687,9 +630,9 @@ function MatrixStar:UpdateMatrix()
                         self.STAR[begin_i-dis][j][2]=self.STAR[begin_i][j][2]
                         self.STAR[begin_i-dis][j][3]=self.STAR[begin_i][j][3]
                         local x = (j-1)*STAR_WIDTH + STAR_WIDTH/2  
-                        local y = (begin_i-dis-1)*STAR_HEIGHT + STAR_HEIGHT/2 
-                        self.STAR[begin_i-dis][j][4] = x
-                        self.STAR[begin_i-dis][j][5] = y
+                        local y = (begin_i-dis-1)*STAR_HEIGHT + STAR_HEIGHT/2 + 72
+                        self.STAR[begin_i-dis][j][4] =x
+                        self.STAR[begin_i-dis][j][5] =y
                         self.STAR[begin_i][j][1] = nil
                         self.STAR[begin_i][j][2] = nil
                         self.STAR[begin_i][j][3] = nil
@@ -719,7 +662,7 @@ function MatrixStar:UpdateMatrix()
                         self.STAR[begin_i][begin_j-des][2]=self.STAR[begin_i][begin_j][2]
                         self.STAR[begin_i][begin_j-des][3]=self.STAR[begin_i][begin_j][3]
                         local x = (begin_j-des-1)*STAR_WIDTH + STAR_WIDTH/2  
-                        local y = (begin_i-1)*STAR_HEIGHT + STAR_HEIGHT/2 
+                        local y = (begin_i-1)*STAR_HEIGHT + STAR_HEIGHT/2 + 72
                         self.STAR[begin_i][begin_j-des][4] = x
                         self.STAR[begin_i][begin_j-des][5] = y
                         self.STAR[begin_i][begin_j][1] = nil
