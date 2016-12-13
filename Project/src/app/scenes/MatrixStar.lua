@@ -1,6 +1,7 @@
 local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
 local BubbleButton = import("..views.BubbleButton")
 
+
 local MatrixStar = class("MatrixStar",function()
 	return display.newLayer()
 end)
@@ -47,6 +48,8 @@ local lbl_prop1     = nil --道具1
 local lbl_prop2     = nil --道具2
 local lbl_prop3     = nil --道具3
 
+local lbl_show      = nil
+
 function MatrixStar:ctor()
     self.Hscore = 0
     self.Level = 1
@@ -56,8 +59,8 @@ function MatrixStar:ctor()
     self.SELECT_STAR = {}  --保存颜色相同的星星
     self.clearNeed = UNNEEDCLEAR  -- 是否需要清除剩余的星星
     --self:setLabel(self.Hscore,self.Level,self.Goal,self.Cscore)  
-    self:initTitles()  
 	self:initMatrix()  
+    self:initTitles()  
     self:setTouchEnabled(true)
     self:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
        return self:onTouch(event, event.x, event.y) 
@@ -83,6 +86,7 @@ function MatrixStar:initTitles()
         })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 60, display.top - 30)
     :addTo(node_title)
+    --lbl_stage:setTag(LEVELTAG)
 
     lbl_target = cc.ui.UILabel.new({
         UILabelType = 2,
@@ -92,6 +96,7 @@ function MatrixStar:initTitles()
         })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 240, display.top - 30)
     :addTo(node_title)
+   -- lbl_target:setTag(TARGET)
 
     lbl_curscore = cc.ui.UILabel.new({
         UILabelType = 2,
@@ -101,6 +106,19 @@ function MatrixStar:initTitles()
         })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 240, display.top - 90)
     :addTo(node_title)
+   -- lbl_curscore:setTag(CSCORETAG)
+
+    lbl_show = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  = "10000" ,
+        font = "arial",
+        size = 40,
+        })
+        :align(cc.ui.TEXT_VALIGN_CENTER,display.cy,display.cy + 200)
+        :addTo(self,1)
+
+
+
 
     -- 宝石按钮
     self.AddDiamondButton =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.coin_bar, pressed =  GAME_IMAGE.coin_bar})
@@ -313,7 +331,7 @@ function MatrixStar:initMatrix()
             local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
             local i = math.random(1,5)
             local star = display.newSprite(STAR_RES_LIST[i])
-            star:setScale(0.5)
+            star:setScale(0.1)
             self.STAR[row][col][1] = star
             self.STAR[row][col][2] = i
             self.STAR[row][col][3] = false
@@ -323,6 +341,7 @@ function MatrixStar:initMatrix()
             self.STAR[row][col][6] = row
             self.STAR[row][col][7] = col
             self:addChild(star)
+            transition.scaleTo(star,{scale = 0.5, time = 0.7})
         end
     end
 end
@@ -373,14 +392,36 @@ end
     if self:deleteSelectStar() == false then 
         return
     end
+    -- 星星排序 从左往右 从上往下
+    if #self.SELECT_STAR > 1 then
+        print(lbl_show:getString())
+        if lbl_show:getString() == " " then 
+            lbl_show:setPosition(self.STAR[i][j][1]:getPosition())
+            lbl_show:setString(string.format("%s", tostring( #self.SELECT_STAR * #self.SELECT_STAR * STARGAIN)))
 
-    --self:updateScore(#self.SELECT_STAR)
+            local sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.1, 2, 2, 1), 
+           -- cc.moveTo(0.2, lbl_show:getPositionX(), lbl_show:getPositionY() + 50)
+            cc.ScaleTo:create(0.1, 1, 1, 1), 
+            })
+
+      transition.execute(lbl_show, cc.RepeatForever:create( sequenceAction ))
+        end
+
+        for i=1,#self.SELECT_STAR do
+            for j= i + 1,#self.SELECT_STAR do
+                print(i)
+            end
+        end
+
+    end
 
     local function deleteOneStar(dt)
     -- body
         local deleteStar = {}
         deleteStar = table.remove(self.SELECT_STAR)
         if deleteStar ~= nil and #deleteStar ~= 0 then
+        self:setTouchEnabled(false)
         local row , col = deleteStar[2], deleteStar[3]
         audio.playSound(GAME_SOUND.ppop)
         local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
@@ -423,25 +464,26 @@ end
         scheduler.unscheduleGlobal(mHandle)
         mHandle = nil
         self:updateStar()
+        lbl_show:setString(" ")
+        self:setTouchEnabled(true)
         end
     end
     --deleteOneStar()
     mHandle = scheduler.scheduleGlobal(deleteOneStar, 0.1)
-
-
-
+    self:updateScore(#self.SELECT_STAR)
 end
 
 
 function MatrixStar:updateScore(select)
     self.Cscore = self.Cscore + select * select * STARGAIN
-    if(self.Cscore > self.Hscore)  then
-        self.Hscore = self.Cscore
-    end
-    local HscoreUI = self:getChildByTag(HSCORETAG)
-    HscoreUI:setString(string.format("HighestScore: %s", tostring(self.Hscore)))
-    local CscoreUI = self:getChildByTag(CSCORETAG)
-    CscoreUI:setString(string.format("CurrentScore: %s", tostring(self.Cscore)))
+    -- if(self.Cscore > self.Hscore)  then
+    --     self.Hscore = self.Cscore
+    -- end
+    --local HscoreUI = self:getChildByTag(HSCORETAG)
+   -- HscoreUI:setString(string.format("HighestScore: %s", tostring(self.Hscore)))
+    --local CscoreUI = self:getChildByTag(CSCORETAG)
+    lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
+
 end
 
 function MatrixStar:deleteSelectStar()

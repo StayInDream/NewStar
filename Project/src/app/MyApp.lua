@@ -2,6 +2,7 @@
 require("config")
 require("cocos.init")
 require("framework.init")
+GameState=require("framework.cc.utils.GameState")
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
@@ -23,6 +24,42 @@ function MyApp:run()
          else
             audio.preloadMusic(v)
         end
+    end
+
+     GameState.init(function(param)
+        local returnValue = nil
+
+         if  param.name=="load" then
+             --文件出错了 重新加载
+            if param.errorCode then
+               -- CCLuaLog("error")
+               local data = cc.FileUtils:getInstance():getStringFromFile("Data/playerData.json")
+               print(data)
+               local playerJson = json.decode(data)
+               GameState.save(playerJson)
+               returnValue=json.decode(str)
+            else
+                local str =param.values.data
+                --local str=crypto.decryptXXTEA(str, "abcd")
+                returnValue=json.decode(str)
+                print("load Data")
+            end
+
+
+        elseif param.name=="save" then
+                local str=json.encode(param.values)
+                --str=crypto.encryptXXTEA(str, "abcd")
+                returnValue={data=str}
+                print("save Data")
+
+        end
+
+        return returnValue
+    end, "playerData.dat","super")
+
+    self.playerJson = GameState.load()
+    if self.playerJson == nil then --第一次运行游戏
+         self.playerJson=GameState.load()
     end
     
     -- 动画缓存
