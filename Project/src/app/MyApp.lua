@@ -119,10 +119,7 @@ function MyApp:TeQuanButtonClick()
     
     --self:enterScene("GameScene", nil, "fade", 0.6, display.COLOR_WHITE)
     
-    -- 移动动作
-  local moveAction= cc.MoveTo:create(0.3,cc.p(tarX,tarY))
-
-  self:runAction(moveAction)
+    
 end
 
 return MyApp

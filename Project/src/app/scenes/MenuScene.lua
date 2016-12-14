@@ -20,7 +20,7 @@ function MenuScene:ctor()
     local lbl_warning = cc.ui.UILabel.new({
             UILabelType = 2,
             text  =  "             健康游戏忠告\n抵制不良游戏，拒绝盗版游戏。\n注意自我保护，谨防上当受骗。\n适度游戏益脑，沉迷游戏伤身。\n合理安排时间，享受健康生活。",
-            font = "arial",
+            font = GAME_FONT,
             size = 25,
             --align = cc.TEXT_ALIGNMENT_LEFT,
             valign = cc.VERTICAL_TEXT_ALIGNMENT_TOP,
@@ -31,6 +31,7 @@ function MenuScene:ctor()
         local lbl_loading = cc.ui.UILabel.new({
             UILabelType = 2,
             text = "加载中...",
+            font = GAME_FONT,
             size = 25,
             })
         :align(cc.ui.TEXT_ALIGN_CENTER, display.cx + 15, display.bottom + 30)
@@ -50,6 +51,7 @@ function MenuScene:ctor()
     local lbl_coin = cc.ui.UILabel.new({
         UILabelType = 2,
         text  =  "0",
+        font = GAME_FONT,
         size = 20
     })
         :align(cc.ui.TEXT_ALIGN_CENTER, display.cx - self.bg:getContentSize().width / 2 + 115, display.cy + self.bg:getContentSize().height / 2 - 25)
@@ -60,6 +62,7 @@ function MenuScene:ctor()
     local lbl_jinbi = cc.ui.UILabel.new({
         UILabelType = 2,
         text  =  "1234578",
+        font = GAME_FONT,
         size = 20
     })
         :align(cc.ui.TEXT_ALIGN_CENTER,  display.cx - self.bg:getContentSize().width / 2 + 285, display.cy + self.bg:getContentSize().height / 2 - 25)

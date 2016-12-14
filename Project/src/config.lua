@@ -41,7 +41,7 @@ GAME_SOUND = {
 	pstar         = "sound/pstar.mp3",
 	ptarget       = "sound/ptarget.mp3",
 	word_1        = "sound/word_1.mp3",
-	word_1        = "sound/word_2.mp3",
+	word_2        = "sound/word_2.mp3",
 }
 
 GAME_IMAGE = {
@@ -65,6 +65,15 @@ GAME_IMAGE = {
 	Props_Bomb        = "image/Props_Bomb.png",
 	Props_Paint       = "image/Props_Paint.png",
 	Props_Rainbow     = "image/Props_Rainbow.png",
+    stage_clear       = "image/stage_clear.png",
+    stage_clear_bg    = "image/stage_clear_bg.png",
+    dangqianfenshu    = "image/dangqianfenshu.png",
+	praise1           = "image/praise5.png", 
+	praise2           = "image/praise8.png", 
+	praise3           = "image/praise10.png", 
+	praise4           = "image/praise12.png", 
+	praise5           = "image/praise18.png", 
+	praise6           = "image/praise25.png", 
 }
 
 GAME_PARTICE = {
@@ -82,6 +91,8 @@ GAME_PARTICE = {
 	Particle_Star              = "particle/poptile/Particle_Star.plist",
 	Particle_TileDebris        = "particle/poptile/Particle_TileDebris.plist",
 }
+
+GAME_FONT = "arial"
 
 GAME_TEXTURE_DATA_FILENAME  = "popstar.plist"
 GAME_TEXTURE_IMAGE_FILENAME = "popstar.png"
