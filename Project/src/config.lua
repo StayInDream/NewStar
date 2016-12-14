@@ -26,13 +26,11 @@ CONFIG_SCREEN_AUTOSCALE = "FIXED_WIDTH"
 
 GAME_SOUND = {
     Bgm_01        = "sound/Bgm_01.mp3",
-    Eff_Crash     = "sound/Eff_Crash.mp3",
     Eff_GameOver  = "sound/Eff_GameOver.mp3",
     Eff_GetItem   = "sound/Eff_GetItem.mp3",
 	Eff_Warning   = "sound/Eff_Warning.mp3",
 	advbg         = "sound/advbg.mp3",
 	classicbg     = "sound/classicbg.mp3",
-	pbuycoin      = "sound/pbuycoin.mp3",
 	pclear        = "sound/pclear.mp3",
 	pgetcoin      = "sound/pgetcoin.mp3",
 	planding      = "sound/planding.mp3",
@@ -42,6 +40,13 @@ GAME_SOUND = {
 	ptarget       = "sound/ptarget.mp3",
 	word_1        = "sound/word_1.mp3",
 	word_2        = "sound/word_2.mp3",
+	fireworks_01  = "sound/fireworks_01.mp3",
+	fireworks_02  = "sound/fireworks_02.mp3",
+	fireworks_03  = "sound/fireworks_03.mp3",
+	NextGameRound = "sound/NextGameRound.mp3",
+	Props_Bomb    = "sound/Props_Bomb.mp3",
+	Props_Paint   = "sound/Props_Paint.mp3",
+	Props_Rainbow = "sound/Props_Rainbow.mp3",
 }
 
 GAME_IMAGE = {
