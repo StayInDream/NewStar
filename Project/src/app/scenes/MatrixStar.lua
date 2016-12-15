@@ -20,19 +20,19 @@ local LBL_LIST = {"image/praise5.png","praise8.png",
 local STAR_PARTICLE = {GAME_PARTICE.pop_star1000_particle,GAME_PARTICE.pop_star1001_particle,
 GAME_PARTICE.pop_star1002_particle,GAME_PARTICE.pop_star1003_particle,GAME_PARTICE.pop_star1004_particle}
 
-HSCORETAG = 100
-LEVELTAG = 101
-CSCORETAG = 102
-CURLEVEL   = 1
-TARGETSCORE = 1000
-CURSCORE = 100
-SCALE = 1.5
-UNNEEDCLEAR = 0
-NEEDCLEAR = 1
-CLEAROVER = 2
-MOVEDELAY = 1.5
+HSCORETAG    = 100
+LEVELTAG     = 101
+CSCORETAG    = 102
+CURLEVEL     = 1
+TARGETSCORE  = 1000
+CURSCORE     = 100
+SCALE        = 1.5
+UNNEEDCLEAR  = 0
+NEEDCLEAR    = 1
+CLEAROVER    = 2
+MOVEDELAY    = 1.5
 
-local STAR_WIDTH = 48   
+local STAR_WIDTH  = 48   
 local STAR_HEIGHT = 48
 local ROW = 10
 local COL = 10
@@ -40,11 +40,11 @@ local LEFT_STAR = 20    --剩余星星小于该数给予奖励
 local STARGAIN  = 5      --星星得分基数
 
 local MOVESPEED = 4     --星星的移动速度
+local mHandle   = nil
 
-local  mHandle = nil
-
-local node_title  = nil --标头 显示分数道具等
-local layer_stars = nil --星星逻辑层
+local node_title     = nil --标头 显示分数道具等
+local layer_stars    = nil --星星逻辑层
+local node_prop3Btns = nil  --使用刷子时，弹出的按钮窗 
 
 local lbl_stage     = nil --关卡
 local lbl_target    = nil --目标分数
@@ -54,19 +54,20 @@ local lbl_prop1     = nil --道具1
 local lbl_prop2     = nil --道具2
 local lbl_prop3     = nil --道具3
 
-local sp_tongguan = nil
-local lbl_show = nil
+local sp_tongguan                 = nil
+local lbl_show                    = nil
 local bool_ishaveShow_sp_tongguan = false
-local bool_isusingBoom = false
+local bool_isusingBoom            = false  --true正在使用炸弹
+local bool_isusingPaint           = false  --true正在使用刷子
 
 function MatrixStar:ctor()
-    self.Hscore = 0
-    self.Level = 1
-    self.Goal = STARTSCORE
-    self.Cscore = 0
-    self.STAR = {}
+    self.Hscore      = 0
+    self.Level       = 1
+    self.Goal        = STARTSCORE
+    self.Cscore      = 0
+    self.STAR        = {}
     self.SELECT_STAR = {}  --保存颜色相同的星星
-    self.clearNeed = UNNEEDCLEAR  -- 是否需要清除剩余的星星
+    self.clearNeed   = UNNEEDCLEAR  -- 是否需要清除剩余的星星
     --self:setLabel(self.Hscore,self.Level,self.Goal,self.Cscore)  
 	self:initMatrix()  
     self:initTitles()  
@@ -78,7 +79,6 @@ function MatrixStar:ctor()
       --添加背景粒子特效
    local particle = cc.ParticleSystemQuad:create("gameBack.plist")
     self:addChild(particle,-2)
-
 end  
 
 --标头显示
@@ -149,32 +149,32 @@ function MatrixStar:initTitles()
         size = 20,
         color = cc.c3b(255,140,0),
     })
-    :align(cc.ui.TEXT_VALIGN_CENTER, display.cx - 400, display.cy)
+    :align(cc.ui.TEXT_VALIGN_CENTER, display.cx , display.cy + 200)
     :addTo(node_title)
 
-    local sequenceAction1 = transition.sequence({
-            cc.FadeTo:create(0.1, 255 ),
-            cc.RotateBy:create(0.1, 180),
-            cc.ScaleTo:create(0.5, 1, 1, 1), 
-            cc.FadeTo:create(0.15, 125 ),
-            cc.FadeTo:create(0.15, 255 ),
-            cc.FadeTo:create(0.15, 125 ),
-            cc.FadeTo:create(0.15, 255 ),
-            cc.FadeTo:create(0.15, 125 ),
-            cc.FadeTo:create(0.15, 0 ),
-            })
-    transition.execute(lbl_show, sequenceAction1 ,{  
-        delay = 0,  
-        easing = "sineInOut",  
-        onComplete = function()  
-        node_title:removeChild(sp_tongguanbg)
-        end, 
-    })
+    -- local sequenceAction1 = transition.sequence({
+    --         cc.FadeTo:create(0.1, 255 ),
+    --         cc.RotateBy:create(0.1, 180),
+    --         cc.ScaleTo:create(0.5, 1, 1, 1), 
+    --         cc.FadeTo:create(0.15, 125 ),
+    --         cc.FadeTo:create(0.15, 255 ),
+    --         cc.FadeTo:create(0.15, 125 ),
+    --         cc.FadeTo:create(0.15, 255 ),
+    --         cc.FadeTo:create(0.15, 125 ),
+    --         cc.FadeTo:create(0.15, 0 ),
+    --         })
+    -- transition.execute(lbl_show, sequenceAction1 ,{  
+    --     delay = 0,  
+    --     easing = "sineInOut",  
+    --     onComplete = function()  
+    --     node_title:removeChild(sp_tongguanbg)
+    --     end, 
+    -- })
 
 
 
     sp_tongguan = display.newSprite(GAME_IMAGE.stage_clear, display.cx, display.cy)
-    :addTo(node_title,3)
+    :addTo(node_title)
     sp_tongguan:setScale(0)
 
 
@@ -233,7 +233,7 @@ function MatrixStar:initTitles()
     :addTo(node_title)
 
     --道具 3
-     self.Prop3Btn =  BubbleButton.new({
+    self.Prop3Btn =  BubbleButton.new({
             image = GAME_IMAGE.Props_Paint,
             sound = GAME_SOUND.Props_Paint,
             prepare = function()
@@ -260,6 +260,32 @@ function MatrixStar:initTitles()
     :addTo(node_title)
 
     node_title:fadeIn(15)
+
+    node_prop3Btns  = display.newNode()  --使用刷子时的按钮节点
+    node_title:addChild(node_prop3Btns)
+    self.sp_btnbg  = display.newScale9Sprite(GAME_IMAGE.btnFrame , self.Prop3Btn:getPositionX() - 160 , self.Prop3Btn:getPositionY() + 10  ,cc.size(210,50) )
+    :setOpacity(150)
+    :addTo(node_prop3Btns)
+
+    local offetx = -48*0.4 - 58
+    self.prop3Btns = {}
+    for i=1,#STAR_RES_LIST do
+        local btn =  cc.ui.UIPushButton.new({normal =  STAR_RES_LIST[i], pressed =  STAR_RES_LIST[i]})
+        :align( display.CENTER,self.sp_btnbg:getPositionX() + offetx , self.sp_btnbg:getPositionY())
+        :onButtonClicked( function()
+            audio.playSound(GAME_SOUND.pselect)
+            self:prop3BtnsCliclDelegete(i)
+        end )
+        :setScale(0.4)
+        :addTo(node_prop3Btns)
+        offetx = offetx + 48*0.4 + 20
+        table.insert(self.prop3Btns, {btn , btn:getPositionX(), btn:getPositionY()})
+        btn:setPosition(self.sp_btnbg:getPositionX() + 80 , self.sp_btnbg:getPositionY())
+    end
+    node_prop3Btns:setVisible(false)
+
+
+
 end
 
 -- 道具 1 点击事件
@@ -276,21 +302,69 @@ end
 -- 道具 2 点击事件
 function MatrixStar:Prop2_onclick()
     audio.playSound(GAME_SOUND.pselect)
-    bool_isusingBoom = true
+    bool_isusingBoom  = true
     self:setTouchEnabled(true)
     self.Prop1Btn:setButtonEnabled(false)
     self.Prop2Btn:setButtonEnabled(false)
-    self.Prop3Btn:setButtonEnabled(false)
+
+    if self.Prop3Btn_sequenceAction ~= nil then
+        transition.stopTarget(self.Prop3Btn)
+        self.Prop3Btn_sequenceAction = nil
+    end
+
+    local sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
+            cc.ScaleTo:create(0.5, 1, 1, 1), 
+            })
+
+   self.Prop2Btn_sequenceAction = transition.execute(self.Prop2Btn, cc.RepeatForever:create( sequenceAction ))
 end
 
 -- 道具 3 点击事件
 function MatrixStar:Prop3_onclick()
     audio.playSound(GAME_SOUND.Props_Paint)
-    self:setTouchEnabl(true)
-    self.Prop1Btn:setBttonEnabled(false)
-    self.Prop2Btn:setButtonEnabled(false)
+    bool_isusingPaint = true
+    self:setTouchEnabled(true)
+    self.Prop1Btn:setButtonEnabled(false)
     self.Prop3Btn:setButtonEnabled(false)
+    if self.Prop2Btn_sequenceAction ~= nil then
+        transition.stopTarget(self.Prop2Btn)
+        self.Prop2Btn_sequenceAction = nil
+    end
+    local sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
+            cc.ScaleTo:create(0.5, 1, 1, 1), 
+            })
 
+   self.Prop3Btn_sequenceAction = transition.execute(self.Prop3Btn, cc.RepeatForever:create( sequenceAction ))
+
+   lbl_show:setString(" ")
+    node_prop3Btns:setVisible(true)
+    for i=1,#self.prop3Btns do
+        if self.prop3Btns[i][1] ~= nil then
+            transition.moveTo( self.prop3Btns[i][1], {time = 0.3,x = self.prop3Btns[i][2] , easing = "BOUNCEOUT"})
+        end
+    end
+end
+
+-- 选择颜色
+function MatrixStar:prop3BtnsCliclDelegete(index)
+    -- body
+    print(index)
+    local sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.5, 0.3, 0.3, 0.3), 
+            cc.ScaleTo:create(0.5, 0.4, 0.4, 0.4), 
+           -- cc.RotateBy:create(0.5, 360),
+            })
+    for i=1,#self.prop3Btns do
+        if self.prop3Btns[i][1] ~= self.prop3Btns[index][1] then
+        transition.stopTarget(self.prop3Btns[i][1])
+        self.prop3Btns[i][1]:setScale(0.4)
+        self.prop3Btns[i][1]:setRotation(0)
+        end 
+    end
+       transition.execute(self.prop3Btns[index][1], cc.RepeatForever:create( sequenceAction ))
+       self.selectColor =  index
 end
 
 --星星重排
@@ -351,10 +425,7 @@ function MatrixStar:ResetStar( )
         easing = "InOut",  
         onComplete = function()  
             if #leftStars <= 0 then
-                self:setTouchEnabled(true) 
-                self.Prop1Btn:setButtonEnabled(true)
-                self.Prop2Btn:setButtonEnabled(true)
-                self.Prop3Btn:setButtonEnabled(true)
+                self:SetBtnsState(true) 
             end
         end,  
         })  
@@ -364,10 +435,7 @@ function MatrixStar:ResetStar( )
         easing = "InOut",  
         onComplete = function()  
             if #leftStars <= 0 then
-                self:setTouchEnabled(true) 
-                self.Prop1Btn:setButtonEnabled(true)
-                self.Prop2Btn:setButtonEnabled(true)
-                self.Prop3Btn:setButtonEnabled(true)
+                self:SetBtnsState(true)
             end
         end,  
         })  
@@ -397,11 +465,10 @@ function MatrixStar:ResetStar( )
             end
         end
     end
-    
 end
 
 --使用炸弹
-function MatrixStar:UseBoom(i,j)
+function MatrixStar:UseBoom(i,j) 
     -- body
     if self.STAR[i][j][1] == nil then
         return
@@ -414,7 +481,14 @@ function MatrixStar:UseBoom(i,j)
         end
     end
     
-   -- bool_isusingBoom = false
+    for i=1,#self.SELECT_STAR do
+         --替换成选中的精灵图样
+        local color = self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][2] --颜色
+        local frameNo = display.newSpriteFrame(string.sub(STAR_RES_LIST_SELECT[color], 2))
+        self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][1]:setSpriteFrame(frameNo)  --把原来的精灵更换图片
+    end
+   
+    bool_isusingBoom = false
     local offetX = 0
     if j >= 10  then
         offetX = -(STAR_WIDTH*2)
@@ -426,7 +500,7 @@ function MatrixStar:UseBoom(i,j)
         :setScale(3)
         :addTo(node_title)
 
-        transition.moveTo(sp_boom , {x = self.STAR[i][j][1]:getPositionX(), y = self.STAR[i][j][1]:getPositionY(), time = 1.2})
+        transition.moveTo(sp_boom , {x = self.STAR[i][j][1]:getPositionX(), y = self.STAR[i][j][1]:getPositionY(), time = 1})
         
        -- transition.fadeTo(sp_boom , {opacity = 255, time = 0.3})
        --transition.fadeTo(sp_boom , {opacity = 128, time = 0.3})
@@ -434,7 +508,7 @@ function MatrixStar:UseBoom(i,j)
         transition.scaleTo(sp_boom, {
             scaleX     = 1,
             scaleY     = 1,
-            time       = 1.2,
+            time       = 1,
             onComplete = function ( )
                 node_title:removeChild(sp_boom)
                 audio.playSound(GAME_SOUND.Props_Bomb)
@@ -442,13 +516,116 @@ function MatrixStar:UseBoom(i,j)
                 while #self.SELECT_STAR > 0 do
                     self:deleteOneStar()
                 end
-                self:setTouchEnabled(true) 
-                self.Prop1Btn:setButtonEnabled(true)
-                self.Prop2Btn:setButtonEnabled(true)
-                self.Prop3Btn:setButtonEnabled(true)
+                if self.Prop2Btn_sequenceAction ~= nil then
+                    transition.stopTarget(self.Prop2Btn)
+                    self.Prop2Btn_sequenceAction = nil
+                end
+                for i = 1, ROW do
+                    for j = 1, COL do
+                        if self.STAR[i][j][1] ~= nil then
+                            
+                        end
+                    end
+                end
                 end, 
         })
-   
+end
+
+--使用刷子
+function MatrixStar:UsePaint(i, j )
+    -- body
+    if self.STAR[i][j][1] == nil then
+        return
+    end 
+
+    if self.selectColor == nil then
+        audio.playSound(GAME_SOUND.Eff_Warning)
+        local lbl_ = cc.ui.UILabel.new({
+            UILabelType = 2,
+            text  =  "请先选择要转换的颜色！",
+            font = GAME_FONT,
+            size = 35,
+            color = cc.c3b(0, 255, 255)
+        })
+        :align(cc.ui.TEXT_VALIGN_CENTER, display.cx, display.cy)
+        :addTo(node_title)
+        :setOpacity(0)
+        :setScale(3)
+        transition.fadeIn(lbl_, {time = 0.3 })
+        transition.scaleTo(lbl_, {scale = 1, time = 0.5})
+
+        local sequence = transition.sequence({
+            cc.FadeTo:create(0.5, 0), 
+            }) 
+
+        transition.execute(lbl_, sequence, {  
+        delay = 1,  
+        easing = "InOut",  
+        onComplete = function()  
+        node_title:removeChild(lbl_)
+        end,  
+        }) 
+        for i=1,#self.prop3Btns do
+            local sequence2 = transition.sequence({
+            cc.ScaleTo:create(0.3, 0.5, 0.5, 0.5), 
+            cc.ScaleTo:create(0.3, 0.4, 0.4, 0.4), 
+            }) 
+
+            transition.execute(self.prop3Btns[i][1], sequence2, {  
+            delay = 0.15 * i ,  
+            easing = "InOut",  
+            onComplete = function()  
+            end,  
+            }) 
+        end
+
+       
+        else
+            self:SetBtnsState(false)
+            local prop = self.prop3Btns[self.selectColor][1]
+            transition.stopTarget(prop)
+            prop:setScale(0.4)
+            prop:setRotation(0)
+            transition.scaleTo(self.STAR[i][j][1],{scale = 0.01, time = 0.8} )
+
+            local sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.3, 0.8, 0.8, 1), 
+            cc.MoveTo:create(0.5, cc.p( self.STAR[i][j][1]:getPositionX(), self.STAR[i][j][1]:getPositionY())),
+            cc.ScaleTo:create(0.1, 0.4, 0.4, 1), 
+            cc.ScaleTo:create(0.1, 0.5, 0.5, 1), 
+            })
+           local _sequenceAction = transition.execute(prop, sequenceAction ,{  
+            delay = 0,  
+            easing = "sineOut",  
+            onComplete = function()  
+                transition.stopTarget(self.STAR[i][j][1])
+                self.STAR[i][j][1]:setScale(0.5)
+                local frameNo = display.newSpriteFrame(string.sub(STAR_RES_LIST[self.selectColor], 2))
+                self.STAR[i][j][1]:setSpriteFrame(frameNo)
+                self.STAR[i][j][2] = self.selectColor
+                self.STAR[i][j][3] = nil
+                bool_isusingPaint  = false
+                node_prop3Btns:setVisible(false)
+                self.selectColor = nil
+
+                for i=1,#self.prop3Btns do
+                    if self.prop3Btns[i][1] ~= nil then
+                        transition.stopTarget(self.prop3Btns[i][1])
+                        self.prop3Btns[i][1]:setScale(0.4)
+                        self.prop3Btns[i][1]:setPosition(self.sp_btnbg:getPositionX() + 80 , self.sp_btnbg:getPositionY())
+                    end
+                end
+
+                if self.Prop3Btn_sequenceAction ~= nil then
+                    transition.stopTarget(self.Prop3Btn)
+                    self.Prop3Btn_sequenceAction = nil
+                end
+                self:SetBtnsState(true)
+            end,  })
+
+    end
+
+
 end
 
 function MatrixStar:initMatrix()  
@@ -470,7 +647,7 @@ function MatrixStar:initMatrix()
         for col = 1, COL do
             self.STAR[row][col] = {}
             local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-            local i = math.random(1,#STAR_RES_LIST)
+            local i = math.random(1, #STAR_RES_LIST)
             local star = display.newSprite(STAR_RES_LIST[i])
             star:setScale(0)
             self.STAR[row][col][1] = star
@@ -484,12 +661,12 @@ function MatrixStar:initMatrix()
             self:addChild(star)
 
             local sequence = transition.sequence({
-            cc.ScaleTo:create(0.3, 0.5),
+            cc.ScaleTo:create(math.random(0.3, 0.8), 0.5),
             }) 
 
             transition.execute(star, sequence, {  
-            delay = 0.5,  
-            easing = "InOut",  
+            delay = 0,  
+            easing = "sineOut",  
             onComplete = function()  
                 if row == ROW  and col == COL then
                    self:setTouchEnabled(true) 
@@ -511,6 +688,7 @@ function MatrixStar:setLabel(isreadyTostart,Hscore,Level,TargetScore,Cscore)
 end
 
 function MatrixStar:onTouch(eventType, x, y)  
+    print(eventType.name )
     if eventType.name == "began" then 
         i = math.floor((y-72) / STAR_HEIGHT) + 1
         j = math.floor(x / STAR_WIDTH) + 1
@@ -519,16 +697,21 @@ function MatrixStar:onTouch(eventType, x, y)
         end 
 
         self.SELECT_STAR = {}   --将选中的星星清空
-        self:setTouchEnabled(false)
 
         if bool_isusingBoom == true then
             self:UseBoom(i,j)
             return
         end
 
+        if bool_isusingPaint == true then
+            self:UsePaint(i, j)
+            return
+        end
+
         if self:getSelectStar() == false then 
             return
         end
+        self:setTouchEnabled(false)
         -- 星星排序 从左往右 从上往下
         if #self.SELECT_STAR > 1 then
             self:ShowAnimLabel(false , i , j)
@@ -550,34 +733,30 @@ function MatrixStar:deleteOneStar()
         local deleteStar = {}
         deleteStar = table.remove(self.SELECT_STAR)
         if deleteStar ~= nil and #deleteStar ~= 0 then
-        self:setTouchEnabled(false)
-        local row , col = deleteStar[2], deleteStar[3]
-       
-        local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
-                particle:setPosition(self.STAR[row][col][1]:getPosition())
-                particle:setAutoRemoveOnFinish(true)
-                self:addChild(particle,1)  
-        self:removeChild(self.STAR[row][col][1]) 
+            local row , col = deleteStar[2], deleteStar[3]
+           
+            local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
+                    particle:setPosition(self.STAR[row][col][1]:getPosition())
+                    particle:setAutoRemoveOnFinish(true)
+                    self:addChild(particle,1)  
+            self:removeChild(self.STAR[row][col][1]) 
 
-        self.STAR[row][col][1] = nil 
-        self.STAR[row][col] = {}
+            self.STAR[row][col][1] = nil 
+            self.STAR[row][col] = {}
         end
 
         if #self.SELECT_STAR <=0 then
             self:UpdateMatrix()
-            self.Prop2Btn:setButtonEnabled(true)
+            if self:isEnd() == true then 
+                self.clearNeed = NEEDCLEAR
+            end
 
-        if self:isEnd() == true then 
-            
-             self.clearNeed = NEEDCLEAR
-        end
-
-        if mHandle ~= nil then
-            scheduler.unscheduleGlobal(mHandle)
-            mHandle = nil
-        end
-        self:updateStar()
-        self:setTouchEnabled(true)
+            if mHandle ~= nil then
+                scheduler.unscheduleGlobal(mHandle)
+                mHandle = nil
+            end
+            self:updateStar()
+            self:SetBtnsState(true)
         end
 end
 
@@ -635,7 +814,8 @@ function MatrixStar:ShowAnim(num )
         cc.FadeTo:create(0.2,  0 ),
         })
     if num > 4 and num < 7 then --32个赞
-       local sp_praise1 = display.newSprite(GAME_IMAGE.praise1) 
+        local praises = {GAME_IMAGE.praise1, GAME_IMAGE.praise00, GAME_IMAGE.praise0 }
+        local sp_praise1 = display.newSprite(praises[math.random(1, #praises) ])
         :align(display.CENTER, display.cx, display.cy)
         :addTo(node_title) 
         transition.execute(sp_praise1, sequenceAction, {
@@ -649,7 +829,8 @@ function MatrixStar:ShowAnim(num )
         audio.playSound(GAME_SOUND.word_1, false)
 
         elseif num < 9 then --酷毙了
-            local sp_praise2 = display.newSprite(GAME_IMAGE.praise2) 
+            local praises = {GAME_IMAGE.praise2,  GAME_IMAGE.praise3 }
+            local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
             :align(display.CENTER, display.cx, display.cy)
             :addTo(node_title) 
             transition.execute(sp_praise2, sequenceAction, {
@@ -661,7 +842,8 @@ function MatrixStar:ShowAnim(num )
                 })
             audio.playSound(GAME_SOUND.word_1, false)
             elseif num < 12 then --霸气侧漏
-                local sp_praise2 = display.newSprite(GAME_IMAGE.praise3) 
+                local praises = {GAME_IMAGE.praise4, GAME_IMAGE.praise5 }
+                local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
                 :align(display.CENTER, display.cx, display.cy)
                 :addTo(node_title) 
                 transition.execute(sp_praise2, sequenceAction, {
@@ -673,8 +855,8 @@ function MatrixStar:ShowAnim(num )
                     })
                 audio.playSound(GAME_SOUND.word_2, false)
                 elseif num > 11 then --棒棒
-                    local praises = {GAME_IMAGE.praise4, GAME_IMAGE.praise5, GAME_IMAGE.praise6}
-                    local sp_praise2 = display.newSprite(praises[math.random(1,3)]) 
+                    local praises = { GAME_IMAGE.praise6, GAME_IMAGE.praise7 }
+                    local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
                     :align(display.CENTER, display.cx, display.cy)
                     :addTo(node_title) 
                     transition.execute(sp_praise2, sequenceAction, {
@@ -786,13 +968,12 @@ function MatrixStar:getSelectStar()
         self.STAR[i][j][3] = nil 
         self.SELECT_STAR = {}
         return false
-        -- else
-        --     for i=1,#self.SELECT_STAR  do
-        --         --替换成选中的精灵图样
-        --         local  color = self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][2] --颜色
-        --         local slectSprite =  display.newSprite(STAR_RES_LIST_SELECT[color])         --选中的图样
-        --         self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][1]:setTexture(slectSprite:getTexture())  --把原来的精灵更换图片
-        --     end
+    else
+        for i=1,#self.SELECT_STAR  do
+            local color = self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][2] --颜色
+            local frameNo = display.newSpriteFrame(string.sub(STAR_RES_LIST_SELECT[color], 2))
+            self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][1]:setSpriteFrame(frameNo)  --把原来的精灵更换图片
+        end
     end 
    
     return true
@@ -826,10 +1007,7 @@ function MatrixStar:ClearLeftStarOneByOne()
             end
         end
     end
-    self:setTouchEnabled(false)
-    self.Prop1Btn:setButtonEnabled(false)
-    self.Prop2Btn:setButtonEnabled(false)
-    self.Prop3Btn:setButtonEnabled(false)
+    self:SetBtnsState(false)
 
     local str = "剩余星星: " .. #deleteStars
     local num = self:getStarNum()
@@ -857,7 +1035,6 @@ function MatrixStar:ClearLeftStarOneByOne()
             delay = 0,  
             easing = "sineInOut",  
             onComplete = function()  
-                self:setTouchEnabled(true)
                 self:removeChild(lbl_)
             end, 
         })
@@ -880,16 +1057,23 @@ function MatrixStar:ClearLeftStarOneByOne()
                 scheduler.unscheduleGlobal(mHandle)
                 mHandle = nil
                 self.clearNeed = CLEAROVER
-                self:setTouchEnabled(true)
+                self:SetBtnsState(true)
         end
     end
-     mHandle = scheduler.scheduleGlobal(oneByone, 0.1)
+    local timer = 1
+    while timer < 1000 do
+        --todo
+        timer = timer + 1
+        if timer >=1000 then
+            mHandle = scheduler.scheduleGlobal(oneByone, 0.3)
+        end
+    end
 end
 
 function MatrixStar:updatePos(posX,posY,i,j)
     transition.execute(self.STAR[i][j][1], cc.MoveTo:create(0.1, cc.p(self.STAR[i][j][4] , self.STAR[i][j][5] )), {  
-    delay = 0.1,  
-    easing = "bounceInOut",  
+    delay = 0.2,  
+    easing = "BOUNCEOUT", 
     onComplete = function()  
         if self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
                      self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
@@ -940,7 +1124,7 @@ function MatrixStar:UpdateMatrix()
                 end
 
                 for begin_i = i + dis, ROW do
---                    print("test"..tostring(begin_i))
+ --               print("test"..tostring(begin_i))
                     if self.STAR[begin_i][j][1]~=nil then 
                         self.STAR[begin_i-dis][j][1]=self.STAR[begin_i][j][1]
                         self.STAR[begin_i-dis][j][2]=self.STAR[begin_i][j][2]
@@ -1005,21 +1189,12 @@ function MatrixStar:getStarNum()
     return num  
 end
 
--- function MatrixStar:deleteStarsOneByone(  )
-
---     for num = 1, #self.SELECT_STAR do 
---         local row , col = self.SELECT_STAR[num][2], self.SELECT_STAR[num][3]
---         audio.playSound(GAME_SOUND.ppop)
---         local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
---                 particle:setPosition(self.SELECT_STAR[num][1]:getPosition())
---                 particle:setAutoRemoveOnFinish(true)
---                 self:addChild(particle,1)  
-
---         self:removeChild(self.STAR[row][col][1]) 
---         self.STAR[row][col][1] = nil 
---     end
---     scheduler.performWithDelayGlobal(self:deleteOneStar(), 0.3)  
--- end
+function MatrixStar:SetBtnsState( enabled)
+    self.Prop1Btn:setButtonEnabled(enabled)
+    self.Prop2Btn:setButtonEnabled(enabled)
+    self.Prop3Btn:setButtonEnabled(enabled)
+    self:setTouchEnabled(enabled)
+end
 
 
 

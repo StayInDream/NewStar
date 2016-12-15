@@ -73,12 +73,17 @@ GAME_IMAGE = {
     stage_clear       = "image/stage_clear.png",
     stage_clear_bg    = "image/stage_clear_bg.png",
     dangqianfenshu    = "image/dangqianfenshu.png",
+	praise0           = "image/beautiful.png", 
+	praise00          = "image/god.png", 
 	praise1           = "image/praise5.png", 
 	praise2           = "image/praise8.png", 
 	praise3           = "image/praise10.png", 
 	praise4           = "image/praise12.png", 
 	praise5           = "image/praise18.png", 
 	praise6           = "image/praise25.png", 
+	praise7           = "image/jingdai.png",
+	btnBg             = "image/11db.png",
+	btnFrame          = "image/XSdk.png",
 }
 
 GAME_PARTICE = {

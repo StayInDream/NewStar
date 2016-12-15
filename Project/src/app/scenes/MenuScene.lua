@@ -68,6 +68,7 @@ function MenuScene:ctor()
         :align(cc.ui.TEXT_ALIGN_CENTER,  display.cx - self.bg:getContentSize().width / 2 + 285, display.cy + self.bg:getContentSize().height / 2 - 25)
         :addTo(layer_menu)
 
+    -- logo
     self.logo  = display.newSprite(GAME_IMAGE.logo_xin_1)
     self.logo:setPosition(display.cx, display.cy + self.logo:getContentSize().height  + 100)
     layer_menu:addChild(self.logo)
