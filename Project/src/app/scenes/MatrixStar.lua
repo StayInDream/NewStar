@@ -20,16 +20,17 @@ local LBL_LIST = {"image/praise5.png","praise8.png",
 local STAR_PARTICLE = {GAME_PARTICE.pop_star1000_particle,GAME_PARTICE.pop_star1001_particle,
 GAME_PARTICE.pop_star1002_particle,GAME_PARTICE.pop_star1003_particle,GAME_PARTICE.pop_star1004_particle}
 
-HEIGHTSCORE  = 100   --最高分
-CURLEVEL     = 1     --当前关卡
-TARGETSCORE  = 1000  --通关分数
-CURSCORE     = 100   --当前得分
-SCALE        = 1.5   
-UNNEEDCLEAR  = 0
-NEEDCLEAR    = 1
-CLEAROVER    = 2
-MOVEDELAY    = 1.5
-BOOL_ISCONTINUE = 0  --读档开始， 值为1是读档
+local HEIGHTSCORE  = 0   --最高分
+local CURLEVEL     = 1     --当前关卡
+local TARGETSCORE  = 1000  --通关分数
+local CURSCORE     = 0   --当前得分
+local SCALE        = 1.5   
+local UNNEEDCLEAR  = 0
+local NEEDCLEAR    = 1
+local CLEAROVER    = 2
+local MOVEDELAY    = 1.5
+local BOOL_ISCONTINUE = 0  --读档开始， 值为1是读档
+local DIAMOND         = 15  --拥有钻石的数量
 
 
 local STAR_WIDTH  = 48   
@@ -64,6 +65,7 @@ local bool_isusingPaint           = false  --true正在使用刷子
 local gameState = 0 --游戏状态 0 -> 未准备就绪, 1 -> 准备就绪，可以点击了
 
 function MatrixStar:ctor()
+    self:LoadGameData()
     self.Hscore      = HEIGHTSCORE
     self.Level       = CURLEVEL
     self.Cscore      = CURSCORE
@@ -83,10 +85,10 @@ end
 
 function MatrixStar:Show( )
     -- body
-    if BOOL_ISCONTINUE == 1 then  --读档开始
+    if GameData.MAP ~= nil then  --读档开始
 
     else
-        lbl_showStage:setString( "   "..lbl_stage:getString() .. "\n\n" .. lbl_target:getString())
+        lbl_showStage:setString( "   ".."第 " ..CURLEVEL .." 关" .. "\n\n 目标 " .. TARGETSCORE)
         scheduler.performWithDelayGlobal( function ( )
             -- body
              transition.moveTo(lbl_showStage, {x = display.cx , y = display.cy, time = 0.5} )
@@ -101,11 +103,54 @@ function MatrixStar:Show( )
         end ,2.3)  
         scheduler.performWithDelayGlobal( function ( )
             -- body
+            lbl_showStage:setPosition( display.cx + 400, display.cy)
             self:initMatrix()  
+            self:setLabel( HEIGHTSCORE, CURLEVEL ,TARGETSCORE, CURSCORE)
+            sp_tongguan:setScale(0)
         end ,2.8)  
 
 
     end 
+end
+
+function MatrixStar:LoadGameData( )
+    -- body
+    if GameData.HEIGHTSCORE ~= nil then
+        HEIGHTSCORE = GameData.HEIGHTSCORE
+    end
+
+    if GameData.CURLEVEL ~= nil then
+        CURLEVEL = GameData.CURLEVEL
+    end
+
+    if GameData.CURSCORE ~= nil then
+        CURSCORE = GameData.CURSCORE
+    end
+
+    if GameData.CURSCORE ~= nil then
+        CURSCORE = GameData.CURSCORE
+    end
+
+    if GameData.DIAMOND  ~= nil then
+        DIAMOND = GameData.DIAMOND
+    end
+
+    if GameData.MAP ~= nil then
+
+    end
+
+end
+
+function MatrixStar:SaveGameData( )
+    -- body
+    GameData.HEIGHTSCORE = HEIGHTSCORE
+    GameData.CURLEVEL    = CURLEVEL
+    GameData.CURSCORE    = CURSCORE
+    GameData.DIAMOND     = DIAMOND
+    GameData.MAP         = MAP
+
+    GameState.save(GameData)
+
 end
 
 --标头显示
@@ -121,6 +166,7 @@ function MatrixStar:initTitles()
         size = 25,
         })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 60, display.top - 30)
+    :setColor(cc.c3b(124, 252, 0))
     :addTo(node_title)
 
     lbl_target = cc.ui.UILabel.new({
@@ -130,6 +176,7 @@ function MatrixStar:initTitles()
         size = 27,
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.left + 165, display.top - 70)
+    :setColor(cc.c3b(0, 255, 255))
     :addTo(node_title)
 
     lbl_heightScore = cc.ui.UILabel.new({
@@ -139,6 +186,7 @@ function MatrixStar:initTitles()
         size = 27,
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.left + 165, display.top - 30)
+    :setColor(cc.c3b(255, 140, 0))
     :addTo(node_title)
 
 
@@ -170,7 +218,7 @@ function MatrixStar:initTitles()
 
     lbl_diamond = cc.ui.UILabel.new({
         UILabelType = 2,
-        text  =  "10000",
+        text = DIAMOND,
         font = GAME_FONT,
         size = 18,
     })
@@ -223,7 +271,7 @@ function MatrixStar:initTitles()
 
     lbl_prop1 = cc.ui.UILabel.new({
         UILabelType = 2,
-        text  =  "1000",
+        text  = 5,
         font = GAME_FONT,
         size =  18,
     })
@@ -250,7 +298,7 @@ function MatrixStar:initTitles()
 
     lbl_prop2 = cc.ui.UILabel.new({
         UILabelType = 2,
-        text  =  "100",
+        text  = 5,
         font = GAME_FONT,
         size = 18,
     })
@@ -294,7 +342,7 @@ function MatrixStar:initTitles()
 
     lbl_prop3 = cc.ui.UILabel.new({
         UILabelType = 2,
-        text  =  "1000",
+        text  =  5,
         font = GAME_FONT,
         size = 18,
     })
@@ -330,59 +378,78 @@ end
 -- 道具 1 点击事件
 function MatrixStar:Prop1_onclick()
     audio.playSound(GAME_SOUND.Props_Rainbow)
-    self:setTouchEnabled(true)
-    self.Prop1Btn:setButtonEnabled(false)
-    self.Prop2Btn:setButtonEnabled(false)
-    self.Prop3Btn:setButtonEnabled(false)
+    if DIAMOND >= 5 then
+        self:setTouchEnabled(true)
+        self.Prop1Btn:setButtonEnabled(false)
+        self.Prop2Btn:setButtonEnabled(false)
+        self.Prop3Btn:setButtonEnabled(false)
+        self:ResetStar() 
+        DIAMOND = DIAMOND - 5 
+        self:SaveGameData()
+        lbl_diamond:setString(DIAMOND)
+    else
 
-    self:ResetStar()  
+    end 
 end
 
 -- 道具 2 点击事件
 function MatrixStar:Prop2_onclick()
     audio.playSound(GAME_SOUND.pselect)
-    bool_isusingBoom  = true
-    self:setTouchEnabled(true)
-    self.Prop1Btn:setButtonEnabled(false)
-    self.Prop2Btn:setButtonEnabled(false)
+    if DIAMOND >= 5 then
+        bool_isusingBoom  = true
+        self:setTouchEnabled(true)
+        self.Prop1Btn:setButtonEnabled(false)
+        self.Prop2Btn:setButtonEnabled(false)
 
-    if self.Prop3Btn_sequenceAction ~= nil then
-        transition.stopTarget(self.Prop3Btn)
-        self.Prop3Btn_sequenceAction = nil
+        if self.Prop3Btn_sequenceAction ~= nil then
+            transition.stopTarget(self.Prop3Btn)
+            self.Prop3Btn_sequenceAction = nil
+        end
+
+        local sequenceAction = transition.sequence({
+                cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
+                cc.ScaleTo:create(0.5, 1, 1, 1), 
+                })
+        self.Prop2Btn_sequenceAction = transition.execute(self.Prop2Btn, cc.RepeatForever:create( sequenceAction ))
+        DIAMOND = DIAMOND - 5
+        self:SaveGameData()
+        lbl_diamond:setString(DIAMOND)
+    else
+
     end
-
-    local sequenceAction = transition.sequence({
-            cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
-            cc.ScaleTo:create(0.5, 1, 1, 1), 
-            })
-
-   self.Prop2Btn_sequenceAction = transition.execute(self.Prop2Btn, cc.RepeatForever:create( sequenceAction ))
 end
 
 -- 道具 3 点击事件
 function MatrixStar:Prop3_onclick()
     audio.playSound(GAME_SOUND.Props_Paint)
-    bool_isusingPaint = true
-    self:setTouchEnabled(true)
-    self.Prop1Btn:setButtonEnabled(false)
-    self.Prop3Btn:setButtonEnabled(false)
-    if self.Prop2Btn_sequenceAction ~= nil then
-        transition.stopTarget(self.Prop2Btn)
-        self.Prop2Btn_sequenceAction = nil
-    end
-    local sequenceAction = transition.sequence({
-            cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
-            cc.ScaleTo:create(0.5, 1, 1, 1), 
-            })
-
-   self.Prop3Btn_sequenceAction = transition.execute(self.Prop3Btn, cc.RepeatForever:create( sequenceAction ))
-
-   lbl_show:setString(" ")
-    node_prop3Btns:setVisible(true)
-    for i=1,#self.prop3Btns do
-        if self.prop3Btns[i][1] ~= nil then
-            transition.moveTo( self.prop3Btns[i][1], {time = 0.3,x = self.prop3Btns[i][2] , easing = "BOUNCEOUT"})
+    if DIAMOND >=5 then
+        bool_isusingPaint = true
+        self:setTouchEnabled(true)
+        self.Prop1Btn:setButtonEnabled(false)
+        self.Prop3Btn:setButtonEnabled(false)
+        if self.Prop2Btn_sequenceAction ~= nil then
+            transition.stopTarget(self.Prop2Btn)
+            self.Prop2Btn_sequenceAction = nil
         end
+        local sequenceAction = transition.sequence({
+                cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
+                cc.ScaleTo:create(0.5, 1, 1, 1), 
+                })
+
+       self.Prop3Btn_sequenceAction = transition.execute(self.Prop3Btn, cc.RepeatForever:create( sequenceAction ))
+
+       lbl_show:setString(" ")
+        node_prop3Btns:setVisible(true)
+        for i=1,#self.prop3Btns do
+            if self.prop3Btns[i][1] ~= nil then
+                transition.moveTo( self.prop3Btns[i][1], {time = 0.3,x = self.prop3Btns[i][2] , easing = "BOUNCEOUT"})
+            end
+        end
+        DIAMOND = DIAMOND - 5
+        self:SaveGameData()
+        lbl_diamond:setString(DIAMOND)
+    else
+
     end
 end
 
@@ -675,14 +742,14 @@ function MatrixStar:initMatrix()
 
         ]]
     math.randomseed(os.time())   
-     
+    self.nums = 0
     for row = 1, ROW do
         local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
         self.STAR[row] = {}
         for col = 1, COL do
             self.STAR[row][col] = {}
             local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-            local i = math.random(1, #STAR_RES_LIST)
+            local i = math.random(1, #STAR_RES_LIST-3)
             local star = display.newSprite(STAR_RES_LIST[i])
             star:setScale(0)
             self.STAR[row][col][1] = star
@@ -695,14 +762,14 @@ function MatrixStar:initMatrix()
             self.STAR[row][col][7] = col
             self:addChild(star)
 
-            self.nums = 0 --用来计数，一播放完动作的星星完全播放完后设置为可 touch状态
+            --用来计数，一播放完动作的星星完全播放完后设置为可 touch状态
             local sequence = transition.sequence({
-            cc.ScaleTo:create(math.random(0.3, 0.8), 0.5),
+            cc.ScaleTo:create(math.random(0.3, 0.5), 0.5),
             }) 
 
             transition.execute(star, sequence, {  
             delay = 0,  
-            easing = "sineOut",  
+            easing = "exponentialOut",  
             onComplete = function()  
                 self.nums = self.nums + 1
                 if self.nums >= self:getStarNum() then
@@ -718,17 +785,28 @@ function MatrixStar:initMatrix()
 end
 
    --  lbl显示内容
-function MatrixStar:setLabel(isreadyTostart,Hscore,Level,TargetScore,Cscore)
-   if isreadyTostart == true then
-
-    else
-        --todo
-   end
+function MatrixStar:setLabel(Hscore,Level,TargetScore,Cscore)
+   lbl_heightScore:setString("最高 " .. HEIGHTSCORE)
+   lbl_stage:setString("第 "..Level.." 关")
+   lbl_target:setString( "目标 " .. TargetScore)
+   lbl_curscore:setString(string.format("%s", tostring(Cscore)))
 end
 
     -- 下一关
 function MatrixStar:nextStage( )
     -- body
+    audio.playSound(GAME_SOUND.NextGameRound)
+    gameState = 0
+    CURLEVEL = CURLEVEL + 1
+    TARGETSCORE = TARGETSCORE + 500 * (CURLEVEL+1)
+    CURSCORE = self.Cscore 
+    self.STAR        = {}
+    self.SELECT_STAR = {} 
+    self.clearNeed = UNNEEDCLEAR
+    bool_ishaveShow_sp_tongguan = false
+    lbl_curscore:setColor(cc.c3b(255, 255, 255))
+    self:SaveGameData()
+    self:Show()
 end
 
 function MatrixStar:onTouch(eventType, x, y)  
@@ -922,7 +1000,7 @@ function MatrixStar:updateScore(select)
     lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
     if  self.Cscore >= HEIGHTSCORE then
         HEIGHTSCORE = self.Cscore
-        lbl_heightScore:setString( "最高: " .. string.format("%s", tostring(self.Cscore)))
+        lbl_heightScore:setString( "最高 " .. string.format("%s", tostring(self.Cscore)))
     end
 
     if self.Cscore >= TARGETSCORE then
@@ -951,6 +1029,9 @@ function MatrixStar:updateScore(select)
                     node_title:removeChild(sp_tongguanbg)
                     end, 
                 })
+
+                sp_tongguan:setPosition(display.cx, display.cy)
+
 
                 local sequenceAction = transition.sequence({
                 cc.FadeTo:create(0.1, 255 ),
@@ -1061,57 +1142,58 @@ function MatrixStar:ClearLeftStarOneByOne()
     end
     self:SetBtnsState(false)
 
-    local str = "剩余星星 " .. #deleteStars
     local num = self:getStarNum()
+    local str = "剩余星星 " .. num .."\n\n 奖励"
     local getscore = 0
 
     if num < LEFT_STAR then
         local left = LEFT_STAR - num 
         getscore = left * left * STARGAIN
-        str = "剩余星星 " .. num .."\n\n 奖励"
+        
     else
 
     end
 
-    local lbl_  = cc.ui.UILabel.new({
+    lbl_  = cc.ui.UILabel.new({
             UILabelType = 2,
             text        = str ,
             font        = GAME_FONT,
-            size        = 40,
+            size        = 30,
             })
             :align(cc.ui.TEXT_VALIGN_CENTER, display.right + 200, display.cy)
             :addTo(self,3)
 
-    local lbl_02  = cc.ui.UILabel.new({
+    lbl_02  = cc.ui.UILabel.new({
             UILabelType = 2,
             text        = getscore ,
             font        = GAME_FONT,
-            size        = 40,
+            size        = 30,
             })
-            :align(cc.ui.TEXT_VALIGN_CENTER, display.right + 200, display.cy - 50)
+            :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.right + 200, display.cy - 50)
             :addTo(self,3)
 
-    local sequenceAction = transition.sequence({
-        cc.MoveTo:create(0.3, cc.p(display.cx , display.cy)),
-        cc.FadeTo:create(5,  0 ),
+     transition.moveTo(lbl_, {x = display.cx , y = display.cy , time = 0.3 })
+     transition.moveTo(lbl_02, {x = display.cx + 40 , y = display.cy - 35 , time = 0.5 })
+
+    sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.1, 3, 3, 1), 
+            cc.ScaleTo:create(0.5, 1, 1, 1), 
+            cc.MoveTo:create(0.5, cc.p(lbl_curscore:getPositionX() , lbl_curscore:getPositionY() )),
+            cc.FadeTo:create(0.3,  0 ),
         })
 
-    local sequenceAction2 = transition.sequence({
-        cc.ScaleTo:create(0.1, 1.1, 1.1, 1.1) ,
-        cc.MoveTo:create(0.5, cc.p(lbl_curscore:getPositionX() , lbl_curscore:getPositionY())  ),
-        cc.FadeTo:create(0.1, 0 ),
-        })
+      transition.execute(lbl_02, sequenceAction ,{  
+                delay = num * 0.05 + 1.5 ,  
+                easing = "sineInOut",  
+                onComplete = function()  
+                    self:removeChild(lbl_)
+                    self:removeChild(lbl_02)
+                    self.Cscore =  self.Cscore + getscore
+                    lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
+                    self:showResult()
+                end, 
+                })
 
-        transition.execute(lbl_, sequenceAction ,{  
-            delay = 0,  
-            easing = "sineInOut",  
-            onComplete = function()  
-                self:removeChild(lbl_)
-
-                transition.scaleTo(lbl_02, {scale = 1.2, time = 0.1 })
-                transition.moveTo(lbl_02, {x = lbl_curscore:getPositionX() , y = lbl_curscore:getPositionY() , time = 1})
-            end, 
-        })
 
    local function oneByone(dt)
         local deleteNextStar = {}
@@ -1130,8 +1212,6 @@ function MatrixStar:ClearLeftStarOneByOne()
                 scheduler.unscheduleGlobal(mHandle)
                 mHandle = nil
                 self.clearNeed = CLEAROVER
-                self:showResult()
-                self:SetBtnsState(true)
         end
     end
     scheduler.performWithDelayGlobal(function ( )
@@ -1143,11 +1223,21 @@ end
 
 function MatrixStar:showResult( )
     -- body
+
     if bool_ishaveShow_sp_tongguan == true then --已经通关了
+        self:nextStage()
 
-        else
+        else  --失败
 
+        self:showFail()
     end
+
+
+end
+
+ --显示失败界面--
+function MatrixStar:showFail( )
+    -- body
 end
 
 function MatrixStar:updatePos(posX,posY,i,j)
@@ -1155,11 +1245,11 @@ function MatrixStar:updatePos(posX,posY,i,j)
     delay = 0.2,  
     easing = "BOUNCEOUT", 
     onComplete = function()  
-        if self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
-                     self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
+        if self.STAR[i][j][1] ~= nil and self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
+            self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
         end
 
-        if self.STAR[i][j][1]:getPositionX() < self.STAR[i][j][4]  then
+        if self.STAR[i][j][1] ~= nil and self.STAR[i][j][1]:getPositionX() < self.STAR[i][j][4]  then
              self.STAR[i][j][1]:setPositionX(self.STAR[i][j][4])
         end 
     end,  

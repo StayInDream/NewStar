@@ -3,6 +3,7 @@ require("config")
 require("cocos.init")
 require("framework.init")
 GameState=require("framework.cc.utils.GameState")
+GameData  = nil
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
@@ -26,40 +27,27 @@ function MyApp:run()
         end
     end
 
-     GameState.init(function(param)
+    GameState.init(function(param)
         local returnValue = nil
-
-         if  param.name=="load" then
-             --文件出错了 重新加载
-            if param.errorCode then
-               -- CCLuaLog("error")
-               local data = cc.FileUtils:getInstance():getStringFromFile("Data/playerData.json")
-               print(data)
-               local playerJson = json.decode(data)
-               GameState.save(playerJson)
-               returnValue=json.decode(str)
-            else
-                local str =param.values.data
-                --local str=crypto.decryptXXTEA(str, "abcd")
-                returnValue=json.decode(str)
-                print("load Data")
+        if param.errorCode then
+            print("error code" .. param.errorCode)
+        else
+            --crypto
+            if param.name == "save" then
+                local str = json.encode(param.values)
+                str = crypto.encryptXXTEA(str,"lp")--使用XXT加密算法
+                returnValue = {data = str}
+            elseif param.name == "load" then
+                local str = crypto.decryptXXTEA(param.values.data,"lp")
+                returnValue = json.decode(str)
             end
-
-
-        elseif param.name=="save" then
-                local str=json.encode(param.values)
-                --str=crypto.encryptXXTEA(str, "abcd")
-                returnValue={data=str}
-                print("save Data")
-
         end
+        return returnValue    
+    end,"data.txt","lp") --保存到writablePath下data.txt文件中，加密口令"abcd"
 
-        return returnValue
-    end, "playerData.dat","super")
-
-    self.playerJson = GameState.load()
-    if self.playerJson == nil then --第一次运行游戏
-         self.playerJson=GameState.load()
+    GameData = GameState.load() or {}
+    if GameData == nil then --第一次运行游戏
+        GameData = GameState.load()
     end
     
     -- 动画缓存
