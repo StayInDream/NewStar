@@ -1,0 +1,3517 @@
+Manifest-Version: 1.0
+Created-By: 1.6.0_22 (Sun Microsystems Inc.)
+
+Name: assets/image/ka08.png
+SHA1-Digest: bxJ41GpRZi5c8re0EbE9AIzXZjo=
+
+Name: assets/unipaysdk_res/unicom_hot.png
+SHA1-Digest: JQiolpQm47Nv1zK8A87Oc4StSbY=
+
+Name: assets/mmiap/03/horizontal/purchasedialog.xml
+SHA1-Digest: M/YW1pb5+3LIs0PzPq0O97/2BpY=
+
+Name: assets/armature/ele_JiangLi0.plist
+SHA1-Digest: hSjBcnLtAS8dIesfanSGknMFkZQ=
+
+Name: assets/image/poptile/Button_Stop_2.png
+SHA1-Digest: fNfKtim/4mvnH9Wv9UqGnAFqWn4=
+
+Name: assets/ui/pause.png
+SHA1-Digest: ocHfrccD1tlvMxZouNPxUqLIEvo=
+
+Name: res/drawable-hdpi/buoy_definition_radio_on.png
+SHA1-Digest: Ys9/tj/WvrkSMqZdtj63tlbCQZM=
+
+Name: res/layout/notification_message_pic.xml
+SHA1-Digest: lR9nWx3b3tBUh1MUHnut2fDy6n8=
+
+Name: assets/ui/CDKEY_btn.png
+SHA1-Digest: B+rQoqiM6mXCqQeLTvSZafKgvxk=
+
+Name: assets/ui/title_silk.png
+SHA1-Digest: uMtyCVkWWpPisJrEJ06GFXZ5Nss=
+
+Name: assets/json/buycoin_ol_baidu.json
+SHA1-Digest: ZEZtOSitVz5pHgGSkM49Nuac51M=
+
+Name: assets/armature/poptile/AniHandClick0.plist
+SHA1-Digest: VknmgibWoZSD02wzi3dWLVweK4c=
+
+Name: res/drawable-hdpi/gc_icon_shrink.png
+SHA1-Digest: tyulp1QK2DtXX4FG62Q0NkFm32o=
+
+Name: assets/unipaysdk_res/unicom_img_card2.png
+SHA1-Digest: dI+Jce7rebLw/3DgnFDcrQMtw1c=
+
+Name: assets/mmiap/image/vertical/button1_Confirm_Press.9.png
+SHA1-Digest: UzrvQws9fuS5mdrnlq5z3WKXU9c=
+
+Name: assets/ui/shop_item_bg-1.png
+SHA1-Digest: riF3Q0mtOMO+INUyAS6svVHcGRY=
+
+Name: assets/ui/jixutongguan.png
+SHA1-Digest: gXCESrii2h0sklDFE9O8P4n/3MM=
+
+Name: assets/ui/TextScoreTop.png
+SHA1-Digest: 72YUe5lwAo3KoYVKH7GWBCquEvo=
+
+Name: res/layout/buoy_window_big_right.xml
+SHA1-Digest: VeV36OjtnfHohS2M+W+6WB8YUgI=
+
+Name: assets/image/poptile/Button_Help_0.png
+SHA1-Digest: XsYgitu4kxng+GWbtb7M6Xwub0w=
+
+Name: res/drawable-xhdpi/xh_ic_add_press.png
+SHA1-Digest: Hx8qKIXdfE1sZHBnxlVZImpr2qM=
+
+Name: assets/image/musicclose.png
+SHA1-Digest: dfsaoDBfQXJDQ4FDoDM6Qa0owNc=
+
+Name: assets/mmiap/02/title1_bg.png
+SHA1-Digest: Mk9uKdROHrMkoWDpgcd7Pm85gfU=
+
+Name: assets/ui/11gx.png
+SHA1-Digest: wDarfbxRzScv9byGq88+kldx0WM=
+
+Name: assets/mmiap/02/vertical/purchasedialog.xml
+SHA1-Digest: QwT5adwtQTKe3l4Q7YUsHwalIFE=
+
+Name: assets/image/poptile/Button_Continue_1.png
+SHA1-Digest: 4R0CGt1Mvfv3hdCGJYTal3QMMYA=
+
+Name: res/drawable-hdpi/gc_bank_icon.png
+SHA1-Digest: GnYMqkGhsHGMqhk3B8BgYeQSnu0=
+
+Name: assets/mmiap/03/button1_confirm_press.9.png
+SHA1-Digest: UzrvQws9fuS5mdrnlq5z3WKXU9c=
+
+Name: assets/unipaysdk_res/myjifen.png
+SHA1-Digest: vFTzfj+ChapY4CohTJ5WOEfPse0=
+
+Name: assets/ui/ButtonGreenSmall.png
+SHA1-Digest: qUmrWRZcbCiGvh3+o4pZTxDHliM=
+
+Name: assets/html/images/icon31.gif
+SHA1-Digest: nMYNH8ZxDiwslLcK8aSpNhnmDaE=
+
+Name: assets/ui/huodongxiaotieshi.png
+SHA1-Digest: /M9ZsTYcr7SswPJh29bIGBDJ4tY=
+
+Name: assets/ui/Button_huojian_2.png
+SHA1-Digest: 7kLb6A4w351BUy3RAa/wJV9Z/Dk=
+
+Name: assets/image/btn_name_lingqu_green.png
+SHA1-Digest: L75jlTBPlvtSHxyTH6KURUyqgCg=
+
+Name: res/drawable-hdpi/xh_ic_radio_button_on.png
+SHA1-Digest: wPR+t0xg1I8CefiaA9mfcoZjwNA=
+
+Name: res/drawable-hdpi/buoy_definition_radio_off.png
+SHA1-Digest: 8P+tSthICKFiZprGwLAUmonzzhI=
+
+Name: assets/mmiap/image/vertical/checkbox_checked.png
+SHA1-Digest: tNxwrYwo2vZ8gDN2Ee8fIEbJoEI=
+
+Name: assets/ui/sss.png
+SHA1-Digest: mCIPDJ9UzA0ksiloJIL3+WO2SQ4=
+
+Name: res/layout/buoy_window_big.xml
+SHA1-Digest: m3QGrGDikMCzTYiwO/cNh3JFdjU=
+
+Name: assets/ui/onsaleTitle_xsyh.png
+SHA1-Digest: e4Ng+ZSQFLJROdWsKp//2q7Lkrg=
+
+Name: assets/ui/10y.png
+SHA1-Digest: WOJs0Dys9FxFTVI9ecp2SskGAps=
+
+Name: assets/json/buycoin.json
+SHA1-Digest: k7HSuQ5jFiRK6YWzrl7u5MNO5a0=
+
+Name: assets/mmiap/02/horizontal/failresultdialog.xml
+SHA1-Digest: ayDu7F6FoVTxTv4QvzAxw9WdUo8=
+
+Name: assets/ui/x150.png
+SHA1-Digest: Y77tbY/9Q0SlepWf7/1BLXoC9pM=
+
+Name: res/drawable-hdpi/buoy_definition_radio_off_pressed.png
+SHA1-Digest: 6O3mcI+9+BXTzrU52pxWQc7DhoA=
+
+Name: res/drawable-hdpi/gc_center_about.png
+SHA1-Digest: f88xHd6QNG/yMZ73lBYlJLL4C58=
+
+Name: assets/mmiap/image/vertical/button1_Confirm.9.png
+SHA1-Digest: 4R7Eld1CWay8DOJmOL2lNUDttNo=
+
+Name: res/drawable-hdpi/ql_button_blue.9.png
+SHA1-Digest: lxH2G8woKLqpHCcChqK+sQ9ktbw=
+
+Name: res/drawable-xhdpi/buoy_svid_status_normal.png
+SHA1-Digest: cJmP9tSt9WL09KVYjz6QMbNJqtc=
+
+Name: assets/json/360_buycoin.json
+SHA1-Digest: tdLzfvHBLMgsoxcO6cTCgVcUahY=
+
+Name: assets/unipaysdk_res/accountsdk_2_arrow_right_gray.png
+SHA1-Digest: h4soIdF4IUloSqWCyno8Pwn0mqI=
+
+Name: res/drawable-hdpi/buoy_first_usage.png
+SHA1-Digest: CScP4Mo61B68iSMuUW5A4oK3u6o=
+
+Name: assets/ui/XJsytb.png
+SHA1-Digest: Fhk0kEQr3Cfbymwq1iAaIbLAJ24=
+
+Name: res/raw/opening_sound.mp3
+SHA1-Digest: THBh5nBFTKNGvNYMj0Q+1iHcySo=
+
+Name: res/layout/buoy_window_small.xml
+SHA1-Digest: jMum8/MeiR/q7MYf3V6v4ubalMs=
+
+Name: assets/mmiap/02/logo1.png
+SHA1-Digest: N+e8Mchbjb5hiFPP7/Ogjq6hDWA=
+
+Name: assets/action/loading0.png
+SHA1-Digest: UjJyd4LFQXvP0Nte6oXi48/D8so=
+
+Name: res/drawable-hdpi/gc_migupay_icon.png
+SHA1-Digest: 3kFbv1fF6wXuVaCTsAiOERU8Plo=
+
+Name: assets/ui/Button_Continue_0.png
+SHA1-Digest: mgaH9tK5hFWm/WTpyfwWc2NSzyQ=
+
+Name: res/drawable-hdpi/ql_textfield_default_press_emui.9.png
+SHA1-Digest: c/7VtdGQMgtsAo45wHw+Pr7D63U=
+
+Name: res/drawable-hdpi/gc_pay_unchecked.png
+SHA1-Digest: 2BJihzDoeyEQF19DY8auyhLuQA4=
+
+Name: assets/ui/anniu.png
+SHA1-Digest: 449dN1+j1ZkD8f6tJ3PVasujQl4=
+
+Name: assets/image/onsale_btn_lingqu.png
+SHA1-Digest: L75jlTBPlvtSHxyTH6KURUyqgCg=
+
+Name: assets/mmiap/03/btn_blue01.png
+SHA1-Digest: HFXT9a16RoBT7Ma/95aphl7tOEs=
+
+Name: assets/star/popstar.plist
+SHA1-Digest: My70EDm2uZiGnUDFfAQDxmd6ubg=
+
+Name: res/drawable-xhdpi/ql_huawei_logo.png
+SHA1-Digest: mGzstj5B9BwyRS1luM3l8v5k+m4=
+
+Name: assets/MiguPay.Sdk20.Lib_26003_16814D5EC6D0ABB119647EEC381596E9.
+ dat
+SHA1-Digest: 01+0rw3gXCwtH5rxxkE2+vo3sR0=
+
+Name: assets/image/huang.png
+SHA1-Digest: 1A4MIbSnavE8HqB7HDUJNKxl6/w=
+
+Name: assets/image/ka008.png
+SHA1-Digest: kVIyvEsqNQnp1IBszXI7rSeR1qo=
+
+Name: res/drawable-hdpi/gc_gamehall.png
+SHA1-Digest: eFodACc7o966NTpKRPPNKbvEdmg=
+
+Name: res/layout/buoy_webpage_layout.xml
+SHA1-Digest: pcHXGKbYKK16CPWv94lHeGc0Wk4=
+
+Name: res/drawable-hdpi/gc_padview_one_icon.png
+SHA1-Digest: BgslbfmGNOw++G0NsI0yr23tQCo=
+
+Name: assets/particle/gold2.png
+SHA1-Digest: HkSty6ZteoeHcjGz6zDtgve84wo=
+
+Name: assets/sound/poptile/Eff_GameOver.ogg
+SHA1-Digest: 3i7GE3L2EEre9jB3tztJkMpVXsU=
+
+Name: res/drawable-xhdpi/xh_01.png
+SHA1-Digest: 9BEue5Dp6+NTimt9dRA6yWZu6JA=
+
+Name: res/drawable-hdpi/gc_sound_on.png
+SHA1-Digest: wC8RR8/Bc6R5Jo5V+wiVw5FjKwU=
+
+Name: assets/mmiap/02/vertical/progressdialog.xml
+SHA1-Digest: o8fkE/qxQD/skl/3UGu/WcphL9c=
+
+Name: assets/ui/btn_11.png
+SHA1-Digest: ap02BLpJaRxqH7xD+rHWoQnve/0=
+
+Name: assets/mmiap/image/vertical/infobg.9.png
+SHA1-Digest: FwQrOBt3bKF94Eg5Gg6rZYZNbkA=
+
+Name: res/drawable-hdpi/gc_icon_3.png
+SHA1-Digest: Bco8KcMW5as2HkO9IUiB6AzC1IM=
+
+Name: res/drawable-hdpi/gc_edit_del.png
+SHA1-Digest: GYGG1Rd7rWa+0yMnN9vf4yHus9I=
+
+Name: assets/image/poptile/Bg_Matrix_4_Line1.png
+SHA1-Digest: TdZ3Eihn4GLRyJLf/RdGO1eLzCM=
+
+Name: assets/ui/x65.png
+SHA1-Digest: j1Pe+gAAPm142GsR4vtBKteO/es=
+
+Name: assets/mmiap/image/vertical/splash_v.jpg
+SHA1-Digest: 02cQvd2MpTV0uhNn/W552E+BybA=
+
+Name: assets/image/btn_name_buy_1f.png
+SHA1-Digest: 21i6DaknJzr3oMh80wKWrVLFa8o=
+
+Name: res/drawable-hdpi/ql_textfield_default_emui_new.9.png
+SHA1-Digest: BtDUfQmt/R07xwqBSI6k+503PHo=
+
+Name: assets/ui/11qd-.png
+SHA1-Digest: EoVVR5h95AbV8LHiGnfxeTuIvho=
+
+Name: assets/html/images/icon28.gif
+SHA1-Digest: dijrugnjK4IjbpZuzjfCXLt/rfQ=
+
+Name: res/drawable-hdpi/ql_set_password_btn_pressed.9.png
+SHA1-Digest: sfbJ7hqJozA4wrjgZBezhXqWi1I=
+
+Name: res/layout/buoy_head.xml
+SHA1-Digest: xCImUX+KwPcE2PGvNyX1BvWciKw=
+
+Name: assets/unipaysdk_res/unicom_adv_title.png
+SHA1-Digest: iGo0MswjlP1Lpkg6eZuPFho8U1g=
+
+Name: res/drawable-hdpi/buoy_default_pic.png
+SHA1-Digest: ufM3YQMs37MdEFVpcrZQ2n1WWqw=
+
+Name: assets/image/stage_clear_bg.png
+SHA1-Digest: B2TiNpdKEB3zguJmgwZEPvN//AU=
+
+Name: assets/ui/XSmryq.png
+SHA1-Digest: F/YimVLQxc2SSmnQLtv7iagDzRw=
+
+Name: assets/unipaysdk_res/unicom_gou.png
+SHA1-Digest: PRPSVBa2Z7bnlQpl6yobN9pb5Hw=
+
+Name: res/drawable-hdpi/buoy_btn.9.png
+SHA1-Digest: PTCF0Z9FOIt2wCnB7IqFxAUg01I=
+
+Name: assets/ui/lkijishiyong.png
+SHA1-Digest: d9ir0Z3AxttW6Au/4NN+oq91r/s=
+
+Name: assets/image/150diamand.png
+SHA1-Digest: V2BF5jMAB8K+iFMy3Cikm6U/Mto=
+
+Name: assets/ui/goumai.png
+SHA1-Digest: kbHnBy3neySqeDlAzBbar4vcRv4=
+
+Name: res/drawable-xhdpi/buoy_red_dot.png
+SHA1-Digest: j2cd/firEw56o/j6y/nVYMtbc7Y=
+
+Name: assets/ui/exit.png
+SHA1-Digest: jmIkffFrQfhH5Xg1HImAXlq1rAI=
+
+Name: lib/armeabi/libmg20pbase.so
+SHA1-Digest: s9tUcAW3HleUiK14I8YfNkBNck8=
+
+Name: assets/ui/StarAward.json
+SHA1-Digest: YVLde9q6Zmm6Muc9nnpPW34fsVI=
+
+Name: assets/ui/shop_item_bg.png
+SHA1-Digest: BI/q7tDqxzT96qkHk59jzvdctr8=
+
+Name: res/drawable-xhdpi/buoy_icon_help.png
+SHA1-Digest: 0AzW713feQvA7cLI4c0hIxctj5E=
+
+Name: assets/sound/pbuycoin.ogg
+SHA1-Digest: fkP3IL76r13uOIZZi1lsTLXNSB4=
+
+Name: res/drawable-hdpi/gc_anim_title.png
+SHA1-Digest: h41ohBbvff4jxpdYdLwK32FXb14=
+
+Name: assets/ui/email_panel.json
+SHA1-Digest: UPDByMT9ONBB1bzHujBf67eY3us=
+
+Name: assets/ui/red.png
+SHA1-Digest: aRbgTEZTJ3ADSesEtnTyV66odtM=
+
+Name: assets/image/poptile/Button_Same_2.png
+SHA1-Digest: /mmcWkqtu6D0OBursX+9/TDs/8Y=
+
+Name: assets/image/coinback.png
+SHA1-Digest: Dv0IaTrUi0CRQlxNTIynm+pZ02Q=
+
+Name: assets/map/star.png
+SHA1-Digest: mKuPgndkO+sYFmFkWKJTYz8xBDc=
+
+Name: assets/image/TextAtlas_Score.png
+SHA1-Digest: jS8Jw4R/pzugWwBXV8IUKSWSnko=
+
+Name: res/drawable-hdpi/gc_drag_hide.png
+SHA1-Digest: ZCTP+oMEbpRZoXg3ShBEvZP2CPI=
+
+Name: assets/armature/PopStar_LotteryLight0.plist
+SHA1-Digest: b+8vbKAyUDHzy5BuW6dK0Isdhgw=
+
+Name: assets/image/poptile/Button_Stop_0.png
+SHA1-Digest: 8c9MzQ+wZtuAOhlYJqjG4E7ytnk=
+
+Name: res/drawable-xhdpi/xh_s_btn_press.9.png
+SHA1-Digest: cJekfa85SWZb82SJsjCmbWg90F8=
+
+Name: assets/ui/tongguananniu_btn.png
+SHA1-Digest: YiaBHPZPJkAmqvuT0O5oDNbqiVA=
+
+Name: assets/mmiap/01/money_rmb.png
+SHA1-Digest: YNnIHSdWA9K7qbj38b2LHq3U8ns=
+
+Name: assets/ui/ditiao.png
+SHA1-Digest: H5frIZcS/NmbFRzeyRLLzGwdkzc=
+
+Name: assets/image/ka06.png
+SHA1-Digest: QRW7kD7C8pLG5hkbye0LJWS1TEE=
+
+Name: assets/unipaysdk_res/unicom_close_new_normal.png
+SHA1-Digest: AnQ20At68sAFJrtIE4y0NksbY04=
+
+Name: assets/ui/zaiyici.png
+SHA1-Digest: 7zBLgVJLwMJu2X2o+tOCDRPa2n0=
+
+Name: assets/ui/11zp.png
+SHA1-Digest: 3bKAupeAiS9SxPPbo6p5E6RmWB0=
+
+Name: assets/ui/popstar_start.png
+SHA1-Digest: yp3zZD5HOykgz4qHKBhbUcVawno=
+
+Name: assets/image/coingift_title_cjzslb.png
+SHA1-Digest: TgBE3MyuMGzMiNGrt9+ZDAOONNw=
+
+Name: assets/mmiap/image/vertical/button_back_Press.png
+SHA1-Digest: +nggjMaRqQpLGwgEGOo7R7DToGs=
+
+Name: assets/mmiap/02/vertical/savingdialog.xml
+SHA1-Digest: HHygwitGJqw2SzsKuWE/elyBh98=
+
+Name: assets/unipaysdk_res/unicom_circlerect_bg.png
+SHA1-Digest: W7WxhalDchuPm8DaA5cJW5YMjaA=
+
+Name: res/drawable-hdpi/xh_switch_selector.xml
+SHA1-Digest: 0opHqfeSmraInrhdHlh7eZVw1jY=
+
+Name: res/drawable-hdpi/gc_window.png
+SHA1-Digest: q7y7zEUV8D4MRNdJmRyjOmEEGWM=
+
+Name: assets/ui/x5.png
+SHA1-Digest: 1tV2x7LlspO1E8iCy9/Fwf4/iBM=
+
+Name: assets/CHANNEL/channel.xml
+SHA1-Digest: tbHwW8i2U0SvYi+3cCUbAFq41ng=
+
+Name: assets/image/poptile/Button_SoundOn_0.png
+SHA1-Digest: idEHurAyhYIvRa8Ju9h8P0u7IdY=
+
+Name: assets/ui/infos_title.png
+SHA1-Digest: fl7UMutA4wzNP6Ylq1T6hETVjK0=
+
+Name: res/drawable-xhdpi/xh_03.png
+SHA1-Digest: /QXuSf01TdFlYvQYHL+utTxjgOo=
+
+Name: assets/ui/qbjs.png
+SHA1-Digest: kAIdbU4AZBbVuQaQxQCSi99jqmI=
+
+Name: assets/ui/buyit.png
+SHA1-Digest: N3XkCfuvBct4XP5hQds40kKW2GU=
+
+Name: assets/ui/huodong_diban_2.png
+SHA1-Digest: D4MME6jDnOUa//P0ybJxO/1V6T4=
+
+Name: assets/image/poptile/Number_480x065.png
+SHA1-Digest: S0m9Hp2iAp7uQPJcFYXE4A6CgSA=
+
+Name: assets/ui/btn_1.png
+SHA1-Digest: YyRJ6gS7+FOmvRhbYwcOr+vQL6U=
+
+Name: assets/ui/font_1.png
+SHA1-Digest: I/fTsha8Yn6MZVlRgM0Fgc0OdwI=
+
+Name: assets/ui/smdb.png
+SHA1-Digest: uCWqzr2LVHjcarLESZuvDp9d13k=
+
+Name: assets/sound/poptile/Eff_GetItem.ogg
+SHA1-Digest: 0jm6vjxtj9zwsHgKBMA7AkiktT8=
+
+Name: assets/UnicomConsume/UnicomConsume.uwc
+SHA1-Digest: ld+dPo9TU8oPzFmeTa46hos07PY=
+
+Name: assets/html/css/wap_css_320_480.css
+SHA1-Digest: wFZBgEgpoAgWDmcq3v9zV5R00cU=
+
+Name: res/drawable-hdpi/ql_button_blue_lang.9.png
+SHA1-Digest: zDL9I3vMYv+9gxIDKmqVfwCt0nk=
+
+Name: assets/ui/NewGift.json
+SHA1-Digest: WX9XhlvZjLKuof7xJSTiDCHymzw=
+
+Name: assets/ui/shangdian_zengong.png
+SHA1-Digest: 5nc+Gd0XNJD3TIa93REnENWuXM4=
+
+Name: assets/mmiap/02/horizontal/progressdialog.xml
+SHA1-Digest: tFcw5eKgDCCFlsUNX81+VyB2UyQ=
+
+Name: assets/image/11zd.png
+SHA1-Digest: pjDzf2GFlOExLDRD8DyE6O1Wj2k=
+
+Name: assets/image/zengbig_unicom.png
+SHA1-Digest: 0/koYXizkJi1Oq+vTCNI3KKcY/4=
+
+Name: res/drawable-hdpi/gc_contract_press.png
+SHA1-Digest: T4nijU0bhTlFRG8ckIwXcOYOt04=
+
+Name: assets/ui/Jsz.png
+SHA1-Digest: mdNIZs8/fjFLskRpGEI1WnV47Ko=
+
+Name: assets/ui/sk_gift_tgjl.png
+SHA1-Digest: 3MC2PFTiotPaXaHTAPyGPjeznOQ=
+
+Name: res/layout/buoy_update_dialog.xml
+SHA1-Digest: foQUuZfHleY5LsgPvn/jVcED/D0=
+
+Name: assets/image/poptile/Panel_Guide1.png
+SHA1-Digest: 3TgNGbRiYtu38J58ZPne4pHyV8s=
+
+Name: res/drawable-hdpi/ql_btn_check_off_emui.png
+SHA1-Digest: FjkscsbGGtpITlWwaFHo1ExtEWc=
+
+Name: assets/image/praise10.png
+SHA1-Digest: VhfAzhuA9fKgrJ0WTD4fViU2+0c=
+
+Name: res/drawable-xhdpi/ql_btn_check_on_emui.png
+SHA1-Digest: +ELIYTfyFhG45vwtuo0JAvuTsBI=
+
+Name: res/layout/ql_my_alert_dialog.xml
+SHA1-Digest: Gx+oBK1SsNrie1dZxdMgL2qsqJI=
+
+Name: assets/image/11zd1.png
+SHA1-Digest: 2mjPODTJd7twxTdRB1l6KoZKuJY=
+
+Name: res/layout/buoy_top_notice_title.xml
+SHA1-Digest: kw/L31Z8wjPSBksD5u8U10GoFPw=
+
+Name: res/drawable/buoy_icon_select.xml
+SHA1-Digest: I08IGEMxhmEPL9yt/37PtiFFuso=
+
+Name: res/drawable-hdpi/buoy_svid_status_normal.png
+SHA1-Digest: qIdnDH3d0cnUBnnVJrdEPCsG2sg=
+
+Name: res/drawable-hdpi/xh_setting_perss.png
+SHA1-Digest: avLxBxDYZV/NSE01RCvFntzp5x4=
+
+Name: assets/unipaysdk_res/unicom_red_circle.png
+SHA1-Digest: 4cRARHUXqjoiCmeMFbVcUwUYWjM=
+
+Name: res/drawable-hdpi/gc_icon_4.png
+SHA1-Digest: 3kFbv1fF6wXuVaCTsAiOERU8Plo=
+
+Name: res/drawable-hdpi/xh_01.png
+SHA1-Digest: 1L+jjGDsp3EfJS0ZQ5NXo55Ze9I=
+
+Name: assets/image/btn_name_buy_10.00.png
+SHA1-Digest: 0pCQBXD+LSrADSVsn50v8173Vk8=
+
+Name: assets/ui/shangdian_biaotoutu.png
+SHA1-Digest: 4gycLw31WF9R/LS6t1hSkPRZD6k=
+
+Name: assets/mmiap/03/vertical/savingdialog.xml
+SHA1-Digest: Zfyq+GKJhU0c8bVrd+5TK91Fz9Y=
+
+Name: assets/ui/zengss.png
+SHA1-Digest: QbWOEGsDIphKVwLdB5le4RmwlEE=
+
+Name: assets/ui/zengtubeijing.png
+SHA1-Digest: 6H3vZMv09MIB9bAgtYmdBKBDtXM=
+
+Name: assets/ui/bgt001.jpg
+SHA1-Digest: 837g5RriHq76f6p8QPjLjFs4IuI=
+
+Name: assets/mmiap/01/vertical/sucresultdialog.xml
+SHA1-Digest: M9u/2tcTfDV1CKBnqJ0NoflI6mw=
+
+Name: res/drawable-hdpi/gc_recommend_hall.png
+SHA1-Digest: rDewc1tzymFcsMjC7YXdPOTduIU=
+
+Name: assets/ui/biaotou2.png
+SHA1-Digest: sJPZ9//e1CKpur04FxuqAn7+nJA=
+
+Name: assets/unipaysdk_res/accountsdk_2_float_btn_account.png
+SHA1-Digest: li9G3RiPKmYq5YzAvvmZXnwRkvQ=
+
+Name: assets/ui/PoptilePanelPause.json
+SHA1-Digest: W7p6gI/xevkko3xOggPegcFAcxA=
+
+Name: assets/ui/1f2.png
+SHA1-Digest: 5Xyja4jWhKqCKXYo8vTKRIolpPk=
+
+Name: assets/image/ka03.png
+SHA1-Digest: oWOUYrtySPC036gkS6nfUFCpJi4=
+
+Name: assets/json/emailicon_ID.json
+SHA1-Digest: p7EKR0QAsxX9n8KlOOB6IiIZDRA=
+
+Name: res/drawable-hdpi/xh_05.png
+SHA1-Digest: qlFPkwtz2WOtc1sEmCm7zPWaYi8=
+
+Name: assets/ui/youjian_1.png
+SHA1-Digest: oJq2EQODHmBw7qL33fYiLp2aoYM=
+
+Name: assets/ui/queding5.png
+SHA1-Digest: wy/6Pig8JgKRxs8ElAdbBx25F28=
+
+Name: assets/particle/gold.png
+SHA1-Digest: S3lQUkVRKKoWse0cwd0kHbN2Eio=
+
+Name: res/drawable-xhdpi/xh_btn_default_normal_emui.9.png
+SHA1-Digest: 53bO85QY1j1V6Ziq9/NanYNEvFw=
+
+Name: assets/ui/retry.png
+SHA1-Digest: GN+jN3IDRpxMpgWtbucGAqxkSgw=
+
+Name: assets/mmiap/image/vertical/get_verificationcode_press.9.png
+SHA1-Digest: w9wI7hWNoLR+B2e4eP4YkD27SlY=
+
+Name: assets/image/ka004.png
+SHA1-Digest: RbjKKNhn/xUyGSjk0CMWqfqVvz4=
+
+Name: assets/particle/pop_stars.png
+SHA1-Digest: Zkxf5Qj67MwMVTS9TtxypsUliwE=
+
+Name: lib/armeabi/libsmsprotocol.so
+SHA1-Digest: YjxaQcKsJK3Kf14510KFO2YFWI4=
+
+Name: assets/image/poptile/Bg_Matrix_4_Line0.png
+SHA1-Digest: ACh2i3n7jwiiu5FBCpnFUrXNsco=
+
+Name: res/layout/buoy_base_dialog.xml
+SHA1-Digest: tZi4rttUQmKD2Jx0TYk1NtGZ3KI=
+
+Name: res/drawable-hdpi/ql_set_password_input_selector.xml
+SHA1-Digest: QXX3GXmQDgtpZg8x6krKVOMWK1k=
+
+Name: assets/json/UmPayPop.json
+SHA1-Digest: V1jQvmvo6zTiRi3xywJbABD0XVE=
+
+Name: assets/sound/pstar.ogg
+SHA1-Digest: OxaP4FyjWyRaP4SPF5ikbz0Jm0g=
+
+Name: assets/unipaysdk_res/wostore_welcome.png
+SHA1-Digest: vyN/TOJzX3+I0Flyku1EuvcB5fo=
+
+Name: res/drawable-hdpi/gc_center_welfare.png
+SHA1-Digest: VvUybSjpuF1Ult2lL9euKAdHMcg=
+
+Name: assets/sound/classicbg.ogg
+SHA1-Digest: inGOH4xaNSlhCfPjLlsZHGFziv8=
+
+Name: assets/image/you.png
+SHA1-Digest: VFxtn6nIBG2K9hMtnogEVEHurPI=
+
+Name: res/drawable/umeng_common_gradient_green.xml
+SHA1-Digest: ZDyisfAamRM9mdew8+tq1DegzP8=
+
+Name: res/drawable-hdpi/xh_ic_edit.png
+SHA1-Digest: jrr6y78wXq8reI9diToaeT6H1qQ=
+
+Name: res/drawable-hdpi/gc_startview_bg_port.jpg
+SHA1-Digest: FjR2pEGT5Q///F/TvzzO1q7wZOg=
+
+Name: assets/unipaysdk_res/accountsdk_2_btn_modify_uinfo.png
+SHA1-Digest: UDmfCkR2E82sQU4Sl2Zij6l0CvA=
+
+Name: assets/ui/BtnSureYellow.png
+SHA1-Digest: DzBf/DTTP5yrErHXPQbXmUeDPGY=
+
+Name: assets/ui/file_symbol.png
+SHA1-Digest: JXFcpavMJzDJHBYO/Wtk+1oOwN0=
+
+Name: assets/ui/trqunrukou.png
+SHA1-Digest: xxF6EuyxpoPrYjI7Dut8V5iSdZk=
+
+Name: res/drawable-xhdpi/buoy_icon_guide.png
+SHA1-Digest: FdScgf9rpBMwvKb38x2Qf4FDQBM=
+
+Name: assets/ui/zhong4.png
+SHA1-Digest: ICA//In4PiWExX3pgBv5qqfVcJ8=
+
+Name: res/drawable-hdpi/ql_btn_check_on_holo.png
+SHA1-Digest: oGdtRh8Uu3ax+Uwq80ckFlS8zcw=
+
+Name: assets/armature/poptile/AniFrame03.ExportJson
+SHA1-Digest: FrtWQH8EyGTS245Eg+MCDuOHMzU=
+
+Name: assets/ui/result_bg1.png
+SHA1-Digest: PucAxHY7JbCXs73ruAbpzWgcWn8=
+
+Name: assets/mmiap/01/vertical/progressdialog.xml
+SHA1-Digest: 8oZzte+lGCWU1P9EsJic9E7F8WM=
+
+Name: res/drawable-hdpi/gc_telpoint_icon.png
+SHA1-Digest: f98/E6hQSKLkVcVNhoDsCLIbQSg=
+
+Name: assets/armature/poptile/AniFrame030.plist
+SHA1-Digest: sNquVsmRh/Xwz9Gm5Lfkb1l9S10=
+
+Name: assets/ui/11ssx.png
+SHA1-Digest: BMyYK3EcDiLRlLWc2QqZwAYR+1s=
+
+Name: assets/unipaysdk_res/unicom_tanhao.png
+SHA1-Digest: s9iIokrEAc8VlTh5uYNktB/kuPw=
+
+Name: assets/ui/zengbig_unicom.png
+SHA1-Digest: 0/koYXizkJi1Oq+vTCNI3KKcY/4=
+
+Name: res/drawable-hdpi/ql_btn_check_off_pressed_emui.png
+SHA1-Digest: PuMiB2gJrlYaC9qiu/IYAOuJjUY=
+
+Name: res/drawable-hdpi/gc_center_recharge.png
+SHA1-Digest: pbqxtSr+a+KJXcw/28FxjYV5aEM=
+
+Name: assets/armature/ele_JiangLibox0.png
+SHA1-Digest: lKfQ/3Opbe57nJRt4VHaP2hT2BE=
+
+Name: lib/armeabi/libegamepay_dr2.so
+SHA1-Digest: xvmoixUEHtcTnFS8FY4FA+iDwGo=
+
+Name: assets/image/stage_clear.png
+SHA1-Digest: 1nTUB8otGdzwriA9im5QPqqnfFA=
+
+Name: assets/ui/Props_Rainbow.png
+SHA1-Digest: u+4PPsiynQEBI76KFWLCaA5W0Ik=
+
+Name: mmiap.xml
+SHA1-Digest: jz1U801VKniF2bJNfTOw8U28GVs=
+
+Name: res/drawable-hdpi/xh_03.png
+SHA1-Digest: SU4thwn7gWeny3y7X7kdQDmOZGs=
+
+Name: res/drawable-hdpi/gc_center_look.png
+SHA1-Digest: bAohfULTxTxoS/aRm26MO1dknwA=
+
+Name: assets/image/11zh.png
+SHA1-Digest: IJ2YhE4jlxY6bCRFmObL8dcsojI=
+
+Name: assets/mmiap/02/close_click.png
+SHA1-Digest: CTR5KnKg5iDdRa3gj3SW6jDcsh0=
+
+Name: assets/mmiap/03/icon_false.png
+SHA1-Digest: fDEolNO1n1Fw+DKhkGolEMT6BOE=
+
+Name: assets/image/ka001.png
+SHA1-Digest: 2+SY5+mgazO2M8PKn51Gu2QbZRQ=
+
+Name: assets/image/poptile/Button_Stop_1.png
+SHA1-Digest: 8c9MzQ+wZtuAOhlYJqjG4E7ytnk=
+
+Name: assets/ui/xdlbao.png
+SHA1-Digest: msQbe7YrWL5JAugIQnFGTX7AntM=
+
+Name: assets/ui/zengsong_xin.png
+SHA1-Digest: dfGq3NMrlnDsXa4zPYvhMsVLqpY=
+
+Name: res/drawable-hdpi/buoy_icon_line.png
+SHA1-Digest: FDms1I3ZyzoGHEbeG/7LWqurm1g=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: pUXzoj7p5avZj7JmkQjU5TkvzjM=
+
+Name: res/drawable-hdpi/gc_icon_5.png
+SHA1-Digest: CEXi6LuKnHuL/rrIMF9aqHgoSJc=
+
+Name: res/drawable-xhdpi/buoy_icon_line.png
+SHA1-Digest: plIX6PqdKJUn14990UhhKGt7NSk=
+
+Name: assets/ui/biaotou5.png
+SHA1-Digest: X3a5nORFgFbqIfWx3hThweGkQl4=
+
+Name: assets/unipaysdk_res/unicom_btn_close.png
+SHA1-Digest: Y1NCIvniMa3P6Gx3lfG2nOY554Y=
+
+Name: assets/image/praise8.png
+SHA1-Digest: SWs0KmyDGMP7bOZAqM5FyoYL09g=
+
+Name: assets/ui/Button_Stop_2.png
+SHA1-Digest: zRJiI+I53R08NgefIByWD4g5nxI=
+
+Name: assets/sound/ptarget.ogg
+SHA1-Digest: 9hOLtAlLntZ67AweCooQAWCu3CQ=
+
+Name: assets/image/emailIcon_kingDraw.png
+SHA1-Digest: S0tlNF7karyMA8sUm6xrcsd/+oc=
+
+Name: assets/ui/1fqlb.png
+SHA1-Digest: q67X49gD2JWXdEG/tvAW4NMOXdk=
+
+Name: assets/libmg20p_03.08.03_01.so
+SHA1-Digest: EvaZTs/AwwHmVj7gBWItfLCvJUE=
+
+Name: assets/star/popstar.png
+SHA1-Digest: DkQOLI7xVzOSMzMYWFEVblQSi6g=
+
+Name: assets/armature/poptile/AniFrame020.png
+SHA1-Digest: wFtUgB8Reile6iN5Ucto7FL/+U4=
+
+Name: res/drawable-hdpi/gc_and_icon.png
+SHA1-Digest: HiaTCedCjMIa/8/VOIWgQVx65DA=
+
+Name: res/drawable-hdpi/ql_checkbox_btn_selector.xml
+SHA1-Digest: 50cBkOHSKWiNuEKBbwFpE4xB1E0=
+
+Name: assets/particle/pop_star1102.plist
+SHA1-Digest: CWm7gV6jXXdm5ARDEJzmra8/mQA=
+
+Name: res/drawable-xhdpi/ql_close.png
+SHA1-Digest: cnm7CyeW3Nc/pkrIOhPodcI21hg=
+
+Name: assets/armature/poptile/AniFrame04.ExportJson
+SHA1-Digest: GkUggYHKfgtbay/RUjeclAft9CA=
+
+Name: assets/image/ka003.png
+SHA1-Digest: lojVHy66sImhUQhB3zdBhlY743k=
+
+Name: assets/image/11zt.png
+SHA1-Digest: nxWcfRiRdXU5mQaDd3PHzyulLHQ=
+
+Name: res/drawable-hdpi/buoy_dialog_backgroud.9.png
+SHA1-Digest: aPckXu6I0oJTYWSAZjtHEM6uLEU=
+
+Name: assets/ui/jinbijiekou.png
+SHA1-Digest: X6bxhshE7c9mxgW4Nqzuww/TVlg=
+
+Name: res/drawable-hdpi/xh_ic_add_press.png
+SHA1-Digest: sokPjitscLQROnSzxZXWe4WRYOA=
+
+Name: res/drawable-hdpi/ql_bg_enter_press.9.png
+SHA1-Digest: pkGiHKwizrNKUQaPNv2Ua7ZHZ38=
+
+Name: assets/unipaysdk_res/month_vip_icon.png
+SHA1-Digest: VF7stYn+ZqL27D2aTPcK3qH2pNY=
+
+Name: res/drawable-hdpi/ql_text_click_selector.xml
+SHA1-Digest: tGnSOuDVzXhP3zYhzKXQeJ5CWi0=
+
+Name: assets/ui/popstar_continue.png
+SHA1-Digest: IuknwyJt7O2IyYHistc3JEJ/ocM=
+
+Name: assets/ui/biaotou1.png
+SHA1-Digest: FuHeXnzMMJmVRMTCwsinqe5Gnd8=
+
+Name: res/drawable-hdpi/gc_icon_0.png
+SHA1-Digest: fsBEvqJaMv4Vd6p8V8GqjAshQTY=
+
+Name: assets/unipaysdk_res/unicom_keyboard_clear.png
+SHA1-Digest: pflHNUmEAzNsqkGAKZGylFMNQjw=
+
+Name: assets/ui/Sign_Money_50x49.png
+SHA1-Digest: ZWWuJ8g01kaAVTP0+fpOLdMOFbs=
+
+Name: assets/image/btn_name_buy_9.00.png
+SHA1-Digest: SObV22V2izXlRQlseMm9n5fNsvA=
+
+Name: res/drawable-hdpi/xh_09.png
+SHA1-Digest: LpTwe3FQK/+LaulzKsspNTOHCVM=
+
+Name: assets/image/select_box.png
+SHA1-Digest: +qHfN5l8cHX1enanuAR2cKIL6y4=
+
+Name: assets/ui/levelreward_prop.jpg
+SHA1-Digest: BfYj4uvAzqwcgtHHeWwthFiXgyo=
+
+Name: assets/armature/poptile/AniFrame02.ExportJson
+SHA1-Digest: LulEBo2CMFDLTZmpYJbwN/lQga8=
+
+Name: assets/feeInfo.dat
+SHA1-Digest: ER15xcLrMejLxhTz7Yk5uiSv25Y=
+
+Name: assets/ui/PanelReward.json
+SHA1-Digest: iCzAHN3/xghs5/gMxQBsU54+mmo=
+
+Name: assets/mmiap/03/vertical/failresultdialog.xml
+SHA1-Digest: aXq2gupqJDBHFlVokg4EwkW/VUA=
+
+Name: assets/ui/tishi1.png
+SHA1-Digest: 6B9qKbwMQznolyBP4ZXkoHp38vE=
+
+Name: res/drawable-xhdpi/icon.png
+SHA1-Digest: zRmJDtq9TbgQWNomeyzJ4rdqpJc=
+
+Name: assets/unipaysdk_res/unicom_boxbg.png
+SHA1-Digest: K89ibvnzMc27Qtk36bTC4UzaVFQ=
+
+Name: assets/ui/logo_pic.png
+SHA1-Digest: QiQMtqfC4LA9NZ6vkqqqhfdi5LA=
+
+Name: assets/mmiap/image/vertical/btn_weiview_close.png
+SHA1-Digest: JCQ6vcsDTF4r9nflefe+TK4K0VA=
+
+Name: assets/mmiap/02/horizontal/savingdialog.xml
+SHA1-Digest: 22loBftLvhGsE9ka14VkXMykY2E=
+
+Name: res/layout/quick_login_launcher.xml
+SHA1-Digest: F0X/iguyyzo/XvBffArauIPJyu0=
+
+Name: assets/ui/star_sound.png
+SHA1-Digest: l4046Xk83IZaU8OpTZnZp5YRbeA=
+
+Name: res/drawable-xhdpi/xh_radio_button_off.png
+SHA1-Digest: gr+vwLa+AGLpqRqMCSSmIzLzH9g=
+
+Name: assets/ui/JLqd.png
+SHA1-Digest: fvMZrIRqpUbYkRz0przxE03bMcc=
+
+Name: assets/mmiap/02/vertical/failresultdialog.xml
+SHA1-Digest: 5OeJjNpYLGZH2HRdnhucbUhrYYo=
+
+Name: res/drawable/buoy_game_selector.xml
+SHA1-Digest: BqbQthGP5jISXCKaLfDCTIaIw44=
+
+Name: assets/image/poptile/Bg_PanelPause.png
+SHA1-Digest: lesDmXNSndl2esg3LvyhMD98afY=
+
+Name: assets/image/tupian3-1.png
+SHA1-Digest: wb/4BuGDXQFDTTy0oN1N5YBHP+A=
+
+Name: res/layout/buoy_icon_tab.xml
+SHA1-Digest: Aj8riShbFGk5xEYrTMcLK+KoDO8=
+
+Name: assets/sound/poptile/Eff_Crash.ogg
+SHA1-Digest: rCZWUxbDhhleftl67d3ggjVBqJw=
+
+Name: assets/html/images/new_icon28_320_480.gif
+SHA1-Digest: jG5rOdtzukPTPuHSzt8nH0aVIcs=
+
+Name: res/drawable-hdpi/buoy_icon_press.png
+SHA1-Digest: sBmuDB9oYcFObLxc05wJVDa5cB0=
+
+Name: res/drawable-hdpi/ql_button_bg.xml
+SHA1-Digest: L6AbsX49xUiCUQqqiIqgMA6GdxI=
+
+Name: assets/ui/PoptilePanelHelp.json
+SHA1-Digest: nqA/ZwJaLZbr/A8K+XTVx7EMf8k=
+
+Name: assets/image/short_message_0.png
+SHA1-Digest: yHmeriSWGuxK3Xp0ETijSDjj9oE=
+
+Name: assets/json/sound.json
+SHA1-Digest: vo6Hr5go7CUYwZU/UX/XhpKeFeU=
+
+Name: assets/unipaysdk_res/accountsdk_2_green_radio.png
+SHA1-Digest: j5Cmvl9Y//tLSyyrOhOEorqbEz0=
+
+Name: assets/mmiap/01/logo1.png
+SHA1-Digest: ZTOcCOqg449YclvzglphWD1NSR8=
+
+Name: res/layout/xh_progress_dialog.xml
+SHA1-Digest: tbgkalWGjzkFFMw7NQxvyJ5ph0Y=
+
+Name: res/drawable-xhdpi/buoy_btn_press.9.png
+SHA1-Digest: F1rLZnjOZ5BTmqOjZOKxJO/ZOjY=
+
+Name: assets/ui/menu_btn.png
+SHA1-Digest: RP25a4CF0mPYj5CISD4FcuYEXcE=
+
+Name: res/drawable-hdpi/buoy_icon_record.png
+SHA1-Digest: 6r85GYKXC/WeitrPIkp9vyFS2kY=
+
+Name: res/drawable-hdpi/xh_06.png
+SHA1-Digest: 22+Ma+PqaBcYE8QulnSHDiVHbk0=
+
+Name: assets/mmiap/image/vertical/btn_smalltitle_close.png
+SHA1-Digest: vk1A9sc0iJHxlPOE5okAG4DNEOs=
+
+Name: assets/ui/lingqu1.png
+SHA1-Digest: r2EjjMJqI0+bOD0mS7Tv2PxPhEU=
+
+Name: res/drawable-xhdpi/xh_07.png
+SHA1-Digest: sHUCFIIQroKGYOEHn8lHpcSbyvQ=
+
+Name: assets/ui/title_silk_22.png
+SHA1-Digest: 4yhGC0XlO8uGk7XeX3gxaHQ26kk=
+
+Name: res/drawable-hdpi/buoy_icon_hide_left.png
+SHA1-Digest: U8Gps3nCAIefCEgO5ETupOocOCY=
+
+Name: assets/ui/tgjllb.png
+SHA1-Digest: 5JvZUWjaYqevb2I8wSag3Ln2pd4=
+
+Name: assets/ui/sound.png
+SHA1-Digest: W+TMueyjKUSXi9YtCf46qvI9Gg4=
+
+Name: assets/image/poptile/Image_Help1.png
+SHA1-Digest: h9XnatRn5kjCJ3CifuJ4BIErnqU=
+
+Name: assets/ui/9for_levelreward.png
+SHA1-Digest: XzJws09tLa+BPqt1u/lo2lqQXcw=
+
+Name: assets/image/praise12.png
+SHA1-Digest: +OZcdiu4e9U/O53jJEflwwINVUs=
+
+Name: assets/mmiap/03/icon_success.png
+SHA1-Digest: loG43GVYgeqRQiI63nV9iCASmVY=
+
+Name: res/drawable-xhdpi/ql_bg_enter.9.png
+SHA1-Digest: 0mGbRJoxKT9WZs8j2KPm+dcvgTM=
+
+Name: assets/mmiap/01/infobg.9.png
+SHA1-Digest: FwQrOBt3bKF94Eg5Gg6rZYZNbkA=
+
+Name: assets/image/short_message_9.png
+SHA1-Digest: Lx1Pb2j4AvmCnMp4Lukg/LZKA6c=
+
+Name: assets/ui/OnSale_dx.json
+SHA1-Digest: 4d41Tl9jBlnReYapqyxVch4GLrE=
+
+Name: assets/particle/cross_star.png
+SHA1-Digest: wu3s54vxarevJvpQR+phSyy6bXw=
+
+Name: assets/ui/11db.png
+SHA1-Digest: ntOVJIeASAYRpREMKXNGbQBEMvY=
+
+Name: res/drawable-xhdpi/xh_04.png
+SHA1-Digest: eQwxaEv6eC602E0+IEaLqNf7MaQ=
+
+Name: res/drawable-hdpi/xh_08.png
+SHA1-Digest: SwWJtxPmroIG1ItAA+FFJil5VnI=
+
+Name: assets/mmiap/03/infobg.9.png
+SHA1-Digest: FwQrOBt3bKF94Eg5Gg6rZYZNbkA=
+
+Name: assets/image/ka000.png
+SHA1-Digest: q3t7QEg8EhUxA2FSjKcA4D/jF4E=
+
+Name: res/drawable-xhdpi/buoy_icon_press.png
+SHA1-Digest: sBmuDB9oYcFObLxc05wJVDa5cB0=
+
+Name: assets/ui/font_xin.png
+SHA1-Digest: miuS0ET6NGcnz1UbR/cUF8iILxY=
+
+Name: assets/ui/GoldGift.json
+SHA1-Digest: G0LeL2mrLR9V/RRpklSxRnxcKFE=
+
+Name: assets/mmiap/03/infoline.png
+SHA1-Digest: RYUCPPwehYMWB3iUCJ9WRAX/dMQ=
+
+Name: assets/image/short_message_10.png
+SHA1-Digest: 8synORzXBeJWlrAQWx9xFM6WTSc=
+
+Name: assets/image/ka01.png
+SHA1-Digest: Q8SBSlDwfafOosIKA3IyhPiGisI=
+
+Name: assets/ui/huangse.png
+SHA1-Digest: aW0XIYB33yg2AFWBAhpf1jTorvQ=
+
+Name: assets/ui/StarPause.json
+SHA1-Digest: y0v16A0S4dmqfXavAmEbtH7Bo5Q=
+
+Name: assets/ui/Button_huojian_0.png
+SHA1-Digest: qwsLKtQsm3Ib5HJpu4aPlOTRWx0=
+
+Name: assets/ui/an_cj.png
+SHA1-Digest: iSx5xhAJpSnKn/IKVHT8ImNcKoY=
+
+Name: assets/html/images/new_icon31_320_480.gif
+SHA1-Digest: 4nOgASest96+d9X67uVGm0hOXSY=
+
+Name: assets/unipaysdk_res/triangle_up.png
+SHA1-Digest: keiF2L+aqWANuOaWwVdxXzyEksA=
+
+Name: assets/image/tupian4-1.png
+SHA1-Digest: b4RwenYJDbHrI+lGe8i3B2l+cbE=
+
+Name: res/drawable-hdpi/buoy_svid_button_bg.9.png
+SHA1-Digest: ERobYMMU8BKO4Iu1wSpZjweB3uw=
+
+Name: assets/ui/shouji02.png
+SHA1-Digest: 4mT3QKD2jOJVLrbwC/dTpMAeHXM=
+
+Name: assets/ui/zif.png
+SHA1-Digest: J6lmFvqYR3Lq49of7gkkGVTs9wY=
+
+Name: res/drawable-hdpi/xh_btn_default_pressed_emui.9.png
+SHA1-Digest: c8Xmyx2zx1Ry0qYRGNNQLJh12zE=
+
+Name: assets/sound/pclear.ogg
+SHA1-Digest: 3gVnStS0CNOX2XW7Fo8Cd40vryI=
+
+Name: assets/ui/Sign_Page_0.png
+SHA1-Digest: UIJt8uVa6ReUXVhYL8E+1+FDvuw=
+
+Name: assets/ui/PanelGiftLotteryResult.json
+SHA1-Digest: hRXz8Sf5CIte00Ie5kPtEfHODIY=
+
+Name: assets/unipaysdk_res/unicom_btn_x.png
+SHA1-Digest: NeoZCaJsUBuDLvODrDQdk7+s1iE=
+
+Name: assets/mmiap/02/btn_orange_click.9.png
+SHA1-Digest: TGN1wFSCDqS8wRRhr69kcT1kBsY=
+
+Name: assets/ui/huodong.png
+SHA1-Digest: nterzkJU2zLKh+BlSKCsnhoJKO4=
+
+Name: assets/ui/Button_Help_0.png
+SHA1-Digest: Gp42QWFZTTTSCVqV077CHpk4MP8=
+
+Name: assets/mmiap/02/icon_success.png
+SHA1-Digest: loG43GVYgeqRQiI63nV9iCASmVY=
+
+Name: assets/mmiap/02/bg.png
+SHA1-Digest: sm10r5xm5xgIXfeSVVwLtZUDo8A=
+
+Name: res/drawable-hdpi/xh_btn_default_selected_emui.9.png
+SHA1-Digest: 2qCsCwB1xawz8htYUpT4Faa0b8Q=
+
+Name: assets/image/jiazai.png
+SHA1-Digest: MzDnpXA35ThM/D7g7OZTEdHoNgA=
+
+Name: assets/mmiap/03/logo1.png
+SHA1-Digest: N+e8Mchbjb5hiFPP7/Ogjq6hDWA=
+
+Name: assets/ui/an_bz.png
+SHA1-Digest: fQRzSJkYubtr/5eYXcKzehwePjY=
+
+Name: res/drawable-hdpi/gc_icon.png
+SHA1-Digest: O4NaCK/egW8plE+8Fc0c2omuu2s=
+
+Name: res/drawable-hdpi/xh_circle_medium.png
+SHA1-Digest: fCfxk0Ts+H90wxU6nbArrCYmp/w=
+
+Name: res/drawable-hdpi/gc_animation_game.png
+SHA1-Digest: EiYZLsKYW7VXO2z4V+7ugyEvgxM=
+
+Name: res/drawable-hdpi/gc_title_exit.png
+SHA1-Digest: sXbNVIP6Fm9ZjT4XVr9jpIPnFKo=
+
+Name: assets/unipaysdk_res/unicom_btn_refresh.png
+SHA1-Digest: vbP2BhWcoa8KzXRbRTWWFZUoHj0=
+
+Name: res/drawable-hdpi/gc_share_weixinfriend.png
+SHA1-Digest: uREDWp1dPgGs4jG7cpagXPQBK1E=
+
+Name: res/drawable-hdpi/gc_online_service_logo.png
+SHA1-Digest: E68GHaR/wb/KhmZPpbe/l1VQVXM=
+
+Name: res/drawable-hdpi/gc_piccode.jpg
+SHA1-Digest: KeVM83RPxSkO1j/GzwaQpkYWsDA=
+
+Name: assets/ui/Button_Help_1.png
+SHA1-Digest: 4FGzgItEUXJuYkmrFGPVFX1WHO4=
+
+Name: assets/image/ka002.png
+SHA1-Digest: PQtyxNlsNfBzIo3KjqOgEMcc+CE=
+
+Name: assets/image/ka00.png
+SHA1-Digest: ZPSeFSvX6tl+7VTCbBu8nppqdVE=
+
+Name: assets/mmiap/03/title2_bg.png
+SHA1-Digest: at2u0fbDEzTAO0+wRjZwD7WAJJs=
+
+Name: res/drawable-hdpi/gc_title_logo.png
+SHA1-Digest: oLllzK232p5j9KIQU4otYcLXHxo=
+
+Name: assets/ui/zhong2.png
+SHA1-Digest: VKFfdxL2GcXa3fCbWn7X9sHu1s0=
+
+Name: assets/ui/goumaijinbi.jpg
+SHA1-Digest: MJoBAM2LLzLpRBwWftGXEZy7iuk=
+
+Name: assets/image/ka005.png
+SHA1-Digest: yRI8eM5J9apfPejZdnjN7J4R8AY=
+
+Name: assets/ui/x360.png
+SHA1-Digest: ZAB0bNdqGapgXFMr8X4yNYFSn1M=
+
+Name: assets/unipaysdk_res/triangle_down.png
+SHA1-Digest: kQsHcSUl06Kc7f6LNboVYeOyhAM=
+
+Name: res/drawable-hdpi/ql_use_press.9.png
+SHA1-Digest: XyXx0WJxk1ad0XcPYOknE14HxXs=
+
+Name: assets/ui/PanelVIPGift.json
+SHA1-Digest: cjA0t/6DoZ3+8sqk/GuCksO3nA0=
+
+Name: assets/ui/anniu1.png
+SHA1-Digest: 0b3YaeY4Sbu3Q9V8o0LXlU2nlCI=
+
+Name: assets/ui/revive_free_bg2.png
+SHA1-Digest: J0jl2dmLqC591w1uMpbRIxbsa7k=
+
+Name: assets/mmiap/02/horizontal/purchasedialog.xml
+SHA1-Digest: VRcfGLekYUNupc7Fus7Mt5HmsMA=
+
+Name: res/layout/activity_main.xml
+SHA1-Digest: h1WnXeLvhthzW0iALddbjf6FLGM=
+
+Name: assets/image/btn_name_huode_green.png
+SHA1-Digest: Bx32eCgdcecySqf0JFixOzX7OoU=
+
+Name: res/drawable-hdpi/buoy_big_bg.9.png
+SHA1-Digest: 5Z9pqdwIlJNganPVJ42fs7j5n7g=
+
+Name: assets/ui/greyback.json
+SHA1-Digest: xWWu+Peof8YcSLfuc5quDb3k5gg=
+
+Name: assets/ui/rankitem_common_2.png
+SHA1-Digest: 9U1kWPpif6la8/3/6/cA92SkFlY=
+
+Name: res/drawable-hdpi/gc_recommend_flow_third.png
+SHA1-Digest: psgoOq5Z0tR/NS0bbB9XMOnO0Co=
+
+Name: assets/armature/laohuji.ExportJson
+SHA1-Digest: mgykfUsXDl/6Ubn2YSGXsJNJUvs=
+
+Name: assets/ui/faild_Get_Net.png
+SHA1-Digest: JKtIPc1OlrrkcI8lAnO+hpwtQrs=
+
+Name: assets/unipaysdk_res/accountsdk_2_float_btn_activity.png
+SHA1-Digest: JyIRirn7xjj0gTjM/iKfh/A4FTI=
+
+Name: assets/particle/pop_star1000.plist
+SHA1-Digest: zLyNtVMSYbTWJCItQTMEYxXXQRw=
+
+Name: assets/image/poptile/Bg_Matrix_6_Line0.png
+SHA1-Digest: xaRGXgXRMvVM9DyGpgZBs+EmLFA=
+
+Name: assets/ui/xiaozuanshi.png
+SHA1-Digest: fjrlOwV+Cdw3CVfwHISkcWbxH8M=
+
+Name: res/drawable-hdpi/buoy_red_dot.png
+SHA1-Digest: wfclKWZZvthtPh4JzCjmk0rihDc=
+
+Name: res/drawable-hdpi/gc_arrow_big.png
+SHA1-Digest: WujsSMHMaBKMh8pe2LNadSlwqAM=
+
+Name: assets/ui/Button_Close.png
+SHA1-Digest: 9J4QpVjo2UGTYrdZisJUb/8tuq8=
+
+Name: assets/unipaysdk_res/unicom_wobi.png
+SHA1-Digest: JmYPpsVHFwmROabRxRwydf4nuao=
+
+Name: assets/ui/guanbi.png
+SHA1-Digest: 2dzSX5vdgILREeIdc2n4dwEY4Go=
+
+Name: assets/armature/sk_guide.ExportJson
+SHA1-Digest: dG8tKJNGzoFGjWqYQpk2g4GaI6w=
+
+Name: res/drawable-hdpi/buoy_icon_hide_right.png
+SHA1-Digest: 7y0OUiHf3S1PdSj1e6e3XN+6tco=
+
+Name: assets/ui/mejpdb.png
+SHA1-Digest: JEZBjmGcFebsi8eB+PpJ20tNqzU=
+
+Name: res/drawable-xhdpi/xh_radio_button_on.png
+SHA1-Digest: 2nBXyS56vUG5Lbl86zDuKxhkS1E=
+
+Name: assets/ui/blue.png
+SHA1-Digest: AAuQhlIz1/tfOHs8l3YFTscoEuU=
+
+Name: assets/mg20dss.dat
+SHA1-Digest: Vf8yqXxL+t6oPSg+AOXP4Jsj8Xc=
+
+Name: res/drawable-hdpi/gc_exit_share.png
+SHA1-Digest: RUoXaJXB7InUDN/8QSDucXlF/a8=
+
+Name: res/drawable-xhdpi/buoy_definition_radio_off.png
+SHA1-Digest: ZFY5El91LyAEPXpIHU8XWf8GzmE=
+
+Name: assets/sound/planding.ogg
+SHA1-Digest: WWpM9zVeuTiq1bBkA8Cxfny8Y+Y=
+
+Name: assets/mmbclasses.jar
+SHA1-Digest: ZJ16v+Bjo/EuKN5U//Tv99EXzxM=
+
+Name: assets/image/btn_name_buy_29.00.png
+SHA1-Digest: VSaadH05YA0hrhfGM75sHp+zcM0=
+
+Name: res/drawable-hdpi/ql_enter_game_account.png
+SHA1-Digest: wvQWFCMfbPndB4HaNAdD9udrwrI=
+
+Name: assets/ui/lanbaoshi.png
+SHA1-Digest: 2FrI6OkhFLgAtFP6+wtDYEus5do=
+
+Name: assets/unipaysdk_res/unicom_qq.png
+SHA1-Digest: FlqkuhNb5M0oaaHXS9W3cU66hug=
+
+Name: assets/ui/Button_Line_2.png
+SHA1-Digest: qhyYQ/gIXEABsZ6jms4nMRn4M04=
+
+Name: assets/ui/Button_SoundOn_0.png
+SHA1-Digest: fSggi0vlsfqQRhdFWG5TTKc3upk=
+
+Name: res/drawable-xhdpi/ql_button_bg.xml
+SHA1-Digest: L6AbsX49xUiCUQqqiIqgMA6GdxI=
+
+Name: res/drawable-hdpi/ql_loading.png
+SHA1-Digest: 3F5g2rBcH+k78ULnbSdRZgW0juY=
+
+Name: assets/unipaysdk_res/accountsdk_2_float_btn_account_pressed.png
+SHA1-Digest: 6GdEQr34yMT3n7MdzDCohAKfa9w=
+
+Name: assets/unipaysdk_res/unicom_alipay.png
+SHA1-Digest: TJagKn/fPX4OhuGSI9Zq74Ahwmw=
+
+Name: res/drawable-xhdpi/ql_arrow_left_press.png
+SHA1-Digest: JaachQ3yF0xjmpKoCXj4PrK0T1I=
+
+Name: assets/image/short_message_1.png
+SHA1-Digest: TVZAtVvkp9LISbQeWnLXEGyVqaI=
+
+Name: assets/mmiap/02/close.png
+SHA1-Digest: hZtE2s/kg8XRB5AUfpgrVUNTBnI=
+
+Name: res/drawable-hdpi/ql_btn_check_off_holo.png
+SHA1-Digest: 954potj9jWqY41//ZhsiEzh3hTw=
+
+Name: assets/ui/zhongjian.png
+SHA1-Digest: 5tynApxcEMOVux481A4e2/dm18E=
+
+Name: assets/ui/Button_Same_1.png
+SHA1-Digest: N39LJIIDDhWZoRoQhpOkqFadV3Y=
+
+Name: assets/ui/paihangbang_jiangbei.png
+SHA1-Digest: OzL6Em3QBLQQQwoqsUhkb9F/gLU=
+
+Name: assets/ui/jiahao.png
+SHA1-Digest: v6/4sPVed+whTJiqoGuYuSgL3rA=
+
+Name: assets/mmiap/01/vertical/purchasedialog.xml
+SHA1-Digest: os9qi1Gl1TvgUotFzha4UQm8BUM=
+
+Name: res/drawable-hdpi/gc_center_gameshare.png
+SHA1-Digest: 0ePplZuzjTrgRqhDkAcEqfrwsXc=
+
+Name: assets/ui/onsale_btn.png
+SHA1-Digest: uIj6ZIr1rYsimJsmQYm11HeiYgk=
+
+Name: assets/ui/lingqu.png
+SHA1-Digest: VmvD3wcfXjV87blHdGVj1KVuS9Y=
+
+Name: assets/unipaysdk_res/loading1.png
+SHA1-Digest: rslk3IFHbTfo6d3vKBNzY6TwuR4=
+
+Name: assets/ui/PanelNoticeBoard.json
+SHA1-Digest: 6u+1ruNQWmM4chKQG2Roaw9T2Y0=
+
+Name: res/layout/ql_privacy_policy_dialog.xml
+SHA1-Digest: dXfSUL1QRAHyphADaCm6S46iRMU=
+
+Name: assets/ui/levelreward_title.png
+SHA1-Digest: Yms7gQeo80gBD6FiveMxpWmRh6o=
+
+Name: res/drawable-xhdpi/buoy_game_small_icon.png
+SHA1-Digest: 1UuD8nmI5nW+AB+Az8p/iTXJaxM=
+
+Name: res/drawable-xhdpi/buoy_definition_radio_on.png
+SHA1-Digest: +b7jcF45r5E6wrHUNrbJ115d04U=
+
+Name: assets/mmiap/01/btn_3.9.png
+SHA1-Digest: yjjKbULRoDE8GpIAFqsq/EuTz9U=
+
+Name: assets/image/tupian1-1.png
+SHA1-Digest: Sqk16kKpuG4s4X3ItcBXCjHXg4E=
+
+Name: assets/image/emailIcon_diamond.png
+SHA1-Digest: OqpcK1hqCq4hbq9yzG2RI/tKF4s=
+
+Name: assets/ui/game_prp_numbg.png
+SHA1-Digest: RKv6u3u1ljzd0ndj4SoKlHN26i8=
+
+Name: assets/mmiap/image/vertical/button1_disable.9.png
+SHA1-Digest: 8m0oD2MKpmu6C0rAH1pNmR6WjpM=
+
+Name: assets/json/entityID.json
+SHA1-Digest: FLqGItuu5pDHJSEcAdus9/x6v68=
+
+Name: assets/image/poptile/Button_Sound_0.png
+SHA1-Digest: lKC7rPLnNBQ2+I2y0jAXBDSB6hQ=
+
+Name: assets/image/poptile/Sign_ComboX.png
+SHA1-Digest: RyOA0JH8SBEV+9iQoC7w27Nh6+M=
+
+Name: assets/image/11jb.png
+SHA1-Digest: JOuiSlgrFxXu+0gjr3L6adxKhH8=
+
+Name: res/drawable-xhdpi/xh_10.png
+SHA1-Digest: B3RBGdw61xBU8FCuXp7MeIkDW48=
+
+Name: assets/ui/ka004.png
+SHA1-Digest: PPCsJ/vGsXWOoKTN22iztXXVGqM=
+
+Name: res/drawable-hdpi/ql_right.png
+SHA1-Digest: E6kTRUt1EvMZNuwTbFqtiF8k27s=
+
+Name: assets/image/short_message_2.png
+SHA1-Digest: wyeLvWRc5i6h1N4rbGIx0+4TYJE=
+
+Name: assets/ui/purple.png
+SHA1-Digest: sGiQRLA3WOMuMlp05n84qi8XCuk=
+
+Name: assets/ui/shang4.png
+SHA1-Digest: /E85iTtjdH9IscxpmkPUKCYZ/3I=
+
+Name: res/drawable-xhdpi/buoy_svid_button_bg.9.png
+SHA1-Digest: kKSpr6wBxFo17kPyKZhFWsM91Dw=
+
+Name: assets/image/11sz.png
+SHA1-Digest: mKZ7gaD5mgyYblpfSuUMgDQFjRo=
+
+Name: assets/image/poptile/Image_Help3.png
+SHA1-Digest: 0hGPYyjyXz+p0Os2pDBau9Mhu04=
+
+Name: res/drawable-hdpi/ql_textfield_disabled.9.png
+SHA1-Digest: Bo/dIAIo14s0wS+eIhAd5UosmN0=
+
+Name: assets/image/poptile/Panel_Guide4.png
+SHA1-Digest: CSsZc7fbcIdX0Kp2CEvJFUihABY=
+
+Name: assets/ui/lingquhuang.png
+SHA1-Digest: aUiZl+WXhqOF9ha4opvEpLK+hvA=
+
+Name: assets/particle/poptile/Particle_TileDebris.plist
+SHA1-Digest: pRRfCYNSSVbxkHyUa1C47Y9QrBI=
+
+Name: assets/mmiap/image/vertical/keyboard_button_delete_press.png
+SHA1-Digest: yv7satnRxZ23IwgQS1qqoJGaamE=
+
+Name: assets/ui/jixutongguan_juese.png
+SHA1-Digest: fwT5ZOmkHIG9/GJZJAKB0JRcBz4=
+
+Name: res/drawable-hdpi/ql_btn_check_off_press_holo.png
+SHA1-Digest: UkWfOrdP2Uu0E3KQ+i8lNO4NyoA=
+
+Name: res/drawable-xhdpi/ql_loading.png
+SHA1-Digest: WyhM35AO3v3F29rSl0hdgAUdeBg=
+
+Name: assets/image/front.jpg
+SHA1-Digest: ZdqlWg6dg/jACg7mD+PTS4dZMNU=
+
+Name: assets/ui/Props_Paint.png
+SHA1-Digest: wll8cP90fhpONZs0d4yxRcePR6o=
+
+Name: res/drawable-xhdpi/buoy_icon_gift.png
+SHA1-Digest: wHbpfWmDqkH7zo9whLZvE0Ze32E=
+
+Name: assets/armature/PopStar_LotteryLight.ExportJson
+SHA1-Digest: z/xRFODRzokfCK9MmzC8zfqS1bI=
+
+Name: assets/sound/pselect.ogg
+SHA1-Digest: +cJDO6DVbogtNgzgbfUvYYfI494=
+
+Name: assets/image/poptile/Bg_Matrix_6.png
+SHA1-Digest: /nFK85xUma3d5rfatuTWEY/81yI=
+
+Name: res/drawable-hdpi/gc_icon_extend.png
+SHA1-Digest: xT6UUapsihVEMYSJ679Br1EO5gs=
+
+Name: res/drawable/splogo.jpg
+SHA1-Digest: wfvigO2/ObErKGl8l2RO6kbzG8k=
+
+Name: res/drawable-xhdpi/ql_password_button_bg.xml
+SHA1-Digest: KajbrloAcGTKbtNPmCCfmAT0fcI=
+
+Name: res/drawable-hdpi/gc_notification_icon.png
+SHA1-Digest: +53B82q34N5hSHzbygerf690LLU=
+
+Name: assets/ui/jinbi_tiao.png
+SHA1-Digest: rJhOzaWDDuBiOpuY+fGbFoBm4v4=
+
+Name: res/drawable-xhdpi/xh_setting_perss.png
+SHA1-Digest: atLnb1gsw86FvX17/A7R10jrA2c=
+
+Name: assets/feeInfoV2.dat
+SHA1-Digest: domuc8LXTUKjygtAihziJbgVRTE=
+
+Name: res/drawable-hdpi/ql_huawei_logo.png
+SHA1-Digest: 5yM3oLFgQoOR+Szi2B+a7a7sT1o=
+
+Name: res/color/ql_button_text_color.xml
+SHA1-Digest: 7tO4FDPUp7jEkusOkLMP6lxdgQM=
+
+Name: assets/unipaysdk_res/accountsdk_2_icon_fail.png
+SHA1-Digest: rRGC3G1puY1wxlQIkMdccYDH8VA=
+
+Name: assets/mmiap/image/vertical/checkbox_uncheck.png
+SHA1-Digest: hpD/XsVQpms83lUsWmEeiG1Lllo=
+
+Name: res/drawable-hdpi/gc_icon_1.png
+SHA1-Digest: HiaTCedCjMIa/8/VOIWgQVx65DA=
+
+Name: assets/unipaysdk_res/unicom_gift.png
+SHA1-Digest: W5VDWTRV075Nl2WotnlD629gtoo=
+
+Name: assets/image/poptile/Bg_Matrix_4.png
+SHA1-Digest: vFnQABVAfDytmRXWd06UzS+Pw94=
+
+Name: assets/mmiap/image/vertical/right_arrow.png
+SHA1-Digest: JNGtCNh063JKm/ANWkaXBbkNoso=
+
+Name: assets/ui/lijihuode.png
+SHA1-Digest: 08sAX8ZkRORXJzRbDr37kpXEEoY=
+
+Name: assets/unipaysdk_res/unicom_btn_back.png
+SHA1-Digest: aa2ssB2xlmxaf2BBbN7GwYjygmo=
+
+Name: assets/edfile/x86/libmiguED.so
+SHA1-Digest: W+C6Yxhe8DiGwN/YK5VctumU4cs=
+
+Name: res/drawable-xhdpi/buoy_definition_radio_on_pressed.png
+SHA1-Digest: TNsNoa/YUgJ8G27N/zW8n4VJyO8=
+
+Name: assets/ui/menu_bg.png
+SHA1-Digest: qp7XEN2HI5+t0Jt36c9RGu91Veo=
+
+Name: res/drawable-xhdpi/xh_ic_add.png
+SHA1-Digest: L9Tzo/Dw6qbI63lu8aV9UywjPZ0=
+
+Name: res/drawable-hdpi/ql_textfield_default.9.png
+SHA1-Digest: V0Fg+nm23g5LkE59hxlDwzksa84=
+
+Name: assets/image/btn_name_buy_green.png
+SHA1-Digest: 0zinRLREbzM8UJqARavRgEfqpT0=
+
+Name: res/drawable-hdpi/xh_10.png
+SHA1-Digest: BhR4MbEzMNOyGa5b+sa8dougmV0=
+
+Name: assets/ui/xiaoxinxin.png
+SHA1-Digest: l16zwQ73AWCQw9UxxR8tP0C/eFA=
+
+Name: assets/ui/rankitem_owner_1.png
+SHA1-Digest: sN+lj4Bu6QkaC+7E3zMS77V2uqs=
+
+Name: assets/ui/Bg_Matrix_4_Line0.png
+SHA1-Digest: ACh2i3n7jwiiu5FBCpnFUrXNsco=
+
+Name: assets/ui/Button_Home_1.png
+SHA1-Digest: tISHc+t7is53ZP7EY87O9hK2qaE=
+
+Name: assets/mmiap/03/vertical/sucresultdialog.xml
+SHA1-Digest: i+zbLmWTjw82Q6WEqNl2FJARLQU=
+
+Name: res/layout/buoy_top_async_login.xml
+SHA1-Digest: 6LU87exQufXbWRT+kIIJgQRI7G4=
+
+Name: assets/image/short_message_14.png
+SHA1-Digest: 2YzyjcWlIbbVnobX93vO88cbzkQ=
+
+Name: assets/ui/StarShop.json
+SHA1-Digest: wN/7hkDDz0mx8J4gMVVElVVu+aI=
+
+Name: assets/mmiap/02/btn_orange.9.png
+SHA1-Digest: MYWOFAW4JmsHykvnqlWQk9QNsZ8=
+
+Name: res/drawable-hdpi/gc_common_problem_search.png
+SHA1-Digest: lwIPKgxcVOsudWDnHJ7yxEHxBJQ=
+
+Name: assets/ui/zhong5.png
+SHA1-Digest: nUXabWDPhchq9/wX8AsxxjeuaZE=
+
+Name: assets/ui/jpdb01.png
+SHA1-Digest: nKAF/6CyF8gXEXLvDpEeAECRAy8=
+
+Name: lib/armeabi/libumc-auth.so
+SHA1-Digest: ZD7+y8scLirxAJBBxUKFH/ilMnM=
+
+Name: res/drawable/buoy_probar_style.xml
+SHA1-Digest: HoqdyVGrTetJj8byZgfc5vChOqY=
+
+Name: assets/ui/ImageFree.png
+SHA1-Digest: UWk+vthfdtcO+1DFkemH16R0I44=
+
+Name: assets/image/poptile/Sign_Page_1.png
+SHA1-Digest: jYJHzCLvjoKd8MT/NYwUaZ+VD1I=
+
+Name: res/drawable-hdpi/gc_member_green.png
+SHA1-Digest: Cy00ZHjfewFCIAl+bBRYDb/liDM=
+
+Name: assets/ui/PanelGiftLotreryRule.json
+SHA1-Digest: jIJ4lWze4VK2QL+OvouR0aYCEcY=
+
+Name: assets/ui/5y.png
+SHA1-Digest: 4yAcwJGvVXtjImEkP36TQMrFLKM=
+
+Name: assets/mmiap/03/icon_info.png
+SHA1-Digest: Tzxt0fKmD3jerOCKPnUUJCGeoC8=
+
+Name: assets/ui/Jx.png
+SHA1-Digest: 8s/ZgwK5BCxH8GrfPuBGCj0wFzE=
+
+Name: assets/unipaysdk_res/unicom_back.png
+SHA1-Digest: wzdX4WLPJFbBj7XVR2yL4g+S74k=
+
+Name: assets/mmiap/image/vertical/splash_h.jpg
+SHA1-Digest: pQTNLInmQuMvaWhiYODWLql56GU=
+
+Name: res/drawable-xhdpi/buoy_dialog_backgroud.9.png
+SHA1-Digest: aPckXu6I0oJTYWSAZjtHEM6uLEU=
+
+Name: assets/unipaysdk_res/accountsdk_2_portrait_default.png
+SHA1-Digest: RNTf0DdszczRJmbUAxYkPSJ8Flc=
+
+Name: assets/json/cpa_buycoin.json
+SHA1-Digest: cbw0FKmFnGbsEMwp7DyAGVtuGXU=
+
+Name: res/drawable-hdpi/buoy_svid_status_red.png
+SHA1-Digest: tfh5SCxaYwOv3Aa64FUrnfYaXFM=
+
+Name: assets/ui/onsale_1_btn.png
+SHA1-Digest: FvKHNQcCM+Yf42mkqqB9zbUvErs=
+
+Name: assets/ui/Button_Line_1.png
+SHA1-Digest: duEqLMR+bMif4yfUs0y8ACzAcnc=
+
+Name: assets/ui/set_back.png
+SHA1-Digest: hiXexGKZEuz9LETJsXx/QoOShrk=
+
+Name: assets/ui/cjdb01.png
+SHA1-Digest: sPXTFwscuqJ3y/Ix5SvFgQDxJdE=
+
+Name: assets/ui/ljcz03.png
+SHA1-Digest: coW0SrFQKTTF34kEVXglZhB0ivM=
+
+Name: assets/mmiap/01/horizontal/progressdialog.xml
+SHA1-Digest: 8oZzte+lGCWU1P9EsJic9E7F8WM=
+
+Name: assets/ui/x60.png
+SHA1-Digest: h62CPmN9P78Uopp2dInZIx9Gm3U=
+
+Name: assets/ui/qipao.png
+SHA1-Digest: 5mUTqqDgfSVMaDPeEQgBZPziD/A=
+
+Name: assets/ui/Jjlfl.png
+SHA1-Digest: gpLgZNNanVt6I9ObaMW4Ipgtz8Y=
+
+Name: res/layout/xh_switch_edit_dialog.xml
+SHA1-Digest: SS/wicb4Hb0gxPPmMiMfcovJbao=
+
+Name: assets/mmiap/01/horizontal/failresultdialog.xml
+SHA1-Digest: c2SrmD+fMFKUxPHnYCEbSw410PU=
+
+Name: assets/mg20irid.dat
+SHA1-Digest: g0F4swEyT4ZjHa6pzeU6xSA62nk=
+
+Name: res/drawable-hdpi/gc_startview_bg_land.jpg
+SHA1-Digest: 6WWSEIdxFwwp/qstk8gQqDLALpI=
+
+Name: res/drawable/buoy_dialog_btn_bg.xml
+SHA1-Digest: hKsd5xmiXH41+S93QII3N9K+XH4=
+
+Name: assets/mmiap/image/vertical/icon_false.gif
+SHA1-Digest: QJUchWVIgEv3GjWyNk4Svz+i/Ms=
+
+Name: assets/image/poptile/Button_SoundOff_1.png
+SHA1-Digest: lKC7rPLnNBQ2+I2y0jAXBDSB6hQ=
+
+Name: assets/ui/Button_SoundOff_0.png
+SHA1-Digest: QH7SZOd8crnGbUjiTyuAQ9WOc74=
+
+Name: assets/unipaysdk_res/default_banner.png
+SHA1-Digest: +0affllQx9cHmcTcMuA3E+f0YzM=
+
+Name: assets/mmiap/03/button1_confirm.9.png
+SHA1-Digest: 4R7Eld1CWay8DOJmOL2lNUDttNo=
+
+Name: assets/ui/XSqiesz.png
+SHA1-Digest: lwblFjsVUUxnFarCqLJgrG9wBDs=
+
+Name: res/drawable-xhdpi/buoy_icon_infor.png
+SHA1-Digest: Fb/P5+Tv45rMKzBRUbEp2ukz5MM=
+
+Name: assets/ui/duanxinzhifu-1.png
+SHA1-Digest: 7d6t6BhUMRYHUNzIQi/XCYXeszQ=
+
+Name: res/drawable-xhdpi/ql_btn_check_off_pressed_emui.png
+SHA1-Digest: X3doQqGMjpV7NOlus8ljKZuOs1Y=
+
+Name: assets/mmiap/image/vertical/editbg_a.9.png
+SHA1-Digest: QGXMb8LjWODylPkVZ1y373junbM=
+
+Name: assets/mmiap/03/bg.png
+SHA1-Digest: sm10r5xm5xgIXfeSVVwLtZUDo8A=
+
+Name: assets/ui/choujiangjieguo03.png
+SHA1-Digest: tJoxlRbskmWHvckdIBY9TqOhDjU=
+
+Name: res/layout/xh_create_modify_dialog.xml
+SHA1-Digest: wHlrVB10R4CBXGGJbFiR72/TtA4=
+
+Name: assets/html/images/new_404tp_320_480.gif
+SHA1-Digest: svcMUAcKEitBvS0n1cwBr6wQx74=
+
+Name: assets/image/poptile/Button_Sound_1.png
+SHA1-Digest: idEHurAyhYIvRa8Ju9h8P0u7IdY=
+
+Name: res/layout/view.xml
+SHA1-Digest: b2oaXuocx8/un2MzH7cDJ65pXsE=
+
+Name: assets/ui/set_3.png
+SHA1-Digest: A8tMzQth7xpXcMYIqIaAd/AOO/g=
+
+Name: res/drawable-hdpi/ql_bg_enter.9.png
+SHA1-Digest: lxH2G8woKLqpHCcChqK+sQ9ktbw=
+
+Name: assets/ui/UpLoad.json
+SHA1-Digest: d5cY3WvCuBYiis39n9U9rnX2XQI=
+
+Name: lib/armeabi/libDexHelper_mmb.so
+SHA1-Digest: h6ByZaKM1KLVh5q1JsF+tjt/nTE=
+
+Name: res/drawable-hdpi/ql_quick_login_button.xml
+SHA1-Digest: Jo1rLWpAM+BfKwlh94gik5Mt244=
+
+Name: assets/json/word.json
+SHA1-Digest: iyhTEDimjwxTzbdoKasuKyiog3Y=
+
+Name: assets/image/poptile/Button_Continue_0.png
+SHA1-Digest: 4R0CGt1Mvfv3hdCGJYTal3QMMYA=
+
+Name: assets/mmiap/image/vertical/line.png
+SHA1-Digest: JfevbgnxsUG+NrGALeC/D+Dqr5I=
+
+Name: res/drawable-hdpi/gc_recommend_flow_one.png
+SHA1-Digest: ODsburFDvpH4jYRF4gitl+VhH3k=
+
+Name: assets/image/rainbow_bg.png
+SHA1-Digest: ODxoECf2KNlaOKfaSf7XEs2bcng=
+
+Name: assets/mmiap/image/vertical/icon_info.gif
+SHA1-Digest: fmI+/YbNZdIsN0WvSG+lm5zh7ig=
+
+Name: assets/image/btn_name_buy_1j.png
+SHA1-Digest: renJbYwa6+3C+e/dDKWVyBh5fDo=
+
+Name: res/drawable-xhdpi/buoy_svid_status_red.png
+SHA1-Digest: p0esf4erD1QE0TEZipUfXQaON/4=
+
+Name: assets/ui/ljcz01.png
+SHA1-Digest: RYfAkjto+HqPkfRHjHZjocaK/wQ=
+
+Name: assets/ui/Jlq.png
+SHA1-Digest: QQZLZo+B7pX932gTXhb3N7AmXeg=
+
+Name: res/drawable-hdpi/ql_arrow_left_press.png
+SHA1-Digest: FH0yPHeZgcKNL20IHyyKHff2Cpg=
+
+Name: assets/ui/Bg_PanelPause.png
+SHA1-Digest: WMQqzpJYx5H+FqH3qzQF2EP/7y8=
+
+Name: res/drawable/buoy_definition_dialog_btn_selector.xml
+SHA1-Digest: Ra7rGp5K2seyd3cexh2McYJAEwE=
+
+Name: assets/image/poptile/Button_SoundOn_1.png
+SHA1-Digest: idEHurAyhYIvRa8Ju9h8P0u7IdY=
+
+Name: res/drawable-hdpi/ql_ic_launcher.png
+SHA1-Digest: 70ZcHWiCJYTnxGhyPPaq8enF8XQ=
+
+Name: assets/ui/shouji01.png
+SHA1-Digest: 8yhKOzuCD/gT+9ryqvExtxlArCY=
+
+Name: res/drawable-xhdpi/buoy_default_pic.png
+SHA1-Digest: PpvwZ10Z0wZItCp7k/LdWwL/mc4=
+
+Name: assets/ui/rankitem_common_1.png
+SHA1-Digest: plZcrisd4ZjhmhWsXiIbvq2i0Jc=
+
+Name: assets/ui/XSdk.png
+SHA1-Digest: TW99vVny0tlcbiWiXTZaOwjRIEA=
+
+Name: assets/image/poptile/Button_Home_1.png
+SHA1-Digest: Z/ZQKNzNkm3j9BydkgIU6srtkwA=
+
+Name: res/drawable-xhdpi/xh_ic_edit.png
+SHA1-Digest: 2MDzdQ2NX1qC8TXX3hkzrnn37Zc=
+
+Name: res/drawable-hdpi/gc_sound_off.png
+SHA1-Digest: Sdy65qOJLw49VycnF3LopU+NPCs=
+
+Name: res/drawable-hdpi/ql_password_button_bg.xml
+SHA1-Digest: KajbrloAcGTKbtNPmCCfmAT0fcI=
+
+Name: assets/armature/poptile/AniFrame01.ExportJson
+SHA1-Digest: qpf+foPNlA8Y0zWYe9KBC23JSO8=
+
+Name: assets/ui/Bg_Matrix_4.png
+SHA1-Digest: VKGM3+ThF/yskkFD0br8lBStaVs=
+
+Name: assets/ui/email_receive.json
+SHA1-Digest: 8koDeUM/H1mNpaF0S3kJcR998ac=
+
+Name: assets/mmiap/image/vertical/keyboard_button_delete.png
+SHA1-Digest: lBQG2fICgpQKnUWaoBv8e6tpXOI=
+
+Name: assets/armature/ele_JiangLi.ExportJson
+SHA1-Digest: eh8vMKqiONTGFe+WAK3fu2b5Ihc=
+
+Name: assets/ui/PanelSuperBoomGift.json
+SHA1-Digest: t+Ptlnl0sQClpeZxOqRtxDHee1Y=
+
+Name: assets/ui/LevelReward.json
+SHA1-Digest: 61ODcAH4lGOL8nVgvVXfx9JQ8GE=
+
+Name: assets/mmiap/image/vertical/keyboard_button_hide.png
+SHA1-Digest: EvSCNXnU8uRq4EiTbNUb0TzJYBA=
+
+Name: assets/mmiap/02/line.png
+SHA1-Digest: JfevbgnxsUG+NrGALeC/D+Dqr5I=
+
+Name: res/drawable-hdpi/ql_close.png
+SHA1-Digest: P77jB7fs378uvMZIvTHyq0dCMFQ=
+
+Name: assets/ui/ButtonYellowBig.png
+SHA1-Digest: CQqFCRkbm5RMhLVGU4WNLNrWkXY=
+
+Name: assets/image/zengss_unicom.png
+SHA1-Digest: 8VGV20TgmcyqnloOSBi4g95zZxM=
+
+Name: assets/ui/rankitem_owner_2.png
+SHA1-Digest: FfY/N3KmiWmQ37p8Jct+L8gNw2g=
+
+Name: assets/mmiap/02/btn_gray_click.9.png
+SHA1-Digest: R9YV0rlndTVz3NZQkB6cg8ZRkBc=
+
+Name: res/drawable-xhdpi/buyo_window_close.png
+SHA1-Digest: qwjftmSmjExqpuYqlu1yMzqmLZM=
+
+Name: assets/ui/PanelJinLinGift.json
+SHA1-Digest: EiwmtqWwicWuqYdaaQ31hRVKsNY=
+
+Name: lib/armeabi/libcocos2dcpp.so
+SHA1-Digest: V3ujVt7oC0MdJ591aEw0Kbw7BAs=
+
+Name: assets/unipaysdk_res/unicom_progress_3.png
+SHA1-Digest: tFzCATNt6ZH/X+cQcddNsJgmCZI=
+
+Name: assets/image/tupian6-1.png
+SHA1-Digest: jvp55Bq0pz92k49LAdZ2ooCgkcg=
+
+Name: assets/unipaysdk_res/accountsdk_2_checkbox_set.png
+SHA1-Digest: 4johkHrr1h2NSjKeedpKTkb/7y0=
+
+Name: res/drawable-hdpi/buoy_btn_press.9.png
+SHA1-Digest: F1rLZnjOZ5BTmqOjZOKxJO/ZOjY=
+
+Name: assets/mmiap/01/icon_success.png
+SHA1-Digest: sOe+Qt82WgUDTrKObG2VpVkJzoA=
+
+Name: assets/ui/short_message_15.png
+SHA1-Digest: wrV9JLPXOE5eEuKSX6K3jiqJifw=
+
+Name: assets/ui/connected_not.png
+SHA1-Digest: 50Vh6Z4f2Fsu2/Xqy9Id4nLrixg=
+
+Name: com/androidquery/util/web_image.html
+SHA1-Digest: 3eKKUj5K0CPLrWYfkSGL2mXJ2dk=
+
+Name: res/drawable-hdpi/gc_center_edit.png
+SHA1-Digest: WQtn6ekMWKBycDTEtOXpWHwQa7Y=
+
+Name: assets/ui/QRszts.png
+SHA1-Digest: dYcOS2d5YgrLTxVcaLlxQCQE1oo=
+
+Name: assets/image/onsale_btn_buy.png
+SHA1-Digest: 0zinRLREbzM8UJqARavRgEfqpT0=
+
+Name: res/layout/buoy_webpage_fragment.xml
+SHA1-Digest: EkDknCCpV+BOCJ5cIRywr5EVWPo=
+
+Name: assets/ui/an_ye.png
+SHA1-Digest: nRzDiCuyAd6QTVtQQzl3AbD1T5Q=
+
+Name: assets/mmiap/03/horizontal/savingdialog.xml
+SHA1-Digest: Zfyq+GKJhU0c8bVrd+5TK91Fz9Y=
+
+Name: assets/ui/XSzi2.png
+SHA1-Digest: QMefvLNZB8F2kzKHMl/EvG6tyuY=
+
+Name: assets/ui/Loading.json
+SHA1-Digest: 61EPLRERosLPL+43h3luaVambfI=
+
+Name: assets/image/ka07.png
+SHA1-Digest: kG2aabyQ7/6sQG/SoXFVrRj002k=
+
+Name: assets/ui/XSqiezi2.png
+SHA1-Digest: CnuX2ghmUKVl6kwGfAMqNoDXh0k=
+
+Name: res/drawable-hdpi/gc_share_sina.png
+SHA1-Digest: oZLDz/oeszo2UfL3idAMBfpLLBI=
+
+Name: assets/armature/ele_JiangLibox.ExportJson
+SHA1-Digest: /utRRrbvc9aSkAwgLKRhb2xmiU0=
+
+Name: assets/image/short_message_15.png
+SHA1-Digest: bNVTltYQ9IqGLUaKzM6SUrUzM1c=
+
+Name: assets/ui/j3.png
+SHA1-Digest: qRChl8zSRuZf9ADTfnkVhakNvzM=
+
+Name: assets/ui/btn_email.png
+SHA1-Digest: VNM1COvyusS/Q/m6vcXnJB/06fI=
+
+Name: assets/ui/UpdatePackage.json
+SHA1-Digest: cBCkDhJOx7OCZnVipvLioXXmodI=
+
+Name: assets/ui/XSzi1.png
+SHA1-Digest: tfYIHHSrM+CClgBTI4CJaofBK/A=
+
+Name: assets/image/tiaoxin.png
+SHA1-Digest: kGGJ9Mycf8BGoiLD6rdPNMr21j4=
+
+Name: res/drawable-hdpi/ql_loading_2.png
+SHA1-Digest: cag64UV9ML4LSmdGYaM7GKvGtiA=
+
+Name: res/layout/logo.xml
+SHA1-Digest: Ax2N66wSP+woPSNwmOGvugxY/j4=
+
+Name: res/drawable-xhdpi/xh_05.png
+SHA1-Digest: MEYfdcpe3EMGgdk5ASrIUxsnciU=
+
+Name: res/drawable-hdpi/gc_share_sms.png
+SHA1-Digest: P3VVN9UcG2QAYVgjUd5MhVAYVS8=
+
+Name: res/drawable-xhdpi/buoy_game_icon.png
+SHA1-Digest: Imy2DywPqyC24i7d2fKmWMygsrc=
+
+Name: assets/image/poptile/Button_SoundOff_0.png
+SHA1-Digest: lKC7rPLnNBQ2+I2y0jAXBDSB6hQ=
+
+Name: assets/ui/XSt1.png
+SHA1-Digest: BT9Dw4W63BtT0O1my6aoRhlcl+w=
+
+Name: assets/edfile/armeabi/libmiguED.so
+SHA1-Digest: VzTDEBwfdWtLnKJeU9KUt4A9jyw=
+
+Name: assets/image/poptile/Bg_StageEnd.png
+SHA1-Digest: +Bgyx2FgLZEar5ZJ9wFRA7GRZqQ=
+
+Name: assets/image/poptile/Image_Help2.png
+SHA1-Digest: cJTH+rDq20BtG499u7IC0AfOvms=
+
+Name: res/drawable-hdpi/gc_padview_two_icon.png
+SHA1-Digest: Ij5a9JOLHxC9GM23pjxW5KmbB5c=
+
+Name: res/drawable-xhdpi/xh_09.png
+SHA1-Digest: Z2ZpX5od6+w+ATkMH1R63+VL17c=
+
+Name: res/drawable-xhdpi/xh_02.png
+SHA1-Digest: 3ajiBgyPXLFTvl7hfpJSt3eUSJ0=
+
+Name: assets/mmiap/01/horizontal/savingdialog.xml
+SHA1-Digest: 1gsLjRjsHZ5RgG6cBrIRu2ibZfU=
+
+Name: assets/ui/font_3.png
+SHA1-Digest: qAfOOruwb8b3i149o931woPRyi4=
+
+Name: res/drawable-hdpi/gc_center_transaction_details.png
+SHA1-Digest: i84nDtmT7mjbORJDDV4pvOEeUHA=
+
+Name: assets/sound/poptile/Eff_Warning.ogg
+SHA1-Digest: I8wIcBpn+4dmxRGwNjPiGRQ+vkI=
+
+Name: assets/ui/paihangbang.png
+SHA1-Digest: dmWiKEhHwenpNx2ISueqXRFve7g=
+
+Name: assets/image/poptile/Image_Help4.png
+SHA1-Digest: /Ul600RGEvUkT/nZQCvFdjoujz4=
+
+Name: assets/image/poptile/Text_StageEnd.png
+SHA1-Digest: cffnXydWBw31x2Sy3WEQxtMJqxg=
+
+Name: assets/json/buycoin_ol_360.json
+SHA1-Digest: 22QRn7+rnRWX6kdxuscame6hCQQ=
+
+Name: res/drawable-xhdpi/ql_ic_launcher.png
+SHA1-Digest: UCzYT6RE8m1+z99KNVBkhnl38jY=
+
+Name: assets/image/onsaleTitle_czzslb.png
+SHA1-Digest: 3FyLbCRPQGIndnVMKUyKxQiVab0=
+
+Name: res/drawable-hdpi/ql_set_password_btn_nomal.9.png
+SHA1-Digest: p8rfnl5iZ22zVy61EEo9LdZG3BM=
+
+Name: res/drawable/buoy_definition_radio_selector.xml
+SHA1-Digest: 2YTvizki6VPnySvrEjNTl1e7YaM=
+
+Name: assets/ui/dangqianfenshu.png
+SHA1-Digest: Y7tAEVMPW96JnL5Ph6GK5ZMOzzU=
+
+Name: assets/unipaysdk_res/privilege_dot.png
+SHA1-Digest: 3mrqj5ygcTtjRVmA0gSdqgloOzc=
+
+Name: res/drawable-hdpi/ql_cs_popup_full_bright.9.png
+SHA1-Digest: e+jYO9WsrrWgXykxoch3B6WMsxs=
+
+Name: res/drawable-hdpi/xh_04.png
+SHA1-Digest: ruQaqpKyBAx8IEDy+IVrLZjuzhA=
+
+Name: assets/armeabi/libdecrypt.jar
+SHA1-Digest: K3DZtzavi71iauLLqCOhgT+sJek=
+
+Name: res/drawable-hdpi/buoy_actbar_back.png
+SHA1-Digest: SrPrdrb3W3c62rxL5lyD/wq0TPI=
+
+Name: assets/json/baidu_buycoin.json
+SHA1-Digest: yYl31uhNerVP9wHZAxIxnIFf5tA=
+
+Name: assets/json/mm_buycoin.json
+SHA1-Digest: LIut0G/EWWGLS/nw4N6ncR45+IM=
+
+Name: res/drawable-hdpi/gc_padview_cmss_migu_logo.png
+SHA1-Digest: FSrcfCCuQ/a+pzpVnNcCyyRknOA=
+
+Name: res/drawable-xhdpi/buoy_dialog_normal_emui.9.png
+SHA1-Digest: pgUlSDSFeA96xisiWd84Cy6MEao=
+
+Name: assets/ui/ljcz02.png
+SHA1-Digest: xNil625qHSR5Fr0cMK8cCCjTwe0=
+
+Name: assets/image/btn_name_buy_15.00.png
+SHA1-Digest: NjS+Sl1fmaimwH7W2rIaDpv9Ij8=
+
+Name: assets/particle/pop_star1004.plist
+SHA1-Digest: Ioanu6DzFg4nR9TKUrT9CG1wiqI=
+
+Name: assets/mmiap/03/title1_bg.png
+SHA1-Digest: Mk9uKdROHrMkoWDpgcd7Pm85gfU=
+
+Name: assets/image/short_message_30.png
+SHA1-Digest: GGKUpKLOcktAPqtMYd7khxFpgI8=
+
+Name: assets/particle/pop_star1103.plist
+SHA1-Digest: cTG9qGQ1dqX5Qh2MtdVwW+/gtDg=
+
+Name: res/drawable-hdpi/gc_animation_and.png
+SHA1-Digest: Rf+D/QKaN+9OH3hVMs4ZSF+taoo=
+
+Name: assets/ui/Image_ProgressBar.png
+SHA1-Digest: ERz45Kx74cK45MPnbd34Wgk0iCE=
+
+Name: assets/ui/font_tongguan.png
+SHA1-Digest: hsfxMgdNYbD0x4FKim8av7xJN/Q=
+
+Name: res/drawable-hdpi/gc_member_yellow.png
+SHA1-Digest: nVbA/Hu0EeBCTha5vKkhvzh7fQY=
+
+Name: assets/particle/poptile/Particle_Star.plist
+SHA1-Digest: fVW8pV/7X9Y+bO7+RqY8pvNDweU=
+
+Name: assets/ui/gb.png
+SHA1-Digest: rzelphl79o63tQLoWavtnHySyww=
+
+Name: assets/html/css/wap_css.css
+SHA1-Digest: nDydYBEYkW3I38s8CoJOTefDnIg=
+
+Name: assets/mmiap/03/btn_gray.png
+SHA1-Digest: pCOjkYRBD2qBlz/QrV6EpxpNYNo=
+
+Name: assets/image/you_hui.png
+SHA1-Digest: 6ql8C/LWPOyVRxsKmlCD+FeVQgw=
+
+Name: res/drawable-hdpi/xh_ic_arrow_left.png
+SHA1-Digest: Pxa/w36u0HGzIdvOET7DghOQdbE=
+
+Name: res/drawable-hdpi/gc_recommend_flow_two.png
+SHA1-Digest: dEN3aaCX8GibCOej+32OJcda8Vc=
+
+Name: res/drawable-hdpi/buoy_circle_medium.png
+SHA1-Digest: fCfxk0Ts+H90wxU6nbArrCYmp/w=
+
+Name: assets/armature/PopStar_LotteryLight0.png
+SHA1-Digest: rRj7WlnxHseMzHGeaOHurvT2d0E=
+
+Name: assets/unipaysdk_res/unicom_resource.dat
+SHA1-Digest: wcCfSc68TGY0JP3MCrCU8sqEgL4=
+
+Name: assets/mmiap/image/vertical/keyboard_button.png
+SHA1-Digest: CtkhOTa03WkL0Ra8zpjAIpBpBhg=
+
+Name: res/drawable-xhdpi/xh_ic_arrow_left.png
+SHA1-Digest: i8qUAdNhRRYWLjOd35ueMjUu/G8=
+
+Name: res/drawable-xhdpi/buoy_icon_hide_left.png
+SHA1-Digest: mJGu1PbQ5T+kgTHjvIudEXaPNAU=
+
+Name: assets/ui/huaweipay_no.png
+SHA1-Digest: OBtgKIB5QU6cjqIltWKPULoI2Ms=
+
+Name: assets/ui/zzcj01.png
+SHA1-Digest: qXtKkGCUkUFRfMPGgvS8XHM2RHE=
+
+Name: res/drawable-hdpi/buoy_dialog_disabled_emui.9.png
+SHA1-Digest: L6/Qz0D+OQDPpeFUg1jVWl0jkB0=
+
+Name: res/drawable-hdpi/gc_mo9_icon.png
+SHA1-Digest: fsBEvqJaMv4Vd6p8V8GqjAshQTY=
+
+Name: res/drawable-hdpi/xh_ic_radio_button_off.png
+SHA1-Digest: xG0eFRaGigHv0QfdSLJHh4IOmO4=
+
+Name: assets/egame/EPSH_141.zip
+SHA1-Digest: LXUd/YfTApZwL6doB+Kd7/FBHMk=
+
+Name: assets/unipaysdk_res/unicom_allright.png
+SHA1-Digest: KGzOLGydrlsSOj8u0Q5oMJXX++w=
+
+Name: res/drawable-hdpi/gc_pay_checked.png
+SHA1-Digest: GS8IcgbiF97c3ztPgn73Z9sp6rs=
+
+Name: VERSION
+SHA1-Digest: YD6s2CTTdVepYrRCOwEjCQmznmk=
+
+Name: res/drawable-hdpi/xh_02.png
+SHA1-Digest: 0iF9FJ3Ixlhj/ok6x7Uix0DHSnI=
+
+Name: assets/mg20dss.dat.x86
+SHA1-Digest: aeMXXVDGOWYEFkOBlmstENgpDT0=
+
+Name: assets/ui/guangsu_xin.png
+SHA1-Digest: Xp23NmBwFR3PUMHwTbX++bM6CRU=
+
+Name: res/drawable-hdpi/gc_start_login.png
+SHA1-Digest: ERwpf8L6HU7gNydrdtlf8u98fR0=
+
+Name: assets/ui/white.png
+SHA1-Digest: DsY7FAN0unBKWPoMdDyzV2gzE90=
+
+Name: assets/image/poptile/Bg_Matrix.png
+SHA1-Digest: vFnQABVAfDytmRXWd06UzS+Pw94=
+
+Name: assets/ui/logo_xin_1.png
+SHA1-Digest: pS75RBUYrdQSrJHAtGbD/8Rpk4Y=
+
+Name: assets/mmiap/image/vertical/keyboard_button_hide_press.png
+SHA1-Digest: WAHk880AZV9IqRxg5mi/hvUmwPk=
+
+Name: assets/ui/XSqiez4.png
+SHA1-Digest: PB/Wy8pDXS/2ulFusc3IvQ/1nzw=
+
+Name: assets/mmiap/01/btn_1.9.png
+SHA1-Digest: vjHlSMMtooIutMe0xDHbmxzF10U=
+
+Name: assets/image/poptile/Panel_Guide3.png
+SHA1-Digest: /lxBKJB3whQ85B4Y9Xdz4DS3TpQ=
+
+Name: assets/image/poptile/Button_Row1_2.png
+SHA1-Digest: VSrK3ILpbgxSgEjAO+rAeZ98JX0=
+
+Name: assets/mmiap/03/vertical/purchasedialog.xml
+SHA1-Digest: t0ZTi6ZI5nyQSdvFUX/pQpdlT/g=
+
+Name: assets/image/praise25.png
+SHA1-Digest: htzL8e7sy+s+d8FC+Dy1+dXZ0ac=
+
+Name: assets/ui/SignInPanel.json
+SHA1-Digest: 4n+OGTMotQmHyvUOGl+KniQr9hY=
+
+Name: assets/image/poptile/Bg_Matrix_6_Line1.png
+SHA1-Digest: nPpN/wwL9N+g4N5GlAkkrXza/7A=
+
+Name: assets/mmiap/01/icon_f.png
+SHA1-Digest: Y/MVsq4T3fTNc6qHrIDVxy39Rtg=
+
+Name: res/drawable-hdpi/gc_user_center.png
+SHA1-Digest: iNNihr4IcIdnOkp6fWquaXd69IA=
+
+Name: assets/image/gold_1888_mm.png
+SHA1-Digest: LZmIRk94S/wMPQ40ATzDnEvWefI=
+
+Name: assets/image/poptile/Bg_Matrix_5_Line1.png
+SHA1-Digest: U2fXQk0nQminTe2cWWaW/32sSKw=
+
+Name: assets/ui/9for_bg.png
+SHA1-Digest: eUy2yW/EdrgRUy0J6uJpCIORY5U=
+
+Name: assets/Charge.xml
+SHA1-Digest: Wsau3o3nVBlVz8IQQgRASOZuzyk=
+
+Name: assets/ui/Jjldb.png
+SHA1-Digest: 7PFf5yGQhuU2mt1aQ1fj4KzmqlM=
+
+Name: assets/unipaysdk_res/unicom_hotline.png
+SHA1-Digest: PVr4a/+9EyABFDnE0USr1DAtrWQ=
+
+Name: assets/image/onsale_btn_huode.png
+SHA1-Digest: Bx32eCgdcecySqf0JFixOzX7OoU=
+
+Name: assets/unipaysdk_res/unicom_progress_2.png
+SHA1-Digest: CtekxIVXCeAYIRGrCoGPpMLyPw8=
+
+Name: res/drawable-xhdpi/xh_circle_medium.png
+SHA1-Digest: lkH9bRh2rRfuHlWLqVMWRxTx/6U=
+
+Name: res/layout/buoy_notice_dialog.xml
+SHA1-Digest: ThkfO495E5jdYnZYfjpbyK5IVgM=
+
+Name: assets/json/popstar_config.json
+SHA1-Digest: s3DCbhgUEKnNimTdTNJjcjS2wyo=
+
+Name: assets/unipaysdk_res/unicom_inputbox.png
+SHA1-Digest: 7rbrduDtD9ObUTF8V0EJ0vQYCwc=
+
+Name: lib/armeabi/libdexmmb.so
+SHA1-Digest: fVQRyNCKrF+gNFBhO/+4O6LPQCA=
+
+Name: assets/ui/Button_Shop.png
+SHA1-Digest: ojFBEqJW0nAximhYspxyaXU7Y5o=
+
+Name: assets/unipaysdk_res/accountsdk_2_float_btn_point.png
+SHA1-Digest: POTU5meWMeZs3mFSQu5Y72cPnQ4=
+
+Name: assets/ui/hotsale_bg.png
+SHA1-Digest: Bqk1BHqUkAL602v2hN4kBMfZIM0=
+
+Name: assets/html/httperror.html
+SHA1-Digest: 3MOfJ+Ye19LwWvP/jW1T5QLYHSg=
+
+Name: res/drawable-hdpi/xh_dialog_backgroud.9.png
+SHA1-Digest: aPckXu6I0oJTYWSAZjtHEM6uLEU=
+
+Name: assets/ui/onsale_btn_1.png
+SHA1-Digest: vjbyQ0SgHpUD4VuNDHeW+IAkHgE=
+
+Name: assets/ui/XSt.png
+SHA1-Digest: G+I5mUETRO1/mpMkbrLVBCodOCs=
+
+Name: assets/ui/duanxinzhifu-2.png
+SHA1-Digest: zSG72bAvBWjtdUoV84KzllQCQ5w=
+
+Name: assets/image/poptile/Button_Help_1.png
+SHA1-Digest: XsYgitu4kxng+GWbtb7M6Xwub0w=
+
+Name: assets/ui/gold.png
+SHA1-Digest: STVDS8waF8Y0t2SCld1e4df7XOs=
+
+Name: res/drawable-hdpi/ql_btn_check_on_emui.png
+SHA1-Digest: lRuHqqW4QGEmbGJZY3Yz5WRLfKM=
+
+Name: res/drawable-xhdpi/ql_set_password_btn_nomal.9.png
+SHA1-Digest: UPEW3qJzja6Bfr1FKxWapMLUgyw=
+
+Name: lib/armeabi/libme_unipay.so
+SHA1-Digest: +Try2OrmTN+Ooy/kpc8Qf1yPtpE=
+
+Name: assets/mmiap/01/horizontal/purchasedialog.xml
+SHA1-Digest: os9qi1Gl1TvgUotFzha4UQm8BUM=
+
+Name: res/drawable-hdpi/xh_ic_add.png
+SHA1-Digest: 24hf8RFNriJQON0ZH9ux/tblcpQ=
+
+Name: res/drawable-hdpi/xh_footer_selector.xml
+SHA1-Digest: 03y+2etgeHPiy4QydtcYpZWpNpU=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: ehoOxx3a+60vYQ7ZmamZUcGt52c=
+
+Name: assets/ui/onsale_mm.png
+SHA1-Digest: 1QN3iRhAZsCxmRMQWy9DipJn75E=
+
+Name: assets/particle/pop_star1101.plist
+SHA1-Digest: FrRrSBM05A152PIgQziotdISvw0=
+
+Name: assets/ui/ImageContinue.png
+SHA1-Digest: ZYofFQerHvICIGgnAlFQcyI4bDg=
+
+Name: assets/ui/lvse.png
+SHA1-Digest: /rmjGiTPPUvKyjrKQ4AqnbduZqg=
+
+Name: assets/mmiap/02/horizontal/sucresultdialog.xml
+SHA1-Digest: A3nJwj/drBPuTknZgnUA3VhoJuU=
+
+Name: res/drawable-hdpi/gc_default_icon.png
+SHA1-Digest: wStKpluF3kY9+EjGiZaZPW2Idck=
+
+Name: assets/image/btn_name_buy_30.00.png
+SHA1-Digest: mAIozkUpOwkE+p/AnsxkWfWP/lY=
+
+Name: assets/json/poptile/config.json
+SHA1-Digest: cxLJdf3Tm+LtXiXfGprMhWGOftA=
+
+Name: assets/mmiap/03/horizontal/failresultdialog.xml
+SHA1-Digest: aXq2gupqJDBHFlVokg4EwkW/VUA=
+
+Name: assets/ui/jinbilibao.png
+SHA1-Digest: laHgv5wg3vze7OJTY25giCH3Z70=
+
+Name: res/drawable-hdpi/buoy_game_icon.png
+SHA1-Digest: wIkSw63SoeEYoE5suemcPaV+f7Y=
+
+Name: assets/unipaysdk_res/unicom_rect_green.png
+SHA1-Digest: 1aUM0q0hw0Cr2Rn0OsXc74r8b/0=
+
+Name: assets/image/ka006.png
+SHA1-Digest: 7WlLAQkbsSDxWPLmBOVvwH/2fgY=
+
+Name: res/drawable-hdpi/gc_padview_pad_ic.png
+SHA1-Digest: ru1wL2QZC9jWpnlcsrbvE1eP5DI=
+
+Name: assets/ui/jsy.png
+SHA1-Digest: XFLlqFa4ILX8VMA3DD62Juzp/kY=
+
+Name: assets/ui/PanelGiftLotteryUpdateNum.json
+SHA1-Digest: TIP1/sCeTqPEBsjn5Jo4tGl+n6w=
+
+Name: assets/armature/poptile/AniFrame030.png
+SHA1-Digest: Z1EhtVvACudrPXAN9VKFMznarg8=
+
+Name: assets/json/poptile/gj_buycoin.json
+SHA1-Digest: 8lF8NlY5N6eFbmFi/WhrmdxoUMk=
+
+Name: assets/unipaysdk_res/unicom_weixin_.png
+SHA1-Digest: RgWkjqO+RfmqKG5EvStpHdUL6PE=
+
+Name: res/drawable-hdpi/gc_step_unfocus.png
+SHA1-Digest: dRhGfI5bTobse1FF9zIjenqmdvw=
+
+Name: assets/mmiap/01/bg.png
+SHA1-Digest: sm10r5xm5xgIXfeSVVwLtZUDo8A=
+
+Name: res/drawable-hdpi/buyo_window_close.png
+SHA1-Digest: WLg6PRiwsQ4GvjLzg+6tPBgfb34=
+
+Name: assets/armature/poptile/AniHandClick.ExportJson
+SHA1-Digest: 6tyTk+RoHih7iTTp7oVnjKd+bBI=
+
+Name: res/drawable-xhdpi/xh_ic_loading.png
+SHA1-Digest: /K3NqaBrj9zrEYrqLQQzZXtKVY0=
+
+Name: assets/image/ka007.png
+SHA1-Digest: ZieNrKaghKuugy1+mhyw40x/J3o=
+
+Name: assets/image/poptile/Text_TouchScreenAndContinue.png
+SHA1-Digest: oYqsUeeqE1s8uDH0eRcBpHlfwJc=
+
+Name: assets/mmiap/01/btn_4.9.png
+SHA1-Digest: y5x+rbodH1/Yr8Pa0vYcqq8ig6E=
+
+Name: res/drawable/buoy_title_click_bg.xml
+SHA1-Digest: t5ALanPZo1O3kUkrKYT6CahPKng=
+
+Name: assets/ui/c23.png
+SHA1-Digest: s2IlnBScv0KOMZf0fqwjRCACcA0=
+
+Name: assets/ui/hotsale_bg_2.png
+SHA1-Digest: koQpxb4Xwb3fuMWrBqWywOOH0wY=
+
+Name: res/drawable-hdpi/xh_07.png
+SHA1-Digest: 7Ts1EG1R/FOYex6cxR0yzayAcCo=
+
+Name: assets/image/ka04.png
+SHA1-Digest: mDDKeDAGKwMVMZKfxvx5ucGGp6M=
+
+Name: assets/ui/ItemShoplist.json
+SHA1-Digest: AkSY8lm6pSZm9nd15iNJD8RCcls=
+
+Name: res/drawable-xhdpi/buoy_btn.9.png
+SHA1-Digest: PTCF0Z9FOIt2wCnB7IqFxAUg01I=
+
+Name: res/drawable-xhdpi/buoy_dialog_pressed_emui.9.png
+SHA1-Digest: Pr9TV466u5DwvQi/ehsN6E9m1yk=
+
+Name: res/drawable-xhdpi/xh_switch_selector.xml
+SHA1-Digest: 0opHqfeSmraInrhdHlh7eZVw1jY=
+
+Name: assets/mmiap/03/loading.png
+SHA1-Digest: F/+VFVjbI3Rcwj/oEo94pUJqTBA=
+
+Name: assets/ui/wenzimiaoshu.png
+SHA1-Digest: AeT9OT53MXdyQpuqW1zfrkrd9ZQ=
+
+Name: res/drawable-hdpi/ql_button_blue_disable.9.png
+SHA1-Digest: JpteXP8S2tk5cADaS1V7XR15T9A=
+
+Name: assets/image/tupian2-1.png
+SHA1-Digest: DzgEw3IzF/SOqN4F3+KGbxyaoiE=
+
+Name: assets/ui/no_activity.png
+SHA1-Digest: NUvVolefhXOjoBlNdPF+N4lqDZk=
+
+Name: assets/ui/PoptileLayerStage.json
+SHA1-Digest: XS3mbD2/IjmDOFHryJsQjEQioU8=
+
+Name: assets/image/poptile/Panel_Guide2.png
+SHA1-Digest: 8Ew9HXhb/ANBk5w0u5uVWZvNnOU=
+
+Name: assets/armature/poptile/AniFrame010.png
+SHA1-Digest: HPaC7JCQsQlgvsBxU+NFZy2pbJ4=
+
+Name: assets/ui/font_price.png
+SHA1-Digest: c0rUTPMCEFyFY13oNMYRxSxLjX8=
+
+Name: AndroidManifest.xml
+SHA1-Digest: mIngl08xYmc+Ux3mrkQkQm3ZMdc=
+
+Name: assets/ui/biaoti_shang_dalibao1.png
+SHA1-Digest: MR//xGZsYUpi1gbrRg10AkGUadU=
+
+Name: assets/ui/yjx_log.png
+SHA1-Digest: /7xR1a9AWgmBg0oRuPGgep+OILI=
+
+Name: assets/armature/ele_JiangLi0.png
+SHA1-Digest: VTVmHWpeVBKMntrc26Qwdwp/5p4=
+
+Name: assets/ui/PoptilePanelRevive.json
+SHA1-Digest: zEsG/3tIVGtgw3ED4mELVCEIsMg=
+
+Name: assets/unipaysdk_res/mywobi.png
+SHA1-Digest: pVMiyln3Qs8Fr+EdZVfRyz7Thyk=
+
+Name: assets/ui/Props_Bomb.png
+SHA1-Digest: QSlPXm2KRhur6dPxMqBuFW/ZMTQ=
+
+Name: assets/image/youhuidalibao.png
+SHA1-Digest: olVSkHNveRPTRsyz8WRPvFySMq8=
+
+Name: assets/ui/an_tc.png
+SHA1-Digest: MNhAndLtF9HsSzPAPGD7u6ttI6s=
+
+Name: assets/unipaysdk_res/unicom_light_boxbg.png
+SHA1-Digest: 6EMxTONEOczQ4Wusu8TRuzt3PPM=
+
+Name: res/drawable-xhdpi/ql_bg_enter_press.9.png
+SHA1-Digest: c7aRwrZepCuH/uuik9/M22bNC6w=
+
+Name: assets/mmiap/02/logo_02.png
+SHA1-Digest: 43MiLzzCv7rS4R9tq52btNlfH2w=
+
+Name: assets/unipaysdk_res/accountsdk_2_float_btn_activity_pressed.png
+SHA1-Digest: 8I9AWUJQ2jpkyC6sHYxjHbJyz4Q=
+
+Name: assets/image/11csq.png
+SHA1-Digest: 8JU/5LZ/utEstWKch13xhd6FYVA=
+
+Name: assets/particle/pop_star1003.plist
+SHA1-Digest: WQ8zyu2UuZd4P8NIo3W4FBSBHjg=
+
+Name: classes.dex
+SHA1-Digest: AwshIlFuTG+ikXNLK2rAwINcYEI=
+
+Name: res/drawable-hdpi/ql_use_press1.9.png
+SHA1-Digest: zvlAVNeInfHkWgbZqDld8vPs9ew=
+
+Name: assets/ui/Jduihua.png
+SHA1-Digest: 8cz2VrP/WRQZ91VdSVYYPG6+cTY=
+
+Name: lib/armeabi/libcasdkjni.so
+SHA1-Digest: hzmolvjKDdGS5JS/g7MTPs6m6Qg=
+
+Name: res/drawable-hdpi/buoy_game_small_icon.png
+SHA1-Digest: wX5E1feEsWXHnjeektsJK/q62kQ=
+
+Name: assets/image/rankitem_gold.png
+SHA1-Digest: urBuT93eyfeDH4JPXFYwQbwd+5s=
+
+Name: assets/ui/onsale_2_btn.png
+SHA1-Digest: 7DCyWJ7TNP9RSkgb2aLS/Tv3vEM=
+
+Name: assets/mmiap/02/vertical/sucresultdialog.xml
+SHA1-Digest: wsfdb/8foKfpa64DfpIlGEQRpUQ=
+
+Name: assets/mmiap/03/line.png
+SHA1-Digest: JfevbgnxsUG+NrGALeC/D+Dqr5I=
+
+Name: assets/unipaysdk_res/unicom_progress_1.png
+SHA1-Digest: 4gQg+eZf9usYJ8rr5yeJGDh7530=
+
+Name: res/drawable-hdpi/gc_game_service_tel.png
+SHA1-Digest: 4AR3nvOBWXQ2Xd7IHNs/A/O3kWE=
+
+Name: assets/armature/laohuji0.plist
+SHA1-Digest: EQlnmmTydruqgwFkfnwAHOZd3/M=
+
+Name: assets/image/poptile/Bg_Matrix_5_Line0.png
+SHA1-Digest: LA4goCewS1+x9/Hws9WS0fSlvkM=
+
+Name: assets/image/poptile/Number_230x038.png
+SHA1-Digest: r0jjf5B+V4Ved0Zv4MMys/xtsLI=
+
+Name: assets/armature/poptile/AniFrame040.png
+SHA1-Digest: LgvyfeUBqhLSNSGJTtQTYvl8lDc=
+
+Name: assets/armature/poptile/AniHandClick0.png
+SHA1-Digest: S7vuYf0fb1W0e4BEdoK7gQDL/+Q=
+
+Name: res/drawable-xhdpi/buoy_definition_radio_off_pressed.png
+SHA1-Digest: CI/CZxRT5hq4YbM1WLF1nNKVk2E=
+
+Name: assets/ui/Button_Stop_1.png
+SHA1-Digest: DWGepWf2xgmbxojCqizmLQQga+4=
+
+Name: assets/ui/choujiangjieguo02.png
+SHA1-Digest: S5uIJIhltMJFIxHjvrWMc8kEZqo=
+
+Name: assets/CMGC/ConfigExtend.xml
+SHA1-Digest: WSLuFXLDHOs3HAcNTBUFur46Uw0=
+
+Name: assets/image/rankitem_silver.png
+SHA1-Digest: vn3ybdAGsjreY/nS14ZWdFXnO/A=
+
+Name: assets/mmiap/03/bg2.png
+SHA1-Digest: FxglQyxK66Zuxcq3JKkVMxuqj0s=
+
+Name: assets/ui/OnSale_mm.json
+SHA1-Digest: 7ln8NpPU/8Q0bVpVMw7RvJsxXfA=
+
+Name: assets/mmiap/image/vertical/keyboard_button_press.png
+SHA1-Digest: A/LLFAt35jZldVmonRDl3iMsWcY=
+
+Name: assets/sound/poptile/Eff_Pop.ogg
+SHA1-Digest: Kio0p/rzlerUj9oEsuDxX2WzfJY=
+
+Name: assets/mmiap/image/vertical/yanzhengma_bg.png
+SHA1-Digest: +d6hwrsSpRwTOtmco42H1xw30lg=
+
+Name: assets/unipaysdk_res/dot_black.png
+SHA1-Digest: ItQs4PiUGgRjxfiRqLtb4u9WfjY=
+
+Name: assets/image/11zs.png
+SHA1-Digest: NDW+dNlCDSgmaOhd6COHN97iOzE=
+
+Name: res/drawable-hdpi/xh_item_click_selector.xml
+SHA1-Digest: aAJbCuUlJcJ2R3NBllT+0ab/ie4=
+
+Name: res/drawable-hdpi/xh_ic_loading.png
+SHA1-Digest: ekjvGItcw7mDNKCUa2wO63uRmds=
+
+Name: assets/unipaysdk_res/wostore_progress.png
+SHA1-Digest: y6JFfZra02E4N4VtEArdloyjDW0=
+
+Name: assets/sound/advbg.ogg
+SHA1-Digest: hRd/l66+iiwnykpI/4QdsGrZNTM=
+
+Name: assets/ui/huodongzhongxin.png
+SHA1-Digest: /M8Xqn0rKyu1AW3TYx7hkef3Cws=
+
+Name: lib/armeabi/libcmcc_rusteze.so
+SHA1-Digest: YNenbmx6X5ALOW9z9mlJ6SL2tN0=
+
+Name: assets/sound/word_1.ogg
+SHA1-Digest: cFbD8w+4mWkTw7x2OPou23A3/0o=
+
+Name: assets/action/loading0.plist
+SHA1-Digest: LrTSixf/4lCIK/JGYDj/eMMUG4c=
+
+Name: assets/ui/coingift.json
+SHA1-Digest: waMXwiHRTBwLcI6zfs9XpmPpzlk=
+
+Name: assets/ui/Jjrylq.png
+SHA1-Digest: 2p7mxorrFzFrawn2xKz4r0obWxg=
+
+Name: assets/image/sxlb.png
+SHA1-Digest: fW01+3K2fH95g7LxhFC9m1BXAIY=
+
+Name: assets/sound/poptile/Bgm_01.ogg
+SHA1-Digest: +jItWFJjjF5VVPb1sObEGIOHGg0=
+
+Name: res/drawable-hdpi/gc_step_focused.png
+SHA1-Digest: YoE5N/l9IdIli856zxpI0uNX+5k=
+
+Name: assets/mmiap/03/button_back.png
+SHA1-Digest: 7Bwdo88LV52b4bn/nCb/ApIjHtA=
+
+Name: res/drawable-hdpi/buyo_window_close_pressed.png
+SHA1-Digest: 3kmztea3ySkiDET4/9cElz309lQ=
+
+Name: assets/armature/ele_JiangLibox0.plist
+SHA1-Digest: xhRFPRpO+P9uzVWerYqZYDm73SA=
+
+Name: res/drawable-xhdpi/buoy_icon_record.png
+SHA1-Digest: k9ZzYLaa+QMBP5OwcAj2kXLtkcY=
+
+Name: assets/mmiap/image/vertical/logo1.png
+SHA1-Digest: N+e8Mchbjb5hiFPP7/Ogjq6hDWA=
+
+Name: assets/ui/text_yhlb.png
+SHA1-Digest: CUC+MbURvg7LoH055sHLP9byMqo=
+
+Name: assets/json/gift_lottery_result.json
+SHA1-Digest: sSq4b39iszrakDZ2Zt+BEvRsfFY=
+
+Name: assets/Config.xml
+SHA1-Digest: emTtraM2UhnGYVV71xz4Wr/Wk0o=
+
+Name: assets/image/11j3.png
+SHA1-Digest: /SS0ZbdLKJAHXUI///1FlqxSR9Y=
+
+Name: assets/image/dalibao_mm.png
+SHA1-Digest: hvBiUnxAkAolj4sxJFB37CjOQ9I=
+
+Name: assets/ui/continue.png
+SHA1-Digest: Zr+8DNVyUtbimjjpPw6S9j1YQu0=
+
+Name: res/drawable-xhdpi/ql_right.png
+SHA1-Digest: pkzUFy3l4cW9l9e2jaGfJ98sgGo=
+
+Name: res/drawable-hdpi/xh_s_btn_normal.9.png
+SHA1-Digest: l0rbTsLzkTSv1fHRmd5xJGHgRno=
+
+Name: assets/ui/shop_item_bg-2.png
+SHA1-Digest: 1WIAvgzQx4b3Y7tuuiayrAkN3qc=
+
+Name: assets/ui/1j.png
+SHA1-Digest: Veup7gdFq9LDZZhpd0CMaBU71G8=
+
+Name: assets/image/logo_star.png
+SHA1-Digest: 6aQJo0oX00/qT5EKOI81/cKWCOQ=
+
+Name: assets/json/img.json
+SHA1-Digest: I+3gztBrvtb0w27YunihrN9OPu0=
+
+Name: res/drawable-xhdpi/buoy_icon_my.png
+SHA1-Digest: Qm1LQNbWLuxfz02kaT9JaR1n8v8=
+
+Name: res/drawable/buoy_bottomtab_selector.xml
+SHA1-Digest: TQbaBx8tOX0FC68EiqTygV0wf8M=
+
+Name: res/drawable-hdpi/gc_logo_cmcc.png
+SHA1-Digest: mAfZrson2M9S8IIyuTqQzTwu6EU=
+
+Name: assets/ui/Jlqfl.png
+SHA1-Digest: 1feK51ToOkm4TLQfATJ7fMMzCMU=
+
+Name: res/drawable-hdpi/gc_start_cmcc.png
+SHA1-Digest: 91Ly/MN95J9fvNUGd5iWho7UD+I=
+
+Name: res/drawable-hdpi/gc_start_game.png
+SHA1-Digest: NebYB1eRBwZvFGjaVPKhWJ7Y+u0=
+
+Name: res/drawable-hdpi/buoy_icon_infor.png
+SHA1-Digest: Cjugq/bnkUgDxvRgknYu08AopNw=
+
+Name: assets/ui/x500.png
+SHA1-Digest: VLOHmERILyYzBBP4c/y7DbSxof0=
+
+Name: assets/ui/green.png
+SHA1-Digest: 95aIxQDuYWb7Ky9//B/CF0Wh8tU=
+
+Name: assets/ui/Button_Close1.png
+SHA1-Digest: 5EY/NqR5wdB02ln8gYZUpVwuuCo=
+
+Name: res/drawable-hdpi/buoy_icon_guide.png
+SHA1-Digest: ZRPLYw8l4fEUBOOVc0ipyUTQAx8=
+
+Name: assets/ui/LogoPanel.json
+SHA1-Digest: rICLWhMq+Ek4KgFANfhr0JSgSFU=
+
+Name: assets/json/poptile/word.json
+SHA1-Digest: KP056Ps5hxVe7JLzY2n2p75/wPY=
+
+Name: assets/ui/StarRevive.json
+SHA1-Digest: PZ9OQj4W4N9lkxEHLWTCJeUjrJo=
+
+Name: res/layout/ql_privacy_policy.xml
+SHA1-Digest: e5h2gr4gcL6q74N2l/2Wpz+GamI=
+
+Name: lib/armeabi/libmegjb.so
+SHA1-Digest: OZIoO3owMNsnD4wfwL4nLSc27sw=
+
+Name: assets/image/buydiamand.png
+SHA1-Digest: V2BF5jMAB8K+iFMy3Cikm6U/Mto=
+
+Name: assets/ui/yilingqu.png
+SHA1-Digest: l/DsUhU/yMLnYunS099ccVYM8bw=
+
+Name: res/drawable-hdpi/gc_piccode_refresh.png
+SHA1-Digest: lDjYNypM8PqBMVhA5g/1kig6U5M=
+
+Name: assets/ui/14y.png
+SHA1-Digest: jqC7HlEdcyPGMQnq+LNuiP4GVTE=
+
+Name: assets/image/poptile/Button_Home_0.png
+SHA1-Digest: Z/ZQKNzNkm3j9BydkgIU6srtkwA=
+
+Name: res/layout/ql_set_password.xml
+SHA1-Digest: Vf4O9m/rh7zjsYrX6LMiph6wk+I=
+
+Name: res/drawable-hdpi/gc_arrow_little.png
+SHA1-Digest: 4pGMp747bRpkgNfuG30kPXZWgj0=
+
+Name: assets/ui/yellow.png
+SHA1-Digest: OMnURIhpB7GWGFsh0MW13A/9zOg=
+
+Name: assets/ui/moregame_btn.png
+SHA1-Digest: yV6R7JWZEtuRqFgLn77InR3Nl+g=
+
+Name: assets/image/file_symbol1.png
+SHA1-Digest: K0hOi/J66qS+meIT2TVe9F4ojVY=
+
+Name: assets/image/onsaleTitle_cjzslb.png
+SHA1-Digest: DxIQZzVAOoAbHPIZDlZfrPgPOjI=
+
+Name: assets/image/praise18.png
+SHA1-Digest: 3N9WT8EO5IsdqNUkiIHSifMW1hI=
+
+Name: lib/armeabi/libunipaychsec.so
+SHA1-Digest: ILzXLc7oVn2ziNzSjaj55PuoA/E=
+
+Name: assets/mmiap/image/vertical/pay_record.png
+SHA1-Digest: 6HL0/ooTzmoOi0KsLWBJVr2px5Y=
+
+Name: assets/ui/XGdk21.png
+SHA1-Digest: jYor7LF2xXC+d6o9zS6PbOsA0+c=
+
+Name: assets/html/images/icon30.gif
+SHA1-Digest: 3uva5uBoU4l3/mqj4XbdTlo1DU4=
+
+Name: assets/ui/yaoqinghaoyoushu.png
+SHA1-Digest: ToNX9gVuFl33DgiqTa497boW9Ww=
+
+Name: assets/unipaysdk_res/accountsdk_2_checkbox_unset.png
+SHA1-Digest: 4tmcVry9rWrC3Dn1G+q3BiB9xyI=
+
+Name: assets/ui/Bg_Stage.jpg
+SHA1-Digest: /uyCo6bULRmV3yZMw4DHea8btho=
+
+Name: assets/particle/pop_star1001.plist
+SHA1-Digest: hyYv4RPzd2zvt45HRd+7iSHXbHE=
+
+Name: res/drawable-hdpi/gc_center_online_service.png
+SHA1-Digest: 33uCd3DvsYVic7UUxDRo3gNffA8=
+
+Name: res/drawable-hdpi/gc_center_save.png
+SHA1-Digest: IyDXwj6VbhMO5VxDbmQwxzLAJrI=
+
+Name: res/drawable-hdpi/gc_toast_tip_vertical.9.png
+SHA1-Digest: CLiqs1sjrDGiiKkuMe9Gum6MFdk=
+
+Name: assets/map/popstar_1.tmx
+SHA1-Digest: w1fLJBUr2GyJgWpc3Bt374aIyv0=
+
+Name: assets/ui/ka001.png
+SHA1-Digest: 2+SY5+mgazO2M8PKn51Gu2QbZRQ=
+
+Name: res/drawable-hdpi/gc_payment_icon.png
+SHA1-Digest: c93FHMet1QzCrBhz4YveYYQzTv8=
+
+Name: res/drawable-xhdpi/buoy_icon_normal.png
+SHA1-Digest: 2/J5estCJpBK3vZFynf2XElNJc0=
+
+Name: res/drawable-hdpi/ql_button_white.9.png
+SHA1-Digest: vwlZVV491teS8G/0zU3ajHjEdsI=
+
+Name: assets/unipaysdk_res/unicom_bankcard.png
+SHA1-Digest: F958PFtn+vRaQTkhfwfANX7rilU=
+
+Name: res/drawable-hdpi/buoy_bg_actionbar.9.png
+SHA1-Digest: h6ZKweW1Wd/OJ6C2UJKOxNtP5UI=
+
+Name: assets/ui/Jtssz.png
+SHA1-Digest: r7V1PAV8ULvawMJoTxItArdINGw=
+
+Name: assets/image/huang1.png
+SHA1-Digest: uSx/Zh9CSYu51aSCwP75iubPBuU=
+
+Name: assets/armeabi-v7a/libdecrypt.jar
+SHA1-Digest: LswQuOc1l9VL0Tt7IEZHfxvUCTk=
+
+Name: res/drawable-hdpi/ql_divider_horizontal_gray.9.png
+SHA1-Digest: 2JC9iLPy47bNEHQsqjPtI1VGE6E=
+
+Name: assets/ui/c20.fnt
+SHA1-Digest: FnQ7tmMPQkbQZezsXNgd/pveYx0=
+
+Name: assets/image/rankitem_bronze.png
+SHA1-Digest: ZXheooWnE722Ed0WhB9rDCvunqk=
+
+Name: assets/image/coingift_title_czdlb.png
+SHA1-Digest: 9u4HPvW30hc1EKg9sFK4S/r/Fik=
+
+Name: res/drawable-hdpi/ql_textfield_default_emui.9.png
+SHA1-Digest: BtDUfQmt/R07xwqBSI6k+503PHo=
+
+Name: assets/ui/huaweipay_down.png
+SHA1-Digest: 2rzP08nGFbPr5nWcnYS+3Cay82U=
+
+Name: assets/ui/StarMenu.json
+SHA1-Digest: N2nAMEIGZhgBMl939iGMmtYvScU=
+
+Name: assets/ConsumeCodeInfo.xml
+SHA1-Digest: 1q5FY5/P7Po3rtEBvDdp5PX8kMg=
+
+Name: assets/json/poptile/sound.json
+SHA1-Digest: zg8nU+odLlvMyX7mIFia0Iim5L0=
+
+Name: assets/html/images/new_icon30_320_480.gif
+SHA1-Digest: BclrOftbjDUwTL6Ei9bEIwauYP8=
+
+Name: assets/sound/poptile/Eff_StagePass.ogg
+SHA1-Digest: 9hOLtAlLntZ67AweCooQAWCu3CQ=
+
+Name: res/drawable-xhdpi/xh_08.png
+SHA1-Digest: anis5CC/bra+R55lSpIkZVNCBro=
+
+Name: assets/ui/gift_btn.png
+SHA1-Digest: UqmFfuiug7DF1hmzxWs/ip5j89o=
+
+Name: res/layout/buoy_progress_dialog.xml
+SHA1-Digest: 8okkaF8iik01fpyaLgAlt/JOA0o=
+
+Name: res/drawable/buoy_grid_close_btn_selector.xml
+SHA1-Digest: fYGA7v17BeHPzb0Psdk7ab3W6bE=
+
+Name: assets/mmiap/01/infoline.png
+SHA1-Digest: RYUCPPwehYMWB3iUCJ9WRAX/dMQ=
+
+Name: assets/ui/15.json
+SHA1-Digest: xQ0uyGMHu8pZKMuvK25uKgDbuKg=
+
+Name: assets/mmiap/image/vertical/icon_success.gif
+SHA1-Digest: jz2Ue6iEh7TxiruZv+e9C0l8HFU=
+
+Name: assets/ui/dingtiao.png
+SHA1-Digest: ei8nqsRQcVurnhSoIX+9ZXOhcpc=
+
+Name: assets/ui/x300.png
+SHA1-Digest: ojdEoeAYR60zpsWfFHxg9TJjEu8=
+
+Name: assets/unipaysdk_res/unicom_chongzhicard.png
+SHA1-Digest: U+anRIJ5587WqeO5dqE2ga9SLRk=
+
+Name: assets/ui/xlb01.png
+SHA1-Digest: zXqz/fPv6YkzQhIy9NLM1J6w7wU=
+
+Name: assets/mmiap/image/vertical/infoline.png
+SHA1-Digest: RYUCPPwehYMWB3iUCJ9WRAX/dMQ=
+
+Name: assets/image/tupian5-1.png
+SHA1-Digest: NNy7Sai5qpOaGmDfV0tJul/+7uo=
+
+Name: assets/particle/poptile/Particle_Star.png
+SHA1-Digest: Zkxf5Qj67MwMVTS9TtxypsUliwE=
+
+Name: assets/mmiap/01/vertical/savingdialog.xml
+SHA1-Digest: 1gsLjRjsHZ5RgG6cBrIRu2ibZfU=
+
+Name: assets/image/emailIcon_activity.png
+SHA1-Digest: n2Co3rOVzUA6z9Ml3Rro07+kXO0=
+
+Name: assets/ui/11ylq.png
+SHA1-Digest: S55b1rWcF2YotV0U8io5iEV62J0=
+
+Name: assets/ui/x20.png
+SHA1-Digest: XzmOBEdLv++ZrHyEzdLKstHbTEw=
+
+Name: assets/armature/sk_guide0.plist
+SHA1-Digest: Mf+L24rWCw8JCFp/7ln3xqoMWiU=
+
+Name: assets/ui/tongguananniu_wenzi.png
+SHA1-Digest: K+pYEpkfgT60mZ6lK9UueIj/x3A=
+
+Name: res/drawable-hdpi/ql_footer_selector.xml
+SHA1-Digest: Ur9m5Wd+Endf9dnPi1qlCs4/Qo0=
+
+Name: assets/ui/Button_Pause.png
+SHA1-Digest: FlDZLnSPOFsN8/ou1R44c3E6+Qw=
+
+Name: assets/ui/email_item.json
+SHA1-Digest: PoOKm5/szntzbhuVw80wRJhdILg=
+
+Name: assets/ui/sound_off.png
+SHA1-Digest: hq6sVA7JWnzblOFNvy3NRV9fuTE=
+
+Name: res/drawable-hdpi/gc_icon_rightextend.png
+SHA1-Digest: 2/5LsdgPSZOC92IZw7vnry5SByY=
+
+Name: assets/ui/short_message_9.png
+SHA1-Digest: /MPPxtQ2XAN/PB0OP1/djx6Ms9I=
+
+Name: res/drawable-hdpi/gc_more_game.png
+SHA1-Digest: XbzRG6WAyVzgrwx1UPR+GV9FBvk=
+
+Name: assets/ui/PanelActivityTask.json
+SHA1-Digest: VsNxyfH0bkj2cHWvOR5ADZbWk0M=
+
+Name: assets/unipaysdk_res/myhongbao.png
+SHA1-Digest: GDdumg/VaF6Z6HUFtZb19AAq1+s=
+
+Name: assets/unipaysdk_res/mywoquan.png
+SHA1-Digest: oEOZ3i2FJ+0iPRUbNBh9n7OkUXM=
+
+Name: assets/image/poptile/Sign_Page_0.png
+SHA1-Digest: tHS5YxTzrBFtlLC/0yRytpcgdUk=
+
+Name: assets/ui/Text_Stage.png
+SHA1-Digest: ZSORnNqr78D05RzupUx2Fb2hhpY=
+
+Name: assets/ui/360zhifu-2.png
+SHA1-Digest: UwyobiPQvjWgvE+Ighgq8CcyE2s=
+
+Name: assets/ui/mddb.png
+SHA1-Digest: bOnyZLLyJJCQ0pHpSHIZLeFL9do=
+
+Name: res/drawable-xhdpi/xh_btn_default_selected_emui.9.png
+SHA1-Digest: zgB45XziCVEkS09xaMl09caWT1s=
+
+Name: assets/image/ka05.png
+SHA1-Digest: 3jMSmKFsVJwwoelJC1EQ9HBAOnw=
+
+Name: assets/unicom_channel_resource.dat
+SHA1-Digest: Z1QkQZTu7WqkJhBVY3l7k4UtVAY=
+
+Name: assets/ui/29y.png
+SHA1-Digest: vmlVS5FcwrisiV6JGx3av2x3U3E=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: fzGl81GmLdX0+ngXvTfgaAqhfKI=
+
+Name: assets/image/ka02.png
+SHA1-Digest: GS5IbWLUAJRX7poLtqQJE4TrOOU=
+
+Name: res/drawable-hdpi/gc_center_safely.png
+SHA1-Digest: WTbP4uJldJQE1lmcIuYTAV2RfVs=
+
+Name: assets/ui/JSanniu2.png
+SHA1-Digest: MIOfuZmVrne3MA4CBu6QwMIR0P0=
+
+Name: res/drawable-xhdpi/xh_dialog_backgroud.9.png
+SHA1-Digest: aPckXu6I0oJTYWSAZjtHEM6uLEU=
+
+Name: res/layout/xh_item.xml
+SHA1-Digest: kq7k75+KuFyXBAdnJIR1qZlIJGE=
+
+Name: assets/ui/PanelDailySign.json
+SHA1-Digest: 5cSaoC0E5+5Y0OKMyBTiSKXFQDk=
+
+Name: assets/image/praise5.png
+SHA1-Digest: 3z063GBLmm9urgQWUorBaGJyees=
+
+Name: assets/json/gj_buycoin.json
+SHA1-Digest: Ys3LEDMx0EgZX9koTIZTD3Ee2Bg=
+
+Name: assets/ui/huodejinbi.png
+SHA1-Digest: 1ffjXJqH80CNpACop2DzPw5NbkE=
+
+Name: assets/unicom_channel_classez.jar
+SHA1-Digest: IWrtnwm6nYbnTvSh38W8ZHl0qh4=
+
+Name: res/drawable-hdpi/buoy_icon_my.png
+SHA1-Digest: HSiJGbBVVcNs+/XKs0t1RScR+Zs=
+
+Name: assets/ui/back.png
+SHA1-Digest: gu6MOfbdWA0TWmnRj/BDajMhvmY=
+
+Name: assets/particle/pop_stars2.png
+SHA1-Digest: yIcG6eTQWidRsMawdrRT8XRfN7I=
+
+Name: assets/ui/btn_activity_task_ban.png
+SHA1-Digest: ppWkxKoCijqvQToKqOWHBVOWrMw=
+
+Name: res/drawable-hdpi/ql_mobile.png
+SHA1-Digest: TDhB69nEzi7RrNGvXrNeQadxGnY=
+
+Name: assets/mmiap/03/btn_gray_click.png
+SHA1-Digest: oynUUwfXfwXCFTgTcGZoHdJ5Ais=
+
+Name: assets/image/effectclose.png
+SHA1-Digest: OLeZDsu++kQ+42K2/VLypp5zcSo=
+
+Name: res/drawable-xhdpi/ql_textfield_default_emui_new.9.png
+SHA1-Digest: tk3DJhXoYZenY5DDOyZRcf9gyw8=
+
+Name: assets/ui/PanelActivity.json
+SHA1-Digest: gLTadljQYer+IRPfgPWE/xwiUIM=
+
+Name: assets/ui/Jxxx.png
+SHA1-Digest: cPyF6UVJXpNve/eba3pZ97ACQvI=
+
+Name: assets/ui/shangdian_wenzi.png
+SHA1-Digest: msopRLnIrV8AD9v537LN8dQkp3s=
+
+Name: assets/ui/jiugongge.png
+SHA1-Digest: yQ4McI77RIlq/sqAaLRdpgYx/Ig=
+
+Name: assets/json/poptile/sound_win.json
+SHA1-Digest: IuB479RYgmq8GBi2R7wtCaV3DJk=
+
+Name: res/drawable-hdpi/gc_title_arrow.png
+SHA1-Digest: 3bJx1+PCYhrQ0CuV21bWH85yors=
+
+Name: assets/ui/biaotou3.png
+SHA1-Digest: cXx0PuUfpyZQ+uJ2kzZUV3Ovdw4=
+
+Name: assets/ui/JLdb.png
+SHA1-Digest: 2itz1paekOYPunjuLj4AOw99oXk=
+
+Name: assets/image/zsdlb.png
+SHA1-Digest: rjc94kHx495JjZFXozoEp/ch6uI=
+
+Name: assets/ui/jikegoumai.png
+SHA1-Digest: NPDP94c1cVFaYx5TlebkNios6S8=
+
+Name: assets/ui/PanelMoreGame.json
+SHA1-Digest: HFHuOHL2bjPc2sbhKMSlgH7s9Ts=
+
+Name: res/drawable-hdpi/gc_alipay_icon.png
+SHA1-Digest: Bco8KcMW5as2HkO9IUiB6AzC1IM=
+
+Name: assets/ui/arrow.png
+SHA1-Digest: sKBIePrnaHbjEe9H84rMDl9YvA0=
+
+Name: assets/ui/connected.png
+SHA1-Digest: 9XEybupsA1fUzw1nJufIuaxpUKA=
+
+Name: assets/unipaysdk_res/unicom_separate_line.png
+SHA1-Digest: xdPMbbDqgujmbnU5t73jS0e5GC4=
+
+Name: res/drawable-xhdpi/buoy_actbar_back.png
+SHA1-Digest: fmuqcalEIjYjrvH+2BCI2+EwNwU=
+
+Name: assets/armature/laohuji0.png
+SHA1-Digest: hqRC1UM5IGXxXEqbfW9tDtowlFY=
+
+Name: res/layout/buoy_notice_detail.xml
+SHA1-Digest: TvLpVi37/ZIfbpaSXMJqbP3frn0=
+
+Name: assets/ui/2j.png
+SHA1-Digest: zxtbVqo1jNO8WNgAtgxOv2g2CV4=
+
+Name: assets/ui/hengfu.png
+SHA1-Digest: KzSL/rCbUziTkTH3b4DWpS1MsGk=
+
+Name: assets/json/dx_buycoin.json
+SHA1-Digest: tLXEsQmW+//mOObd1RnW4c1O0AY=
+
+Name: res/layout/buoy_window_first_usage.xml
+SHA1-Digest: Beg440p9aTT78frOM1gFi/f2hcg=
+
+Name: assets/ui/XSqd.png
+SHA1-Digest: qxN6tgIhZvl6SATHKOi00j1KEH0=
+
+Name: assets/x86/libdecrypt.jar
+SHA1-Digest: tLvSA68N9z4RDt/xtGZKJHliJxg=
+
+Name: res/drawable-hdpi/buoy_icon_hidden.png
+SHA1-Digest: c4ERJvzOWg9yGw4IKOG8rbVi/H4=
+
+Name: assets/json/unicom_buycoin.json
+SHA1-Digest: DZxjba4h4RG+ZlTho0314a9Rofg=
+
+Name: assets/ui/set_hlep.png
+SHA1-Digest: JobioPCS80UVYs6G1Ns1aB9JHcw=
+
+Name: assets/ui/1y.png
+SHA1-Digest: LUtP+ZbIUJH+3QaQJ3X3dSgGLg0=
+
+Name: assets/mmiap/01/btn_2.9.png
+SHA1-Digest: EJNPjEIjgfqhyW5N53OS+hpHu1g=
+
+Name: res/drawable-xhdpi/xh_btn_default_pressed_emui.9.png
+SHA1-Digest: pLyKFQT5np1h3MLpByRdPzWsLoE=
+
+Name: assets/ui/x40.png
+SHA1-Digest: yDSENH+OyDF731YZqW+e1Ony+/E=
+
+Name: res/drawable-hdpi/ql_textfield_activated.9.png
+SHA1-Digest: 4/4pGWL9QTFxkloRQ+j3JEZvrHU=
+
+Name: assets/mmiap/01/vertical/failresultdialog.xml
+SHA1-Digest: c2SrmD+fMFKUxPHnYCEbSw410PU=
+
+Name: res/drawable-xhdpi/ql_btn_check_off_emui.png
+SHA1-Digest: Lc7Mz3YK5vxFpZ5DKUYSky7qsjg=
+
+Name: assets/HuaweiPayService.apk
+SHA1-Digest: RQqR/kXRMZuG9piDkX5rjDDWXwo=
+
+Name: assets/image/short_message_29.png
+SHA1-Digest: ej7VXW1n1edX8Gt1jJLOBYtyo9M=
+
+Name: res/drawable-hdpi/gc_recharge_sale.png
+SHA1-Digest: Mxafzg8GnH6ynLtKU2qN8RsbRo4=
+
+Name: res/drawable-hdpi/ql_textfield_disabled_emui.9.png
+SHA1-Digest: TXnXrjAbvgHMdUOx/B9nJx9mtYA=
+
+Name: res/layout/umeng_common_download_notification.xml
+SHA1-Digest: fDTYqJKpqml41sVdK+KK7q9xQKY=
+
+Name: res/menu/main.xml
+SHA1-Digest: ld/00wdwXVGHoLysLQiNWsdqoGY=
+
+Name: res/layout/buoy_window_screen_video.xml
+SHA1-Digest: bUrRe/A0Nh7g8HClQEzOPhy6iPA=
+
+Name: assets/particle/pop_star1104.plist
+SHA1-Digest: K03fKcxt4UI8RM19Z5hmNlBEXUk=
+
+Name: res/drawable-xhdpi/xh_s_btn_normal.9.png
+SHA1-Digest: LIHoHuLjfH5/sebDxGTaGM3WBn4=
+
+Name: assets/html/images/404tp.gif
+SHA1-Digest: MafWh5RV8JYe2uUU7waJq7kwoiU=
+
+Name: res/drawable-hdpi/buoy_icon_normal.png
+SHA1-Digest: sBmuDB9oYcFObLxc05wJVDa5cB0=
+
+Name: res/drawable-xhdpi/buoy_icon_hidden.png
+SHA1-Digest: oBMgdDRZT1qMRPSrnwwtmLFNyQg=
+
+Name: res/drawable-hdpi/gc_compact_logo.png
+SHA1-Digest: 5DTHKQbfpmc/mLSQSTPPEJkqyCI=
+
+Name: assets/mmiap/03/horizontal/sucresultdialog.xml
+SHA1-Digest: Q2wSi4S8XimEWvMx2f3M8ptHFPg=
+
+Name: assets/ui/huodong_diban.png
+SHA1-Digest: 6fpEdQqqc7vdE37kZ4bDMt0ToD0=
+
+Name: assets/sound/ppop.ogg
+SHA1-Digest: Kio0p/rzlerUj9oEsuDxX2WzfJY=
+
+Name: assets/ui/rankitem_owner_xin.png
+SHA1-Digest: CRNeeR2QvoYW018ZlxjQNWgVgsE=
+
+Name: assets/unicom_classez.jar
+SHA1-Digest: nTmz4YHiwzTfauy/rb3MxPqa+Xk=
+
+Name: assets/ui/Button_Continue_1.png
+SHA1-Digest: d+cA5A3fFMXY6ph4zZpyTiZzBe8=
+
+Name: assets/mmiap/02/icon_info.png
+SHA1-Digest: Tzxt0fKmD3jerOCKPnUUJCGeoC8=
+
+Name: res/drawable-xhdpi/buoy_icon_forum.png
+SHA1-Digest: 2EEUwhzPtVf6lbhfhBDkcMPPMMI=
+
+Name: assets/ui/zengsong.png
+SHA1-Digest: /mHN2RRjhXSXZiH19xm/KXnbEaU=
+
+Name: assets/ui/dalibao_mm.png
+SHA1-Digest: Q1h5LzlKlZevYCsHl+jJcqpDdVE=
+
+Name: res/drawable-hdpi/buoy_definition_radio_on_pressed.png
+SHA1-Digest: NMpQJCMg9LQ7JoFeQbxF5Cetp6I=
+
+Name: res/drawable-hdpi/xh_s_btn_press.9.png
+SHA1-Digest: 339K/oyGISkNu6nga0H4C5tdqSg=
+
+Name: assets/ui/StarResult.json
+SHA1-Digest: FQLTN9fBllA9VKg8RArfsQaj3oA=
+
+Name: assets/mmiap/image/vertical/top_button_back.png
+SHA1-Digest: V3dNbV6poCc3LJ4bf2p07bAJY5g=
+
+Name: assets/ui/OnSale.json
+SHA1-Digest: vQwqwMtKvLmPCQqY8eWpJA7nHIY=
+
+Name: assets/ui/jiugongge_xin.png
+SHA1-Digest: yLEspXLBvZPB6ChMcI2QDbADbmw=
+
+Name: assets/ui/c23.fnt
+SHA1-Digest: V8hpiLmwg1BGKg5O47y2Wx6G0Gw=
+
+Name: assets/mmiap/image/vertical/editbg.9.png
+SHA1-Digest: 1m0+JuHqbuFodFKZfF8hAMr3DW8=
+
+Name: assets/ui/x250.png
+SHA1-Digest: lgummhWCV0UrIyG92/yRrGHRVZ8=
+
+Name: res/drawable-hdpi/gc_share_qq.png
+SHA1-Digest: 7E4D8jreFqumboNhHdPLKZgklu0=
+
+Name: assets/ui/jikehuode.png
+SHA1-Digest: KBZjNUnJPWNZUsAr4+npQ9wB5CA=
+
+Name: assets/mg20css.dat
+SHA1-Digest: eLcOhDMGypp2u0bG9j9DW7i7jkE=
+
+Name: assets/ui/15y.png
+SHA1-Digest: HxnrRC1dh4GpphKDh7Uj0ZSmfAs=
+
+Name: assets/unipaysdk_res/unicom_close_new_press.png
+SHA1-Digest: trfxjvvThG/cImgPWbgW2qvNtTI=
+
+Name: CopyrightDeclaration.xml
+SHA1-Digest: Ke0yUGKkdpam9ecG01e/61iJyuk=
+
+Name: assets/ui/zhong3.png
+SHA1-Digest: eTdk5kyFGSNbcKFgNPDIJfC7ukM=
+
+Name: assets/mmiap/01/horizontal/sucresultdialog.xml
+SHA1-Digest: swi71EVFj989RT2uUFlcq/quxq0=
+
+Name: assets/ui/x230.png
+SHA1-Digest: aC8r1b3Pgog+E+9trdAMLyHLSmI=
+
+Name: assets/_xdata0
+SHA1-Digest: uaNKo0xjYicinEVReBOVxofuNDI=
+
+Name: assets/mmiap/03/button_back_press.png
+SHA1-Digest: 3R+UDIPiJify94Ve0L73ARvMufM=
+
+Name: assets/ui/Button_huojian_1.png
+SHA1-Digest: fW1XkYz+vg9HRC5WBsRd/MlJMHQ=
+
+Name: assets/ui/lingqujiemian.png
+SHA1-Digest: 607KDeO0PSYdQB37mdz6D5OuSlc=
+
+Name: assets/particle/pop_star1002.plist
+SHA1-Digest: fVjPmRx3L98LjZMVZljd5fltx2k=
+
+Name: res/drawable-xhdpi/buoy_dialog_disabled_emui.9.png
+SHA1-Digest: hyYliL2h/7wAL5EKtSgBlpQYuXc=
+
+Name: res/drawable-hdpi/ql_pop_up_box.9.png
+SHA1-Digest: vozierm93EUY8XICteCoAhfxfZk=
+
+Name: res/drawable-hdpi/gc_animation_cmcc.png
+SHA1-Digest: 91Ly/MN95J9fvNUGd5iWho7UD+I=
+
+Name: assets/armature/poptile/AniFrame020.plist
+SHA1-Digest: gGEV/YYb1QWwraML3wC9eUYIe+o=
+
+Name: assets/ui/btn_activity_task.png
+SHA1-Digest: s8sZeELWKQnPQZdQc/5CNElQyMw=
+
+Name: assets/ui/tongguananniu.png
+SHA1-Digest: C+KAL8RzjxYCA5elqlXTv8Ag9Wg=
+
+Name: assets/ui/Button_Home_0.png
+SHA1-Digest: cMCoo77diIuC8SKolqsq34NHBv8=
+
+Name: assets/unipaysdk_res/accountsdk_2_float_btn_point_pressed.png
+SHA1-Digest: dW+okjaRVYLGnITcrxS0pfXy5Og=
+
+Name: assets/ui/revive_free_bg.png
+SHA1-Digest: xUUtpJausjrO4vLGG+AVImJoHsQ=
+
+Name: assets/unipaysdk_res/unicom_img_card.png
+SHA1-Digest: MrNLGFSWGHw3YVc3GtW8EbdVX+I=
+
+Name: resources.arsc
+SHA1-Digest: wmpzcNyAQOuqp0JFs9YvpUIltaI=
+
+Name: res/drawable/umeng_common_gradient_red.xml
+SHA1-Digest: 2jLyupMAAgTIjXmw8H7uIWqHcPo=
+
+Name: assets/ui/gold2.png
+SHA1-Digest: bBhqyBIY7935BMbXnIguX9qb7dk=
+
+Name: assets/particle/pop_star1100.plist
+SHA1-Digest: PGQjwwNjHx7W6H7DVF4MhGZ1tqI=
+
+Name: res/drawable-hdpi/gc_arrow_text.png
+SHA1-Digest: gt9+ynXHzTlE5oW2ti8+/7qMjYk=
+
+Name: assets/armature/sk_guide0.png
+SHA1-Digest: Jc5xBbvodCUEdVNClJn+dqaK1tY=
+
+Name: assets/ui/choujiangjieguo01.png
+SHA1-Digest: IAW1AQ2l1g8QUKhpSR95Ud3EUNk=
+
+Name: res/drawable-hdpi/gc_center_help.png
+SHA1-Digest: 7tN90O+slzYiK7uVrPEyj0eAagA=
+
+Name: assets/mmiap/image/vertical/title2_bg.png
+SHA1-Digest: at2u0fbDEzTAO0+wRjZwD7WAJJs=
+
+Name: res/drawable-hdpi/ql_btn_check_on_holo_press_light.png
+SHA1-Digest: 1yhOjEJK9M04XfFF1/JzwenBCm8=
+
+Name: assets/ui/dituyinying.png
+SHA1-Digest: qQjRZ/bpRJAO9VV1EdErtCeHH+g=
+
+Name: assets/ui/gguangshu.png
+SHA1-Digest: GEcJxQIZuMUjoCKv2f8QbX+vR2E=
+
+Name: assets/ui/check.png
+SHA1-Digest: HM6jCHqJK71S+ITsRPVGkRyi2z0=
+
+Name: res/drawable-hdpi/gc_toast_tip_horizontal.9.png
+SHA1-Digest: EYS3IyVHDtlv/tXrpF3mqicS9EI=
+
+Name: assets/ui/Jjrwlq.png
+SHA1-Digest: APqm4ZkwUiqyJDb4om/DsjZapuI=
+
+Name: assets/ui/zuanshidiban.png
+SHA1-Digest: jrXIzHXlLzOrXjvu9VOPpNeEDnk=
+
+Name: assets/mmiap/image/vertical/keyboard_bg.png
+SHA1-Digest: 3Mvk4x4VIjjbqnqwrit50fGt9pU=
+
+Name: assets/image/poptile/Bg_Matrix_5.png
+SHA1-Digest: b75CyTiwrFh+55KmPZrCPQ65gkM=
+
+Name: assets/image/short_message_5.png
+SHA1-Digest: V42d0YDpT5dG/oPjKll1Ivf6fmc=
+
+Name: assets/image/shangdian.png
+SHA1-Digest: czpPT1TWtxMKGWqHzU9xBie9qPY=
+
+Name: assets/mmiap/02/btn_gray.9.png
+SHA1-Digest: AQEiFMfV8+mmvD/zyyaa88X2Dq0=
+
+Name: assets/ui/title_silk_zise.png
+SHA1-Digest: FTUZBfYMPJ0UGq02gZfsxmQM1kk=
+
+Name: res/drawable-xhdpi/ql_enter_game_account.png
+SHA1-Digest: 4uvuQYcU+QGn8lCZQAgDHmgWuM0=
+
+Name: assets/image/coingift_title_czzslb.png
+SHA1-Digest: gzbbHqbZUNAHDOrJKoUdXEdWbzo=
+
+Name: assets/ui/jpdb.png
+SHA1-Digest: ZUsYhwT3TgshxRsqfzKKDp20d0A=
+
+Name: assets/image/poptile/Text_StageGuide.png
+SHA1-Digest: 5F3RMze+TynSRHgB7oecob3ymDw=
+
+Name: res/drawable-hdpi/gc_phonenumber_icon.png
+SHA1-Digest: cVB70si7RR3JdNmlH2XGeRCoejc=
+
+Name: assets/ui/nqzr.png
+SHA1-Digest: CC2wRh+XEv3a47AJx1debupE4rY=
+
+Name: assets/sound/pgetcoin.ogg
+SHA1-Digest: QtmaXvX8uhjcMunrNUMxHB5LmaY=
+
+Name: res/layout/buoy_window_big_left.xml
+SHA1-Digest: RoHv7bNmNLDiIi4KghY1VCwxrO8=
+
+Name: res/drawable/icon.png
+SHA1-Digest: ehoOxx3a+60vYQ7ZmamZUcGt52c=
+
+Name: assets/ui/btn_6.png
+SHA1-Digest: +9trD0Udz0wA00l9wCquGaTcifM=
+
+Name: assets/ui/wzbt.png
+SHA1-Digest: TJx5e526qJaPonGr5JYl92qsXeU=
+
+Name: assets/arm64-v8a/libdecrypt.jar
+SHA1-Digest: XoA98BQlM4fcTi5w6ZK8jM++Pvo=
+
+Name: assets/mmiap/image/vertical/get_verificationcode.9.png
+SHA1-Digest: F93ixYNe+RkZVuToVd3p+g/AKUY=
+
+Name: assets/action/loading0.ExportJson
+SHA1-Digest: D8YvZ5PsWS3iIbamSR/PcOA0VeI=
+
+Name: assets/image/poptile/Sprite_Tile.plist
+SHA1-Digest: kqaH+eVDcbUq6wQ+S1i6xGC0Uu0=
+
+Name: assets/mmiap/03/vertical/progressdialog.xml
+SHA1-Digest: IoYkgSSs64p7DJ4+Ebhh9KMlg5M=
+
+Name: assets/ui/btn_2_1.png
+SHA1-Digest: O7ZdKI2lybiy0uuTMSj18mdm5Wg=
+
+Name: assets/ui/xlb.png
+SHA1-Digest: h9YmKm96nx5+p3ixQCZQwATu8Jc=
+
+Name: assets/image/poptile/Sprite_Tile.png
+SHA1-Digest: my7dzkCqb3EYpOggrqPbukpIQeM=
+
+Name: res/layout/main_menu_item.xml
+SHA1-Digest: P44J2CgwWa8vzOH+kY+zMu+PsHc=
+
+Name: res/drawable-hdpi/gc_compact_close.png
+SHA1-Digest: sXbNVIP6Fm9ZjT4XVr9jpIPnFKo=
+
+Name: assets/ui/2y.png
+SHA1-Digest: 7XYi3dEXgeI+Wm0I9QIZTeAHt3c=
+
+Name: res/drawable-hdpi/buoy_icon_forum.png
+SHA1-Digest: L7phESyY8UVLepX7ernFCGRCt84=
+
+Name: assets/ui/zengbig.png
+SHA1-Digest: ZKCDg/PFQO1zDOIEbp4GhNrODps=
+
+Name: res/layout/buoy_definition_dialog.xml
+SHA1-Digest: GXRZI/2j+12XH8YLV78pdOWLW+A=
+
+Name: res/drawable-hdpi/buoy_dialog_pressed_emui.9.png
+SHA1-Digest: eDqJKqTFINIa0MGgJkqlbYefNLA=
+
+Name: assets/Charge20.xml
+SHA1-Digest: PMyED+akpnqt7xncUrxc41CitOg=
+
+Name: assets/ui/x10.png
+SHA1-Digest: /cqjh+3lt9d8x4RT5E/sGHN5Otg=
+
+Name: assets/image/poptile/Button_Continue.png
+SHA1-Digest: 4R0CGt1Mvfv3hdCGJYTal3QMMYA=
+
+Name: res/drawable-xhdpi/ql_set_password_btn_pressed.9.png
+SHA1-Digest: VSDbyA6/8bpRvZDYdgLq0plvf/Q=
+
+Name: assets/ui/jiesuo_tiao.png
+SHA1-Digest: hrIdLUYIeCpY/D7iROaNkuG9Ku8=
+
+Name: assets/ui/x200.png
+SHA1-Digest: 0opaquxl4cDqCP3NcBzlPuLfOkA=
+
+Name: assets/image/short_message_18.png
+SHA1-Digest: ttNL31xs6SWskzhrdObqWPSa/80=
+
+Name: res/drawable-xhdpi/xh_footer_selector.xml
+SHA1-Digest: 03y+2etgeHPiy4QydtcYpZWpNpU=
+
+Name: res/drawable/buoy_radius.xml
+SHA1-Digest: 0B80ZhCPezv+tZ45KRAvXnGYwOc=
+
+Name: assets/ui/signpic.png
+SHA1-Digest: 4EH6CWatcDpnOMiFI74ilguoKls=
+
+Name: assets/unipaysdk_res/accountsdk_2_pointbar.png
+SHA1-Digest: UB0ivL0omge2Q+0vN8ZTLtxJxXo=
+
+Name: res/drawable-hdpi/xh_btn_default_normal_emui.9.png
+SHA1-Digest: jPffoCFAXnE5bS4BZUjUdIeO4RI=
+
+Name: assets/ui/choujiangjieguo04.png
+SHA1-Digest: lwjSVyyNoaw/m4+u3O1kpk3r3IE=
+
+Name: res/drawable-hdpi/buoy_icon_help.png
+SHA1-Digest: OGSc8GebM5WgkIj/X2Tdo5II33A=
+
+Name: assets/ui/dalibao.png
+SHA1-Digest: ccBpTT7fdp+hRDcb9tqzVrHCyEw=
+
+Name: assets/sound/word_2.ogg
+SHA1-Digest: mTLpt0zaixnmMY/5+9JLEIOVMl8=
+
+Name: assets/unipaysdk_res/month_record_list.png
+SHA1-Digest: st9TkIe1tf6VB2Pf4ImRE9lhjKQ=
+
+Name: assets/image/emailIcon_duanwu.png
+SHA1-Digest: 2BCVkmbly/VRKIajxnIHpSzxulE=
+
+Name: assets/ui/biaoti.png
+SHA1-Digest: grcYtCxGfemH2QXyWpcZCppRGNc=
+
+Name: assets/ui/360zhifu-1.png
+SHA1-Digest: fFHq6Qh13yipC2y9wUQBsAfsmMo=
+
+Name: assets/mmiap/01/close.png
+SHA1-Digest: yol2lGN3KrhCt5Ntnp/+4QF/VUg=
+
+Name: assets/ui/salegift.png
+SHA1-Digest: h19OKFEY4hqMLCw6KKv4YsBfi+0=
+
+Name: res/drawable-xhdpi/buyo_window_close_pressed.png
+SHA1-Digest: WInje3P3Kc1LlQhfwKu8mBPK824=
+
+Name: res/drawable-hdpi/gc_share_weixin_timeline.png
+SHA1-Digest: w+nDE0C8Yx9PyCnr/dfEx9Zmm+g=
+
+Name: res/drawable-xhdpi/xh_setting.png
+SHA1-Digest: H0xSylHXFG9eARuwUas7fx1xR8c=
+
+Name: assets/unipaysdk_res/accountsdk_2_green_radio_checked.png
+SHA1-Digest: YL6tShvmWQVzNeNIdEKjDt0+3F0=
+
+Name: assets/ui/zuanshidiban_1111.png
+SHA1-Digest: aE1+k5AnCeDfk+FaQbwVkciYqQA=
+
+Name: res/drawable-xhdpi/buoy_circle_medium.png
+SHA1-Digest: lkH9bRh2rRfuHlWLqVMWRxTx/6U=
+
+Name: assets/ui/x1888.png
+SHA1-Digest: HXKd8OhIVMKeTCjODAdoaIR0h3Q=
+
+Name: assets/ui/Text_StageEnd.png
+SHA1-Digest: d1csqf95jdz6vp/VZlhqTbRdBHg=
+
+Name: res/drawable/progressbar_green.xml
+SHA1-Digest: A44QvjcgUmUieL1AnkzDmL3sD9U=
+
+Name: res/drawable-hdpi/xh_setting.png
+SHA1-Digest: 0YUI/L+nyhbalrELzveuHSBwB4o=
+
+Name: assets/ui/StarGame.json
+SHA1-Digest: vVBOiL40J4ObdD7E0WIZ/Nlyt4E=
+
+Name: assets/ui/c20.png
+SHA1-Digest: nUng9kizq3YVjLWlUp7ZA96j56A=
+
+Name: assets/particle/poptile/Particle_TileDebris.png
+SHA1-Digest: Zkxf5Qj67MwMVTS9TtxypsUliwE=
+
+Name: assets/ui/PanelGiftLottery.json
+SHA1-Digest: FZ5+y8C8MO9hU83CWc/itiiF8GY=
+
+Name: assets/ui/menu_help.png
+SHA1-Digest: +xxpbMPZ7Jx5kPhZlB8/Ski5CQc=
+
+Name: res/drawable-xhdpi/buoy_first_usage.png
+SHA1-Digest: 9oGS5J+M8co5KHnioZ2MJrIk4f0=
+
+Name: res/drawable-hdpi/gc_start_logo.png
+SHA1-Digest: ZY7b34IPlACOQAlXA2VDcvt3n0M=
+
+Name: assets/armature/poptile/AniFrame010.plist
+SHA1-Digest: uXqTD0DrwKf55hQ1PlpFDv11WFk=
+
+Name: assets/unipaysdk_res/unicom_btn_usercenter.png
+SHA1-Digest: bVCIcIy5/QC5Xbtt1b5IsDNTzgw=
+
+Name: res/drawable-hdpi/buoy_icon_gift.png
+SHA1-Digest: isfNT94SlI7T4BziOuiDP9xm6dE=
+
+Name: res/drawable-xhdpi/buoy_bg_actionbar.9.png
+SHA1-Digest: h6ZKweW1Wd/OJ6C2UJKOxNtP5UI=
+
+Name: assets/ui/GameInfos.json
+SHA1-Digest: MNRoqjdNlhnKT1BJkpyiFi/elyc=
+
+Name: res/drawable-hdpi/gc_weixin_icon.png
+SHA1-Digest: CEXi6LuKnHuL/rrIMF9aqHgoSJc=
+
+Name: assets/ui/PoptileLayerResult.json
+SHA1-Digest: +E5z345fYVpCAXT/ug0B1iSkmH4=
+
+Name: assets/ui/PanelActivityTaskItem.json
+SHA1-Digest: MUoTxSYjG1NlQgYGJjMPYYFsjj0=
+
+Name: res/drawable-xhdpi/buoy_icon_hide_right.png
+SHA1-Digest: 1B433kTe1lM+itMuFlmsHrufkyM=
+
+Name: res/drawable-xhdpi/xh_06.png
+SHA1-Digest: CHu5J0GuEIdQbfkkeeUNF9xV1fk=
+
+Name: lib/armeabi/libidentifyapp.so
+SHA1-Digest: GgnTxIjO0J1WdHwaTRslVToU5uM=
+
+Name: assets/ui/Button_Same_2.png
+SHA1-Digest: G76SCkM5UJaSWQJ0Y3DMk/rlG6s=
+
+Name: assets/mmiap/03/btn_blue01_click.png
+SHA1-Digest: 13PqsJIfLFV8cf9WXdjU3eHLZiU=
+
+Name: assets/ui/ganendalibao.png
+SHA1-Digest: k9a2B5Dq/j3h3mYr0QLCMv0ql0E=
+
+Name: res/drawable-hdpi/buoy_dialog_normal_emui.9.png
+SHA1-Digest: U4fhLIyLG2IgtEEpRi331h6IfHQ=
+
+Name: assets/ui/btn_name_upload.png
+SHA1-Digest: nVl9r8QuIDMpCvcLq63JIxi0J+I=
+
+Name: assets/mmiap/03/horizontal/progressdialog.xml
+SHA1-Digest: IoYkgSSs64p7DJ4+Ebhh9KMlg5M=
+
+Name: assets/egame/EGAME_124.zip
+SHA1-Digest: ZzMM7E+Cj4/7Q65tpJctH8LXzNQ=
+
+Name: assets/armature/poptile/AniFrame040.plist
+SHA1-Digest: D4KT//zMNn0YwYQZi+AU2Rwh2D8=
+
+Name: res/drawable/umeng_common_gradient_orange.xml
+SHA1-Digest: AHyEGQnT7imQmkLcSm6fiGPhe3s=
+
+Name: assets/ui/coin_bar.png
+SHA1-Digest: jlNzBrxHm0TEUVz2VMYdhfHx1pw=
+
+Name: assets/unipaysdk_res/accountsdk_2_btn_grey.9.png
+SHA1-Digest: fi3ZKrIHHRTLpimKTEk2TU7XtVk=
+
+Name: assets/image/emailIcon_gold.png
+SHA1-Digest: zJy70AjXFLj4J2F6sAPUPVBIw24=
+
+Name: assets/ui/set_about.png
+SHA1-Digest: 2MyzAY5zPhMcVbbW7NIMy0hunbw=
+
+Name: assets/ui/bg_sunburst1.png
+SHA1-Digest: OSBjevraZHGVhoUslK5DYbQOBkY=
+
+Name: assets/ui/18y.png
+SHA1-Digest: 71yLLwuIiAPouKsu3mlOfAxNOMw=
+
