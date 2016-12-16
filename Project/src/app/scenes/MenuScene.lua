@@ -18,7 +18,7 @@ function MenuScene:ctor()
     layer_menu:setVisible(false)
 
     local lbl_warning = cc.ui.UILabel.new({
-            UILabelType = 2,
+            UILabelType = 1,
             text  =  "             健康游戏忠告\n抵制不良游戏，拒绝盗版游戏。\n注意自我保护，谨防上当受骗。\n适度游戏益脑，沉迷游戏伤身。\n合理安排时间，享受健康生活。",
             font = GAME_FONT,
             size = 25,
@@ -29,7 +29,7 @@ function MenuScene:ctor()
         :align(cc.ui.TEXT_VALIGN_CENTER, display.cx + 20, display.cy )
         :addTo(layer_logging)
         local lbl_loading = cc.ui.UILabel.new({
-            UILabelType = 2,
+            UILabelType = 1,
             text = "加载中...",
             font = GAME_FONT,
             size = 25,
@@ -40,7 +40,7 @@ function MenuScene:ctor()
         scheduler.performWithDelayGlobal(function ()
                 layer_logging:setVisible(false)
                 layer_menu:setVisible(true)
-            end, 0.1)
+            end, 2)
 
 
 
@@ -49,7 +49,7 @@ function MenuScene:ctor()
 	self.coin_bar  = display.newSprite(GAME_IMAGE.coin_bar, display.cx - self.bg:getContentSize().width / 2 + 100,display.cy + self.bg:getContentSize().height / 2  - 30)
     layer_menu:addChild(self.coin_bar)
     local lbl_coin = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  =  "0",
         font = GAME_FONT,
         size = 20
@@ -60,7 +60,7 @@ function MenuScene:ctor()
 	self.jinbi_tiao  = display.newSprite(GAME_IMAGE.jinbi_tiao, display.cx - self.bg:getContentSize().width / 2 + 270,display.cy + self.bg:getContentSize().height / 2 - 30)
     layer_menu:addChild(self.jinbi_tiao)
     local lbl_jinbi = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  =  "1234578",
         font = GAME_FONT,
         size = 20

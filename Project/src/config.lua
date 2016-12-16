@@ -109,7 +109,7 @@ GAME_PARTICE = {
 	Particle_TileDebris        = "particle/poptile/fireworks1.plist",
 }
 
-GAME_FONT = "arial"
+GAME_FONT_ =  "c23.fnt" 
 
 GAME_TEXTURE_DATA_FILENAME  = "popstar.plist"
 GAME_TEXTURE_IMAGE_FILENAME = "popstar.png"

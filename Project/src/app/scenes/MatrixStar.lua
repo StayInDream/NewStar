@@ -176,7 +176,7 @@ function MatrixStar:initTitles()
     self:addChild(node_title , 2)
 
     lbl_stage = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  =  "第 "..CURLEVEL.." 关",
         font = GAME_FONT,
         size = 25,
@@ -186,7 +186,7 @@ function MatrixStar:initTitles()
     :addTo(node_title)
 
     lbl_target = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  =  "目标 " .. TARGETSCORE,
         font = GAME_FONT,
         size = 27,
@@ -196,7 +196,7 @@ function MatrixStar:initTitles()
     :addTo(node_title)
 
     lbl_heightScore = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  =  "最高 " .. HEIGHTSCORE,
         font = GAME_FONT,
         size = 27,
@@ -207,10 +207,10 @@ function MatrixStar:initTitles()
 
 
     lbl_curscore = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text = CURSCORE,
         font = GAME_FONT,
-        size = 27,
+        size = 20,
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.left + 240, display.top - 105)
     :addTo(node_title)
@@ -233,7 +233,7 @@ function MatrixStar:initTitles()
         :setScale(0.9)  
 
     lbl_diamond = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text = DIAMOND,
         font = GAME_FONT,
         size = 18,
@@ -243,13 +243,14 @@ function MatrixStar:initTitles()
 
 
     lbl_show = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  =  "  ",
         font = GAME_FONT,
         size = 20,
-        color = cc.c3b(255,140,0),
+       -- color = cc.c3b(255,140,0),
     })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.cx , display.cy + 200)
+    :setColor(cc.c3b(255,140,0))
     :addTo(node_title)
 
     sp_tongguan = display.newSprite(GAME_IMAGE.stage_clear, display.cx, display.cy)
@@ -257,7 +258,7 @@ function MatrixStar:initTitles()
     sp_tongguan:setScale(0)
 
     lbl_showStage = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  =  "  ",
         font = GAME_FONT,
         size = 40,
@@ -286,7 +287,7 @@ function MatrixStar:initTitles()
         :setScale(0.6)  
 
     lbl_prop1 = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  = 5,
         font = GAME_FONT,
         size =  18,
@@ -313,7 +314,7 @@ function MatrixStar:initTitles()
         :setScale(0.6)  
 
     lbl_prop2 = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  = 5,
         font = GAME_FONT,
         size = 18,
@@ -357,7 +358,7 @@ function MatrixStar:initTitles()
         :setScale(0.6)  
 
     lbl_prop3 = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1,
         text  =  5,
         font = GAME_FONT,
         size = 18,
@@ -409,17 +410,16 @@ function MatrixStar:ShowPauseView()
     :addTo(node_paseview)
 
     local lbl_rule = cc.ui.UILabel.new({
-        UILabelType = 2,
+        UILabelType = 1 ,
         text  =  "第 "..CURLEVEL.." 关",
-        font = GAME_FONT,
-        size = 25,
+        font = GAME_FONT ,
+       -- size = 25,
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT)
     :setColor(cc.c3b(124, 252, 0))
     :addTo(node_paseview)
 
   --  transition.moveTo(node_paseview, {time = 2 , x = display.cx , y = display.cy - 200 ,easing = "bounceOut"})
-
 
     end
 end
@@ -696,7 +696,7 @@ function MatrixStar:UsePaint(i, j )
     if self.selectColor == nil then
         audio.playSound(GAME_SOUND.Eff_Warning)
         local lbl_ = cc.ui.UILabel.new({
-            UILabelType = 2,
+            UILabelType = 1,
             text  =  "请先选择要转换的颜色！",
             font = GAME_FONT,
             size = 35,
@@ -1006,7 +1006,7 @@ function MatrixStar:ShowAnimLabel(isusingBoom ,i,j)
             lbl_show:setString("消除"..deleteStarnum .."个:"..getscorse.."分")
             local posx , posy  = self.STAR[i][j][1]:getPositionX() , self.STAR[i][j][1]:getPositionY() + 50
             local lbl_      = cc.ui.UILabel.new({
-                UILabelType = 2,
+                UILabelType = 1,
                 text        = getscorse,
                 font        = GAME_FONT,
                 size        = 40,
@@ -1116,7 +1116,7 @@ function MatrixStar:updateScore(select)
     end
 
     if self.Cscore >= TARGETSCORE then
-            lbl_curscore:setTextColor(cc.c3b(255, 255 , 0))
+            lbl_curscore:setColor(cc.c3b(255, 255 , 0))
 
             if bool_ishaveShow_sp_tongguan == false then
 
@@ -1162,7 +1162,7 @@ function MatrixStar:updateScore(select)
                 bool_ishaveShow_sp_tongguan = true
                 end
         else
-            lbl_curscore:setTextColor(cc.c3b(0, 255, 127))
+            lbl_curscore:setColor(cc.c3b(0, 255, 127))
 
     end
 end
@@ -1267,7 +1267,7 @@ function MatrixStar:ClearLeftStarOneByOne()
     end
 
     lbl_  = cc.ui.UILabel.new({
-            UILabelType = 2,
+            UILabelType = 1,
             text        = str ,
             font        = GAME_FONT,
             size        = 30,
@@ -1276,7 +1276,7 @@ function MatrixStar:ClearLeftStarOneByOne()
             :addTo(self,3)
 
     lbl_02  = cc.ui.UILabel.new({
-            UILabelType = 2,
+            UILabelType = 1,
             text        = getscore ,
             font        = GAME_FONT,
             size        = 30,

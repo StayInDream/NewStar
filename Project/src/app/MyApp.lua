@@ -4,6 +4,8 @@ require("cocos.init")
 require("framework.init")
 GameState=require("framework.cc.utils.GameState")
 GameData  = nil
+GAME_FONT = nil
+
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
@@ -49,6 +51,8 @@ function MyApp:run()
     if GameData == nil then --第一次运行游戏
         GameData = GameState.load()
     end
+
+    GAME_FONT = "fonts/" .. GAME_FONT_
     
     -- 动画缓存
     -- display.addSpriteFrames("lqfRoleWalk.plist","lqfRoleWalk.png")
