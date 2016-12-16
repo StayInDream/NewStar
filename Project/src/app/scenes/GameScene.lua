@@ -12,7 +12,7 @@ function GameScene:ctor()
     self:addChild(self.Matrix)
     local x = 1
     self:scheduleUpdate(function() 
-                self:update() 
+               -- self:update() 
                end,0)
 end
 

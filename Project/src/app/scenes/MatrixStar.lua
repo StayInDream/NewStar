@@ -31,6 +31,8 @@ local CLEAROVER    = 2
 local MOVEDELAY    = 1.5
 local BOOL_ISCONTINUE = 0  --读档开始， 值为1是读档
 local DIAMOND         = 15  --拥有钻石的数量
+local MAP = {}
+local GAMESTATE    = 0 --游戏状态， 0->从新开始或读档后继续， 1 ->存档 ， 2->游戏失败
 
 
 local STAR_WIDTH  = 48   
@@ -62,7 +64,6 @@ local lbl_show                    = nil
 local bool_ishaveShow_sp_tongguan = false
 local bool_isusingBoom            = false  --true正在使用炸弹
 local bool_isusingPaint           = false  --true正在使用刷子
-local gameState = 0 --游戏状态 0 -> 未准备就绪, 1 -> 准备就绪，可以点击了
 
 function MatrixStar:ctor()
     self:LoadGameData()
@@ -85,9 +86,7 @@ end
 
 function MatrixStar:Show( )
     -- body
-    if GameData.MAP ~= nil then  --读档开始
-
-    else
+   
         lbl_showStage:setString( "   ".."第 " ..CURLEVEL .." 关" .. "\n\n 目标 " .. TARGETSCORE)
         scheduler.performWithDelayGlobal( function ( )
             -- body
@@ -108,9 +107,6 @@ function MatrixStar:Show( )
             self:setLabel( HEIGHTSCORE, CURLEVEL ,TARGETSCORE, CURSCORE)
             sp_tongguan:setScale(0)
         end ,2.8)  
-
-
-    end 
 end
 
 function MatrixStar:LoadGameData( )
@@ -127,8 +123,8 @@ function MatrixStar:LoadGameData( )
         CURSCORE = GameData.CURSCORE
     end
 
-    if GameData.CURSCORE ~= nil then
-        CURSCORE = GameData.CURSCORE
+    if GameData.TARGETSCORE ~= nil then
+        TARGETSCORE = GameData.TARGETSCORE
     end
 
     if GameData.DIAMOND  ~= nil then
@@ -136,7 +132,11 @@ function MatrixStar:LoadGameData( )
     end
 
     if GameData.MAP ~= nil then
+        MAP = GameData.MAP
+    end
 
+    if GameData.GAMESTATE ~= nil then
+        GAMESTATE = GameData.GAMESTATE
     end
 
 end
@@ -144,13 +144,27 @@ end
 function MatrixStar:SaveGameData( )
     -- body
     GameData.HEIGHTSCORE = HEIGHTSCORE
+    GameData.TARGETSCORE = TARGETSCORE
     GameData.CURLEVEL    = CURLEVEL
     GameData.CURSCORE    = CURSCORE
     GameData.DIAMOND     = DIAMOND
+    self:GetMap()
     GameData.MAP         = MAP
-
+    GameData.GAMESTATE   = GAMESTATE
     GameState.save(GameData)
 
+end
+
+function MatrixStar:GetMap(  )
+    -- body
+    MAP = {}
+    for i = 1, ROW do
+        for j = 1, COL do
+            if self.STAR[i][j][1] ~= nil then
+                table.insert(MAP, {self.STAR[i][j][2] , i , j})
+            end
+        end
+    end
 end
 
 --标头显示
@@ -385,7 +399,7 @@ function MatrixStar:Prop1_onclick()
         self.Prop3Btn:setButtonEnabled(false)
         self:ResetStar() 
         DIAMOND = DIAMOND - 5 
-        self:SaveGameData()
+        GameData.DIAMOND     = DIAMOND
         lbl_diamond:setString(DIAMOND)
     else
 
@@ -412,7 +426,7 @@ function MatrixStar:Prop2_onclick()
                 })
         self.Prop2Btn_sequenceAction = transition.execute(self.Prop2Btn, cc.RepeatForever:create( sequenceAction ))
         DIAMOND = DIAMOND - 5
-        self:SaveGameData()
+        GameData.DIAMOND     = DIAMOND
         lbl_diamond:setString(DIAMOND)
     else
 
@@ -446,7 +460,7 @@ function MatrixStar:Prop3_onclick()
             end
         end
         DIAMOND = DIAMOND - 5
-        self:SaveGameData()
+
         lbl_diamond:setString(DIAMOND)
     else
 
@@ -456,6 +470,10 @@ end
 --暂停按钮
 function MatrixStar:PauseBtn_onclick( )
     -- body
+    CURSCORE = self.Cscore 
+    GAMESTATE = 1
+
+    self:SaveGameData()
 end
 
 -- 选择颜色
@@ -743,69 +761,130 @@ function MatrixStar:initMatrix()
         ]]
     math.randomseed(os.time())   
     self.nums = 0
-    for row = 1, ROW do
-        local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
-        self.STAR[row] = {}
-        for col = 1, COL do
-            self.STAR[row][col] = {}
-            local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-            local i = math.random(1, #STAR_RES_LIST-3)
-            local star = display.newSprite(STAR_RES_LIST[i])
-            star:setScale(0)
-            self.STAR[row][col][1] = star
-            self.STAR[row][col][2] = i
-            self.STAR[row][col][3] = false
-            star:setPosition(x,y)
-            self.STAR[row][col][4] = x
-            self.STAR[row][col][5] = y
-            self.STAR[row][col][6] = row
-            self.STAR[row][col][7] = col
-            self:addChild(star)
+    print(GAMESTATE )
+    print(#MAP )
+    if GAMESTATE == 0 or #MAP <= 0 then
+        for row = 1, ROW do
+            local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
+            self.STAR[row] = {}
+            for col = 1, COL do
+                self.STAR[row][col] = {}
+                local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
+                local i = math.random(1, #STAR_RES_LIST-3)
+                local star = display.newSprite(STAR_RES_LIST[i])
+                star:setScale(0)
+                self.STAR[row][col][1] = star
+                self.STAR[row][col][2] = i
+                self.STAR[row][col][3] = false
+                star:setPosition(x,y)
+                self.STAR[row][col][4] = x
+                self.STAR[row][col][5] = y
+                self.STAR[row][col][6] = row
+                self.STAR[row][col][7] = col
+                self:addChild(star)
 
-            --用来计数，一播放完动作的星星完全播放完后设置为可 touch状态
-            local sequence = transition.sequence({
-            cc.ScaleTo:create(math.random(0.3, 0.5), 0.5),
-            }) 
+                --用来计数，一播放完动作的星星完全播放完后设置为可 touch状态
+                local sequence = transition.sequence({
+                cc.ScaleTo:create(math.random(0.3, 0.5), 0.5),
+                }) 
 
-            transition.execute(star, sequence, {  
-            delay = 0,  
-            easing = "exponentialOut",  
-            onComplete = function()  
-                self.nums = self.nums + 1
-                if self.nums >= self:getStarNum() then
-                   self:SetBtnsState(true) 
-                   gameState = 1
-                   else
-                   self:SetBtnsState(false) 
-                end
-            end,  
-            })  
+                transition.execute(star, sequence, {  
+                delay = 0,  
+                easing = "exponentialOut",  
+                onComplete = function()  
+                    self.nums = self.nums + 1
+                    if self.nums >= self:getStarNum() then
+                       self:SetBtnsState(true) 
+                       gameState = 1
+                       else
+                       self:SetBtnsState(false) 
+                    end
+                end,  
+                })  
+            end
         end
+
+    else  --读档
+        print("读档")
+        local map = MAP
+         for row = 1, ROW do
+            local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
+            self.STAR[row] = {}
+            for col = 1, COL do
+                self.STAR[row][col] = {}
+                local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
+                local i = 1
+                local star = nil
+                for index = 1,#map do
+                    if map[index][2] == row and map[index][3] == col then
+                        i = map[index][1]
+                        star = display.newSprite(STAR_RES_LIST[i])
+                        star:setScale(0)
+                        self.STAR[row][col][1] = star
+                        self.STAR[row][col][2] = i
+                        self.STAR[row][col][3] = false
+                        star:setPosition(x,y)
+                        self.STAR[row][col][4] = x
+                        self.STAR[row][col][5] = y
+                        self.STAR[row][col][6] = row
+                        self.STAR[row][col][7] = col
+                        self:addChild(star)
+                    end
+                end
+                
+                
+                if star ~= nil then
+                    --用来计数，一播放完动作的星星完全播放完后设置为可 touch状态
+                    local sequence = transition.sequence({
+                    cc.ScaleTo:create(math.random(0.3, 0.5), 0.5),
+                    }) 
+
+                    transition.execute(star, sequence, {  
+                    delay = 0,  
+                    easing = "exponentialOut",  
+                    onComplete = function()  
+                        self.nums = self.nums + 1
+                        if self.nums >= #MAP then
+                           self:SetBtnsState(true) 
+                           GAMESTATE = 0
+                           else
+                           self:SetBtnsState(false) 
+                        end
+                    end,  
+                    })  
+                end
+            end
+        end
+
     end
 end
 
    --  lbl显示内容
 function MatrixStar:setLabel(Hscore,Level,TargetScore,Cscore)
-   lbl_heightScore:setString("最高 " .. HEIGHTSCORE)
+   lbl_heightScore:setString("最高 " .. Hscore)
    lbl_stage:setString("第 "..Level.." 关")
    lbl_target:setString( "目标 " .. TargetScore)
    lbl_curscore:setString(string.format("%s", tostring(Cscore)))
+   self.Level  = Level
+
+
 end
 
     -- 下一关
 function MatrixStar:nextStage( )
     -- body
-    audio.playSound(GAME_SOUND.NextGameRound)
+    
     gameState = 0
     CURLEVEL = CURLEVEL + 1
-    TARGETSCORE = TARGETSCORE + 500 * (CURLEVEL+1)
+    TARGETSCORE = TARGETSCORE + 500 * (CURLEVEL + 1)
     CURSCORE = self.Cscore 
+    self.Hscore      = HEIGHTSCORE
+    self.Level       = CURLEVEL
     self.STAR        = {}
     self.SELECT_STAR = {} 
     self.clearNeed = UNNEEDCLEAR
     bool_ishaveShow_sp_tongguan = false
     lbl_curscore:setColor(cc.c3b(255, 255, 255))
-    self:SaveGameData()
     self:Show()
 end
 
@@ -950,7 +1029,7 @@ function MatrixStar:ShowAnim(num )
             end, 
             })
 
-        audio.playSound(GAME_SOUND.word_1, false)
+        audio.playSound(GAME_SOUND.word_1)
 
         elseif num < 9 then --酷毙了
             local praises = {GAME_IMAGE.praise2,  GAME_IMAGE.praise3 }
@@ -964,7 +1043,7 @@ function MatrixStar:ShowAnim(num )
                     node_title:removeChild(sp_praise2)
                 end, 
                 })
-            audio.playSound(GAME_SOUND.word_1, false)
+            audio.playSound(GAME_SOUND.word_1)
             elseif num < 12 then --霸气侧漏
                 local praises = {GAME_IMAGE.praise4, GAME_IMAGE.praise5 }
                 local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
@@ -977,7 +1056,7 @@ function MatrixStar:ShowAnim(num )
                         node_title:removeChild(sp_praise2)
                     end, 
                     })
-                audio.playSound(GAME_SOUND.word_2, false)
+                audio.playSound(GAME_SOUND.word_2)
                 elseif num > 11 then --棒棒
                     local praises = { GAME_IMAGE.praise6, GAME_IMAGE.praise7 }
                     local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
@@ -990,7 +1069,7 @@ function MatrixStar:ShowAnim(num )
                             node_title:removeChild(sp_praise2)
                         end, 
                         })
-                    audio.playSound(GAME_SOUND.word_2, false)
+                    audio.playSound(GAME_SOUND.word_2)
                    
     end
 end
@@ -1177,6 +1256,7 @@ function MatrixStar:ClearLeftStarOneByOne()
 
     sequenceAction = transition.sequence({
             cc.ScaleTo:create(0.1, 3, 3, 1), 
+            
             cc.ScaleTo:create(0.5, 1, 1, 1), 
             cc.MoveTo:create(0.5, cc.p(lbl_curscore:getPositionX() , lbl_curscore:getPositionY() )),
             cc.FadeTo:create(0.3,  0 ),
@@ -1193,6 +1273,10 @@ function MatrixStar:ClearLeftStarOneByOne()
                     self:showResult()
                 end, 
                 })
+     scheduler.performWithDelayGlobal( function ( )
+            -- body
+             audio.playSound(GAME_SOUND.NextGameRound)
+        end ,num * 0.05 + 1.5)  
 
 
    local function oneByone(dt)
@@ -1224,7 +1308,7 @@ end
 function MatrixStar:showResult( )
     -- body
 
-    if bool_ishaveShow_sp_tongguan == true then --已经通关了
+    if bool_ishaveShow_sp_tongguan == true or self.cscore >= TARGETSCORE then --已经通关了
         self:nextStage()
 
         else  --失败
@@ -1238,6 +1322,8 @@ end
  --显示失败界面--
 function MatrixStar:showFail( )
     -- body
+    GAMESTATE = 2
+    self:SaveGameData()
 end
 
 function MatrixStar:updatePos(posX,posY,i,j)

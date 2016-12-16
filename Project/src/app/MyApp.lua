@@ -91,6 +91,7 @@ function MyApp:ShowCDKEY()
 end
 
 function MyApp:StartNewGame()
+    self:InitGameStageData()
     -- 创建一个新场景
     local nextScene = require("app.scenes.GameScene").new()
     -- 包装过渡效果
@@ -100,13 +101,27 @@ function MyApp:StartNewGame()
 end
 
 function MyApp:ContinueGame()
-    --self:enterScene("GameScene", nil, "fade", 0.6, display.COLOR_WHITE)
+    local nextScene = require("app.scenes.GameScene").new()
+    -- 包装过渡效果
+    local transition = display.wrapSceneWithTransition(nextScene, "slideInR", 0.5)
+    -- 切换到新场景
+    display.replaceScene(transition)
 end
 
 function MyApp:TeQuanButtonClick()
     
     --self:enterScene("GameScene", nil, "fade", 0.6, display.COLOR_WHITE)
-    
+end
+
+function MyApp:InitGameStageData()
+    GameData.CURLEVEL    = 1
+    GameData.CURSCORE    = 0
+    GameData.TARGETSCORE = 1000
+    GameData.MAP         = {}
+    GameData.GAMESTATE   = 0
+
+    GameState.save(GameData)
+
     
 end
 
