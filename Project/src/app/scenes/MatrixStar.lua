@@ -183,6 +183,7 @@ function MatrixStar:initTitles()
         })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 60, display.top - 30)
     :setColor(cc.c3b(124, 252, 0))
+    :setScale(0.5)
     :addTo(node_title)
 
     lbl_target = cc.ui.UILabel.new({
@@ -193,6 +194,7 @@ function MatrixStar:initTitles()
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.left + 165, display.top - 70)
     :setColor(cc.c3b(0, 255, 255))
+     :setScale(0.5)
     :addTo(node_title)
 
     lbl_heightScore = cc.ui.UILabel.new({
@@ -203,6 +205,7 @@ function MatrixStar:initTitles()
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.left + 165, display.top - 30)
     :setColor(cc.c3b(255, 140, 0))
+     :setScale(0.5)
     :addTo(node_title)
 
 
@@ -213,6 +216,7 @@ function MatrixStar:initTitles()
         size = 20,
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.left + 240, display.top - 105)
+     :setScale(0.5)
     :addTo(node_title)
 
    local sp_dangqianfenshu = display.newSprite(GAME_IMAGE.dangqianfenshu ,lbl_curscore:getPositionX() - 40, lbl_curscore:getPositionY()  )
@@ -239,6 +243,7 @@ function MatrixStar:initTitles()
         size = 18,
     })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.left + 80, display.top - 87)
+     :setScale(0.5)
     :addTo(node_title)
 
 
@@ -251,6 +256,7 @@ function MatrixStar:initTitles()
     })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.cx , display.cy + 200)
     :setColor(cc.c3b(255,140,0))
+     :setScale(0.5)
     :addTo(node_title)
 
     sp_tongguan = display.newSprite(GAME_IMAGE.stage_clear, display.cx, display.cy)
@@ -265,6 +271,7 @@ function MatrixStar:initTitles()
         color = cc.c3b(0,255,255),
     })
     :align(cc.ui.TEXT_VALIGN_CENTER, display.cx + 400, display.cy )
+     :setScale(0.8)
     :addTo(node_title)
 
 
@@ -293,6 +300,7 @@ function MatrixStar:initTitles()
         size =  18,
     })
     :align(cc.ui.TEXT_VALIGN_CENTER,self.Prop1Btn:getPositionX(), self.Prop1Btn:getPositionY() - 34)
+     :setScale(0.4)
     :addTo(node_title)
 
     --道具 2
@@ -320,6 +328,7 @@ function MatrixStar:initTitles()
         size = 18,
     })
     :align(cc.ui.TEXT_VALIGN_CENTER,self.Prop2Btn:getPositionX(), self.Prop2Btn:getPositionY() - 34)
+     :setScale(0.4)
     :addTo(node_title)
 
     --道具 3
@@ -364,6 +373,7 @@ function MatrixStar:initTitles()
         size = 18,
     })
     :align(cc.ui.TEXT_VALIGN_CENTER,self.Prop3Btn:getPositionX(), self.Prop3Btn:getPositionY() - 34)
+     :setScale(0.4)
     :addTo(node_title)
 
     node_title:fadeIn(15)
@@ -417,6 +427,7 @@ function MatrixStar:ShowPauseView()
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT)
     :setColor(cc.c3b(124, 252, 0))
+     :setScale(0.5)
     :addTo(node_paseview)
 
   --  transition.moveTo(node_paseview, {time = 2 , x = display.cx , y = display.cy - 200 ,easing = "bounceOut"})
