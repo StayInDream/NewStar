@@ -195,8 +195,8 @@ function MenuScene:ctor()
         transition.execute(self.sp_continue, cc.RepeatForever:create( sequenceAction1 ))
         elseif GameData.GAMESTATE == 2 then --未通关 复活后继续游戏
             --todo
+            self.sp_continue:setTexture(GAME_IMAGE.sp_relife)
     end
-
 
 
     -- 特权礼包

@@ -47,6 +47,7 @@ GAME_SOUND = {
 	Props_Bomb    = "sound/Props_Bomb.mp3",
 	Props_Paint   = "sound/Props_Paint.mp3",
 	Props_Rainbow = "sound/Props_Rainbow.mp3",
+	gameover      ="sound/gameover.mp3",
 }
 
 GAME_IMAGE = {
@@ -59,6 +60,7 @@ GAME_IMAGE = {
 	emailIcon_gold    = "image/emailIcon_gold.png",
 	front             = "image/front.jpg",
 	sp_continue       = "image/file_symbol.png",
+	sp_relife         = "image/file_symbol1.png", --可复活
 	jinbi_tiao        = "image/jinbi_tiao.png",
 	logo_xin_1        = "image/logo_xin_1.png",
 	menu_btn          = "image/menu_btn.png",
@@ -85,6 +87,10 @@ GAME_IMAGE = {
 	praise7           = "image/jingdai.png",
 	btnBg             = "image/11db.png",
 	btnFrame          = "image/XSdk.png",
+	Button_Continue   = "image/Button_Continue_0.png",
+	Button_Home       = "image/Button_Home_0.png",
+	Button_SoundOff   = "image/Button_SoundOff_0.png",
+	Button_SoundOn    = "image/Button_SoundOn_0.png",
 }
 
 GAME_PARTICE = {
@@ -100,7 +106,7 @@ GAME_PARTICE = {
 	pop_star1104_particle      = "particle/pop_star1104.plist",
 
 	Particle_Star              = "particle/poptile/Particle_Star.plist",
-	Particle_TileDebris        = "particle/poptile/Particle_TileDebris.plist",
+	Particle_TileDebris        = "particle/poptile/fireworks1.plist",
 }
 
 GAME_FONT = "arial"

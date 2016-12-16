@@ -48,6 +48,7 @@ local mHandle   = nil
 local node_title     = nil --标头 显示分数道具等
 local layer_stars    = nil --星星逻辑层
 local node_prop3Btns = nil  --使用刷子时，弹出的按钮窗 
+local node_paseview  = nil  --暂停界面
 
 local lbl_stage       = nil --关卡
 local lbl_target      = nil --目标分数
@@ -74,6 +75,7 @@ function MatrixStar:ctor()
     self.SELECT_STAR = {}  --保存颜色相同的星星
     self.clearNeed   = UNNEEDCLEAR  -- 是否需要清除剩余的星星
     self:initTitles()  
+    self:ShowPauseView()
     self:Show()
     self:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
        return self:onTouch(event, event.x, event.y) 
@@ -387,6 +389,39 @@ function MatrixStar:initTitles()
         btn:setPosition(self.sp_btnbg:getPositionX() + 80 , self.sp_btnbg:getPositionY())
     end
     node_prop3Btns:setVisible(false)
+end
+
+--显示暂停界面
+function MatrixStar:ShowPauseView()
+    -- body
+    if node_paseview == nil then 
+        node_paseview = display.newNode()
+        :setPosition(display.cx,display.cy)
+        self:addChild(node_paseview , 3)
+
+    node_paseview:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
+       return print(1111111111) 
+    end, false)
+    node_paseview:setTouchEnabled(true)
+    node_paseview:setVisible(false)
+
+    local sp_bg = display.newSprite(GAME_IMAGE.front)
+    :addTo(node_paseview)
+
+    local lbl_rule = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text  =  "第 "..CURLEVEL.." 关",
+        font = GAME_FONT,
+        size = 25,
+        })
+    :align(cc.ui.TEXT_ALIGNMENT_LEFT)
+    :setColor(cc.c3b(124, 252, 0))
+    :addTo(node_paseview)
+
+  --  transition.moveTo(node_paseview, {time = 2 , x = display.cx , y = display.cy - 200 ,easing = "bounceOut"})
+
+
+    end
 end
 
 -- 道具 1 点击事件
@@ -761,8 +796,6 @@ function MatrixStar:initMatrix()
         ]]
     math.randomseed(os.time())   
     self.nums = 0
-    print(GAMESTATE )
-    print(#MAP )
     if GAMESTATE == 0 or #MAP <= 0 then
         for row = 1, ROW do
             local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
@@ -770,7 +803,7 @@ function MatrixStar:initMatrix()
             for col = 1, COL do
                 self.STAR[row][col] = {}
                 local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-                local i = math.random(1, #STAR_RES_LIST-3)
+                local i = math.random(1, #STAR_RES_LIST)
                 local star = display.newSprite(STAR_RES_LIST[i])
                 star:setScale(0)
                 self.STAR[row][col][1] = star
