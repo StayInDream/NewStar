@@ -91,6 +91,8 @@ GAME_IMAGE = {
 	Button_Home       = "image/Button_Home_0.png",
 	Button_SoundOff   = "image/Button_SoundOff_0.png",
 	Button_SoundOn    = "image/Button_SoundOn_0.png",
+	jiazai            = "image/jiazai.png",
+	jsy               = "image/jsy.png",
 }
 
 GAME_PARTICE = {

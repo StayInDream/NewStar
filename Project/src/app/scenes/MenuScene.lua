@@ -17,28 +17,13 @@ function MenuScene:ctor()
     self:addChild(layer_menu,1)
     layer_menu:setVisible(false)
 
-    local lbl_warning = cc.ui.UILabel.new({
-            UILabelType = 1,
-            text  =  "             健康游戏忠告\n抵制不良游戏，拒绝盗版游戏。\n注意自我保护，谨防上当受骗。\n适度游戏益脑，沉迷游戏伤身。\n合理安排时间，享受健康生活。",
-            font = GAME_FONT,
-            size = 1,
-            --align = cc.TEXT_ALIGNMENT_LEFT,
-            valign = cc.VERTICAL_TEXT_ALIGNMENT_TOP,
-            dimensions = cc.size(400, 200),
-        })
-        :align(cc.ui.TEXT_VALIGN_CENTER, display.cx + 20, display.cy )
-        :addTo(layer_logging)
-        :setScale(0.5)
+        local  sp_jsy = display.newSprite(GAME_IMAGE.jsy)
+            :align(cc.ui.TEXT_ALIGN_CENTER, display.cx , display.cy )
+            :addTo(layer_logging)
 
-        local lbl_loading = cc.ui.UILabel.new({
-            UILabelType = 1,
-            text = "加载中...",
-            font = GAME_FONT,
-            size = 25,
-            })
-        :align(cc.ui.TEXT_ALIGN_CENTER, display.cx + 15, display.bottom + 30)
-        :addTo(layer_logging)
-        :setScale(0.5)
+        local  sp_jiazai = display.newSprite(GAME_IMAGE.jiazai)
+            :align(cc.ui.TEXT_ALIGN_CENTER, display.cx + 15, display.bottom + 30)
+            :addTo(layer_logging)
 
         scheduler.performWithDelayGlobal(function ()
                 layer_logging:setVisible(false)
