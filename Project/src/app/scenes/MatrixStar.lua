@@ -890,7 +890,6 @@ function MatrixStar:initMatrix()
                         self.nums = self.nums + 1
                         if self.nums >= #MAP then
                            self:SetBtnsState(true) 
-                           GAMESTATE = 0
                            else
                            self:SetBtnsState(false) 
                         end
@@ -918,7 +917,7 @@ end
 function MatrixStar:nextStage( )
     -- body
     
-    gameState = 0
+    GAMESTATE = 0
     CURLEVEL = CURLEVEL + 1
     TARGETSCORE = TARGETSCORE + 500 * (CURLEVEL + 1)
     CURSCORE = self.Cscore 
@@ -967,7 +966,7 @@ function MatrixStar:onTouch(eventType, x, y)
 
         local  function deleteOneStar_( dt )
             self:deleteOneStar()
-            audio.playSound(GAME_SOUND.ppop )
+           
         end 
         
         mHandle = scheduler.scheduleGlobal(deleteOneStar_, 0.05)
@@ -981,7 +980,7 @@ function MatrixStar:deleteOneStar()
         deleteStar = table.remove(self.SELECT_STAR)
         if deleteStar ~= nil and #deleteStar ~= 0 then
             local row , col = deleteStar[2], deleteStar[3]
-           
+            audio.playSound(GAME_SOUND.ppop )
             local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
                     particle:setPosition(self.STAR[row][col][1]:getPosition())
                     particle:setAutoRemoveOnFinish(true)
@@ -1022,6 +1021,7 @@ function MatrixStar:ShowAnimLabel(isusingBoom ,i,j)
                 font        = GAME_FONT,
                 size        = 40,
                 })
+                :setScale(0.5)
                 :align(cc.ui.TEXT_VALIGN_CENTER, posx, posy)
                 :addTo(self,3)
 
@@ -1373,7 +1373,7 @@ end
 function MatrixStar:updatePos(posX,posY,i,j)
     transition.execute(self.STAR[i][j][1], cc.MoveTo:create(0.1, cc.p(self.STAR[i][j][4] , self.STAR[i][j][5] )), {  
     delay = 0.2,  
-    easing = "BOUNCEOUT", 
+    easing = "bounceIn", 
     onComplete = function()  
         if self.STAR[i][j][1] ~= nil and self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
             self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
