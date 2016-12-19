@@ -22,7 +22,7 @@ function MyApp:run()
 
      -- preload all sounds
     for k, v in pairs(GAME_SOUND) do
-        if k ~= "Bgm_01" and k ~= "advbg" then
+        if k ~= "classicbg" and k ~= "advbg" then
             audio.preloadSound(v)
          else
             audio.preloadMusic(v)
@@ -71,6 +71,7 @@ function MyApp:run()
 end
 
 function MyApp:enterMenuScene()
+   -- self:InitGameStageData()
     self:enterScene("MenuScene", nil, "fade", 0.6, display.COLOR_WHITE)
 end
 
@@ -121,6 +122,7 @@ function MyApp:InitGameStageData()
     GameData.CURLEVEL    = 1
     GameData.CURSCORE    = 0
     GameData.TARGETSCORE = 1000
+    GameData.HEIGHTSCORE = 0
     GameData.MAP         = {}
     GameData.GAMESTATE   = 0
 

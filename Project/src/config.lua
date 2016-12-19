@@ -25,7 +25,6 @@ CONFIG_SCREEN_HEIGHT = 800
 CONFIG_SCREEN_AUTOSCALE = "FIXED_WIDTH"
 
 GAME_SOUND = {
-    Bgm_01        = "sound/Bgm_01.mp3",
     Eff_GameOver  = "sound/Eff_GameOver.mp3",
     Eff_GetItem   = "sound/Eff_GetItem.mp3",
 	Eff_Warning   = "sound/Eff_Warning.mp3",
@@ -63,6 +62,7 @@ GAME_IMAGE = {
 	sp_relife         = "image/file_symbol1.png", --可复活
 	jinbi_tiao        = "image/jinbi_tiao.png",
 	logo_xin_1        = "image/logo_xin_1.png",
+	logo_pic          = "image/logo_pic.png",
 	menu_btn          = "image/menu_btn.png",
 	paihangbang       = "image/paihangbang.png",
 	pause             = "image/pause.png",
@@ -93,6 +93,18 @@ GAME_IMAGE = {
 	Button_SoundOn    = "image/Button_SoundOn_0.png",
 	jiazai            = "image/jiazai.png",
 	jsy               = "image/jsy.png",
+	connected         = "image/connected.png",
+	connected_not     = "image/connected_not.png",
+	close_bg          = "image/gb.png",
+	sp_mask           = "image/JLdb.png",  --黑色遮罩
+	jixutongguan      = "image/jixutongguan.png", 
+	jixutongguan_juese= "image/jixutongguan_juese.png", 
+	tongguananniu_btn = "image/tongguananniu.png", 
+	tongguananniu_wenzi= "image/tongguananniu_wenzi.png", 
+	result_bg1         = "image/result_bg1.png", 
+	retry              = "image/retry.png", 
+	bg_sunburst1       = "image/bg_sunburst1.png", 
+	exit               = "image/exit.png",
 }
 
 GAME_PARTICE = {

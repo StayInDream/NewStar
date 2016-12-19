@@ -2,110 +2,142 @@
 -- Author: LLLLL
 -- Date: 2016-12-09 19:30:53
 --
+local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
+
 CCLabelChange = class("CCLabelChange", function()
     local node = display.newNode()
     node:setNodeEventEnabled(true)
     return node
 end)            
 --index
-CCLabelChange.__index           = CCLabelChange
-CCLabelChange._duration         = -1
-CCLabelChange._fromNum          = -1
-CCLabelChange._toNum            = -1
-CCLabelChange._target           = nil
-CCLabelChange._isPause          = false
+local __index           = CCLabelChange
+local _duration         = 1
+local _fromNum          = 0
+local _toNum            = 0
+local _target           = nil
+local _isPause          = false
+local timer             = 0
+local bool_add          = true --true为自增
+local _callback         = nil
+local bool_isTarget     = false
 
---初步使用思路
---创建对象时候自动将本对象addChild(因为基于schedule执行)
---动作执行完毕后从父类移除，并通过某种方式标记执行完毕（例如在使用对象加字段，nil表示完毕）
-
---因为不是继承CCActionInterval，所以需要传入target对象
-function CCLabelChange:create(target, duration, fromNum, toNum)
+ --target 要显示的数字变化的lbl
+ --duration 周期
+ --fromNum 开始值
+ --toNum 目标值
+function CCLabelChange:create(target, args)
     local ret = CCLabelChange.new()
-    ret:init(target, duration, fromNum, toNum)
+    ret:init(target, args)
     return ret
 end
 
-function CCLabelChange:init(target, duration, fromNum, toNum)
-    self._duration = duration
-    self._fromNum = fromNum
-    self._toNum = toNum
-    self._target = target
+function CCLabelChange:init(target, args)
+    _target   = target
+    _duration = args.duration
+    _fromNum  = args.fromNum
+    _toNum    = args.toNum
+    _callback = args.callback
+    
+    timer     = _fromNum
+    bool_isTarget = false
+    _isPause = false
+    local x   = _toNum - _fromNum
+    if x > 0 then
+            bool_add = true 
+        else
+            bool_add = false
+    end
 
-    target:addChild(self) --基于此执行
 end
 
 --两种情况下执行此方法 1、动作执行完毕 2、同类动作，旧动作在执行中，新动作需要执行，此时把旧动作移除
 function CCLabelChange:selfKill()
-    self._target._labelChange:unscheduleUpdate() --停止scheduler
+
+    if self.handler ~= nil then
+        scheduler.unscheduleGlobal(self.handler)
     self:removeFromParentAndCleanup(true) --从父类移除
-    self._target._labelChange = nil --把引用删除
-    self._target = nil
+    _target._labelChange = nil --把引用删除
+    _target = nil
+    end --停止scheduler
 end
 
 function CCLabelChange:pauseAction()
-    self._isPause = true
+    _isPause = true
 end
 
 function CCLabelChange:resumeAction()
-    self._isPause = false
+    _isPause = false
+end
+
+--重新开始
+function CCLabelChange:ReplayAction()
+    _isPause      = false
+    bool_isTarget = false
+    timer         = _fromNum
 end
 
 function CCLabelChange:playAction()
-    local oldAction = self._target._labelChange
+    local oldAction = _target._labelChange
 
     if oldAction then
         --旧动作存在
-        oldAction:selfKill()
+     oldAction:selfKill()
     end
 
-    self._target._labelChange = self --引用变成自己
-
-    local curTime = 0
-    local duration = self._duration
-
+    _target._labelChange = _target --引用变成自己
     local function int(x) 
         return x>=0 and math.floor(x) or math.ceil(x)
     end
 
     local function updateLabelNum(dt)
-                if self._isPause then
-                    return
-                end
+        if _isPause or bool_isTarget == true then
+            return
+        end
 
-                curTime = curTime + dt
 
-                --这个类似动作里面的update的time参数
-                local time = curTime / duration
+        if bool_add == true then
+                timer = int(timer + 1) 
+            else
+                timer = int(timer - 1) 
+        end
 
-                if self._target then 
-                    if time < 1 then --执行时间内
-                        local tempNum = int((self._toNum - self._fromNum) *time) --取整
-                        local num = self._fromNum + tempNum
-
-                        self._target:setString(num)
+        if _target ~= nil then
+            if bool_add == true then 
+                if timer < _toNum then
+                        _target:setString(math.abs( timer))
                     else
-                        self._target:setString(self._toNum)
-                        self:selfKill()
-                    end
-
-                else
-                    error("target not exist")
+                        bool_isTarget = true
+                        _target:setString(math.abs( _toNum))
+                        if _callback ~= nil then
+                            _callback()
+                        end
                 end
-
+            else
+                if timer > _toNum then
+                        _target:setString(math.abs( timer))
+                    else
+                        bool_isTarget = true
+                        _target:setString(math.abs( _toNum))
+                        if _callback ~= nil then
+                            _callback()
+                        end
+                end
+            end
+                    
+        end
     end
-
-    self:unscheduleUpdate()
-    self:scheduleUpdate(updateLabelNum)
+  self.handler =  scheduler.scheduleGlobal(updateLabelNum , _duration )
 end
 
 function CCLabelChange:onEnter()
-    -- print("enter")
+     print("enter")
 end
 
 function CCLabelChange:onExit()
-    print("exit")
-    self:unscheduleUpdate()
+    print(onExit)
+    if self.handler ~= nil then
+        scheduler.unscheduleGlobal(self.handler)
+    end
 end
 
 return CCLabelChange

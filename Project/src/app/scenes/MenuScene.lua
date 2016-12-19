@@ -28,7 +28,7 @@ function MenuScene:ctor()
         scheduler.performWithDelayGlobal(function ()
                 layer_logging:setVisible(false)
                 layer_menu:setVisible(true)
-            end, 2)
+            end, 0.1)
 
 
 
@@ -182,10 +182,13 @@ function MenuScene:ctor()
             cc.FadeTo:create(1, 125), 
             cc.FadeTo:create(1, 255), 
             })
+
     if GameData.GAMESTATE == 1 then --有存档
-        transition.execute(self.sp_continue, cc.RepeatForever:create( sequenceAction1 ))
+        self.sp_continue:setOpacity(255)
+        transition.execute(self.sp_continue, cc.RepeatForever:creacte( sequenceAction1 ))
         elseif GameData.GAMESTATE == 2 then --未通关 复活后继续游戏
             --todo
+            self.sp_continue:setOpacity(255)
             self.sp_continue:setTexture(GAME_IMAGE.sp_relife)
     end
 
@@ -225,7 +228,12 @@ function MenuScene:ctor()
 end
 
 function MenuScene:onEnter()
-   -- audio.playMusic(GAME_SOUND.Bgm_01)
+   -- audio.playMusic(GAME_SOUND.classicbg)
+    -- if GameData.SoundOff == 0 or  GameData.SoundOff == nil then 
+    --     audio.playMusic(GAME_SOUND.classicbg)
+    --     else
+    --     audio.stopMusic(false)  
+    -- end
     if device.platform ~= "android" then return end
 	    -- avoid unmeant back
 	    self:performWithDelay(function()
