@@ -153,6 +153,7 @@ function MenuScene:ctor()
             listener = function()
 
                 app:StartNewGame()
+
             end,
         })
         :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 450)
@@ -176,7 +177,7 @@ function MenuScene:ctor()
     self.sp_continue  = display.newSprite(GAME_IMAGE.sp_continue)
     self.sp_continue:setPosition(display.cx - 100, display.cy  - 110)
     layer_menu:addChild(self.sp_continue)
-    self.sp_continue:setOpacity(0)
+    --self.sp_continue:setOpacity(0)
    
     local sequenceAction1 = transition.sequence({
             cc.FadeTo:create(1, 125), 
@@ -249,6 +250,8 @@ function MenuScene:onEnter()
 end
 
 function MenuScene:onExit()
+    print("MenuScene ==>onExit ")
+    self:removeAllChildren()
 end
 
 return MenuScene

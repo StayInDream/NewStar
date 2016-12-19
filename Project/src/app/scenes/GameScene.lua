@@ -16,39 +16,6 @@ function GameScene:ctor()
                end,0)
 end
 
-function GameScene:setLabel(Hscore,Level,Goal,Cscore)
-    local HscoreUI = ui.newTTFLabel({
-        text = string.format("HighestScore: %s", tostring(Hscore)),
-        x, y = display.left, display.top, 
-    })
-    HscoreUI:setScale(SCALE)
-    HscoreUI:setPosition(display.right, display.cy)
-    HscoreUI:setPosition(display.cx, display.top - SCALE * HscoreUI:getContentSize().height)
-    self:addChild(HscoreUI)
-    HscoreUI:setTag(HSCORETAG)
-
-    local LevelUI = ui.newTTFLabel({
-        text = string.format("Level: %s".." ".."Goal: %s", tostring(Level),tostring(Goal)),
-        x, y = display.left, display.top, 
-    })
-    LevelUI:setScale(SCALE)
-    LevelUI:setPosition(display.cx, display.top - SCALE * (HscoreUI:getContentSize().height + 
-            LevelUI:getContentSize().height))
-    self:addChild(LevelUI)
-    LevelUI:setTag(LEVELTAG)
-
-    local CscoreUI = ui.newTTFLabel({
-        text = string.format("CurrentScore: %s", tostring(Cscore)),
-        x, y = display.left, display.top, 
-    })
-    CscoreUI:setScale(SCALE)
-    CscoreUI:setPosition(display.cx, display.top - SCALE * (HscoreUI:getContentSize().height + 
-            LevelUI:getContentSize().height + CscoreUI:getContentSize().height))
-    self:addChild(CscoreUI)
-    CscoreUI:setTag(CSCORETAG)
-
-end
-
 function GameScene:update()
 --    self:updateScore()
     self.Matrix:updateStar()
@@ -107,6 +74,8 @@ function GameScene:onEnter()
 end
 
 function GameScene:onExit()
+    print(" GameScene ==> onExit")
+     self:removeAllChildren()
 end
 
 return GameScene

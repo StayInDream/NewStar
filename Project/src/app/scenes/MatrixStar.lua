@@ -1563,8 +1563,6 @@ function MatrixStar:ShowResult( )
             node_faileView = nil 
             GAMESTATE = 2 
 
-            self:removeFromParentAndCleanup(true)
-           
             self:SaveGameData()
              -- 创建一个新场景
             local nextScene = require("app.scenes.MenuScene").new()
