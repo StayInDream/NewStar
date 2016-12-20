@@ -177,7 +177,7 @@ function MenuScene:ctor()
     self.sp_continue  = display.newSprite(GAME_IMAGE.sp_continue)
     self.sp_continue:setPosition(display.cx - 100, display.cy  - 110)
     layer_menu:addChild(self.sp_continue)
-    --self.sp_continue:setOpacity(0)
+    self.sp_continue:setOpacity(0)
    
     local sequenceAction1 = transition.sequence({
             cc.FadeTo:create(1, 125), 
@@ -186,7 +186,7 @@ function MenuScene:ctor()
 
     if GameData.GAMESTATE == 1 then --有存档
         self.sp_continue:setOpacity(255)
-        transition.execute(self.sp_continue, cc.RepeatForever:creacte( sequenceAction1 ))
+      --  transition.execute(self.sp_continue, cc.RepeatForever:creacte( sequenceAction1 ))
         elseif GameData.GAMESTATE == 2 then --未通关 复活后继续游戏
             --todo
             self.sp_continue:setOpacity(255)

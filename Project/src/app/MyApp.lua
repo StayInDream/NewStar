@@ -71,7 +71,7 @@ function MyApp:run()
 end
 
 function MyApp:enterMenuScene()
-    self:InitGameStageData()
+   -- self:InitGameStageData()
     self:enterScene("MenuScene", nil, "fade", 0.6, display.COLOR_WHITE)
 end
 
@@ -121,7 +121,7 @@ end
 function MyApp:InitGameStageData()
     GameData.CURLEVEL    = 1
     GameData.CURSCORE    = 0
-    GameData.TARGETSCORE = 10000
+    GameData.TARGETSCORE = 1000
     GameData.HEIGHTSCORE = 0
     GameData.MAP         = {}
     GameData.GAMESTATE   = 0

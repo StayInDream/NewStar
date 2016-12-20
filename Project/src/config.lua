@@ -105,7 +105,16 @@ GAME_IMAGE = {
 	retry              = "image/retry.png", 
 	bg_sunburst1       = "image/bg_sunburst1.png", 
 	exit               = "image/exit.png",
-}
+	buydiamand_wenzi   = "image/150diamand.png",
+	anniu              = "image/anniu.png",
+	anniu1             = "image/anniu1.png",
+	zengbig_unicom     = "image/zengbig_unicom.png",
+	hotsale_bg         =  "image/hotsale_bg.png",
+	onsale_btn_buy     =  "image/onsale_btn_buy.png",
+	onsale_btn_huode   =  "image/onsale_btn_huode.png",
+	onsale_btn_lingqu  =  "image/onsale_btn_lingqu.png",
+
+} 
 
 GAME_PARTICE = {
 	pop_star1000_particle      = "particle/pop_star1000.plist",

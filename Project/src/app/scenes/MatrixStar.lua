@@ -69,6 +69,7 @@ local lbl_show                    = nil
 local bool_ishaveShow_sp_tongguan = false
 local bool_isusingBoom            = false  --true正在使用炸弹
 local bool_isusingPaint           = false  --true正在使用刷子
+local bool_isfirst                = true   --true表示 刚开始游戏 或 复活进入
 
 function MatrixStar:ctor()
     self:LoadGameData()
@@ -80,7 +81,12 @@ function MatrixStar:ctor()
     self.clearNeed   = UNNEEDCLEAR  -- 是否需要清除剩余的星星
     self:initTitles()  
     self:ShowPauseView()
-    self:Show()
+    bool_isfirst     = true
+    if GAMESTATE == 2 then 
+            self:ShowFail()
+        else
+            self:Show()
+    end
     self:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
        return self:onTouch(event, event.x, event.y) 
     end, false)
@@ -92,7 +98,7 @@ end
 
 function MatrixStar:Show( )
     -- body
-   
+        bool_isfirst = false
         lbl_showStage:setString( "   ".."第 " ..CURLEVEL .." 关" .. "\n\n 目标 " .. TARGETSCORE)
         scheduler.performWithDelayGlobal( function ( )
             -- body
@@ -149,16 +155,12 @@ end
 
 function MatrixStar:SaveGameData( )
     -- body
-    CURSCORE = self.Cscore 
     bool_ishaveShow_sp_tongguan = false
-
-
     GameData.HEIGHTSCORE = HEIGHTSCORE
     GameData.TARGETSCORE = TARGETSCORE
     GameData.CURLEVEL    = CURLEVEL
     GameData.CURSCORE    = CURSCORE
     GameData.DIAMOND     = DIAMOND
-    self:GetMap()
     GameData.MAP         = MAP
     GameData.GAMESTATE   = GAMESTATE
     GameState.save(GameData)
@@ -428,7 +430,7 @@ function MatrixStar:ShowPauseView()
 
     local lbl_rule = cc.ui.UILabel.new({
         UILabelType = 1 ,
-        text  =  "基本规则:\n\n -选中并消除相连的方块\n\n - 消除的相连方块越多,分数越高\n\n - 剩余方块少于10,有额外奖励",
+        text  =  "基本规则:\n\n -选中并消除相连的方块\n\n - 消除的相连方块越多,分数越高\n\n - 剩余方块少于20,有额外奖励\n\n",
         font = GAME_FONT ,
         })
     :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.left + 20, display.top -130)
@@ -545,7 +547,11 @@ end
 function MatrixStar:HomeBtn_onClick( )
     -- body
     node_paseview = nil 
-    GAMESTATE = 1
+    GAMESTATE     = 1
+    CURLEVEL      = self.Level
+    CURSCORE      = self.Cscore
+    HEIGHTSCORE   = self.Hscore
+    self:GetMap()
     self:SaveGameData()
      -- 创建一个新场景
     local nextScene = require("app.scenes.MenuScene").new()
@@ -572,11 +578,9 @@ end
 
 -- 道具 1 点击事件
 function MatrixStar:Prop1_onclick()
-    print(GAMESTATE)
     if GAMESTATE ~= 3 then
         return
     end
-    self:ShowFail()
     if  GameData.SoundOff ~= 1 then
     audio.playSound(GAME_SOUND.Props_Rainbow)
     end
@@ -588,6 +592,7 @@ function MatrixStar:Prop1_onclick()
         self:ResetStar() 
         DIAMOND = DIAMOND - 5 
         GameData.DIAMOND     = DIAMOND
+        GameState.save(GameData)
         lbl_diamond:setString(DIAMOND)
     else
 
@@ -615,6 +620,7 @@ function MatrixStar:Prop2_onclick()
         self.Prop2Btn_sequenceAction = transition.execute(self.Prop2Btn, cc.RepeatForever:create( sequenceAction ))
         DIAMOND = DIAMOND - 5
         GameData.DIAMOND     = DIAMOND
+        GameState.save(GameData)
         lbl_diamond:setString(DIAMOND)
     else
 
@@ -648,6 +654,8 @@ function MatrixStar:Prop3_onclick()
             end
         end
         DIAMOND = DIAMOND - 5
+        GameData.DIAMOND     = DIAMOND
+        GameState.save(GameData)
 
         lbl_diamond:setString(DIAMOND)
     else
@@ -946,14 +954,14 @@ function MatrixStar:initMatrix()
         ]]
     math.randomseed(os.time())   
     self.nums = 0
-    if  GAMESTATE == 0 or #MAP <= 0 and GAMESTATE ~= 2 then
+    if  GAMESTATE == 0 or #MAP <= 0 or GAMESTATE == 2 then
         for row = 1, ROW do
             local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
             self.STAR[row] = {}
             for col = 1, COL do
                 self.STAR[row][col] = {}
                 local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-                local i = math.random(1, #STAR_RES_LIST)
+                local i = math.random(1, #STAR_RES_LIST - 3)
                 local star = display.newSprite(STAR_RES_LIST[i])
                 star:setScale(0)
                 self.STAR[row][col][1] = star
@@ -1048,7 +1056,8 @@ function MatrixStar:setLabel(Hscore,Level,TargetScore,Cscore)
    lbl_target:setString( "目标 " .. TargetScore)
    lbl_curscore:setString(string.format("%s", tostring(Cscore)))
    self.Level  = Level
-
+   self.Hscore = Hscore
+   self.Cscore = Cscore
 
 end
 
@@ -1060,6 +1069,9 @@ function MatrixStar:nextStage( )
     CURLEVEL = CURLEVEL + 1
     TARGETSCORE = TARGETSCORE + 500 * (CURLEVEL + 1)
     CURSCORE = self.Cscore 
+    if self.Cscore > HEIGHTSCORE then
+        HEIGHTSCORE = self.Cscore
+    end
     self.Hscore      = HEIGHTSCORE
     self.Level       = CURLEVEL
     self.STAR        = {}
@@ -1261,7 +1273,8 @@ function MatrixStar:updateScore(select)
     self.Cscore = self.Cscore + select * select * STARGAIN
     lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
     if  self.Cscore >= HEIGHTSCORE then
-        HEIGHTSCORE = self.Cscore
+        self.Hscore = self.Cscore
+
         lbl_heightScore:setString( "最高 " .. string.format("%s", tostring(self.Cscore)))
     end
 
@@ -1385,15 +1398,11 @@ function MatrixStar:updateStar()
     end
 
     if self.clearNeed == NEEDCLEAR then 
-       self:ClearLeftStarOneByOne()
+        self:ClearLeftStarOneByOne()
     end
-
 end
 
-
-
 function MatrixStar:ClearLeftStarOneByOne()
-
     local deleteStars = {}
     for i = 1, ROW do
         for j = 1, COL do
@@ -1405,7 +1414,7 @@ function MatrixStar:ClearLeftStarOneByOne()
     self:SetBtnsState(false)
 
     local num = self:getStarNum()
-    local str = "剩余星星 " .. num .."\n\n 奖励"
+    local str = "剩余星星 " .. num .."\n\n奖励"
     local getscore = 0
 
     if num < LEFT_STAR then
@@ -1435,9 +1444,24 @@ function MatrixStar:ClearLeftStarOneByOne()
             :align(cc.ui.TEXT_ALIGNMENT_LEFT, display.right + 200, display.cy - 50)
             :setScale(0.5)
             :addTo(self,3)
+    local sp_diamond  = display.newSprite(GAME_IMAGE.emailIcon_diamond)
+     :align(display.CENTER, display.left + 100, display.cy - 70)
+     :addTo(self) 
+     :setScale(0.4)           
+    lbl_03  = cc.ui.UILabel.new({
+        UILabelType = 1,
+        text        = "+2" ,
+        font        = GAME_FONT,
+        size        = 30,
+        })
+        :align(cc.ui.TEXT_ALIGNMENT_LEFT,display.right + 100, display.cy - 70)
+        :setScale(0.5)
+        :addTo(self,3)
 
-     transition.moveTo(lbl_, {x = display.cx , y = display.cy , time = 0.3 })
-     transition.moveTo(lbl_02, {x = display.cx + 40 , y = display.cy - 25 , time = 0.5 })
+    transition.moveTo(lbl_, {x = display.cx , y = display.cy , time = 0.3 })
+    transition.moveTo(lbl_02, {x = display.cx + 40 , y = display.cy - 25 , time = 0.5 })
+    transition.moveTo(sp_diamond, {x = display.cx -10 , y = display.cy - 70 , time = 0.3 })
+    transition.moveTo(lbl_03, {x = display.cx + 25 , y = display.cy - 70 , time = 0.5 })
 
     sequenceAction = transition.sequence({
             cc.ScaleTo:create(0.1, 2, 2, 1), 
@@ -1447,20 +1471,52 @@ function MatrixStar:ClearLeftStarOneByOne()
             cc.FadeTo:create(0.3,  0 ),
         })
 
-      transition.execute(lbl_02, sequenceAction ,{  
-                delay = num * 0.05 + 1.5 ,  
+    sequenceAction1 = transition.sequence({
+            cc.ScaleTo:create(0.1, 2, 2, 1), 
+            cc.ScaleTo:create(0.5, 0.5, 0.5, 1), 
+            cc.MoveTo:create(0.5, cc.p(lbl_diamond:getPositionX() , lbl_diamond:getPositionY() )),
+            cc.FadeTo:create(0.3,  0 ),
+        })
+
+    transition.execute(lbl_03 , sequenceAction1 , {
+        delay = num * 0.05 + 1.6 ,  
                 easing = "sineInOut",  
                 onComplete = function()  
                     self:removeChild(lbl_)
                     self:removeChild(lbl_02)
+                    self:removeChild(sp_diamond)
+                    self:removeChild(lbl_03)
                     self.Cscore =  self.Cscore + getscore
+                    DIAMOND = DIAMOND + 2 
+                    GameData.DIAMOND = DIAMOND
+                    GameState.save(GameData)
                     lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
+                    lbl_diamond:setString(string.format("%s", tostring(DIAMOND)))
                     local x = self.Cscore - TARGETSCORE
                     if  x >= 0 or bool_ishaveShow_sp_tongguan == true then --已经通关了
                         self:nextStage()
                     else  --失败
                         self:ShowFail()
                     end
+                end, 
+        })
+
+      transition.execute(lbl_02, sequenceAction ,{  
+                delay = num * 0.05 + 1.5 ,  
+                easing = "sineInOut",  
+                onComplete = function()  
+                    -- self:removeChild(lbl_)
+                    -- self:removeChild(lbl_02)
+                    -- self:removeChild(sp_diamond)
+                    -- self:removeChild(lbl_03)
+                    -- self.Cscore =  self.Cscore + getscore
+                    -- lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
+                    -- local x = self.Cscore - TARGETSCORE
+                    -- if  x >= 0 or bool_ishaveShow_sp_tongguan == true then --已经通关了
+                    --     self:nextStage()
+                    -- else  --失败
+                    --     self:ShowFail()
+                    -- end
                 end, 
                 })
      scheduler.performWithDelayGlobal( function ( )
@@ -1479,9 +1535,9 @@ function MatrixStar:ClearLeftStarOneByOne()
                     particle:setPosition(self.STAR[row][col][1]:getPosition())
                     particle:setAutoRemoveOnFinish(true)
                     self:addChild(particle,1)  
-            self:removeChild(self.STAR[row][col][1]) 
-            self.STAR[row][col][1] = nil 
-            self.STAR[row][col] = {}
+                self:removeChild(self.STAR[row][col][1]) 
+                self.STAR[row][col][1] = nil 
+                self.STAR[row][col] = {}
             else
                 scheduler.unscheduleGlobal(mHandle)
                 mHandle = nil
@@ -1559,15 +1615,17 @@ function MatrixStar:ShowResult( )
         :align(display.CENTER,  display.cx - 100, display.bottom + 200)
         :onButtonClicked(function()
             audio.playSound(GAME_SOUND.pselect)
-            node_paseview = nil 
+            self:removeAllChildren()
+            node_paseview  = nil 
             node_faileView = nil 
-            GAMESTATE = 2 
-
+            GAMESTATE     = 2 
+            CURLEVEL      = self.Level
+            self:GetMap()
             self:SaveGameData()
-             -- 创建一个新场景
+            -- 创建一个新场景
             local nextScene = require("app.scenes.MenuScene").new()
             -- 包装过渡效果
-            local transition = display.wrapSceneWithTransition(nextScene, "splitRows", 0.5)
+            local transition = display.wrapSceneWithTransition(nextScene, "flipAngular", 0.5)
             -- 切换到新场景
             display.replaceScene(transition)
         end)
@@ -1610,8 +1668,20 @@ function MatrixStar:ShowFail( )
         :align(display.CENTER,  display.cx + 140, display.bottom + 300)
         :onButtonClicked(function()
             audio.playSound(GAME_SOUND.pselect)
-             node_faileView:removeChild(self.CCLabelChangeaction)
-            self:ShowResult()
+            self:removeAllChildren()
+            node_faileView = nil
+            node_paseview  = nil 
+         --   node_faileView:removeChild(self.CCLabelChangeaction)
+         if bool_isfirst == true then
+            -- 创建一个新场景
+            local nextScene = require("app.scenes.MenuScene").new()
+            -- 包装过渡效果
+            local transition = display.wrapSceneWithTransition(nextScene, "pageTurn", 0.5)
+            -- 切换到新场景
+            display.replaceScene(transition)
+            else
+                self:ShowResult()
+            end
         end)
         :addTo(node_faileView)
 
@@ -1619,32 +1689,137 @@ function MatrixStar:ShowFail( )
         :align(display.CENTER,  display.cx + 110, display.bottom -25)
         :onButtonClicked(function()
             audio.playSound(GAME_SOUND.pselect)
-           -- app:enterMenuScene()
+            if GameData.DIAMOND >= 5 then
+                    self:removeChild(node_faileView)
+                    self:Show()
+                    node_faileView = nil 
+                else
+                    self:ShowBuyView()
+            end
         end)
         :addTo(node_faileView)    
      local sp_03  = display.newSprite(GAME_IMAGE.tongguananniu_wenzi)
-     :align(comntinueButton, display.cx + 90, display.bottom -20)
+     :align(comntinueButton, display.cx + 110, display.bottom -20)
      :addTo(node_faileView) 
-     :setScale(1)    
-
-    local lbl_timer = cc.ui.UILabel.new({
-        UILabelType = 1,
-        text        = "10" ,
-        font        = GAME_FONT,
+     :setScale(1)   
+    local lbl_cost = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text        = "挑战一次需要5个钻石" ,
+        size       = 30
         })
-        :align(cc.ui.TEXT_ALIGNMENT_LEFT, sp_03:getPositionX() + 75, sp_03:getPositionY())
+        :align(cc.ui.TEXT_ALIGNMENT_LEFT, sp_03:getPositionX()- 90, sp_03:getPositionY() - 60)
         :setScale(0.6)
-        :addTo(node_faileView)
+        :setColor(cc.c3b(255, 0, 255))
+        :addTo(node_faileView) 
 
-    self.CCLabelChangeaction = CCLabelChange:create(lbl_timer,  { duration = 1, fromNum = 10, toNum = 0 , callback = function()
-        -- body
-         node_faileView:removeChild(self.CCLabelChangeaction)
-        self:ShowResult()  
-    end})
-    :addTo(node_faileView)
-    self.CCLabelChangeaction:playAction()
+    -- local lbl_timer = cc.ui.UILabel.new({
+    --     UILabelType = 1,
+    --     text        = "10" ,
+    --     font        = GAME_FONT,
+    --     })
+    --     :align(cc.ui.TEXT_ALIGNMENT_LEFT, sp_03:getPositionX() + 75, sp_03:getPositionY())
+    --     :setScale(0.6)
+    --     :addTo(node_faileView)
+
+    -- self.CCLabelChangeaction = CCLabelChange:create(lbl_timer,  { duration = 1, fromNum = 10, toNum = 0 , callback = function()
+    --     -- body
+    --     node_faileView:removeChild(self.CCLabelChangeaction)
+    --     self:ShowResult()  
+    -- end})
+    -- :addTo(node_faileView)
+    -- self.CCLabelChangeaction:playAction()
     end
 
+end
+
+function MatrixStar:ShowBuyView()
+    -- body
+    local layer_buyView = display.newLayer()
+    :align(display.CENTER, display.cx, display.cy)
+    :addTo(self, 5)
+
+     local sp_01  = display.newSprite(GAME_IMAGE.sp_mask)
+     :align(display.CENTER, display.cx, display.top)
+     :addTo(layer_buyView) 
+     :setScale(20)
+
+     local sp_02  = display.newSprite(GAME_IMAGE.hotsale_bg)
+     :align(display.CENTER, display.cx, display.cy)
+     :addTo(layer_buyView) 
+
+     local sp_03  = display.newSprite(GAME_IMAGE.buydiamand_wenzi)
+     :align(display.CENTER, sp_02:getPositionX(), sp_02:getPositionY() + 165)
+     :addTo(layer_buyView)
+
+     local sp_04  = display.newSprite(GAME_IMAGE.zengbig_unicom)
+     :align(display.CENTER, sp_02:getPositionX() - 70, sp_02:getPositionY())
+     :addTo(layer_buyView) 
+
+     local sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.5, 1.1, 1.1, 1), 
+            cc.ScaleTo:create(0.5, 0.9, 0.9, 1), 
+            })
+
+      transition.execute(sp_04, cc.RepeatForever:create( sequenceAction ))
+
+    local sp_05  = display.newSprite(GAME_IMAGE.emailIcon_diamond)
+     :align(display.CENTER, sp_02:getPositionX()+ 30 , sp_02:getPositionY() + 40)
+     :addTo(layer_buyView) 
+     :setScale(0.6)
+
+     local lbl_1 = cc.ui.UILabel.new({
+        UILabelType = 1,
+        text        = "300个",
+        font        = GAME_FONT,
+        })
+        :setScale(0.5)
+        :align(display.CENTER,  sp_05:getPositionX() + 70 , sp_05:getPositionY() )
+        :addTo(layer_buyView)
+        :setColor(cc.c3b(255, 0, 255))
+
+    local sp_06  = display.newSprite(GAME_IMAGE.emailIcon_diamond)
+     :align(display.CENTER, sp_02:getPositionX()+ 45 , sp_02:getPositionY() - 20)
+     :addTo(layer_buyView) 
+     :setScale(0.4)
+
+     local lbl_2 = cc.ui.UILabel.new({
+        UILabelType = 1,
+        text        = "200个",
+        font        = GAME_FONT,
+        })
+        :setScale(0.5)
+        :align(display.CENTER,  sp_06:getPositionX() + 55 , sp_06:getPositionY() )
+        :addTo(layer_buyView)
+        :setColor(cc.c3b(255, 0, 255))
+
+    local btn_buy = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.anniu, pressed =  GAME_IMAGE.anniu1})   --购买
+        :align(display.CENTER, sp_02:getPositionX(), sp_02:getPositionY() - 130)
+        :onButtonClicked(function()
+            audio.playSound(GAME_SOUND.pselect)
+           
+        end)
+        :addTo(layer_buyView)
+
+    local btn_close = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.close_bg, pressed =  GAME_IMAGE.close_bg})  
+        :align(display.CENTER, sp_02:getPositionX() + 150 , sp_02:getPositionY() + 170)
+        :onButtonClicked(function()
+            audio.playSound(GAME_SOUND.pselect)
+            self:removeChild(layer_buyView)
+        end)
+        :addTo(layer_buyView)   
+
+    local sp_07  = display.newSprite(GAME_IMAGE.onsale_btn_buy)
+     :align(display.CENTER, btn_buy:getPositionX() , btn_buy:getPositionY())
+     :addTo(layer_buyView) 
+
+     local lbl_3 = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text        = "点击按钮您将通过短信支付30元。",
+        size        = 30
+        })
+        :setScale(0.5)
+        :align(display.CENTER,  btn_buy:getPositionX() , btn_buy:getPositionY() - 40)
+        :addTo(layer_buyView)
 end
 
 function MatrixStar:updatePos(posX,posY,i,j)
