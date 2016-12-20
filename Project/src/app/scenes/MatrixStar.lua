@@ -974,7 +974,7 @@ function MatrixStar:initMatrix()
             for col = 1, COL do
                 self.STAR[row][col] = {}
                 local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-                local i = math.random(1, #STAR_RES_LIST - 3)
+                local i = math.random(1, #STAR_RES_LIST )
                 local star = display.newSprite(STAR_RES_LIST[i])
                 star:setScale(0)
                 self.STAR[row][col][1] = star
@@ -1133,7 +1133,7 @@ function MatrixStar:onTouch(eventType, x, y)
            
         end 
         
-        mHandle = scheduler.scheduleGlobal(deleteOneStar_, 0.05)
+        mHandle = scheduler.scheduleGlobal(deleteOneStar_, 0.1)
         self:ShowAnim(#self.SELECT_STAR)
     end
 end
@@ -1145,10 +1145,12 @@ function MatrixStar:deleteOneStar()
         if deleteStar ~= nil and #deleteStar ~= 0 then
             local row , col = deleteStar[2], deleteStar[3]
             audio.playSound(GAME_SOUND.ppop )
+            
             local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
                     particle:setPosition(self.STAR[row][col][1]:getPosition())
                     particle:setAutoRemoveOnFinish(true)
                     self:addChild(particle,1)  
+
             self:removeChild(self.STAR[row][col][1]) 
 
             self.STAR[row][col][1] = nil 
@@ -1836,19 +1838,24 @@ function MatrixStar:ShowBuyView()
 end
 
 function MatrixStar:updatePos(posX,posY,i,j)
-    transition.execute(self.STAR[i][j][1], cc.MoveTo:create(0.1, cc.p(self.STAR[i][j][4] , self.STAR[i][j][5] )), {  
-    delay = 0.2,  
-    easing = "bounceIn", 
-    onComplete = function()  
-        if self.STAR[i][j][1] ~= nil and self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
-            self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
-        end
+    scheduler.performWithDelayGlobal(function()
+            -- body
+            transition.moveTo(self.STAR[i][j][1], {
+                x = self.STAR[i][j][4],
+                y = self.STAR[i][j][5],
+                time = 0.3,
+                easing = "backIn",
+                onComplete = function()
+                   if self.STAR[i][j][1] ~= nil and self.STAR[i][j][1]:getPositionY() < self.STAR[i][j][5]  then
+                        self.STAR[i][j][1]:setPositionY(self.STAR[i][j][5])
+                    end
 
-        if self.STAR[i][j][1] ~= nil and self.STAR[i][j][1]:getPositionX() < self.STAR[i][j][4]  then
-             self.STAR[i][j][1]:setPositionX(self.STAR[i][j][4])
-        end 
-    end,  
-    })  
+                    if self.STAR[i][j][1] ~= nil and self.STAR[i][j][1]:getPositionX() < self.STAR[i][j][4]  then
+                         self.STAR[i][j][1]:setPositionX(self.STAR[i][j][4])
+                    end 
+                end,
+                })
+        end, 0.1)
 end
 
 function MatrixStar:isEnd()
