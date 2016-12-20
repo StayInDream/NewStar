@@ -36,6 +36,7 @@ local BOOL_ISCONTINUE = 0  --读档开始， 值为1是读档
 local DIAMOND         = 15  --拥有钻石的数量
 local MAP = {}
 local GAMESTATE    = 0 --游戏状态， 0->开始布局新的星星， 1 ->存档 ， 2->游戏失败 ,3 -> 游戏准备好，按钮可以点击
+local SOUND = 1  --游戏声音， 1是on ， 0 是off
 
 
 local STAR_WIDTH  = 48   
@@ -81,6 +82,7 @@ function MatrixStar:ctor()
     self.clearNeed   = UNNEEDCLEAR  -- 是否需要清除剩余的星星
     self:initTitles()  
     self:ShowPauseView()
+    SOUND = GameData.SOUND
     bool_isfirst     = true
     if GAMESTATE == 2 then 
             self:ShowFail()
@@ -163,6 +165,7 @@ function MatrixStar:SaveGameData( )
     GameData.DIAMOND     = DIAMOND
     GameData.MAP         = MAP
     GameData.GAMESTATE   = GAMESTATE
+    GameData.SOUND       = SOUND
     GameState.save(GameData)
 
 end
@@ -522,9 +525,13 @@ function MatrixStar:ShowPauseView()
         :setScale(0.4)
         :addTo(node_paseview)
 
-         -- 设置静音按钮
+        -- 设置静音按钮
+        local sp_ = GAME_IMAGE.Button_SoundOn
+        if SOUND == 0 then
+            sp_ = GAME_IMAGE.Button_SoundOff
+        end
         self.SetVolumeButton = BubbleButton.new({
-            image = GAME_IMAGE.Button_SoundOn,
+            image = sp_,
             sound = GAME_SOUND.pselect,
             prepare = function()
                 audio.playSound(GAME_SOUND.pselect)
@@ -568,12 +575,17 @@ end
 
 function MatrixStar:SetVolume_onClick( )
     -- body
-    print(audio.getSoundsVolume())
-    --audio.stopMusic(false)
-    audio.setMusicVolume(0.5)
-    cc.SimpleAudioEngine:getInstance():setEffectsVolume(0) 
-    print(audio.getSoundsVolume())
-    GameData.SoundOff = 1
+    if SOUND == 0 then
+            SOUND = 1
+            audio.resumeMusic()
+            self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.NORMAL, GAME_IMAGE.Button_SoundOn ,true)
+            self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.PRESSED, GAME_IMAGE.Button_SoundOn ,true)
+        else
+            audio.stopMusic(false)
+            SOUND = 0
+            self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.NORMAL, GAME_IMAGE.Button_SoundOff ,true)
+            self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.PRESSED, GAME_IMAGE.Button_SoundOff ,true)
+    end
 end
 
 -- 道具 1 点击事件
@@ -581,9 +593,10 @@ function MatrixStar:Prop1_onclick()
     if GAMESTATE ~= 3 then
         return
     end
-    if  GameData.SoundOff ~= 1 then
+    if  SOUND == 1 then
     audio.playSound(GAME_SOUND.Props_Rainbow)
     end
+
     if DIAMOND >= 5 then
         self:setTouchEnabled(true)
         self.Prop1Btn:setButtonEnabled(false)

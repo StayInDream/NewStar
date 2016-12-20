@@ -113,7 +113,15 @@ GAME_IMAGE = {
 	onsale_btn_buy     =  "image/onsale_btn_buy.png",
 	onsale_btn_huode   =  "image/onsale_btn_huode.png",
 	onsale_btn_lingqu  =  "image/onsale_btn_lingqu.png",
-
+	for_bg             =  "image/9for_bg.png",
+	set_about          =  "image/set_about.png",
+	set_back           =  "image/set_back.png",
+	shangdian_biaotoutu=  "image/shangdian_biaotoutu.png",
+	shangdian_wenzi    =  "image/shangdian_wenzi.png",
+	shop_item_bg_1     =  "image/shop_item_bg-1.png",
+	shop_item_bg_2     =  "image/shop_item_bg-2.png",
+	huodong_diban_2    =  "image/huodong_diban_2.png",
+	duanxinzhifu_2     =  "image/duanxinzhifu-2.png",
 } 
 
 GAME_PARTICE = {

@@ -75,25 +75,7 @@ function MyApp:enterMenuScene()
     self:enterScene("MenuScene", nil, "fade", 0.6, display.COLOR_WHITE)
 end
 
-function MyApp:ShowSetting()
-  --  self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
-end
 
-function MyApp:ShowShop()
-    --self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
-end
-
-function MyApp:ShowEmail()
-    --self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
-end
-
-function MyApp:ShowRank()
-    --self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
-end
-
-function MyApp:ShowCDKEY()
-    --self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
-end
 
 function MyApp:StartNewGame()
     self:InitGameStageData()
@@ -106,6 +88,7 @@ function MyApp:StartNewGame()
 end
 
 function MyApp:ContinueGame()
+
     local nextScene = require("app.scenes.GameScene").new()
     -- 包装过渡效果
     local transition = display.wrapSceneWithTransition(nextScene, "slideInR", 0.5)
