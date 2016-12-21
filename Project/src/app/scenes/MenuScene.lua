@@ -1,6 +1,7 @@
 local BubbleButton = import("..views.BubbleButton")
 local CCLabelChange = import("..views.CCLabelChange")
 local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
+local Shop = import("..views.Shop")
 
 local MenuScene = class("MenuScene", function()
     return display.newScene("MenuScene")
@@ -11,7 +12,10 @@ function MenuScene:ctor()
     self.bg = display.newSprite(GAME_IMAGE.Bg_Stage)
     self.bg:setPosition(display.cx, display.cy )
 	self:addChild(self.bg)
-	
+
+    self.Shop = Shop.new()
+    :addTo(self,100)
+
     local layer_logging = display.newLayer() --loading 层
     self:addChild(layer_logging,1)
     local layer_menu = display.newLayer() --菜单按钮层
@@ -107,7 +111,7 @@ function MenuScene:ctor()
                 self.ShopButton:setButtonEnabled(false)
             end,
             listener = function()
-                self:ShowShop()
+                self.Shop:Show(Shop.SHOPTYPE.ShopType_1)
             end,
         })
         :align(display.BOTTOM, display.cx - self.bg:getContentSize().width / 2 + 250, display.cy -  self.bg:getContentSize().height / 2 + 50)
@@ -311,173 +315,6 @@ function MenuScene:ShowSettingView()
            
         end)
         self.sp_btnbg:moveTo(0.3, display.left + 22 , display.bottom + 150)
-end
-function MenuScene:ShowShop()
-    local layer_shop = display.newLayer()
-    :addTo(self ,1)
-
-    local sp_mask = display.newSprite( GAME_IMAGE.sp_mask)
-    :align(display.CENTER, display.cx , display.cy)
-    :addTo(layer_shop) 
-    :setScale(20)
-
-    local sp_mask = display.newSprite( GAME_IMAGE.sp_mask)
-    :align(display.CENTER, display.cx , display.cy)
-    :addTo(layer_shop) 
-    :setScale(20)
-    :setOpacity(0)
-    sp_mask:fadeTo(1, 255)
-
-    local sp_bg01 = display.newScale9Sprite( GAME_IMAGE.huodong_diban_2, display.left - 250 , display.cy + 50, cc.size(400, 600) )
-    :addTo(layer_shop) 
-    scheduler.performWithDelayGlobal(function()
-         transition.moveTo(sp_bg01, {
-            x = display.cx ,
-            y = display.cy + 50,
-            time = 0.5,
-            easing = "backOut",
-            })
-            end , 0.1)
-
-    local sp_bg02 = display.newSprite( GAME_IMAGE.shangdian_biaotoutu )
-    :align(sp_bg01, 200, 580)
-    :addTo(sp_bg01)
-
-    local sp_03 = display.newSprite( GAME_IMAGE.shangdian_wenzi )
-    :align(sp_bg01, 200, 590)
-    :addTo(sp_bg01)
-
-    local closeButton = cc.ui.UIPushButton.new({normal = GAME_IMAGE.close_bg, pressed = GAME_IMAGE.close_bg})
-    :align(sp_bg01, 390, 570)
-    :addTo(sp_bg01)
-    :onButtonClicked(function()
-        audio.playSound(GAME_SOUND.pselect)
-        scheduler.performWithDelayGlobal(function()
-            -- body
-            transition.moveTo(sp_bg01, {
-                x = display.cx - 700,
-                y = display.cy + 50,
-                time = 0.5,
-                easing = "backIn",
-                onComplete = function()
-                   self:removeChild(layer_shop)
-                end,
-                })
-        end, 0.1)
-
-        end)
-
-    local duanxinButton = cc.ui.UIPushButton.new({normal = GAME_IMAGE.duanxinzhifu_2, pressed = GAME_IMAGE.duanxinzhifu_2})
-    :align(sp_bg01, 200, 510)
-    :addTo(sp_bg01)
-    :onButtonClicked(function()
-        --audio.playSound(GAME_SOUND.pselect)
-        print("duanxin fu")
-        end)
-
-    local sp_shopitemBG = display.newScale9Sprite( GAME_IMAGE.shop_item_bg_2 ,200 , 280, cc.size(350, 400))
-    :addTo(sp_bg01)
-
-    local sp_04 = display.newSprite( GAME_IMAGE.emailIcon_diamond)
-    :align(sp_bg01, 280, 50)
-    :setScale(0.4)
-    :addTo(sp_bg01)
-
-    local lbl_01 = cc.ui.UILabel.new({
-        UILabelType = 2,
-        text  =  "拥有:",
-        size = 20,
-        })
-    :align(sp_bg01, 210, 50)
-    :addTo(sp_bg01)
-
-    local diaNum = GameData.DIAMOND
-    if diaNum == nil then
-        diaNum = 0
-    end
-
-     local lbl_02 = cc.ui.UILabel.new({
-        UILabelType = 1,
-        text  =  diaNum,
-        font  = GAME_FONT,
-        })
-    :setScale(0.4)
-    :align(sp_bg01, 300, 50)
-    :addTo(sp_bg01)
-
-    --滚动
-    local ListView  = cc.ui.UIListView.new({
-            viewRect  = cc.rect(0,0,350,390),
-            direction = cc.ui.UIListView.DIRECTION_VERTICAL,
-            items_ = {},
-
-        })
-        :addTo(sp_bg01)
-        :align(sp_bg01, 25, 86)
-        :setBounceable(true) 
-        -- 注册滚动事件 通过event.name区分
-        ListView:onScroll( function(event)
-            -- TODO: sth
-        end)
-
-        for i=1, #shopTypes do
-            local content = display.newScale9Sprite( GAME_IMAGE.shop_item_bg_1 ,0 , 0, cc.size(330, 60))
-            local sp_dia = display.newSprite( GAME_IMAGE.emailIcon_diamond)
-            :align(content, 30, 35)
-            :addTo(content)
-            :setScale(0.4)
-
-            local sp_zengbig_unicom = display.newSprite( GAME_IMAGE.zengbig_unicom)
-            :align(content, 150, 35)
-            :addTo(content)
-            :setScale(0.3)
-
-            local lbl_001 = cc.ui.UILabel.new({
-                UILabelType = 1,
-                text  =  shopTypes[i][1] * 10 .. "个",
-                font = GAME_FONT,
-                --size = 40
-                })
-            :align(content, 65, 35)
-            :setScale(0.4)
-            :addTo(content)
-
-             local lbl_002 = cc.ui.UILabel.new({
-                UILabelType = 1,
-                text  =  shopTypes[i][2] .. "个",
-                font = GAME_FONT,
-                --size = 40
-                })
-            :align(content, 180, 35)
-            :setScale(0.4)
-            :addTo(content)
-
-            local buyButton = cc.ui.UIPushButton.new({normal = GAME_IMAGE.anniu, pressed = GAME_IMAGE.anniu1})
-            :align(content, 280, 30)
-            :addTo(content)
-            :setScaleX(0.5)
-            :setScaleY(0.6)
-            :onButtonClicked(function()
-                print("buy something")
-                end)
-
-            local lbl_003 = cc.ui.UILabel.new({
-                UILabelType = 2,
-                text  = "￥" .. math.floor(shopTypes[i][1]) .."" .. ".00",
-                size  = 40 ,
-                })
-            :align(content, 245, 30)
-            :setScale(0.5)
-            :setTextColor(cc.c3b(0, 0, 0))
-            :addTo(content)
-            
-            local listItem = ListView:newItem(content)
-            listItem:setItemSize(330, 60)  
-            ListView:addItem(listItem)
-        end
-        ListView:reload() 
-
-
 end
 
 function MenuScene:ShowEmail()

@@ -1,8 +1,8 @@
 local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
 local BubbleButton = import("..views.BubbleButton")
+local Shop = import("..views.Shop")
 
 local sharedEngine = cc.SimpleAudioEngine:getInstance()
-
 
 
 local MatrixStar = class("MatrixStar",function()
@@ -84,6 +84,8 @@ function MatrixStar:ctor()
     self:ShowPauseView()
     SOUND = GameData.SOUND
     bool_isfirst     = true
+    self.Shop = Shop.new()
+    :addTo(self,100)
     if GAMESTATE == 2 then 
             self:ShowFail()
         else
@@ -608,7 +610,7 @@ function MatrixStar:Prop1_onclick()
         GameState.save(GameData)
         lbl_diamond:setString(DIAMOND)
     else
-
+        self.Shop:Show(Shop.SHOPTYPE.ShopType_2)
     end 
 end
 
@@ -636,6 +638,7 @@ function MatrixStar:Prop2_onclick()
         GameState.save(GameData)
         lbl_diamond:setString(DIAMOND)
     else
+         self.Shop:Show(Shop.SHOPTYPE.ShopType_2)
 
     end
 end
@@ -672,6 +675,7 @@ function MatrixStar:Prop3_onclick()
 
         lbl_diamond:setString(DIAMOND)
     else
+         self.Shop:Show(Shop.SHOPTYPE.ShopType_2)
 
     end
 end
@@ -867,9 +871,8 @@ function MatrixStar:UsePaint(i, j )
     if self.selectColor == nil then
         audio.playSound(GAME_SOUND.Eff_Warning)
         local lbl_ = cc.ui.UILabel.new({
-            UILabelType = 1,
+            UILabelType = 2,
             text  =  "请先选择要转换的颜色！",
-            font = GAME_FONT,
             size = 35,
             color = cc.c3b(0, 255, 255)
         })
@@ -950,8 +953,6 @@ function MatrixStar:UsePaint(i, j )
             end,  })
 
     end
-
-
 end
 
 function MatrixStar:initMatrix()  
@@ -1651,7 +1652,11 @@ function MatrixStar:ShowResult( )
         :align(display.CENTER,  display.cx + 100, display.bottom + 200)
         :onButtonClicked(function()
             audio.playSound(GAME_SOUND.pselect)
-           -- app:enterMenuScene()
+           if GameData.DIAMOND >= 5 then
+
+            else
+                self.Shop:Show(Shop.SHOPTYPE.ShopType_2)
+            end
         end)
         :setScale(0.8)
         :addTo(layer_result)    
@@ -1709,7 +1714,7 @@ function MatrixStar:ShowFail( )
                     self:Show()
                     node_faileView = nil 
                 else
-                    self:ShowBuyView()
+                    self.Shop:Show(Shop.SHOPTYPE.ShopType_2)
             end
         end)
         :addTo(node_faileView)    
@@ -1745,96 +1750,6 @@ function MatrixStar:ShowFail( )
     -- self.CCLabelChangeaction:playAction()
     end
 
-end
-
-function MatrixStar:ShowBuyView()
-    -- body
-    local layer_buyView = display.newLayer()
-    :align(display.CENTER, display.cx, display.cy)
-    :addTo(self, 5)
-
-     local sp_01  = display.newSprite(GAME_IMAGE.sp_mask)
-     :align(display.CENTER, display.cx, display.top)
-     :addTo(layer_buyView) 
-     :setScale(20)
-
-     local sp_02  = display.newSprite(GAME_IMAGE.hotsale_bg)
-     :align(display.CENTER, display.cx, display.cy)
-     :addTo(layer_buyView) 
-
-     local sp_03  = display.newSprite(GAME_IMAGE.buydiamand_wenzi)
-     :align(display.CENTER, sp_02:getPositionX(), sp_02:getPositionY() + 165)
-     :addTo(layer_buyView)
-
-     local sp_04  = display.newSprite(GAME_IMAGE.zengbig_unicom)
-     :align(display.CENTER, sp_02:getPositionX() - 70, sp_02:getPositionY())
-     :addTo(layer_buyView) 
-
-     local sequenceAction = transition.sequence({
-            cc.ScaleTo:create(0.5, 1.1, 1.1, 1), 
-            cc.ScaleTo:create(0.5, 0.9, 0.9, 1), 
-            })
-
-      transition.execute(sp_04, cc.RepeatForever:create( sequenceAction ))
-
-    local sp_05  = display.newSprite(GAME_IMAGE.emailIcon_diamond)
-     :align(display.CENTER, sp_02:getPositionX()+ 30 , sp_02:getPositionY() + 40)
-     :addTo(layer_buyView) 
-     :setScale(0.6)
-
-     local lbl_1 = cc.ui.UILabel.new({
-        UILabelType = 1,
-        text        = "300个",
-        font        = GAME_FONT,
-        })
-        :setScale(0.5)
-        :align(display.CENTER,  sp_05:getPositionX() + 70 , sp_05:getPositionY() )
-        :addTo(layer_buyView)
-        :setColor(cc.c3b(255, 0, 255))
-
-    local sp_06  = display.newSprite(GAME_IMAGE.emailIcon_diamond)
-     :align(display.CENTER, sp_02:getPositionX()+ 45 , sp_02:getPositionY() - 20)
-     :addTo(layer_buyView) 
-     :setScale(0.4)
-
-     local lbl_2 = cc.ui.UILabel.new({
-        UILabelType = 1,
-        text        = "200个",
-        font        = GAME_FONT,
-        })
-        :setScale(0.5)
-        :align(display.CENTER,  sp_06:getPositionX() + 55 , sp_06:getPositionY() )
-        :addTo(layer_buyView)
-        :setColor(cc.c3b(255, 0, 255))
-
-    local btn_buy = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.anniu, pressed =  GAME_IMAGE.anniu1})   --购买
-        :align(display.CENTER, sp_02:getPositionX(), sp_02:getPositionY() - 130)
-        :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
-           
-        end)
-        :addTo(layer_buyView)
-
-    local btn_close = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.close_bg, pressed =  GAME_IMAGE.close_bg})  
-        :align(display.CENTER, sp_02:getPositionX() + 150 , sp_02:getPositionY() + 170)
-        :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
-            self:removeChild(layer_buyView)
-        end)
-        :addTo(layer_buyView)   
-
-    local sp_07  = display.newSprite(GAME_IMAGE.onsale_btn_buy)
-     :align(display.CENTER, btn_buy:getPositionX() , btn_buy:getPositionY())
-     :addTo(layer_buyView) 
-
-     local lbl_3 = cc.ui.UILabel.new({
-        UILabelType = 2,
-        text        = "点击按钮您将通过短信支付30元。",
-        size        = 30
-        })
-        :setScale(0.5)
-        :align(display.CENTER,  btn_buy:getPositionX() , btn_buy:getPositionY() - 40)
-        :addTo(layer_buyView)
 end
 
 function MatrixStar:updatePos(posX,posY,i,j)

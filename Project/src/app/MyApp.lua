@@ -46,10 +46,10 @@ function MyApp:run()
         end
         return returnValue    
     end,"data.txt","lp") --保存到writablePath下data.txt文件中，加密口令"abcd"
-
     GameData = GameState.load() or {}
     if GameData == nil then --第一次运行游戏
         GameData = GameState.load()
+        self:InitGameStageData()
     end
 
     GAME_FONT = "fonts/" .. GAME_FONT_
@@ -101,6 +101,8 @@ function MyApp:TeQuanButtonClick()
     --self:enterScene("GameScene", nil, "fade", 0.6, display.COLOR_WHITE)
 end
 
+
+
 function MyApp:InitGameStageData()
     GameData.CURLEVEL    = 1
     GameData.CURSCORE    = 0
@@ -108,6 +110,7 @@ function MyApp:InitGameStageData()
     GameData.HEIGHTSCORE = 0
     GameData.MAP         = {}
     GameData.GAMESTATE   = 0
+    GameData.DIAMOND     = 15
 
     GameState.save(GameData)
 
