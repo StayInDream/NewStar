@@ -1,9 +1,7 @@
 local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
 local BubbleButton = import("..views.BubbleButton")
 local Shop = import("..views.Shop")
-
-local sharedEngine = cc.SimpleAudioEngine:getInstance()
-
+local CCLabelChange = import("..views.CCLabelChange")
 
 local MatrixStar = class("MatrixStar",function()
 	return display.newLayer()
@@ -71,6 +69,7 @@ local bool_ishaveShow_sp_tongguan = false
 local bool_isusingBoom            = false  --true正在使用炸弹
 local bool_isusingPaint           = false  --true正在使用刷子
 local bool_isfirst                = true   --true表示 刚开始游戏 或 复活进入
+local bool_isgaming               = false
 
 function MatrixStar:ctor()
     self:LoadGameData()
@@ -243,7 +242,7 @@ function MatrixStar:initTitles()
         :align(display.CENTER,  display.left + 70, display.top - 90)
         :onButtonClicked(function()
             audio.playSound(GAME_SOUND.pselect)
-           -- app:enterMenuScene()
+            self.Shop:Show(Shop.SHOPTYPE.ShopType_2)
         end)
         :setScale(0.8)
         :addTo(node_title)
@@ -577,14 +576,16 @@ end
 
 function MatrixStar:SetVolume_onClick( )
     -- body
-    if SOUND == 0 then
+    if SOUND == 0 then --原本是静音
             SOUND = 1
             audio.resumeMusic()
+            audio.setSoundsVolume(0)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.NORMAL, GAME_IMAGE.Button_SoundOn ,true)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.PRESSED, GAME_IMAGE.Button_SoundOn ,true)
         else
             audio.stopMusic(false)
             SOUND = 0
+            audio.setSoundsVolume(1)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.NORMAL, GAME_IMAGE.Button_SoundOff ,true)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.PRESSED, GAME_IMAGE.Button_SoundOff ,true)
     end
@@ -596,8 +597,8 @@ function MatrixStar:Prop1_onclick()
         return
     end
     if  SOUND == 1 then
-    audio.playSound(GAME_SOUND.Props_Rainbow)
     end
+    audio.playSound(GAME_SOUND.Props_Rainbow)
 
     if DIAMOND >= 5 then
         self:setTouchEnabled(true)
@@ -616,6 +617,9 @@ end
 
 -- 道具 2 点击事件
 function MatrixStar:Prop2_onclick()
+    if GAMESTATE ~= 3 then
+        return
+    end
     audio.playSound(GAME_SOUND.pselect)
     if DIAMOND >= 5 then
         bool_isusingBoom  = true
@@ -645,6 +649,9 @@ end
 
 -- 道具 3 点击事件
 function MatrixStar:Prop3_onclick()
+    if GAMESTATE ~= 3 then
+        return
+    end
     audio.playSound(GAME_SOUND.Props_Paint)
     if DIAMOND >=5 then
         bool_isusingPaint = true
@@ -968,6 +975,7 @@ function MatrixStar:initMatrix()
         ]]
     math.randomseed(os.time())   
     self.nums = 0
+    self:SetBtnsState(false) 
     if  GAMESTATE == 0 or #MAP <= 0 or GAMESTATE == 2 then
         for row = 1, ROW do
             local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72
@@ -975,7 +983,7 @@ function MatrixStar:initMatrix()
             for col = 1, COL do
                 self.STAR[row][col] = {}
                 local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-                local i = math.random(1, #STAR_RES_LIST )
+                local i = math.random(1, #STAR_RES_LIST -1)
                 local star = display.newSprite(STAR_RES_LIST[i])
                 star:setScale(0)
                 self.STAR[row][col][1] = star
@@ -1001,8 +1009,6 @@ function MatrixStar:initMatrix()
                     if self.nums >= self:getStarNum() then
                        self:SetBtnsState(true) 
                        GAMESTATE = 3
-                       else
-                       self:SetBtnsState(false) 
                     end
                 end,  
                 })  
@@ -1051,8 +1057,7 @@ function MatrixStar:initMatrix()
                         self.nums = self.nums + 1
                         if self.nums >= #MAP then
                            self:SetBtnsState(true) 
-                           else
-                           self:SetBtnsState(false) 
+                           GAMESTATE = 3
                         end
                     end,  
                     })  
@@ -1097,7 +1102,7 @@ function MatrixStar:nextStage( )
 end
 
 function MatrixStar:onTouch(eventType, x, y)  
-    if GAMESTATE == 0 then  --游戏还没准备好
+    if GAMESTATE ~= 3 then  --游戏还没准备好
         return
     end
     if eventType.name == "began" then 
@@ -1146,7 +1151,7 @@ function MatrixStar:deleteOneStar()
         if deleteStar ~= nil and #deleteStar ~= 0 then
             local row , col = deleteStar[2], deleteStar[3]
             audio.playSound(GAME_SOUND.ppop )
-            
+
             local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
                     particle:setPosition(self.STAR[row][col][1]:getPosition())
                     particle:setAutoRemoveOnFinish(true)
@@ -1286,8 +1291,22 @@ function MatrixStar:ShowAnim(num )
 end
 
 function MatrixStar:updateScore(select)
+    local lastScore = self.Cscore
     self.Cscore = self.Cscore + select * select * STARGAIN
-    lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
+   -- lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
+
+   if self.CCLabelChangeaction then
+        self.CCLabelChangeaction:init(lbl_curscore,  { duration = 0.01, fromNum = lastScore , toNum = self.Cscore , changerate = 1,callback = function()
+            end})
+    else
+        self.CCLabelChangeaction = CCLabelChange:create(lbl_curscore,  { duration = 0.01, fromNum = lastScore , toNum = self.Cscore , changerate = 1,callback = function()
+            end})
+        :addTo(node_title)
+   end
+   
+    self.CCLabelChangeaction:playAction()
+
+
     if  self.Cscore >= HEIGHTSCORE then
         self.Hscore = self.Cscore
 
@@ -1348,7 +1367,7 @@ end
 
 function MatrixStar:getSelectStar()
     local travel = {}  --当作一个队列使用，用于选出周围与触摸星星颜色相同的星星
-    if self.STAR[i][j][1] == nil then
+    if  self.STAR[i][j][1] == nil  then
         return
     end 
     
@@ -1463,7 +1482,11 @@ function MatrixStar:ClearLeftStarOneByOne()
     local sp_diamond  = display.newSprite(GAME_IMAGE.emailIcon_diamond)
      :align(display.CENTER, display.left + 100, display.cy - 70)
      :addTo(self) 
-     :setScale(0.4)           
+     :setScale(0.4)   
+
+     
+     
+
     lbl_03  = cc.ui.UILabel.new({
         UILabelType = 1,
         text        = "+2" ,
@@ -1479,7 +1502,7 @@ function MatrixStar:ClearLeftStarOneByOne()
     transition.moveTo(sp_diamond, {x = display.cx -10 , y = display.cy - 70 , time = 0.3 })
     transition.moveTo(lbl_03, {x = display.cx + 25 , y = display.cy - 70 , time = 0.5 })
 
-    sequenceAction = transition.sequence({
+  local  sequenceAction = transition.sequence({
             cc.ScaleTo:create(0.1, 2, 2, 1), 
             
             cc.ScaleTo:create(0.5, 0.5, 0.5, 1), 
@@ -1487,12 +1510,14 @@ function MatrixStar:ClearLeftStarOneByOne()
             cc.FadeTo:create(0.3,  0 ),
         })
 
-    sequenceAction1 = transition.sequence({
+   local sequenceAction1 = transition.sequence({
             cc.ScaleTo:create(0.1, 2, 2, 1), 
             cc.ScaleTo:create(0.5, 0.5, 0.5, 1), 
             cc.MoveTo:create(0.5, cc.p(lbl_diamond:getPositionX() , lbl_diamond:getPositionY() )),
             cc.FadeTo:create(0.3,  0 ),
         })
+
+     
 
     transition.execute(lbl_03 , sequenceAction1 , {
         delay = num * 0.05 + 1.6 ,  
@@ -1510,7 +1535,30 @@ function MatrixStar:ClearLeftStarOneByOne()
                     lbl_diamond:setString(string.format("%s", tostring(DIAMOND)))
                     local x = self.Cscore - TARGETSCORE
                     if  x >= 0 or bool_ishaveShow_sp_tongguan == true then --已经通关了
-                        self:nextStage()
+                        scheduler.performWithDelayGlobal(function()
+                            local sequenceAction03 = transition.sequence({
+                                cc.MoveTo:create(0.2, cc.p(display.cx, display.cy)),
+                                cc.ScaleTo:create(0.5, 1, 1, 1), 
+                                -- cc.FadeTo:create(0.2, 125), 
+                                -- cc.FadeTo:create(0.2, 255),
+                                -- cc.FadeTo:create(0.2, 125), 
+                                -- cc.FadeTo:create(0.2, 255),
+                                cc.FadeTo:create(0.5,  0 ),
+                                })
+                            local Text_StageEnd  = display.newSprite(GAME_IMAGE.Text_StageEnd)
+                                 :align(display.CENTER, display.cx , display.cy)
+                                 :addTo(self, 4) 
+                                 :setScale(1.5)
+                            -- body
+                            transition.execute(Text_StageEnd , sequenceAction03 ,{
+                                delay = 0 ,  
+                                easing = "backOut",  
+                                onComplete = function()  
+                                    self:nextStage()
+                                end,
+                                })
+
+                        end, 0.1)
                     else  --失败
                         self:ShowFail()
                     end

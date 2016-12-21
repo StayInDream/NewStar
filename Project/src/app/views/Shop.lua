@@ -14,6 +14,7 @@ local shopTypes = {{50.00, 500}, {30.00, 200}, {15.00, 80}, {10.00, 50}, {5.00,1
 Shop.SHOPTYPE = {
 	ShopType_1 = 1, --主商店
 	ShopType_2 = 2, --活动
+    ShopType_3 = 3, --大礼包
 }
 local num = 0
 function Shop:ctor()
@@ -164,18 +165,20 @@ function Shop:Show(ShopType)
 
 		if ShopType == Shop.SHOPTYPE.ShopType_1 then
 				self:ShowMain()
-				self.shoptype = ShopType
 			elseif ShopType ==  Shop.SHOPTYPE.ShopType_2 then
 				--todo
-				self:ShowType_1_View()
-				self.shoptype = ShopType
+				self:ShowType_2_View()
+                elseif ShopType ==  Shop.SHOPTYPE.ShopType_3 then
+                    --todo
+                    self:ShowType_3_View()
 		end
-
+        self.shoptype = ShopType
 		return
 	end
-	self:ShowMain()
+--	self:ShowMain()
 	
 end
+
 
 function Shop:ShowMain()
 	-- body
@@ -189,7 +192,7 @@ function Shop:ShowMain()
             end , 0.1)
 end
 
-function Shop:ShowType_1_View()
+function Shop:ShowType_2_View()
     -- body
     if self.layer_buyView then
     	scheduler.performWithDelayGlobal(function( )
@@ -298,6 +301,128 @@ function Shop:ShowType_1_View()
         end, 0.1)
 end
 
+-- show 大礼包
+function Shop:ShowType_3_View()
+    -- body
+    if self.gift_bag == nil then
+        self.gift_bag = display.newLayer()
+        :align(display.CENTER, display.right + display.width , display.cy)
+        :addTo(self)
+    local sp_bg  = display.newScale9Sprite(GAME_IMAGE.Bg_PanelPause, 0 , 0 , cc.size(360, 450))
+     :align(self.gift_bag, display.cx, display.cy)
+     :addTo(self.gift_bag)
+
+    local sp_00 = display.newSprite( GAME_IMAGE.title_silk_zise)
+    :align(sp_bg, sp_bg:getContentSize().width / 2, sp_bg:getContentSize().height - 10)
+    :setScale(1)
+    :addTo(sp_bg) 
+
+    local lbl_title = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text        = "优惠大礼包",
+        size = 30
+        })
+        :setScale(1)
+        :align(sp_bg, sp_bg:getContentSize().width / 2  - 75, sp_bg:getContentSize().height + 10)
+        :addTo(sp_bg)
+
+    local sp_01 = display.newSprite( GAME_IMAGE.dalibao_mm)
+    :align(sp_bg, sp_bg:getContentSize().width / 2 - 100, sp_bg:getContentSize().height - 100)
+    :setScale(1.5)
+    :addTo(sp_bg)
+
+    local sp_02 = display.newSprite( GAME_IMAGE.lijihuode)
+    :align(sp_bg, sp_bg:getContentSize().width / 2 + 70, sp_bg:getContentSize().height - 100)
+    :setScale(0.9)
+    :addTo(sp_bg)
+
+    local sp_03 = display.newSprite( GAME_IMAGE.zengsong_xin)
+    :align(sp_bg, sp_bg:getContentSize().width / 2 - 110, sp_bg:getContentSize().height - 220)
+    :setScale(1.1)
+    :addTo(sp_bg)
+
+    local sp_04 = display.newSprite( GAME_IMAGE.wenzimiaoshu)
+    :align(sp_bg, sp_bg:getContentSize().width / 2 + 50, sp_bg:getContentSize().height - 220)
+    :setScale(1)
+    :addTo(sp_bg)
+
+    local lbl_price = cc.ui.UILabel.new({
+        UILabelType = 2,
+        text        = "30元",
+        size = 25
+        })
+        :align(sp_04, 0, 10)
+        :addTo(sp_04)  
+        :setTextColor(cc.c3b(255, 165, 0)) 
+
+    local sp_05 = display.newScale9Sprite(GAME_IMAGE.sp_mask, 0 , 0 , cc.size(250, 80))
+    :align(sp_bg, sp_bg:getContentSize().width / 2 , sp_bg:getContentSize().height / 2 - 100)
+    :setScale(1)
+    :addTo(sp_bg) 
+
+    --钻石图标
+    local sp_06 = display.newSprite(GAME_IMAGE.emailIcon_diamond)  
+    :align(sp_05, 80,40)
+    :setScale(0.7)
+    :addTo(sp_05) 
+
+    --获得的钻石数量图标
+    local sp_07 = display.newSprite(GAME_IMAGE.x500)  
+    :align(sp_05, 170,40)
+    :setScale(0.7)
+    :addTo(sp_05) 
+
+    local sequenceAction = transition.sequence({
+            cc.ScaleTo:create(0.8, 0.8, 0.8, 1), 
+            cc.ScaleTo:create(0.5, 1, 1, 1), 
+            })
+    local sequenceAction1 = transition.sequence({
+            cc.ScaleTo:create(0.6, 0.8, 0.8, 1), 
+            cc.ScaleTo:create(0.6, 1, 1, 1), 
+            })
+
+    transition.execute(sp_07, cc.RepeatForever:create( sequenceAction ))
+    transition.execute(sp_03, cc.RepeatForever:create( sequenceAction1))
+
+
+    --购买按钮
+    local btn_buy = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.anniu, pressed =  GAME_IMAGE.anniu1})  
+        :align(sp_bg, sp_bg:getContentSize().width / 2 , sp_bg:getContentSize().height / 2 - 180)
+        :onButtonClicked(function()
+            audio.playSound(GAME_SOUND.pselect)
+            self:Pay({num = 30})
+        end)
+        :addTo(sp_bg) 
+        :setScaleX(0.8)  
+
+    local sp_08 = display.newSprite(GAME_IMAGE.onsale_btn_buy)  
+    :align(btn_buy, 0,0)
+    :setScale(0.9)
+    :addTo(btn_buy)     
+
+
+    --关闭
+    local btn_close = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.close_bg, pressed =  GAME_IMAGE.close_bg})  
+        :align(sp_bg,  sp_bg:getContentSize().width / 2 + 175 , sp_bg:getContentSize().height  -10)
+        :onButtonClicked(function()
+            audio.playSound(GAME_SOUND.pselect)
+            self:CloseShop()
+        end)
+        :addTo(sp_bg)   
+    end
+
+    scheduler.performWithDelayGlobal(function( )
+            -- body
+            transition.moveTo(self.gift_bag, {
+            x = display.cx ,
+            y = display.cy ,
+            time = 0.5,
+            easing = "backOut",
+            })
+        end, 0.1)
+
+end
+
 function Shop:CloseShop( )
 	-- body
 	if self.shoptype == Shop.SHOPTYPE.ShopType_1 then
@@ -329,6 +454,20 @@ function Shop:CloseShop( )
             })
 
         end, 0.1)
+            elseif self.shoptype == Shop.SHOPTYPE.ShopType_3 then
+                --todo
+            scheduler.performWithDelayGlobal(function( )
+            -- body
+            transition.moveTo(self.gift_bag, {
+            x = display.right + display.width ,
+            y = display.cy ,
+            time = 0.5,
+            easing = "backIn",
+            onComplete = function()
+                self:setVisible(false)
+            end,
+            })
+        end, 0.1) 
 	end
 end
 

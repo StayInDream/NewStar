@@ -6,7 +6,7 @@ local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
 
 CCLabelChange = class("CCLabelChange", function()
     local node = display.newNode()
-    node:setNodeEventEnabled(true)
+ --   node:setNodeEventEnabled(true)
     return node
 end)            
 --index
@@ -16,6 +16,8 @@ local _fromNum          = 0
 local _toNum            = 0
 local _target           = nil
 local _isPause          = false
+local _changerate       = 1
+local bool_ifKillself   = true
 local timer             = 0
 local bool_add          = true --true为自增
 local _callback         = nil
@@ -37,6 +39,8 @@ function CCLabelChange:init(target, args)
     _fromNum  = args.fromNum
     _toNum    = args.toNum
     _callback = args.callback
+    _changerate = args.changerate or 1
+    bool_ifKillself = args.selfKill or true
     
     timer     = _fromNum
     bool_isTarget = false
@@ -53,7 +57,7 @@ end
 --两种情况下执行此方法 1、动作执行完毕 2、同类动作，旧动作在执行中，新动作需要执行，此时把旧动作移除
 function CCLabelChange:selfKill()
 
-    if self.handler ~= nil then
+    if self.handler ~= nil and bool_ifKillself == true then
         scheduler.unscheduleGlobal(self.handler)
     self:removeFromParentAndCleanup(true) --从父类移除
     _target._labelChange = nil --把引用删除
@@ -79,10 +83,10 @@ end
 function CCLabelChange:playAction()
     local oldAction = _target._labelChange
 
-    if oldAction then
-        --旧动作存在
-     oldAction:selfKill()
-    end
+    -- if oldAction then
+    --     --旧动作存在
+    --  oldAction:selfKill()
+    -- end
 
     _target._labelChange = _target --引用变成自己
     local function int(x) 
@@ -96,9 +100,9 @@ function CCLabelChange:playAction()
 
 
         if bool_add == true then
-                timer = int(timer + 1) 
+                timer = int(timer + _changerate) 
             else
-                timer = int(timer - 1) 
+                timer = int(timer - _changerate) 
         end
 
         if _target ~= nil then
@@ -130,11 +134,11 @@ function CCLabelChange:playAction()
 end
 
 function CCLabelChange:onEnter()
-     print("enter")
+    -- print("enter")
 end
 
 function CCLabelChange:onExit()
-    print(onExit)
+   -- print(onExit)
     if self.handler ~= nil then
         scheduler.unscheduleGlobal(self.handler)
     end

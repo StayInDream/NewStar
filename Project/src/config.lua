@@ -122,6 +122,18 @@ GAME_IMAGE = {
 	shop_item_bg_2     =  "image/shop_item_bg-2.png",
 	huodong_diban_2    =  "image/huodong_diban_2.png",
 	duanxinzhifu_2     =  "image/duanxinzhifu-2.png",
+	sk_gift_tgjl       =  "image/sk_gift_tgjl.png",
+	gift_btn           =  "image/gift_btn.png",
+	dalibao_mm         = "image/dalibao_mm.png",
+	lijihuode          = "image/lijihuode.png",
+	wenzimiaoshu       = "image/wenzimiaoshu.png",
+	zengsong_xin       = "image/zengsong_xin.png",
+	x500               = "image/x500.png",
+	Text_StageEnd      = "image/Text_StageEnd.png",
+	Bg_PanelPause      = "image/Bg_PanelPause.png",
+	title_silk         = "image/title_silk.png",
+	title_silk_22      = "image/title_silk_22.png",
+	title_silk_zise    = "image/title_silk_zise.png",
 } 
 
 GAME_PARTICE = {

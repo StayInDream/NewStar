@@ -6,6 +6,7 @@ GameState=require("framework.cc.utils.GameState")
 GameData  = nil
 GAME_FONT = nil
 
+isHadShowShoptype_2 = false
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
@@ -47,9 +48,17 @@ function MyApp:run()
         return returnValue    
     end,"data.txt","lp") --保存到writablePath下data.txt文件中，加密口令"abcd"
     GameData = GameState.load() or {}
-    if GameData == nil then --第一次运行游戏
+    if GameData == nil or #GameData == 0 then --第一次运行游戏
+        GameData.CURLEVEL    = 1
+        GameData.CURSCORE    = 0
+        GameData.TARGETSCORE = 1000
+        GameData.HEIGHTSCORE = 0
+        GameData.MAP         = {}
+        GameData.GAMESTATE   = 0
+        GameData.DIAMOND     = 15
+
+        GameState.save(GameData)
         GameData = GameState.load()
-        self:InitGameStageData()
     end
 
     GAME_FONT = "fonts/" .. GAME_FONT_
@@ -66,16 +75,12 @@ function MyApp:run()
     -- local animation = display.newAnimation(frames,0.5/2)
     -- display.setAnimationCache("lqfDownWalk",animation)
     -- sprite:playAnimationForever(display.getAnimationCache("lqfDownWalk"))
-
     self:enterMenuScene()
 end
 
 function MyApp:enterMenuScene()
-   -- self:InitGameStageData()
     self:enterScene("MenuScene", nil, "fade", 0.6, display.COLOR_WHITE)
 end
-
-
 
 function MyApp:StartNewGame()
     self:InitGameStageData()
@@ -107,14 +112,9 @@ function MyApp:InitGameStageData()
     GameData.CURLEVEL    = 1
     GameData.CURSCORE    = 0
     GameData.TARGETSCORE = 1000
-    GameData.HEIGHTSCORE = 0
     GameData.MAP         = {}
     GameData.GAMESTATE   = 0
-    GameData.DIAMOND     = 15
-
     GameState.save(GameData)
-
-    
 end
 
 return MyApp

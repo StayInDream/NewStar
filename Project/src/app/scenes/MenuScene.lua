@@ -43,7 +43,7 @@ function MenuScene:ctor()
     layer_menu:addChild(self.coin_bar)
     local lbl_coin = cc.ui.UILabel.new({
         UILabelType = 1,
-        text  =  "0",
+        text  =  GameData.DIAMOND,
         font = GAME_FONT,
       --  size = 10,
        
@@ -53,6 +53,7 @@ function MenuScene:ctor()
         :setScale(0.5)
 
 	self.jinbi_tiao  = display.newSprite(GAME_IMAGE.jinbi_tiao, display.cx - self.bg:getContentSize().width / 2 + 270,display.cy + self.bg:getContentSize().height / 2 - 30)
+    :setVisible(false)
     layer_menu:addChild(self.jinbi_tiao)
     local lbl_jinbi = cc.ui.UILabel.new({
         UILabelType = 1,
@@ -62,7 +63,8 @@ function MenuScene:ctor()
     })
         :align(cc.ui.TEXT_ALIGN_CENTER,  display.cx - self.bg:getContentSize().width / 2 + 285, display.cy + self.bg:getContentSize().height / 2 - 25)
         :addTo(layer_menu)
-         :setScale(0.5)
+        :setScale(0.5)
+        :setVisible(false)
 
     -- logo
     self.logo  = display.newSprite(GAME_IMAGE.logo_xin_1)
@@ -215,6 +217,21 @@ function MenuScene:ctor()
             })
 
       transition.execute(self.TeQuanButton, cc.RepeatForever:create( sequenceAction ))
+
+       -- 大礼包
+    self.gift_btn =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.gift_btn, pressed =  GAME_IMAGE.gift_btn})
+        :align(display.CENTER,  display.cx + self.bg:getContentSize().width / 2 - 80 , display.cy +  self.bg:getContentSize().height / 2 - 470)
+        :onButtonClicked(function()
+            audio.playSound(GAME_SOUND.pselect)
+            self.Shop:Show( Shop.SHOPTYPE.ShopType_3)
+        end)
+        :addTo(layer_menu)
+    local sequenceAction1 = transition.sequence({
+            cc.ScaleTo:create(0.5, 1.2, 1.2, 1), 
+            cc.ScaleTo:create(0.5, 1, 1, 1), 
+            })
+
+      transition.execute(self.gift_btn, cc.RepeatForever:create( sequenceAction1 ))
 
     --  
     -- local label = display.newTTFLabel({
