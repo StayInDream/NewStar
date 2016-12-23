@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ui_ad.png",
+        "source": "E:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\src\\main\\res\\drawable\\ui_ad.png"
+    },
+    {
+        "merged": "E:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_close.png",
+        "source": "E:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\src\\main\\res\\drawable\\btn_close.png"
+    }
+]

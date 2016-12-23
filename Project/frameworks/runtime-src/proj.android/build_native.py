@@ -97,7 +97,7 @@ def cleanNative():
     print "====> clean done\n"
 
 if __name__ == "__main__":
-    isRelease = False
+    isRelease = True
     isClean = False
 
     # ===== parse args =====
@@ -113,8 +113,8 @@ if __name__ == "__main__":
             # print help information and exit:
             print __doc__
             sys.exit(0)
-        if o == "-r":
-            isRelease = True
+        if o == "-d":
+            isRelease = False
         if o == "-c":
             isClean = True
 

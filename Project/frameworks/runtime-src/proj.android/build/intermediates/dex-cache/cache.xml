@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0774db29139dfea4685f3abd90d666030b0d88d5">
+        <dex dex="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_2406bec77f386d49919aae875087317c38c975a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="dbb02e5160b2b989653da56ad614450d28bd5d88">
+        <dex dex="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\pre-dexed\debug\instant-run_b7b542259ef2fcb37c1f44ec30d22e246567f9fb.jar" />
+    </item>
+
+</items>

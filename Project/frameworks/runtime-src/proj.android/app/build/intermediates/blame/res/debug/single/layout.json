@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\plugin_login.xml",
+        "source": "E:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\src\\main\\res\\layout\\plugin_login.xml"
+    },
+    {
+        "merged": "E:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\plugin_ads.xml",
+        "source": "E:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\src\\main\\res\\layout\\plugin_ads.xml"
+    }
+]

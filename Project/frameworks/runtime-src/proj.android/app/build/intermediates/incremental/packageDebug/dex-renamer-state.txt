@@ -1,0 +1,4 @@
+#Fri Dec 23 16:45:39 CST 2016
+base.0=E\:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=E\:\\MyStar\\NewStar\\Project\\frameworks\\runtime-src\\proj.android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

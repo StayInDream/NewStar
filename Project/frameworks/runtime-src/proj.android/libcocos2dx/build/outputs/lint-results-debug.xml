@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 25.1.7">
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Missing permissions required by WifiManager.getConnectionInfo: android.permission.ACCESS_WIFI_STATE"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.
+
+Furthermore, for permissions that are revocable (with targetSdkVersion 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="  WifiInfo info = wifi.getConnectionInfo();"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\utils\PSNative.java"
+            line="192"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="CommitPrefEdits"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Missing `commit()` on `SharedPreference` editor"
+        explanation="After calling `edit()` on a `SharedPreference`, you must call `commit()` or `apply()` on the editor to save the results."
+        errorLine1="        editor.commit();"
+        errorLine2="        ~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="377"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="CommitPrefEdits"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Missing `commit()` on `SharedPreference` editor"
+        explanation="After calling `edit()` on a `SharedPreference`, you must call `commit()` or `apply()` on the editor to save the results."
+        errorLine1="        editor.commit();"
+        errorLine2="        ~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="384"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="CommitPrefEdits"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Missing `commit()` on `SharedPreference` editor"
+        explanation="After calling `edit()` on a `SharedPreference`, you must call `commit()` or `apply()` on the editor to save the results."
+        errorLine1="        editor.commit();"
+        errorLine2="        ~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="391"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="CommitPrefEdits"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Missing `commit()` on `SharedPreference` editor"
+        explanation="After calling `edit()` on a `SharedPreference`, you must call `commit()` or `apply()` on the editor to save the results."
+        errorLine1="        editor.commit();"
+        errorLine2="        ~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="399"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="CommitPrefEdits"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Missing `commit()` on `SharedPreference` editor"
+        explanation="After calling `edit()` on a `SharedPreference`, you must call `commit()` or `apply()` on the editor to save the results."
+        errorLine1="        editor.commit();"
+        errorLine2="        ~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="406"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Target SDK attribute is not targeting latest version"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.
+
+To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        url="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        urls="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="        targetSdkVersion 23"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\build.gradle"
+            line="9"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LongLogTag"
+        severity="Error"
+        message="The logging tag can be at most 23 characters, was 37 (createTextBitmapShadowStroke warning:)"
+        category="Correctness"
+        priority="5"
+        summary="Too Long Log Tags"
+        explanation="Log tags are only allowed to be at most 23 tag characters long."
+        errorLine1="                Log.w(&quot;createTextBitmapShadowStroke warning:&quot;,&quot;the input width is less than the width of the pString&apos;s first word\n&quot;);"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxBitmap.java"
+            line="122"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="LongLogTag"
+        severity="Error"
+        message="The logging tag can be at most 23 characters, was 37 (createTextBitmapShadowStroke warning:)"
+        category="Correctness"
+        priority="5"
+        summary="Too Long Log Tags"
+        explanation="Log tags are only allowed to be at most 23 tag characters long."
+        errorLine1="            Log.w(&quot;createTextBitmapShadowStroke warning:&quot;,&quot;textProperty MaxWidth is 0 or bitMapTotalHeight is 0\n&quot;);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxBitmap.java"
+            line="142"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="Old buildToolsVersion 23.0.2; recommended version is 23.0.3 or later"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    buildToolsVersion &quot;23.0.2&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\build.gradle"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:appcompat-v7 than 23.3.0 is available: 24.1.1"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:appcompat-v7:23.3.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\build.gradle"
+            line="27"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `versionCode` value (`1`) is not used; it is always overridden by the value specified in the Gradle build script (`1`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="    android:versionCode=&quot;1&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\AndroidManifest.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `versionName` value (`1.0`) is not used; it is always overridden by the value specified in the Gradle build script (`1.0`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="    android:versionName=&quot;1.0&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\AndroidManifest.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `minSdkVersion` value (`10`) is not used; it is always overridden by the value specified in the Gradle build script (`10`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="    &lt;uses-sdk android:minSdkVersion=&quot;10&quot;/>"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\AndroidManifest.xml"
+            line="7"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="HardwareIds"
+        severity="Warning"
+        message="Using `getMacAddress` to get device identifiers is not recommended."
+        category="Security"
+        priority="6"
+        summary="Hardware Id Usage"
+        explanation="Using device identifiers is not recommended other than for high value fraud prevention and advanced telephony use-cases. For advertising use-cases, use `AdvertisingIdClient$Info#getId` and for analytics, use `InstanceId#getId`."
+        url="https://developer.android.com/training/articles/user-data-ids.html"
+        urls="https://developer.android.com/training/articles/user-data-ids.html"
+        errorLine1="  return info.getMacAddress();"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\utils\PSNative.java"
+            line="195"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="HardwareIds"
+        severity="Warning"
+        message="Using `getDeviceId` to get device identifiers is not recommended."
+        category="Security"
+        priority="6"
+        summary="Hardware Id Usage"
+        explanation="Using device identifiers is not recommended other than for high value fraud prevention and advanced telephony use-cases. For advertising use-cases, use `AdvertisingIdClient$Info#getId` and for analytics, use `InstanceId#getId`."
+        url="https://developer.android.com/training/articles/user-data-ids.html"
+        urls="https://developer.android.com/training/articles/user-data-ids.html"
+        errorLine1="   id = mTelephonyManager.getDeviceId();"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\utils\PSNative.java"
+            line="201"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `Cocos2dxActivity` which has field `mFrameLayout` pointing to `FrameLayout`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    private static Cocos2dxActivity sContext = null;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxActivity.java"
+            line="64"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    // ==========================================================="
+        errorLine2="    ^">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxBitmap.java"
+            line="57"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `Cocos2dxMusic` which has field `mContext` pointing to `Context`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    // ==========================================================="
+        errorLine2="    ^">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="53"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `Cocos2dxSound` which has field `mContext` pointing to `Context`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    private static Cocos2dxSound sCocos2dSound;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="58"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `Cocos2dxAccelerometer` which has field `mContext` pointing to `Context`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    private static Cocos2dxAccelerometer sCocos2dxAccelerometer;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="60"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    private static Activity sActivity = null;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxHelper.java"
+            line="65"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `Cocos2dxActivity` which has field `mFrameLayout` pointing to `FrameLayout`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    private static Cocos2dxActivity sCocos2dxActivity;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxWebViewHelper.java"
+            line="17"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    private static FrameLayout sLayout;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxWebViewHelper.java"
+            line="18"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `Cocos2dxActivity` which has field `mFrameLayout` pointing to `FrameLayout`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" static Cocos2dxActivity mContext = null;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\utils\PSNative.java"
+            line="18"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="HandlerLeak"
+        severity="Warning"
+        message="This Handler class should be static or leaks might occur (anonymous android.os.Handler)"
+        category="Performance"
+        priority="4"
+        summary="Handler reference leaks"
+        explanation="Since this Handler is declared as an inner class, it may prevent the outer class from being garbage collected. If the Handler is using a Looper or MessageQueue for a thread other than the main thread, then there is no issue. If the Handler is using the Looper or MessageQueue of the main thread, you need to fix your Handler declaration, as follows: Declare the Handler as a static class; In the outer class, instantiate a WeakReference to the outer class and pass this object to your Handler when you instantiate the Handler; Make all references to members of the outer class using the WeakReference object."
+        errorLine1="        Cocos2dxGLSurfaceView.sHandler = new Handler() {"
+        errorLine2="                                             ~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxGLSurfaceView.java"
+            line="82"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="ViewConstructor"
+        severity="Warning"
+        message="Custom view `Cocos2dxVideoView` is missing constructor used by tools: `(Context)` or `(Context,AttributeSet)` or `(Context,AttributeSet,int)`"
+        category="Usability"
+        priority="3"
+        summary="Missing View constructors for XML inflation"
+        explanation="Some layout tools (such as the Android layout editor) need to find a constructor with one of the following signatures:
+* `View(Context context)`
+* `View(Context context, AttributeSet attrs)`
+* `View(Context context, AttributeSet attrs, int defStyle)`
+
+If your custom view needs to perform initialization which does not apply when used in a layout editor, you can surround the given code with a check to see if `View#isInEditMode()` is false, since that method will return `false` at runtime but true within a user interface editor."
+        errorLine1="public class Cocos2dxVideoView extends SurfaceView implements MediaPlayerControl {"
+        errorLine2="             ~~~~~~~~~~~~~~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxVideoView.java"
+            line="40"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Use &quot;`Gravity.START`&quot; instead of &quot;`Gravity.LEFT`&quot; to ensure correct behavior in right-to-left locales"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.
+
+For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.
+
+(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="        lParams.gravity = Gravity.TOP | Gravity.LEFT;"
+        errorLine2="                                                ~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxVideoView.java"
+            line="368"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Use &quot;`Gravity.START`&quot; instead of &quot;`Gravity.LEFT`&quot; to ensure correct behavior in right-to-left locales"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.
+
+For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.
+
+(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="        layoutParams.gravity = Gravity.TOP | Gravity.LEFT;"
+        errorLine2="                                                     ~~~~">
+        <location
+            file="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\libcocos2dx\src\main\java\org\cocos2dx\lib\Cocos2dxWebView.java"
+            line="89"
+            column="54"/>
+    </issue>
+
+</issues>
