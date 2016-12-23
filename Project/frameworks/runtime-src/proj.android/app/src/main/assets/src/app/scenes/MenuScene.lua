@@ -45,7 +45,7 @@ function MenuScene:ctor()
 
     local lbl_coin = cc.ui.UILabel.new({
         UILabelType = 1,
-        text  = 55, --GameData.DIAMOND,
+        text  = GameData.DIAMOND,
         font = GAME_FONT,
       --  size = 10,
        

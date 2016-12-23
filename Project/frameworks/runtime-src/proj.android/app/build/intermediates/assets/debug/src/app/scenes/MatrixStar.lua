@@ -1018,9 +1018,11 @@ function MatrixStar:initMatrix()
 
         ]]
     math.randomseed(os.time())   
-    print(display.height .. " ==> " ..display.heightInPixels )
     self.nums = 0
+    local starSequenceindex = math.random(1, 3)
+    local delay = 0
     self:SetBtnsState(false) 
+
     if  GAMESTATE == 0 or #MAP <= 0 or GAMESTATE == 2 then
         for row = 1, ROW do
             local y = (row-1) * STAR_HEIGHT + STAR_HEIGHT/2 + 72 
@@ -1030,25 +1032,64 @@ function MatrixStar:initMatrix()
                 local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
                 local i = math.random(1, #STAR_RES_LIST)
                 local star = display.newSprite(STAR_RES_LIST[i])
+                if starSequenceindex == 2 then 
                 star:setScale(0)
+                star:setPosition(x,y)
+                elseif starSequenceindex == 1 then
+                    --todo
+                    star:setScale(0.5)
+                    star:setPosition(x,y + display.height)
+                    delay = row * col * 0.005
+                elseif starSequenceindex == 3 then
+                        --todo
+                        star:setScale(0.5)
+                        if row%2 == 1 and col%2 ==1 then
+                                star:setPosition(x - display.width,y)
+                                 delay = row * 0.05
+                            elseif row%2 == 0 and col%2 ==1  then
+                                star:setPosition(x + display.width,y)
+                                delay = row * 0.05
+                            elseif  col%2 == 0 then
+                                delay = col * 0.05
+                                if col == 2 or col == 6 or col == 10 then
+                                    star:setPosition(x ,y + display.height)
+                                else
+                                    star:setPosition(x ,y - display.height)
+                                end
+
+                        end
+                elseif starSequenceindex == 4 then
+                        --todo
+                        -- star:setScale(0.5)
+                        -- delay = row * 0.05
+                        -- if col >= row then
+
+                        -- end
+
+                end
+
                 self.STAR[row][col][1] = star
                 self.STAR[row][col][2] = i
                 self.STAR[row][col][3] = false
-                star:setPosition(x,y)
                 self.STAR[row][col][4] = x
                 self.STAR[row][col][5] = y
                 self.STAR[row][col][6] = row
                 self.STAR[row][col][7] = col
                 self:addChild(star)
 
-                --用来计数，一播放完动作的星星完全播放完后设置为可 touch状态
                 local sequence = transition.sequence({
-                cc.ScaleTo:create(math.random(0.3, 0.5),0.5),
-                }) 
+                    cc.MoveTo:create(0.3, cc.p(x, y))
+                    }) 
 
-                transition.execute(star, sequence, {  
-                delay = 0,  
-                easing = "exponentialOut",  
+                local sequence02 = transition.sequence({
+                    cc.ScaleTo:create(math.random(0.3, 0.5),0.5),
+                    }) 
+                local starSequence  = {sequence,sequence02 ,sequence ,sequence}
+
+            
+                transition.execute(star, starSequence[starSequenceindex], {  
+                delay = delay,  
+                easing = "sineOut",  
                 onComplete = function()  
                     self.nums = self.nums + 1
                     if self.nums >= self:getStarNum() then
