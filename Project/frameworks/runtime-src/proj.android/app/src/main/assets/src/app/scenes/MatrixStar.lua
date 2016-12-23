@@ -113,7 +113,9 @@ function MatrixStar:Show()
         end ,0.8)  
         scheduler.performWithDelayGlobal( function ( )
             -- body
+            if GameData.SOUND == 1 then
             audio.playSound(GAME_SOUND.pstar)
+            end
         end ,1.1)  
         scheduler.performWithDelayGlobal( function ( )
             -- body
@@ -245,7 +247,9 @@ function MatrixStar:initTitles()
     self.AddDiamondButton =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.coin_bar, pressed =  GAME_IMAGE.coin_bar})
         :align(display.CENTER,  display.left + 70, display.top - 90)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             self.Shop:Show(Shop.SHOPTYPE.ShopType_2)
         end)
         :setScale(0.8)
@@ -372,7 +376,9 @@ function MatrixStar:initTitles()
                 self.PauseBtn:setButtonEnabled(false)
             end,
             listener = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+            end
                 self:PauseBtn_onclick()
             end,
         })
@@ -408,7 +414,9 @@ function MatrixStar:initTitles()
         local btn =  cc.ui.UIPushButton.new({normal =  STAR_RES_LIST[i], pressed =  STAR_RES_LIST[i]})
         :align( display.CENTER,self.sp_btnbg:getPositionX() + offetx , self.sp_btnbg:getPositionY())
         :onButtonClicked( function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             self:prop3BtnsCliclDelegete(i)
         end )
         :setScale(0.4)
@@ -503,7 +511,9 @@ function MatrixStar:ShowPauseView()
             image = GAME_IMAGE.Button_Home,
             sound = GAME_SOUND.pselect,
             prepare = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.HomeButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -519,7 +529,9 @@ function MatrixStar:ShowPauseView()
             image = GAME_IMAGE.Button_Continue,
             sound = GAME_SOUND.pselect,
             prepare = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.ContinueButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -540,7 +552,9 @@ function MatrixStar:ShowPauseView()
             image = sp_,
             sound = GAME_SOUND.pselect,
             prepare = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.SetVolumeButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -588,6 +602,8 @@ function MatrixStar:SetVolume_onClick( )
     -- body
     if SOUND == 0 then --原本是静音
             SOUND = 1
+            GameData.SOUND = 1 
+            GameState.save(GameData)
             if isHadPlayMusic == false then
                     audio.playMusic(GAME_SOUND.classicbg)
                     isHadPlayMusic = true
@@ -599,6 +615,8 @@ function MatrixStar:SetVolume_onClick( )
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.PRESSED, GAME_IMAGE.Button_SoundOn ,true)
         else
             SOUND = 0
+            GameData.SOUND = 0 
+            GameState.save(GameData)
             audio.pauseMusic()
             audio.setSoundsVolume(1)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.NORMAL, GAME_IMAGE.Button_SoundOff ,true)
@@ -613,8 +631,9 @@ function MatrixStar:Prop1_onclick()
     end
     if  SOUND == 1 then
     end
+    if GameData.SOUND == 1 then
     audio.playSound(GAME_SOUND.Props_Rainbow)
-
+    end
     if DIAMOND >= 5 then
         self:setTouchEnabled(true)
         self.Prop1Btn:setButtonEnabled(false)
@@ -635,7 +654,9 @@ function MatrixStar:Prop2_onclick()
     if GAMESTATE ~= 3 then
         return
     end
-    audio.playSound(GAME_SOUND.pselect)
+    if GameData.SOUND == 1 then
+        audio.playSound(GAME_SOUND.pselect)
+    end
     if DIAMOND >= 5 then
         bool_isusingBoom  = true
         self:setTouchEnabled(true)
@@ -667,7 +688,9 @@ function MatrixStar:Prop3_onclick()
     if GAMESTATE ~= 3 then
         return
     end
+    if GameData.SOUND == 1 then
     audio.playSound(GAME_SOUND.Props_Paint)
+    end
     if DIAMOND >=5 then
         bool_isusingPaint = true
         self:setTouchEnabled(true)
@@ -871,7 +894,9 @@ function MatrixStar:UseBoom(i,j)
             time       = 1,
             onComplete = function ( )
                 node_title:removeChild(sp_boom)
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.Props_Bomb)
+                end
                 self:ShowAnimLabel(true , i , j)
                 while #self.SELECT_STAR > 0 do
                     self:deleteOneStar()
@@ -893,7 +918,9 @@ function MatrixStar:UsePaint(i, j )
     end 
 
     if self.selectColor == nil then
+        if GameData.SOUND ==1 then
         audio.playSound(GAME_SOUND.Eff_Warning)
+        end
         local lbl_ = cc.ui.UILabel.new({
             UILabelType = 2,
             text  =  "请先选择要转换的颜色！",
@@ -1206,7 +1233,9 @@ function MatrixStar:onTouch(eventType, x, y)
 
 
         local  function deleteOneStar_( dt )
+            if GameData.SOUND == 1 then
             audio.playSound(GAME_SOUND.ppop )
+            end
             self:deleteOneStar()
         end 
         
@@ -1318,7 +1347,9 @@ function MatrixStar:ShowAnim(num )
             end, 
             })
 
+        if GameData.SOUND == 1 then
         audio.playSound(GAME_SOUND.word_1)
+        end
 
         elseif num < 9 then --酷毙了
             local praises = {GAME_IMAGE.praise2,  GAME_IMAGE.praise3 }
@@ -1332,7 +1363,9 @@ function MatrixStar:ShowAnim(num )
                     node_title:removeChild(sp_praise2)
                 end, 
                 })
+            if GameData.SOUND == 1 then
             audio.playSound(GAME_SOUND.word_1)
+            end
             elseif num < 12 then --霸气侧漏
                 local praises = {GAME_IMAGE.praise4, GAME_IMAGE.praise5 }
                 local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
@@ -1345,7 +1378,9 @@ function MatrixStar:ShowAnim(num )
                         node_title:removeChild(sp_praise2)
                     end, 
                     })
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.word_2)
+                end
                 elseif num > 11 then --棒棒
                     local praises = { GAME_IMAGE.praise6, GAME_IMAGE.praise7 }
                     local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
@@ -1358,7 +1393,7 @@ function MatrixStar:ShowAnim(num )
                             node_title:removeChild(sp_praise2)
                         end, 
                         })
-                    audio.playSound(GAME_SOUND.word_2)
+                    if GameData.SOUND == 1 then audio.playSound(GAME_SOUND.word_2) end
                    
     end
 end
@@ -1372,7 +1407,7 @@ function MatrixStar:updateScore(select)
         self.CCLabelChangeaction:init(lbl_curscore,  { duration = 0.01, fromNum = lastScore , toNum = self.Cscore , changerate = 1,callback = function()
             end})
     else
-        self.CCLabelChangeaction = CCLabelChange:create(lbl_curscore,  { duration = 0.0001, fromNum = lastScore , toNum = self.Cscore , changerate = 1,callback = function()
+        self.CCLabelChangeaction = CCLabelChange:create(lbl_curscore,  { duration = 0.1, fromNum = lastScore , toNum = self.Cscore , changerate = 5,callback = function()
             end})
         :addTo(self)
    end
@@ -1391,7 +1426,7 @@ function MatrixStar:updateScore(select)
 
             if bool_ishaveShow_sp_tongguan == false then
 
-                audio.playSound(GAME_SOUND.ptarget)
+                if GameData.SOUND == 1 then audio.playSound(GAME_SOUND.ptarget) end
                 local sp_tongguanbg = display.newSprite(GAME_IMAGE.stage_clear_bg, display.cx, display.cy)
                     :addTo(node_title,-2)
                 local sequenceAction1 = transition.sequence({
@@ -1693,7 +1728,7 @@ function MatrixStar:ClearLeftStarOneByOne()
                 })
      scheduler.performWithDelayGlobal( function ( )
             -- body
-             audio.playSound(GAME_SOUND.NextGameRound)
+             if GameData.SOUND == 1 then audio.playSound(GAME_SOUND.NextGameRound) end
         end ,num * 0.05 + 1.5)  
 
 
@@ -1702,7 +1737,7 @@ function MatrixStar:ClearLeftStarOneByOne()
         deleteNextStar = table.remove(deleteStars)
         if deleteNextStar ~= nil and #deleteNextStar ~= 0 then
             local row , col = deleteNextStar[2], deleteNextStar[3]
-            audio.playSound(GAME_SOUND.ppop)
+             if GameData.SOUND == 1 then audio.playSound(GAME_SOUND.ppop) end
             local particle = cc.ParticleSystemQuad:create(STAR_PARTICLE[self.STAR[row][col][2]])
                     particle:setPosition(self.STAR[row][col][1]:getPosition())
                     particle:setAutoRemoveOnFinish(true)
@@ -1786,7 +1821,9 @@ function MatrixStar:ShowResult( )
     local exitButton =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.exit, pressed =  GAME_IMAGE.exit})
         :align(display.CENTER,  display.cx - 100, display.bottom + 200)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             if self.CCLabelChangeaction then
                 self.CCLabelChangeaction:selfKill()
             end
@@ -1810,7 +1847,9 @@ function MatrixStar:ShowResult( )
     local retryButton =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.retry, pressed =  GAME_IMAGE.retry})
         :align(display.CENTER,  display.cx + 100, display.bottom + 200)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             self:removeChild(layer_result)
             self.Cscore = CURSCORE
             layer_result = nil 
@@ -1847,7 +1886,9 @@ function MatrixStar:ShowFail( )
         :align(display.CENTER,  display.cx + 140, display.bottom + 300)
         :addTo(node_faileView)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             if bool_isfirst == true then
                 self:removeAllChildren()
                 -- 创建一个新场景
@@ -1867,7 +1908,9 @@ function MatrixStar:ShowFail( )
     local comntinueButton =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.tongguananniu_btn, pressed =  GAME_IMAGE.tongguananniu_btn})
         :align(display.CENTER,  display.cx + 110, display.bottom -25)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             if GameData.DIAMOND >= 5 then
                     self:removeChild(node_faileView)
                     GAMESTATE = 0

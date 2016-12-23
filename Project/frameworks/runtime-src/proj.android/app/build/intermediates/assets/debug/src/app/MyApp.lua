@@ -8,6 +8,7 @@ GAME_FONT = nil
 GAME_SCALE = nil
 
 isHadShowShoptype_2 = false
+isHadPlayMusic      = false
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
@@ -18,8 +19,8 @@ end
 
 function MyApp:run()
     cc.FileUtils:getInstance():addSearchPath("res/")
-  --  cc.Director:getInstance():setContentScaleFactor(480 / CONFIG_SCREEN_WIDTH)
-    print("CONFIG_SCREEN_WIDTH ---"..CONFIG_SCREEN_WIDTH)
+    cc.Director:getInstance():setContentScaleFactor(480 / CONFIG_SCREEN_WIDTH)
+ --   print("CONFIG_SCREEN_WIDTH ---"..CONFIG_SCREEN_WIDTH)
     GAME_SCALE = display.widthInPixels / CONFIG_SCREEN_WIDTH
 
     display.addSpriteFrames(GAME_TEXTURE_DATA_FILENAME, GAME_TEXTURE_IMAGE_FILENAME)

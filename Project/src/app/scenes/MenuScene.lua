@@ -83,7 +83,9 @@ function MenuScene:ctor()
             image = GAME_IMAGE.menu_btn,
             sound = GAME_SOUND.pselect,
             prepare = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.GameSetButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -98,7 +100,9 @@ function MenuScene:ctor()
             image = GAME_IMAGE.btn_email,
             sound = GAME_SOUND.pselect,
             prepare = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.EmailButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -113,7 +117,9 @@ function MenuScene:ctor()
             image = GAME_IMAGE.Button_Shop,
             sound = GAME_SOUND.pselect,
             prepare = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.ShopButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -128,7 +134,9 @@ function MenuScene:ctor()
             image = GAME_IMAGE.paihangbang,
             sound = GAME_SOUND.pselect,
             prepare = function()
+               if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.RankButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -143,7 +151,9 @@ function MenuScene:ctor()
             image = GAME_IMAGE.CDKEY_btn,
             sound = GAME_SOUND.pselect,
             prepare = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.CDKEYButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -158,7 +168,9 @@ function MenuScene:ctor()
             image = GAME_IMAGE.popstar_start,
             sound = GAME_SOUND.pselect,
             prepare = function()
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 self.NewGameButton:setButtonEnabled(false)
             end,
             listener = function()
@@ -179,7 +191,9 @@ function MenuScene:ctor()
             end,
             listener = function()
                 if GameData.GAMESTATE ~= nil and (GameData.GAMESTATE == 1 or GameData.GAMESTATE == 2) then
+                if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+                end
                 app:ContinueGame()
                 end
             end,
@@ -210,7 +224,9 @@ function MenuScene:ctor()
     self.TeQuanButton =  cc.ui.UIPushButton.new({normal =  "image/trqunrukou.png", pressed =  "image/trqunrukou.png"})
         :align(display.CENTER,  display.cx + self.bg:getContentSize().width / 2 - 80 , display.cy +  self.bg:getContentSize().height / 2 - 350)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
            -- app:enterMenuScene()
         end)
         :addTo(layer_menu)
@@ -225,7 +241,9 @@ function MenuScene:ctor()
     self.gift_btn =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.gift_btn, pressed =  GAME_IMAGE.gift_btn})
         :align(display.CENTER,  display.cx + self.bg:getContentSize().width / 2 - 80 , display.cy +  self.bg:getContentSize().height / 2 - 470)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             self.Shop:Show( Shop.SHOPTYPE.ShopType_3)
         end)
         :addTo(layer_menu)
@@ -288,7 +306,7 @@ function MenuScene:ShowSettingView()
                 -- body
                 self:removeChild(layer_setting)
             end,0.5)
-            self.sp_btnbg:moveTo(0.3, display.left  - 50 , display.bottom + 150)
+            self.sp_btnbg:moveTo(0.3, display.left  - 50 , display.bottom + 250)
             end)
     btn_mask:fadeTo(0.5, 255)
 
@@ -306,7 +324,9 @@ function MenuScene:ShowSettingView()
         :align( display.CENTER ,35, 240)
         :setScale(0.55)
         :onButtonClicked(function()
+            if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
+            end
                 if GameData.SOUND == 0 then
                         GameData.SOUND = 1
                         if isHadPlayMusic == false then
@@ -339,7 +359,9 @@ function MenuScene:ShowSettingView()
         :align( display.CENTER, 35, 150)
         :setScale(1)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             scheduler.performWithDelayGlobal(function()
                 -- body
                 self:removeChild(layer_setting)
@@ -352,7 +374,9 @@ function MenuScene:ShowSettingView()
         :align( display.CENTER, 35, 60)
         :setScale(1)
         :onButtonClicked(function()
-            audio.playSound(GAME_SOUND.pselect)
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
             scheduler.performWithDelayGlobal(function()
                 -- body
                 self:removeChild(layer_setting)
@@ -361,7 +385,7 @@ function MenuScene:ShowSettingView()
             self.sp_btnbg:moveTo(0.3, display.left  - 50 , display.bottom + 250)
            
         end)
-        self.sp_btnbg:moveTo(0.3, display.left + 22 , display.bottom + 250)
+        self.sp_btnbg:moveTo(0.3, display.left + 25 , display.bottom + 250)
 end
 
 function MenuScene:ShowEmail()
