@@ -7,7 +7,7 @@ local MenuScene = class("MenuScene", function()
     return display.newScene("MenuScene")
 end)
 
-local activityTypes = { 1 }
+local activityTypes = {  }
 
 function MenuScene:ctor()
      -- local sp_mark = display.newScale9Sprite(GAME_IMAGE.sp_mask ,display.cx, display.cy, cc.size(display.widthInPixels, display.heightInPixels) )
@@ -130,7 +130,7 @@ function MenuScene:ctor()
                 self.Shop:Show(Shop.SHOPTYPE.ShopType_1)
             end,
         })
-        :align(display.CENTER, display.cx , display.bottom + 50 )
+        :align(display.CENTER, display.cx  +10, display.bottom + 50 )
         :addTo(layer_menu) 
 
 	--排行榜
@@ -299,19 +299,12 @@ end
 --进入活动列表
 function MenuScene:EnterActivity()
     -- body
-     local btn_mask = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.sp_mask, pressed =  GAME_IMAGE.sp_mask})
+     self.btn_mask = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.sp_mask, pressed =  GAME_IMAGE.sp_mask})
             :align(display.CENTER, display.cx , display.cy)
             :addTo(self,1) 
             :setScale(20)
             :setOpacity(0)
-            :onButtonClicked(function()
-                -- scheduler.performWithDelayGlobal(function()
-                --     -- body
-                --     self:removeChild(node_activity)
-                -- end,0.5)
-               -- self.node_activity:moveTo(0.3, display.left  - 50 , display.bottom + 250)
-                end)
-        btn_mask:fadeTo(1, 255)
+         self.btn_mask:fadeTo(1, 255)
     if self.layer_activity == nil then
         self.layer_activity = display.newLayer()
         :align(display.CENTER, display.left - display.width, display.cy)
@@ -326,7 +319,7 @@ function MenuScene:EnterActivity()
         :align( display.CENTER, sp_bg01:getPositionX() , sp_bg01:getPositionY()+300)
         :addTo(self.layer_activity)
 
-        local sp_bg03 = display.newScale9Sprite( GAME_IMAGE.btnFrame ,display.cx -40 , display.cy - 135 , cc.size(370, 480)  )
+        local sp_bg03 = display.newScale9Sprite( GAME_IMAGE.btnFrame , sp_bg01:getContentSize().width / 2 , sp_bg01:getContentSize().height / 2 - 35 , cc.size(370, 480)  )
         :addTo(sp_bg01)
 
         local sp_title= display.newSprite( GAME_IMAGE.huodongzhongxin  )
@@ -344,7 +337,7 @@ function MenuScene:EnterActivity()
         local btn_dayActivity=  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.anniu, pressed =  GAME_IMAGE.anniu1 , disabled = GAME_IMAGE.anniu1 }, {scale9 = true})
             :align(display.CENTER, sp_bg01:getPositionX() - 100, sp_bg01:getPositionY() + 225 )
             :setButtonSize(110, 65)
-            :setButtonEnabled(false)
+          --  :setButtonEnabled(false)
             :setButtonLabel("normal", cc.ui.UILabel.new({
                 UILabelType = 2,
                 text = "悬赏任务",
@@ -365,7 +358,22 @@ function MenuScene:EnterActivity()
             end)
             :addTo(self.layer_activity)
 
-       
+            local btn_dayActivity=  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.close_bg, pressed =  GAME_IMAGE.close_bg  })
+                :align(display.CENTER,sp_bg02:getContentSize().width,sp_bg02:getContentSize().height /2  )
+                :addTo(sp_bg02)
+                :onButtonClicked(function()
+                    transition.moveTo( self.layer_activity, {
+                        x = display.left - display.width,
+                        y = display.cy, 
+                        time = 0.5,
+                        easing = "backIn" ,
+                        onComplete = function ()
+                            -- body
+                            self:removeChild( self.btn_mask)
+                             self.btn_mask = nil 
+                        end,
+                        })
+                    end)
 
         if activityTypes~= nil and type(activityTypes) == "table" and #activityTypes > 0 then 
 
@@ -386,7 +394,7 @@ function MenuScene:EnterActivity()
                 end)
 
 
-            for i=1,#activityTypes +10 do
+            for i=1,#activityTypes  do
                 local content = display.newScale9Sprite( GAME_IMAGE.shop_item_bg_1 ,0 , 0, cc.size(350, 60))
                 
                 local btn_get = cc.ui.UIPushButton.new({normal = GAME_IMAGE.anniu, pressed = GAME_IMAGE.anniu1 ,disabled = GAME_IMAGE.anniu1} )

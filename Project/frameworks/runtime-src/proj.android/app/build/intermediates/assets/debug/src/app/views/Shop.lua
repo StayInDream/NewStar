@@ -15,6 +15,7 @@ Shop.SHOPTYPE = {
 	ShopType_1 = 1, --主商店
 	ShopType_2 = 2, --活动
     ShopType_3 = 3, --大礼包
+    ShopType_4 = 4, --至尊vip
 }
 local num = 0
 function Shop:ctor()
@@ -169,9 +170,12 @@ function Shop:Show(ShopType)
 			elseif ShopType ==  Shop.SHOPTYPE.ShopType_2 then
 				--todo
 				self:ShowType_2_View()
-                elseif ShopType ==  Shop.SHOPTYPE.ShopType_3 then
-                    --todo
-                    self:ShowType_3_View()
+            elseif ShopType ==  Shop.SHOPTYPE.ShopType_3 then
+                --todo
+                self:ShowType_3_View()
+            elseif ShopType ==  Shop.SHOPTYPE.ShopType_4 then
+            --todo
+            self:ShowType_4_View()
 		end
         self.shoptype = ShopType
 		return
@@ -424,6 +428,68 @@ function Shop:ShowType_3_View()
 
 end
 
+--至尊vip 购买界面(特权礼包)
+function Shop:ShowType_4_View()
+
+    if self.layer_tequan == nil then
+        self.layer_tequan  = display.newLayer()
+        :align(display.CENTER, display.right + display.width , display.cy)
+        :addTo(self)
+        local sp_bg = display.newSprite( GAME_IMAGE.zengtubeijing  )
+        :align( display.CENTER, display.cx , display.cy)
+        :addTo(self.layer_tequan)
+
+        local sp_titlebg = display.newSprite( GAME_IMAGE.hengfu  )
+        :align( display.CENTER, sp_bg:getContentSize().width/2, sp_bg:getContentSize().height + 10)
+        :addTo(sp_bg)
+        :setScaleX(1.1)
+
+        local sp_title = display.newSprite( GAME_IMAGE.biaoti  )
+        :align( display.CENTER,sp_titlebg:getContentSize().width / 2, sp_titlebg:getContentSize().height / 2 + 15)
+        :addTo(sp_titlebg)
+        :setScale(0.9)
+
+        local btn_colose = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.close_bg, pressed =  GAME_IMAGE.close_bg  })
+            :align(display.CENTER, sp_bg:getContentSize().width , sp_bg:getContentSize().height)
+            :addTo(sp_bg)
+            :onButtonClicked(function()
+                    if GameData.SOUND == 1 then  audio.playSound(GAME_SOUND.pselect) end
+                    self:CloseShop()
+                    end)
+
+        local btn_buy = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.anniu, pressed =  GAME_IMAGE.anniu1 ,disabled = GAME_IMAGE.anniu1  })
+            :align(display.CENTER, sp_bg:getContentSize().width / 2  , sp_bg:getContentSize().height /2 - 170  )
+            :addTo(sp_bg)
+            :onButtonClicked(function()
+                   self:Pay({price = 10 , des = "至尊vip礼包"})
+                    end)
+        local sp_btnbuyLbl = display.newSprite( GAME_IMAGE.onsale_btn_buy  )
+            :align( display.CENTER,btn_buy:getContentSize().width / 2, btn_buy:getContentSize().height / 2 + 5)
+            :addTo(btn_buy)
+            :setScale(0.9)
+    end
+
+    --  scheduler.performWithDelayGlobal(function( )
+    --     -- body
+    --     transition.moveTo(self.layer_tequan, {
+    --     x = display.cx ,
+    --     y = display.cy ,
+    --     time = 0.5,
+    --     easing = "backOut",
+    --     })
+    -- end, 0.1)
+
+     scheduler.performWithDelayGlobal(function( )
+        -- body
+        transition.moveTo(self.layer_tequan, {
+        x = display.cx ,
+        y = display.cy ,
+        time = 0.5,
+        easing = "backOut",
+        })
+    end, 0.1)
+end
+
 function Shop:CloseShop( )
 	-- body
 	if self.shoptype == Shop.SHOPTYPE.ShopType_1 then
@@ -444,39 +510,60 @@ function Shop:CloseShop( )
 		elseif self.shoptype == Shop.SHOPTYPE.ShopType_2 then
 			--todo
 			scheduler.performWithDelayGlobal(function( )
-        	transition.moveTo(self.layer_buyView, {
-            x = display.right + display.width ,
-            y = display.cy ,
-            time = 0.5,
-            easing = "backIn",
-            onComplete = function()
-                self:setVisible(false)
-            end,
-            })
+            	transition.moveTo(self.layer_buyView, {
+                x = display.right + display.width ,
+                y = display.cy ,
+                time = 0.5,
+                easing = "backIn",
+                onComplete = function()
+                    self:setVisible(false)
+                end,
+                })
 
         end, 0.1)
             elseif self.shoptype == Shop.SHOPTYPE.ShopType_3 then
                 --todo
             scheduler.performWithDelayGlobal(function( )
-            -- body
-            transition.moveTo(self.gift_bag, {
-            x = display.right + display.width ,
-            y = display.cy ,
-            time = 0.5,
-            easing = "backIn",
-            onComplete = function()
-                self:setVisible(false)
-            end,
-            })
+                -- body
+                transition.moveTo(self.gift_bag, {
+                x = display.right + display.width ,
+                y = display.cy ,
+                time = 0.5,
+                easing = "backIn",
+                onComplete = function()
+                    self:setVisible(false)
+                end,
+                })
         end, 0.1) 
+            elseif self.shoptype == Shop.SHOPTYPE.ShopType_4 then
+                 scheduler.performWithDelayGlobal(function( )
+                    -- body
+                    transition.moveTo(self.layer_tequan, {
+                    x = display.right + display.width ,
+                    y = display.cy ,
+                    time = 0.5,
+                    easing = "backIn",
+                    onComplete = function()
+                        self:setVisible(false)
+                    end,
+                    })
+                end, 0.1) 
 	end
 end
 
+--[[
+arges.price 为商品价格
+arges.count 为商品获得数量 ，默认为1
+arags.des 为商品的描述
+
+]]
 function Shop:Pay( arges )
     -- body
-    num = arges.num
-    ShopType = arges.shoptype
-    print("pay " .. num .. "元")
+    self.price = arges.price 
+    self.count = arges.count  or 1
+    self.des   = arges.des  or ""
+
+    print("pay " .. self.price .. "元 ,des " .. self.des)
 end
 
 return Shop

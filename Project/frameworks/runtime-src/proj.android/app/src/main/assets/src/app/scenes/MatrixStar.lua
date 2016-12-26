@@ -160,6 +160,10 @@ function MatrixStar:LoadGameData( )
         GAMESTATE = GameData.GAMESTATE
     end
 
+    if GameData.SOUND ~= nil then
+        SOUND = GameData.SOUND
+    end
+
 end
 
 function MatrixStar:SaveGameData( )
@@ -439,6 +443,8 @@ function MatrixStar:ShowPauseView()
     node_paseview:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
     end, false)
     node_paseview:setTouchEnabled(true)
+
+
 
     local sp_bg = display.newSprite(GAME_IMAGE.front)
     :align(display.CENTER, display.cx, display.cy)
@@ -725,9 +731,11 @@ function MatrixStar:Prop3_onclick()
     end
 end
 
---暂停按钮
+--暂停按钮响应事件
 function MatrixStar:PauseBtn_onclick( )
     -- body
+    -- local sp_mark = display.newScale9Sprite(GAME_IMAGE.sp_mask ,display.cx, display.cy, cc.size(display.widthInPixels, display.heightInPixels) )
+    -- :addTo(node_paseview,-1)
     transition.moveTo(node_paseview, {time = 0.5 , x = display.left , y = display.bottom ,easing = "EXPONENTIALOUT"})
 end
 
@@ -1519,7 +1527,7 @@ function MatrixStar:updateScore(select)
                 bool_ishaveShow_sp_tongguan = true
                 end
         else
-            lbl_curscore:setColor(cc.c3b(0, 255, 127))
+            lbl_curscore:setColor(cc.c3b(255, 0, 255))
 
     end
 end

@@ -194,8 +194,8 @@ document.getElementById(id+'Link').style.display = 'none';
 <body>
 <h1>Lint Report</h1>
 <div class="titleSeparator"></div>
-Check performed at Thu Dec 22 11:50:44 CST 2016.<br/>
-3 errors and 26 warnings found:<br/><br/>
+Check performed at Mon Dec 26 20:18:28 CST 2016.<br/>
+3 errors and 25 warnings found:<br/><br/>
 <table class="overview">
 <tr><td></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
 </td></tr>
@@ -216,7 +216,7 @@ Check performed at Thu Dec 22 11:50:44 CST 2016.<br/>
 <a href="#LongLogTag">LongLogTag: Too Long Log Tags</a>
 </td></tr>
 <tr>
-<td class="countColumn">2</td><td class="issueColumn"><img border="0" align="top" width="16" height="15" alt="Warning" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAQAAABHeoekAAAA3klEQVR42nWPsWoCQRCGVyJiF9tAsNImbcDKR/ABBEurYCsBsfQRQiAPYGPyAAnYWQULS9MErNU2Vsr/ObMX7g6O+xd2/5n5dmY3hFQEBVVpuCsVT/yoUl6u4XotBz4E4qR2YYyH6ugEWY8comR/t+tvPPJtSLPYvhvvTswtbdCmCOwjMHXAzjP9kB/ByB7nejbgy43WVPF3WNG+p9+kzkozdhGAQdZh7BlHdGTL3z98pp6Um7okKdvHNuIzWk+9xN+yINOcHps0OnAfuOOoHJH3pmHghhYP2VJcaXx7BaKz9YB2HVrDAAAAAElFTkSuQmCC"/>
+<td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" width="16" height="15" alt="Warning" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAQAAABHeoekAAAA3klEQVR42nWPsWoCQRCGVyJiF9tAsNImbcDKR/ABBEurYCsBsfQRQiAPYGPyAAnYWQULS9MErNU2Vsr/ObMX7g6O+xd2/5n5dmY3hFQEBVVpuCsVT/yoUl6u4XotBz4E4qR2YYyH6ugEWY8comR/t+tvPPJtSLPYvhvvTswtbdCmCOwjMHXAzjP9kB/ByB7nejbgy43WVPF3WNG+p9+kzkozdhGAQdZh7BlHdGTL3z98pp6Um7okKdvHNuIzWk+9xN+yINOcHps0OnAfuOOoHJH3pmHghhYP2VJcaXx7BaKz9YB2HVrDAAAAAElFTkSuQmCC"/>
 <a href="#GradleDependency">GradleDependency: Obsolete Gradle Dependency</a>
 </td></tr>
 <tr>
@@ -409,14 +409,6 @@ Log tags are only allowed to be at most 23 tag characters long.
 <span class="lineno">   5</span>     <span class="errorspan">buildToolsVersion "23.0.2"</span>
 <span class="lineno">   6</span> 
 <span class="lineno">   7</span>     defaultConfig {
-</pre>
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:27</span>: <span class="message">A newer version of com.android.support:appcompat-v7 than 23.3.0 is available: 24.1.1</span><br /><pre class="errorlines">
-<span class="lineno">  24</span> 
-<span class="lineno">  25</span> dependencies {
-<span class="lineno">  26</span>     compile fileTree(dir: 'libs', include: ['*.jar'])
-<span class="lineno">  27</span>     <span class="errorspan">compile 'com.android.support:appcompat-v7:23.3.0'</span>
-<span class="lineno">  28</span> }
-<span class="lineno">  29</span> 
 </pre>
 </div>
 <div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ<br>

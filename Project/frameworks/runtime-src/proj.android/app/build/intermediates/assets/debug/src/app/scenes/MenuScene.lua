@@ -7,8 +7,12 @@ local MenuScene = class("MenuScene", function()
     return display.newScene("MenuScene")
 end)
 
-local shopTypes = {{50.00, 500}, {30.00, 200}, {15.00, 80}, {10.00, 50}, {5.00,15}, {2.00,5} , {1.00,2} }
+local activityTypes = {  }
+
 function MenuScene:ctor()
+     -- local sp_mark = display.newScale9Sprite(GAME_IMAGE.sp_mask ,display.cx, display.cy, cc.size(display.widthInPixels, display.heightInPixels) )
+     -- :addTo(self)
+
     self.bg = display.newSprite(GAME_IMAGE.Bg_Stage)
     self.bg:setPosition(display.cx, display.cy )
 	self:addChild(self.bg)
@@ -126,7 +130,7 @@ function MenuScene:ctor()
                 self.Shop:Show(Shop.SHOPTYPE.ShopType_1)
             end,
         })
-        :align(display.CENTER, display.cx , display.bottom + 50 )
+        :align(display.CENTER, display.cx  +10, display.bottom + 50 )
         :addTo(layer_menu) 
 
 	--排行榜
@@ -227,7 +231,7 @@ function MenuScene:ctor()
             if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
             end
-           -- app:enterMenuScene()
+            self.Shop:Show( Shop.SHOPTYPE.ShopType_4)
         end)
         :addTo(layer_menu)
     local sequenceAction = transition.sequence({
@@ -254,17 +258,16 @@ function MenuScene:ctor()
 
       transition.execute(self.gift_btn, cc.RepeatForever:create( sequenceAction1 ))
 
-    --  
-    -- local label = display.newTTFLabel({
-    --     text = "0",
-    --     font = "arial",
-    --     size = 64})
-
-    --       label:setPosition(display.cx - 100, display.cy)
-    --     :addChild(label)
-    --      local action = CCLabelChange:create(label, 60, 1, 100)
-  
-    --      action:playAction()     
+    --活动
+    self.ActivityButton =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.emailIcon_activity, pressed =   GAME_IMAGE.emailIcon_activity})
+        :align(display.CENTER, display.left + 50, display.cy )
+        :onButtonClicked(function()
+            if GameData.SOUND == 1 then
+                audio.playSound(GAME_SOUND.pselect)
+            end
+            self:EnterActivity()
+        end)
+        :addTo(layer_menu)
 
        -- 添加背景粒子特效
     local particle = cc.ParticleSystemQuad:create(GAME_PARTICE.Particle_TileDebris)
@@ -291,6 +294,181 @@ function MenuScene:onKeypad( event )
         elseif event.key == "menu" then  --菜单键
             print("menu keypad onclick")               
     end        
+end
+
+--进入活动列表
+function MenuScene:EnterActivity()
+    -- body
+     self.btn_mask = cc.ui.UIPushButton.new({normal =  GAME_IMAGE.sp_mask, pressed =  GAME_IMAGE.sp_mask})
+            :align(display.CENTER, display.cx , display.cy)
+            :addTo(self,1) 
+            :setScale(20)
+            :setOpacity(0)
+         self.btn_mask:fadeTo(1, 255)
+    if self.layer_activity == nil then
+        self.layer_activity = display.newLayer()
+        :align(display.CENTER, display.left - display.width, display.cy)
+        :addTo(self ,2)
+
+       
+
+        local sp_bg01 = display.newScale9Sprite( GAME_IMAGE.huodong_diban_2, display.cx , display.cy , cc.size(400, 600) )
+        :addTo(self.layer_activity) 
+
+        local sp_bg02 = display.newSprite( GAME_IMAGE.title_silk_22  )
+        :align( display.CENTER, sp_bg01:getPositionX() , sp_bg01:getPositionY()+300)
+        :addTo(self.layer_activity)
+
+        local sp_bg03 = display.newScale9Sprite( GAME_IMAGE.btnFrame , sp_bg01:getContentSize().width / 2 , sp_bg01:getContentSize().height / 2 - 35 , cc.size(370, 480)  )
+        :addTo(sp_bg01)
+
+        local sp_title= display.newSprite( GAME_IMAGE.huodongzhongxin  )
+        :align( display.CENTER, sp_bg02:getPositionX() , sp_bg02:getPositionY() + 20)
+        :addTo(self.layer_activity)
+
+        local sp_noactivity= display.newSprite( GAME_IMAGE.no_activity  )
+        :align( display.CENTER, sp_bg01:getPositionX() , sp_bg01:getPositionY())
+        :addTo(self.layer_activity)
+        :setVisible(false)
+
+         --任务菜单按钮
+        --日常任务
+
+        local btn_dayActivity=  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.anniu, pressed =  GAME_IMAGE.anniu1 , disabled = GAME_IMAGE.anniu1 }, {scale9 = true})
+            :align(display.CENTER, sp_bg01:getPositionX() - 100, sp_bg01:getPositionY() + 225 )
+            :setButtonSize(110, 65)
+          --  :setButtonEnabled(false)
+            :setButtonLabel("normal", cc.ui.UILabel.new({
+                UILabelType = 2,
+                text = "悬赏任务",
+                size = 22,
+                color = cc.c3b(0, 0, 0)
+            }))-- 设置各个状态的按钮显示文字
+             :setButtonLabel("disabled", cc.ui.UILabel.new({
+                UILabelType = 2,
+                text = "悬赏任务",
+                size = 22,
+                color = cc.c3b(0, 255, 0)
+            }))-- 设置各个状态的按钮显示文字
+            :onButtonClicked(function()
+                if GameData.SOUND == 1 then
+                    audio.playSound(GAME_SOUND.pselect)
+                end
+               
+            end)
+            :addTo(self.layer_activity)
+
+            local btn_dayActivity=  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.close_bg, pressed =  GAME_IMAGE.close_bg  })
+                :align(display.CENTER,sp_bg02:getContentSize().width,sp_bg02:getContentSize().height /2  )
+                :addTo(sp_bg02)
+                :onButtonClicked(function()
+                    transition.moveTo( self.layer_activity, {
+                        x = display.left - display.width,
+                        y = display.cy, 
+                        time = 0.5,
+                        easing = "backIn" ,
+                        onComplete = function ()
+                            -- body
+                            self:removeChild( self.btn_mask)
+                             self.btn_mask = nil 
+                        end,
+                        })
+                    end)
+
+        if activityTypes~= nil and type(activityTypes) == "table" and #activityTypes > 0 then 
+
+            local ListView  = cc.ui.UIListView.new({
+                    viewRect  = cc.rect(0,0,370,472),
+                    direction = cc.ui.UIListView.DIRECTION_VERTICAL,
+                    items_ = {},
+                   -- bg     = GAME_IMAGE.btnFrame,
+                   -- bgScale9  = true,
+
+                })
+                :addTo(sp_bg01)
+                :align(display.CENTER, 15 , 28)
+                :setBounceable(true) 
+                -- 注册滚动事件 通过event.name区分
+                ListView:onScroll( function(event)
+                    -- TODO: sth
+                end)
+
+
+            for i=1,#activityTypes  do
+                local content = display.newScale9Sprite( GAME_IMAGE.shop_item_bg_1 ,0 , 0, cc.size(350, 60))
+                
+                local btn_get = cc.ui.UIPushButton.new({normal = GAME_IMAGE.anniu, pressed = GAME_IMAGE.anniu1 ,disabled = GAME_IMAGE.anniu1} )
+                :align(display.CENTER, 300, 30)
+                :addTo(content)
+                :setScaleX(0.4)
+                :setScaleY(0.6)
+                :setButtonEnabled(false)
+                :setButtonLabel("disabled", cc.ui.UILabel.new({
+                UILabelType = 2,
+                text = "未 达 成",
+                size = 30,
+                color = cc.c3b(0, 255, 0)
+                }))-- 设置各个状态的按钮显示文字
+                :setButtonLabel("normal", cc.ui.UILabel.new({
+                UILabelType = 2,
+                text = "领 取",
+                size = 30,
+                color = cc.c3b(0, 0, 0)
+            }))-- 设置各个状态的按钮显示文字
+                :onButtonClicked(function()
+                     if GameData.SOUND == 1 then audio.playSound(GAME_SOUND.pselect) end
+
+                    end)
+
+                local  sp_contentMask = display.newScale9Sprite(GAME_IMAGE.sp_mask , 125, 33, cc.size(240, 45))
+                --:addTo(content)
+
+                --任务描述
+                local lbl_task = cc.ui.UILabel.new({
+                    UILabelType = 2,
+                    text  =  "消灭星星的总数达到1000个,奖励钻石100枚。",
+                    size = 18,
+                    valign = cc.ui.TEXT_ALIGN_CENTER,
+                    dimensions = cc.size(210, 50),
+                    color = cc.c3b(255, 0, 255)               
+                    })
+                    :align(display.CENTER, 120, 30 )
+                    :addTo(content)
+
+                --任务进度
+                -- local lbl_taskPross = cc.ui.UILabel.new({
+                --     UILabelType = 2,
+                --     text  =  " 100/1000",
+                --     size = 15,
+                --     valign = cc.ui.TEXT_ALIGN_CENTER,
+                --     dimensions = cc.size(100, 60)
+                --     })
+                --     :align(display.CENTER, 260, 30 )
+                --     :addTo(content)    
+
+            local listItem = ListView:newItem(content)
+                listItem:setItemSize(350, 60)  
+                ListView:addItem(listItem)
+            end
+            ListView:reload() 
+           
+            else
+                sp_noactivity:setVisible(true)
+
+        end
+    end
+
+    
+
+    scheduler.performWithDelayGlobal(function( )
+        -- body
+        transition.moveTo(self.layer_activity, {
+        x = display.cx ,
+        y = display.cy ,
+        time = 0.5,
+        easing = "backOut",
+        })
+    end, 0.1)
 end
 
 function MenuScene:ShowSettingView()

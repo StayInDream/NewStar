@@ -469,6 +469,16 @@ function Shop:ShowType_4_View()
             :setScale(0.9)
     end
 
+    --  scheduler.performWithDelayGlobal(function( )
+    --     -- body
+    --     transition.moveTo(self.layer_tequan, {
+    --     x = display.cx ,
+    --     y = display.cy ,
+    --     time = 0.5,
+    --     easing = "backOut",
+    --     })
+    -- end, 0.1)
+
      scheduler.performWithDelayGlobal(function( )
         -- body
         transition.moveTo(self.layer_tequan, {
@@ -478,7 +488,6 @@ function Shop:ShowType_4_View()
         easing = "backOut",
         })
     end, 0.1)
-
 end
 
 function Shop:CloseShop( )
