@@ -23,6 +23,7 @@ CONFIG_SCREEN_HEIGHT = 800
 
 -- auto scale mode
 CONFIG_SCREEN_AUTOSCALE = "FIXED_WIDTH" --"SHOW_ALL"
+--CONFIG_SCREEN_AUTOSCALE = "SHOW_ALL"
 
 GAME_SOUND = {
     Eff_GameOver  = "sound/Eff_GameOver.mp3",
@@ -135,7 +136,14 @@ GAME_IMAGE = {
 	title_silk         = "image/title_silk.png",
 	title_silk_22      = "image/title_silk_22.png",
 	title_silk_zise    = "image/title_silk_zise.png",
+	hengfu             = "image/hengfu.png",
 	Sign_ComboX        = "image/Sign_ComboX.png",
+	emailIcon_activity = "image/emailIcon_activity.png",
+	huodongzhongxin    = "image/huodongzhongxin.png",
+	no_activity        = "image/no_activity.png",
+	onsale_btn_1       = "image/onsale_btn_1.png",
+	zengtubeijing      = "image/zengtubeijing.png",
+	biaoti             = "image/biaoti.png",
 } 
 
 GAME_PARTICE = {

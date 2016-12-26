@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="62d41584e498dd4e45d9cb02b95592c8f89ebc75">
+        sha1="610f96fc0b921addd66c0b51607bf46e86d91904">
         <dex dex="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_2406bec77f386d49919aae875087317c38c975a9.jar" />
     </item>
     <item
@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="e6280da81fd0edbe5f9a6b084283f22608929d40">
+        sha1="9953fae8c9c56ed34a71705ce4347a2864fe35b9">
         <dex dex="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\pre-dexed\debug\instant-run_b7b542259ef2fcb37c1f44ec30d22e246567f9fb.jar" />
     </item>
 

@@ -405,7 +405,24 @@ end
 function MenuScene:ExitGame()
     -- body
     print("退出游戏")
-    self:addBackEvent()
+    if device.platform == "android" then
+        self.touchLayer = display.newLayer()
+        self.touchLayer:addNodeEventListener(cc.KEYPAD_EVENT, function(event)
+            if event.key == "back" then  
+                device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
+                    if event.buttonIndex == 1 then  
+                            cc.Director:getInstance():endToLua()
+                        else  
+                            device.cancelAlert()  --取消对话框 
+                            self:removeChild(self.touchLayer)
+                            self.touchLayer  = nil 
+                    end 
+                end)
+            end
+        end)
+        self.touchLayer:setKeypadEnabled(true)
+        self:addChild(self.touchLayer)
+    end 
 end
 
 function MenuScene:onEnter()
@@ -446,27 +463,6 @@ function MenuScene:onEnter()
 
 	        layer:setKeypadEnabled(true)
 	    end, 0.5)
-end
-
-function MenuScene:addBackEvent()
-    if device.platform == "android" then
-        self.touchLayer = display.newLayer()
-        self.touchLayer:addNodeEventListener(cc.KEYPAD_EVENT, function(event)
-            if event.key == "back" then  
-                device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
-                    if event.buttonIndex == 1 then  
-                            cc.Director:getInstance():endToLua()
-                        else  
-                            device.cancelAlert()  --取消对话框 
-                            self:removeChild(self.touchLayer)
-                            self.touchLayer  = nil 
-                    end 
-                end)
-            end
-        end)
-        self.touchLayer:setKeypadEnabled(true)
-        self:addChild(self.touchLayer)
-    end 
 end
 
 function MenuScene:onExit()

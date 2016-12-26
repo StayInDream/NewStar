@@ -68,6 +68,13 @@ function CCLabelChange:selfKill()
   
     _target._labelChange = nil --把引用删除
     _target = nil
+    lbl_Willactions = {} 
+    lbl_actions = {}
+    if self.waitHandle ~= nil then
+        scheduler.unscheduleGlobal(self.waitHandle)
+        self.waitHandle = nil
+    end
+
     end --停止scheduler
 end
 

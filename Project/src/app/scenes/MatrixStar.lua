@@ -160,6 +160,10 @@ function MatrixStar:LoadGameData( )
         GAMESTATE = GameData.GAMESTATE
     end
 
+    if GameData.SOUND ~= nil then
+        SOUND = GameData.SOUND
+    end
+
 end
 
 function MatrixStar:SaveGameData( )
@@ -439,6 +443,8 @@ function MatrixStar:ShowPauseView()
     node_paseview:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
     end, false)
     node_paseview:setTouchEnabled(true)
+
+
 
     local sp_bg = display.newSprite(GAME_IMAGE.front)
     :align(display.CENTER, display.cx, display.cy)
@@ -728,6 +734,8 @@ end
 --暂停按钮
 function MatrixStar:PauseBtn_onclick( )
     -- body
+    local sp_mark = display.newScale9Sprite(GAME_IMAGE.sp_mask ,display.cx, display.cy, cc.size(display.widthInPixels, display.heightInPixels) )
+    :addTo(node_paseview,-1)
     transition.moveTo(node_paseview, {time = 0.5 , x = display.left , y = display.bottom ,easing = "EXPONENTIALOUT"})
 end
 
@@ -1019,8 +1027,9 @@ function MatrixStar:initMatrix()
         ]]
     math.randomseed(os.time())   
     self.nums = 0
-    local starSequenceindex = math.random(1, 3)
+    local starSequenceindex =math.random(1, 4)
     local delay = 0
+    local markx = 0
     self:SetBtnsState(false) 
 
     if  GAMESTATE == 0 or #MAP <= 0 or GAMESTATE == 2 then
@@ -1056,15 +1065,20 @@ function MatrixStar:initMatrix()
                                 else
                                     star:setPosition(x ,y - display.height)
                                 end
-
                         end
                 elseif starSequenceindex == 4 then
                         --todo
-                        -- star:setScale(0.5)
+                        star:setScale(0.5)
+                        if col == tow then
+                            markx = x
+                        end
                         -- delay = row * 0.05
-                        -- if col >= row then
-
-                        -- end
+                        if col < row then
+                            star:setPosition(x, self.STAR[col][col][5])
+                            else
+                                --todo
+                            star:setPosition(markx, y) 
+                        end
 
                 end
 
@@ -1098,7 +1112,7 @@ function MatrixStar:initMatrix()
                     end
                 end,  
                 })  
-            end
+             end
         end
 
     else  --读档
@@ -1180,6 +1194,10 @@ function MatrixStar:nextStage( )
     self.SELECT_STAR = {} 
     bool_ishaveShow_sp_tongguan = false
     lbl_curscore:setColor(cc.c3b(255, 255, 255))
+     if self.CCLabelChangeaction then
+        self.CCLabelChangeaction:selfKill()
+        self.CCLabelChangeaction = nil 
+    end
     self:Show()
 end
 
@@ -1445,7 +1463,7 @@ function MatrixStar:updateScore(select)
    -- lbl_curscore:setString(string.format("%s", tostring(self.Cscore)))
 
    if self.CCLabelChangeaction ~= nill then
-        self.CCLabelChangeaction:init(lbl_curscore,  { duration = 0.01, fromNum = lastScore , toNum = self.Cscore , changerate = 1,callback = function()
+        self.CCLabelChangeaction:init(lbl_curscore,  { duration = 0.1, fromNum = lastScore , toNum = self.Cscore , changerate = 5,callback = function()
             end})
     else
         self.CCLabelChangeaction = CCLabelChange:create(lbl_curscore,  { duration = 0.1, fromNum = lastScore , toNum = self.Cscore , changerate = 5,callback = function()
@@ -1564,14 +1582,13 @@ function MatrixStar:getSelectStar()
         for i=1,#self.SELECT_STAR  do
             local color = self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][2] --颜色
             local frameNo = display.newSpriteFrame(string.sub(STAR_RES_LIST_SELECT[color], 2))
-            if frameNo ~= nil then
+            if frameNo ~= nil and self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][1]~= nil then
                 self.STAR[self.SELECT_STAR[i][2]][self.SELECT_STAR[i][3]][1]:setSpriteFrame(frameNo)  --把原来的精灵更换图片
             else
                 print("ERROR ==>  请确定是否存在"..string.sub(STAR_RES_LIST_SELECT[color], 2).." 的图片")
             end
         end
     end 
-   
     return true
 end
 
