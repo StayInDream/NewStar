@@ -2,6 +2,7 @@ local BubbleButton = import("..views.BubbleButton")
 local CCLabelChange = import("..views.CCLabelChange")
 local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
 local Shop = import("..views.Shop")
+local WarningWin = import("..views.WarningWin")
 
 local MenuScene = class("MenuScene", function()
     return display.newScene("MenuScene")
@@ -19,6 +20,9 @@ function MenuScene:ctor()
 
     self.Shop = Shop.new()
     :addTo(self,100)
+
+    self.WarningWin = WarningWin.new()
+    :addTo(self,150)
 
     local layer_logging = display.newLayer() --loading 层
     self:addChild(layer_logging,1)
@@ -151,21 +155,48 @@ function MenuScene:ctor()
         :addTo(layer_menu) 
 
 	--兑换码
-    self.CDKEYButton = BubbleButton.new({
-            image = GAME_IMAGE.CDKEY_btn,
-            sound = GAME_SOUND.pselect,
-            prepare = function()
-                if GameData.SOUND == 1 then
-                audio.playSound(GAME_SOUND.pselect)
-                end
-                self.CDKEYButton:setButtonEnabled(false)
-            end,
-            listener = function()
-                self:ShowCDKEY()
-            end,
-        })
-        :align(display.CENTER, display.cx + 170, display.bottom + 50 )
-        :addTo(layer_menu) 
+    local editBox2 = cc.ui.UIInput.new({
+        image =GAME_IMAGE.CDKEY_btn,
+        size = cc.size(63, 73),
+        x = display.cx +170,
+        y = display.bottom + 50 ,
+        listener = function(event, editbox)
+            if event == "began" then
+               -- self:onEditBoxBegan(editbox)
+            elseif event == "ended" then
+                --self:onEditBoxEnded(editbox)
+                local _trimed = string.trim(editbox:getText())
+                --判断兑换码是否匹配
+                self.WarningWin:ShowWaringInfo({ })
+
+                editbox:setText("")
+            elseif event == "return" then
+             --   self:onEditBoxReturn(editbox)
+            elseif event == "changed" then
+               -- self:onEditBoxChanged(editbox)
+            else
+             --   printf("EditBox event %s", tostring(event))
+            end
+        end
+    })
+    editBox2:setReturnType(cc.KEYBOARD_RETURNTYPE_SEND)
+    layer_menu:addChild(editBox2)
+
+    -- self.CDKEYButton = BubbleButton.new({
+    --         image = GAME_IMAGE.CDKEY_btn,
+    --         sound = GAME_SOUND.pselect,
+    --         prepare = function()
+    --             if GameData.SOUND == 1 then
+    --             audio.playSound(GAME_SOUND.pselect)
+    --             end
+    --             self.CDKEYButton:setButtonEnabled(false)
+    --         end,
+    --         listener = function()
+    --             self:ShowCDKEY()
+    --         end,
+    --     })
+    --     :align(display.CENTER, display.cx + 170, display.bottom + 50 )
+    --     :addTo(layer_menu) 
 
     --新游戏
     self.NewGameButton = BubbleButton.new({
@@ -308,8 +339,6 @@ function MenuScene:EnterActivity()
         :align(display.CENTER, display.left - display.width, display.cy)
         :addTo(self ,2)
 
-       
-
         local sp_bg01 = display.newScale9Sprite( GAME_IMAGE.huodong_diban_2, display.cx , display.cy , cc.size(400, 600) )
         :addTo(self.layer_activity) 
 
@@ -426,7 +455,7 @@ function MenuScene:EnterActivity()
                     UILabelType = 2,
                     text  =  "消灭星星的总数达到1000个,奖励钻石100枚。",
                     size = 18,
-                    valign = cc.ui.TEXT_ALIGN_CENTER,
+                    valign = cc.ui.TEXT_ALIGNMENT_CENTER,
                     dimensions = cc.size(210, 50),
                     color = cc.c3b(255, 0, 255)               
                     })
@@ -567,17 +596,16 @@ function MenuScene:ShowSettingView()
 end
 
 function MenuScene:ShowEmail()
-    --self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
+    self.WarningWin:ShowWaringInfo({dec = "暂未开启,敬请期待..."})
 end
 
 function MenuScene:ShowRank()
-    --self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
+    self.WarningWin:ShowWaringInfo({dec = "暂未开启,敬请期待..."})
 end
 
 function MenuScene:ShowCDKEY()
     --self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
-   GameData.CDKEY =  device.showInputBox("请输入您的兑换码", "", "")
-   print("GameData.CDKEY ==> " .. GameData.CDKEY)
+     -- GameData.CDKEY =  device.showInputBox("请输入您的兑换码", "", "")
 end
 
 function MenuScene:ExitGame(event)
@@ -607,21 +635,6 @@ function MenuScene:onEnter()
                    -- audio.rewindMusic()
             end
     end
-
-    -- self:setKeypadEnabled(true)
-    -- self:addNodeEventListener(cc.KEYPAD_EVENT,function(event)
-    --     --self:onKeypad(event)
-    --      if event.key == "back" then
-    --         device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
-    --             if event.buttonIndex == 1 then
-    --                     cc.Director:getInstance():endToLua()  
-    --                    -- game.exit()
-    --                 else  
-    --                     device.cancelAlert()  --取消对话框 
-    --             end
-    --         end )
-    --     end 
-    -- end)
 
     self.touchLayer = display.newLayer()
         self.touchLayer:addNodeEventListener(cc.KEYPAD_EVENT, function(event)
