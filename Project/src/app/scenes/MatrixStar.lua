@@ -1960,7 +1960,7 @@ function MatrixStar:ShowFail( )
                     self:ShowResult()
                 end
             node_faileView = nil
-            node_paseview  = nil 
+           
         end)
 
     local comntinueButton =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.tongguananniu_btn, pressed =  GAME_IMAGE.tongguananniu_btn})
