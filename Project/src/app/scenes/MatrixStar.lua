@@ -1396,11 +1396,9 @@ end
 --称赞
 function MatrixStar:ShowAnim(num )
     -- body
-
-
-    if num <= 4 then
-        return
-    end
+    -- if num <= 4 then
+    --     return
+    -- end
     local sequenceAction = transition.sequence({
         cc.MoveTo:create(0.2, cc.p(display.cx, display.cy + 100)),
         cc.ScaleTo:create(0.5, 0.5, 0.5, 1), 
@@ -1429,7 +1427,7 @@ function MatrixStar:ShowAnim(num )
 
         end
 
-        elseif num < 9 then --酷毙了
+        elseif num >=7 and num < 9 then --酷毙了
             local praises = {GAME_IMAGE.praise2,  GAME_IMAGE.praise3 }
             local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
             :align(display.CENTER, display.cx, display.cy)
@@ -1445,7 +1443,7 @@ function MatrixStar:ShowAnim(num )
          --   audio.playSound(GAME_SOUND.word_1)
              table.insert(self.wordSounds, GAME_SOUND.word_1)
             end
-            elseif num < 12 then --霸气侧漏
+            elseif  num >=9 and num < 12 then --霸气侧漏
                 local praises = {GAME_IMAGE.praise4, GAME_IMAGE.praise5 }
                 local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
                 :align(display.CENTER, display.cx, display.cy)
@@ -1461,7 +1459,7 @@ function MatrixStar:ShowAnim(num )
              --   audio.playSound(GAME_SOUND.word_2)
                  table.insert(self.wordSounds, GAME_SOUND.word_2)
                 end
-                elseif num > 11 then --棒棒
+                elseif  num > 11 then --棒棒
                     local praises = { GAME_IMAGE.praise6, GAME_IMAGE.praise7 }
                     local sp_praise2 = display.newSprite(praises[math.random(1,#praises)]) 
                     :align(display.CENTER, display.cx, display.cy)
@@ -1479,7 +1477,7 @@ function MatrixStar:ShowAnim(num )
                    
     end
 
-     if self.wordSound == nil then
+     if self.wordSound == nil  then
       self.wordSoundHnadle =  scheduler.scheduleGlobal(function ( )
             -- body
             if #self.wordSounds > 0 then
@@ -1523,7 +1521,10 @@ function MatrixStar:updateScore(select)
 
             if bool_ishaveShow_sp_tongguan == false then
 
-                if GameData.SOUND == 1 then audio.playSound(GAME_SOUND.ptarget) end
+                if GameData.SOUND == 1 then
+                   table.insert( self.wordSounds, GAME_SOUND.ptarget)
+                   -- audio.playSound(GAME_SOUND.ptarget)
+                  end
                 local sp_tongguanbg = display.newSprite(GAME_IMAGE.stage_clear_bg, display.cx, display.cy)
                     :addTo(node_title,-2)
                 local sequenceAction1 = transition.sequence({
@@ -1856,6 +1857,7 @@ end
 
 function MatrixStar:ShowResult( )
     -- body
+    audio.playSound(GAME_SOUND.gameover)
     local layer_result = display.newColorLayer(cc.c4b(0, 0, 0, 255))
     :align(display.CENTER, display.left, display.bottom)
     :addTo(self, 5)
@@ -1959,6 +1961,7 @@ end
  --显示失败界面--
 function MatrixStar:ShowFail( )
    -- body
+   audio.playSound(GAME_SOUND.Eff_GameOver)
    if node_faileView == nil then
     node_faileView = display.newLayer()
     :align(display.CENTER, display.cx, display.top)
