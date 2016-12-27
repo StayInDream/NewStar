@@ -3,12 +3,21 @@
 
     <item
         is-multidex="false"
-        jar="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\exploded-aar\proj.android\libcocos2dx\unspecified\jars\classes.jar"
-        jumboMode="false"
+        jar="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="f28a237f36d5a8c0462b5eb18165152ec91d7b3a">
-        <dex dex="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\pre-dexed\release\proj.android-libcocos2dx-unspecified_7ce5a89145e6d0b22694da7489c7a37c0f6619b0.jar" />
+        sha1="69448f4017d206d53247059fa0dacae7c2604301">
+        <dex dex="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_2406bec77f386d49919aae875087317c38c975a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="1348063e24498482d03644916fa11b983966d3c1">
+        <dex dex="E:\MyStar\NewStar\Project\frameworks\runtime-src\proj.android\app\build\intermediates\pre-dexed\debug\instant-run_b7b542259ef2fcb37c1f44ec30d22e246567f9fb.jar" />
     </item>
 
 </items>

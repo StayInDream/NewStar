@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.os.Debug;
 import android.os.Vibrator;
 import android.telephony.TelephonyManager;
 
@@ -157,6 +158,8 @@ public class PSNative {
 		mContext.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
+				if (mShowingDialog == null)
+					return;
 				mShowingDialog.dismiss();
 				mShowingDialog = null;
 			}

@@ -372,6 +372,21 @@ function MatrixStar:initTitles()
         :setScale(0.8)
         :addTo(node_title)
 
+    --      --道具 4 消除全屏选中颜色的星星
+    -- self.Prop4Btn =  BubbleButton.new({
+    --         image = GAME_IMAGE.Props_Paint,
+    --         sound = GAME_SOUND.Props_Paint,
+    --         prepare = function()
+    --             self.Prop4Btn:setButtonEnabled(false)
+    --         end,
+    --         listener = function()
+    --             self:Prop4_onclick()
+    --         end,
+    --     })
+    --     :align(display.CENTER,  display.right - 50, display.top - 170)
+    --     :setScale(0.8)
+    --     :addTo(node_title)
+
         --暂停
     self.PauseBtn = BubbleButton.new({
             image = GAME_IMAGE.pause,

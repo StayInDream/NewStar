@@ -274,26 +274,24 @@ function MenuScene:ctor()
     :align(display.CENTER, display.cx, display.cy)
     layer_menu:addChild(particle,1)  
 
-    self:addNodeEventListener(cc.KEYPAD_EVENT,function(event)
-       return self:onKeypad(event) 
-    end, false)
-    self:setKeypadEnabled(true)
+   
 
 end
 
 function MenuScene:onKeypad( event )
     -- body
-    if event.key == "back" then
-        device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
-            if event.buttonIndex == 1 then  
-                    cc.Director:getInstance():endToLua()
-                else  
-                    device.cancelAlert()  --取消对话框 
-            end  
-            end)
-        elseif event.key == "menu" then  --菜单键
-            print("menu keypad onclick")               
-    end        
+    if device.platform == "android" then
+        if event.key == "back" then
+            device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
+                if event.buttonIndex == 1 then
+                        cc.Director:getInstance():endToLua()  
+                       -- game.exit()
+                    else  
+                        device.cancelAlert()  --取消对话框 
+                end
+            end )
+        end
+    end
 end
 
 --进入活动列表
@@ -557,13 +555,15 @@ function MenuScene:ShowSettingView()
             end
             scheduler.performWithDelayGlobal(function()
                 -- body
-                self:removeChild(layer_setting)
                 self:ExitGame()
+                layer_setting:removeAllChildren()
+                self:removeChild(layer_setting)
             end,0.5)
             self.sp_btnbg:moveTo(0.3, display.left  - 50 , display.bottom + 250)
            
         end)
         self.sp_btnbg:moveTo(0.3, display.left + 25 , display.bottom + 250)
+
 end
 
 function MenuScene:ShowEmail()
@@ -577,30 +577,22 @@ end
 function MenuScene:ShowCDKEY()
     --self:enterScene("SetGameScene", nil, "fade", 0.6, display.COLOR_WHITE)
    GameData.CDKEY =  device.showInputBox("请输入您的兑换码", "", "")
-   print(GameData.CDKEY)
+   print("GameData.CDKEY ==> " .. GameData.CDKEY)
 end
 
-function MenuScene:ExitGame()
-    -- body
-    print("退出游戏")
+function MenuScene:ExitGame(event)
+    -- -- body
+    -- print("退出游戏")
     if device.platform == "android" then
-        self.touchLayer = display.newLayer()
-        self.touchLayer:addNodeEventListener(cc.KEYPAD_EVENT, function(event)
-            if event.key == "back" then  
-                device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
-                    if event.buttonIndex == 1 then  
-                            cc.Director:getInstance():endToLua()
-                        else  
-                            device.cancelAlert()  --取消对话框 
-                            self:removeChild(self.touchLayer)
-                            self.touchLayer  = nil 
-                    end 
-                end)
-            end
+        device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
+            if event.buttonIndex == 1 then
+                    cc.Director:getInstance():endToLua()  
+                   -- game.exit()
+                else  
+                    device.cancelAlert()  --取消对话框 
+            end 
         end)
-        self.touchLayer:setKeypadEnabled(true)
-        self:addChild(self.touchLayer)
-    end 
+    end
 end
 
 function MenuScene:onEnter()
@@ -612,35 +604,40 @@ function MenuScene:onEnter()
                     audio.playMusic(GAME_SOUND.classicbg)
                     isHadPlayMusic = true
                 else
-                    audio.rewindMusic()
+                   -- audio.rewindMusic()
             end
     end
-    -- if GameData.SoundOff == 0 or  GameData.SoundOff == nil then 
-    --     audio.playMusic(GAME_SOUND.classicbg)
-    --     else
-    --     audio.stopMusic(false)  
-    -- end
-    if device.platform ~= "android" then return end
-	    self:performWithDelay(function()
-	        -- keypad layer, for android
-	        local layer = display.newLayer()
-	        layer:addKeypadEventListener(function(event)
-	            if event.key == "back" then
-                     device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
-                    if event.buttonIndex == 1 then  
-                          --  cc.Director:getInstance():endToLua()
-                          game.exit()
+
+    -- self:setKeypadEnabled(true)
+    -- self:addNodeEventListener(cc.KEYPAD_EVENT,function(event)
+    --     --self:onKeypad(event)
+    --      if event.key == "back" then
+    --         device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
+    --             if event.buttonIndex == 1 then
+    --                     cc.Director:getInstance():endToLua()  
+    --                    -- game.exit()
+    --                 else  
+    --                     device.cancelAlert()  --取消对话框 
+    --             end
+    --         end )
+    --     end 
+    -- end)
+
+    self.touchLayer = display.newLayer()
+        self.touchLayer:addNodeEventListener(cc.KEYPAD_EVENT, function(event)
+            if event.key == "back" then  
+                device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
+                    if event.buttonIndex == 1 then
+                            cc.Director:getInstance():endToLua()  
+                           -- game.exit()
                         else  
                             device.cancelAlert()  --取消对话框 
-                    end  
-                    end)
-
-                  end
-	        end)
-	        self:addChild(layer)
-
-	        layer:setKeypadEnabled(true)
-	    end, 0.5)
+                    end 
+                end)
+            end
+        end)
+        self.touchLayer:setKeypadEnabled(true)
+        self:addChild(self.touchLayer,-10)
 end
 
 function MenuScene:onExit()
