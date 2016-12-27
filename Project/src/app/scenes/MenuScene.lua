@@ -274,10 +274,10 @@ function MenuScene:ctor()
     :align(display.CENTER, display.cx, display.cy)
     layer_menu:addChild(particle,1)  
 
-    -- self:addNodeEventListener(cc.KEYPAD_EVENT,function(event)
-    --    return self:onKeypad(event) 
-    -- end, false)
-    -- self:setKeypadEnabled(true)
+    self:addNodeEventListener(cc.KEYPAD_EVENT,function(event)
+       return self:onKeypad(event) 
+    end, false)
+    self:setKeypadEnabled(true)
 
 end
 
