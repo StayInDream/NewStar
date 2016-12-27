@@ -100,6 +100,7 @@ function MatrixStar:ctor()
        return self:onKeypad(event) 
     end, false)
     self:setKeypadEnabled(true)
+    self.wordSounds = {}
 end  
 
 function MatrixStar:Show() 
@@ -631,7 +632,7 @@ function MatrixStar:SetVolume_onClick( )
                 else
                     audio.rewindMusic()
             end
-            audio.setSoundsVolume(0)
+            audio.setSoundsVolume(1)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.NORMAL, GAME_IMAGE.Button_SoundOn ,true)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.PRESSED, GAME_IMAGE.Button_SoundOn ,true)
         else
@@ -639,7 +640,7 @@ function MatrixStar:SetVolume_onClick( )
             GameData.SOUND = 0 
             GameState.save(GameData)
             audio.pauseMusic()
-            audio.setSoundsVolume(1)
+            audio.setSoundsVolume(0)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.NORMAL, GAME_IMAGE.Button_SoundOff ,true)
             self.SetVolumeButton:setButtonImage(cc.ui.UIPushButton.PRESSED, GAME_IMAGE.Button_SoundOff ,true)
     end
@@ -1054,7 +1055,7 @@ function MatrixStar:initMatrix()
             for col = 1, COL do
                 self.STAR[row][col] = {}
                 local x = (col-1) * STAR_WIDTH + STAR_WIDTH/2
-                local i = math.random(1, #STAR_RES_LIST)
+                local i = math.random(1, #STAR_RES_LIST - 2)
                 local star = display.newSprite(STAR_RES_LIST[i])
                 if starSequenceindex == 2 then 
                 star:setScale(0)
@@ -1333,7 +1334,6 @@ function MatrixStar:deleteOneStar()
             self:removeChild(self.STAR[row][col][1]) 
 
             self.STAR[row][col][1] = nil 
-           -- self.STAR[row][col] = {}
         end
 
         if #self.SELECT_STAR <=0 then
@@ -1396,6 +1396,8 @@ end
 --称赞
 function MatrixStar:ShowAnim(num )
     -- body
+
+
     if num <= 4 then
         return
     end
@@ -1422,7 +1424,9 @@ function MatrixStar:ShowAnim(num )
             })
 
         if GameData.SOUND == 1 then
-        audio.playSound(GAME_SOUND.word_1)
+      --  audio.playSound(GAME_SOUND.word_1)
+        table.insert(self.wordSounds, GAME_SOUND.word_1)
+
         end
 
         elseif num < 9 then --酷毙了
@@ -1438,7 +1442,8 @@ function MatrixStar:ShowAnim(num )
                 end, 
                 })
             if GameData.SOUND == 1 then
-            audio.playSound(GAME_SOUND.word_1)
+         --   audio.playSound(GAME_SOUND.word_1)
+             table.insert(self.wordSounds, GAME_SOUND.word_1)
             end
             elseif num < 12 then --霸气侧漏
                 local praises = {GAME_IMAGE.praise4, GAME_IMAGE.praise5 }
@@ -1453,7 +1458,8 @@ function MatrixStar:ShowAnim(num )
                     end, 
                     })
                 if GameData.SOUND == 1 then
-                audio.playSound(GAME_SOUND.word_2)
+             --   audio.playSound(GAME_SOUND.word_2)
+                 table.insert(self.wordSounds, GAME_SOUND.word_2)
                 end
                 elseif num > 11 then --棒棒
                     local praises = { GAME_IMAGE.praise6, GAME_IMAGE.praise7 }
@@ -1467,8 +1473,25 @@ function MatrixStar:ShowAnim(num )
                             node_title:removeChild(sp_praise2)
                         end, 
                         })
-                    if GameData.SOUND == 1 then audio.playSound(GAME_SOUND.word_2) end
+                    if GameData.SOUND == 1 then 
+                        --audio.playSound(GAME_SOUND.word_2)
+                         table.insert(self.wordSounds, GAME_SOUND.word_2) end
                    
+    end
+
+     if self.wordSound == nil then
+      self.wordSoundHnadle =  scheduler.scheduleGlobal(function ( )
+            -- body
+            if #self.wordSounds > 0 then
+            self.wordSound = audio.playSound(table.remove(self.wordSounds , 1) )
+            else
+               if self.wordSoundHnadle ~= nil  then
+               scheduler.unscheduleGlobal(self.wordSoundHnadle)
+               self.wordSoundHnadle = nil 
+               self.wordSound = nil 
+               end
+            end
+        end, 0.3)
     end
 end
 
