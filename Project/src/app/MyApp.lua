@@ -121,7 +121,7 @@ end
 function MyApp:InitGameStageData()
     GameData.CURLEVEL    = 1
     GameData.CURSCORE    = 0
-    GameData.TARGETSCORE = 1000
+    GameData.TARGETSCORE = 2000
     GameData.MAP         = {}
     GameData.GAMESTATE   = 0
     GameState.save(GameData)
