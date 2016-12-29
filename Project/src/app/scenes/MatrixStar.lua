@@ -1144,7 +1144,7 @@ function MatrixStar:UsePropClear( i,j )
         return
     end 
     if GameData.SOUND ==1 then
-    audio.playSound(GAME_SOUND.pselect)
+    audio.playSound(GAME_SOUND.Eff_GetItem)
     end
     bool_isusingClear = false
     if self.Prop4Btn_sequenceAction ~= nil then
