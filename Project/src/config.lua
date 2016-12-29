@@ -144,6 +144,8 @@ GAME_IMAGE = {
 	onsale_btn_1       = "image/onsale_btn_1.png",
 	zengtubeijing      = "image/zengtubeijing.png",
 	biaoti             = "image/biaoti.png",
+	Button_Same_1      = "image/Button_Same_1.png",
+	Button_Same_2      = "image/Button_Same_2.png",
 } 
 
 GAME_PARTICE = {

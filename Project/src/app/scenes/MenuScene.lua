@@ -30,6 +30,7 @@ function MenuScene:ctor()
     self:addChild(layer_menu,1)
     layer_menu:setVisible(false)
 
+    if isHadShowLoading == false then
         local  sp_jsy = display.newSprite(GAME_IMAGE.jsy)
             :align(display.CENTER, display.cx , display.cy )
             :addTo(layer_logging)
@@ -41,9 +42,19 @@ function MenuScene:ctor()
         scheduler.performWithDelayGlobal(function ()
                 layer_logging:setVisible(false)
                 layer_menu:setVisible(true)
-            end, 0.1)
-
-
+                  self.logo  = display.newSprite(GAME_IMAGE.logo_xin_1)
+                    :align(display.CENTER, display.cx, display.top + 200)
+                    layer_menu:addChild(self.logo)
+                    transition.moveTo( self.logo, {time = 0.7, y = display.cy +250 , easing = "BOUNCEOUT"})
+            end, 2.5)
+        isHadShowLoading =true
+        else
+              layer_menu:setVisible(true)
+                self.logo  = display.newSprite(GAME_IMAGE.logo_xin_1)
+                :align(display.CENTER, display.cx, display.top + 200)
+                layer_menu:addChild(self.logo)
+                transition.moveTo( self.logo, {time = 1, y = display.cy +250 , easing = "BOUNCEOUT"})
+    end
 
 --[[菜单层设置  ---start ]]
 
@@ -79,10 +90,7 @@ function MenuScene:ctor()
         :setVisible(false)
 
     -- logo
-    self.logo  = display.newSprite(GAME_IMAGE.logo_xin_1)
-    :align(display.CENTER, display.cx, display.top + 200)
-    layer_menu:addChild(self.logo)
-	transition.moveTo( self.logo, {time = 0.7, y = display.cy +250 , easing = "BOUNCEOUT"})
+   
 
     -- add buttons 
 

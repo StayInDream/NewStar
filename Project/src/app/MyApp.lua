@@ -3,12 +3,14 @@ require("config")
 require("cocos.init")
 require("framework.init")
 GameState=require("framework.cc.utils.GameState")
+local scheduler = require(cc.PACKAGE_NAME .. ".scheduler")
 GameData  = nil
 GAME_FONT = nil
 GAME_SCALE = nil
 
 isHadShowShoptype_2 = false
 isHadPlayMusic      = false
+isHadShowLoading    = false
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
