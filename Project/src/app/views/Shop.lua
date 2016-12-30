@@ -26,7 +26,7 @@ function Shop:ctor()
     :addTo(self) 
     :setScale(20)
     :setOpacity(0)
-    self.sp_bg01 = display.newScale9Sprite( GAME_IMAGE.huodong_diban_2, display.left - 250 , display.cy + 50, cc.size(400, 600) )
+    self.sp_bg01 = display.newScale9Sprite( GAME_IMAGE.huodong_diban_2, display.left - 250 , display.cy, cc.size(400, 600) )
     :addTo(self) 
    
     local sp_bg02 = display.newSprite( GAME_IMAGE.shangdian_biaotoutu )
@@ -180,8 +180,6 @@ function Shop:Show(ShopType)
         self.shoptype = ShopType
 		return
 	end
---	self:ShowMain()
-	
 end
 
 
@@ -190,7 +188,7 @@ function Shop:ShowMain()
 	scheduler.performWithDelayGlobal(function()
 	        transition.moveTo(self.sp_bg01, {
             x = display.cx ,
-            y = display.cy + 50,
+            y = display.cy ,
             time = 0.5,
             easing = "backOut",
             })

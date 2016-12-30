@@ -22,9 +22,7 @@ end
 function MyApp:run()
     cc.FileUtils:getInstance():addSearchPath("res/")
     cc.Director:getInstance():setContentScaleFactor(480 / CONFIG_SCREEN_WIDTH)
- --   print("CONFIG_SCREEN_WIDTH ---"..CONFIG_SCREEN_WIDTH)
     GAME_SCALE = display.widthInPixels / CONFIG_SCREEN_WIDTH
-
     display.addSpriteFrames(GAME_TEXTURE_DATA_FILENAME, GAME_TEXTURE_IMAGE_FILENAME)
 
      -- preload all sounds
@@ -105,20 +103,12 @@ function MyApp:StartNewGame()
 end
 
 function MyApp:ContinueGame()
-
     local nextScene = require("app.scenes.GameScene").new()
     -- 包装过渡效果
     local transition = display.wrapSceneWithTransition(nextScene, "slideInR", 0.5)
     -- 切换到新场景
     display.replaceScene(transition)
 end
-
-function MyApp:TeQuanButtonClick()
-    
-    --self:enterScene("GameScene", nil, "fade", 0.6, display.COLOR_WHITE)
-end
-
-
 
 function MyApp:InitGameStageData()
     GameData.CURLEVEL    = 1

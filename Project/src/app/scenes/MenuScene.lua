@@ -30,13 +30,14 @@ function MenuScene:ctor()
     self:addChild(layer_menu,1)
     layer_menu:setVisible(false)
 
+
     if isHadShowLoading == false then
         local  sp_jsy = display.newSprite(GAME_IMAGE.jsy)
             :align(display.CENTER, display.cx , display.cy )
             :addTo(layer_logging)
 
         local  sp_jiazai = display.newSprite(GAME_IMAGE.jiazai)
-            :align(display.CENTER, display.cx + 15, display.bottom + 30)
+            :align(display.CENTER, display.cx + 15, display.bottom + 91)
             :addTo(layer_logging)
 
         scheduler.performWithDelayGlobal(function ()
@@ -222,7 +223,7 @@ function MenuScene:ctor()
 
             end,
         })
-        :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 450)
+        :align(display.CENTER, display.cx , display.cy - 30)
         :addTo(layer_menu) 
 
     --继续游戏
@@ -234,14 +235,14 @@ function MenuScene:ctor()
             end,
             listener = function()
                 if GameData.GAMESTATE ~= nil and (GameData.GAMESTATE == 1 or GameData.GAMESTATE == 2) then
-                if GameData.SOUND == 1 then
-                audio.playSound(GAME_SOUND.pselect)
-                end
-                app:ContinueGame()
+                    if GameData.SOUND == 1 then  audio.playSound(GAME_SOUND.pselect) end
+                    app:ContinueGame()
+                else
+                    self.WarningWin:ShowWaringInfo({dec = "未有存档"})
                 end
             end,
         })
-        :align(display.CENTER, display.cx , display.cy +  self.bg:getContentSize().height / 2 - 550)
+        :align(display.CENTER, display.cx ,display.cy - 150)
         :addTo(layer_menu) 
 
     self.sp_continue  = display.newSprite(GAME_IMAGE.sp_continue)
@@ -261,11 +262,14 @@ function MenuScene:ctor()
             --todo
             self.sp_continue:setOpacity(255)
             self.sp_continue:setTexture(GAME_IMAGE.sp_relife)
+            elseif GameData.GAMESTATE == 0 then
+             --  self.ContinueGameButton:setButtonEnabled(false) 
+                --todo
     end
 
     -- 特权礼包
     self.TeQuanButton =  cc.ui.UIPushButton.new({normal =  "image/trqunrukou.png", pressed =  "image/trqunrukou.png"})
-        :align(display.CENTER,  display.cx + self.bg:getContentSize().width / 2 - 80 , display.cy +  self.bg:getContentSize().height / 2 - 350)
+        :align(display.CENTER,  display.right -  80 , display.cy +50 )
         :onButtonClicked(function()
             if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
@@ -282,7 +286,7 @@ function MenuScene:ctor()
 
        -- 大礼包
     self.gift_btn =  cc.ui.UIPushButton.new({normal =  GAME_IMAGE.gift_btn, pressed =  GAME_IMAGE.gift_btn})
-        :align(display.CENTER,  display.cx + self.bg:getContentSize().width / 2 - 80 , display.cy +  self.bg:getContentSize().height / 2 - 470)
+        :align(display.CENTER,   display.right -  80 , display.cy - 80)
         :onButtonClicked(function()
             if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
@@ -323,8 +327,16 @@ function MenuScene:onKeypad( event )
         if event.key == "back" then
             device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
                 if event.buttonIndex == 1 then
-                        cc.Director:getInstance():endToLua()  
-                       -- game.exit()
+                    cc.Director:getInstance():endToLua()  
+                    -- device.cancelAlert()
+                    -- self.touchLayer:setKeypadEnabled(false)
+                    -- audio.pauseMusic()
+                    -- audio.playSound(GAME_SOUND.seeyouagain)
+                    -- scheduler.performWithDelayGlobal(function( )
+                    --     -- body
+                    --     cc.Director:getInstance():endToLua()  
+                        
+                    -- end, 0.5)
                     else  
                         device.cancelAlert()  --取消对话框 
                 end
@@ -622,8 +634,7 @@ function MenuScene:ExitGame(event)
     if device.platform == "android" then
         device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
             if event.buttonIndex == 1 then
-                    cc.Director:getInstance():endToLua()  
-                   -- game.exit()
+                cc.Director:getInstance():endToLua()  
                 else  
                     device.cancelAlert()  --取消对话框 
             end 
@@ -639,18 +650,16 @@ function MenuScene:onEnter()
             if isHadPlayMusic == false then
                     audio.playMusic(GAME_SOUND.classicbg)
                     isHadPlayMusic = true
-                else
-                   -- audio.rewindMusic()
             end
     end
 
     self.touchLayer = display.newLayer()
+    :setContentSize(cc.size(display.widthInPixels, display.heightInPixels))
         self.touchLayer:addNodeEventListener(cc.KEYPAD_EVENT, function(event)
             if event.key == "back" then  
                 device.showAlert("提示", "确定退出游戏么？", {"确定", "取消"}, function (event)
                     if event.buttonIndex == 1 then
                             cc.Director:getInstance():endToLua()  
-                           -- game.exit()
                         else  
                             device.cancelAlert()  --取消对话框 
                     end 

@@ -22,7 +22,7 @@ CONFIG_SCREEN_WIDTH  = 480
 CONFIG_SCREEN_HEIGHT = 800
 
 -- auto scale mode
-CONFIG_SCREEN_AUTOSCALE = "FIXED_WIDTH" --"SHOW_ALL"
+CONFIG_SCREEN_AUTOSCALE = "FIXED_WIDTH" 
 --CONFIG_SCREEN_AUTOSCALE = "SHOW_ALL"
 
 GAME_SOUND = {
@@ -47,7 +47,7 @@ GAME_SOUND = {
 	Props_Bomb    = "sound/Props_Bomb.mp3",
 	Props_Paint   = "sound/Props_Paint.mp3",
 	Props_Rainbow = "sound/Props_Rainbow.mp3",
-	gameover      ="sound/gameover.mp3",
+	gameover      = "sound/gameover.mp3",
 }
 
 GAME_IMAGE = {
@@ -86,7 +86,6 @@ GAME_IMAGE = {
 	praise5           = "image/praise18.png", 
 	praise6           = "image/praise25.png", 
 	praise7           = "image/jingdai.png",
-	btnBg             = "image/11db.png",
 	btnFrame          = "image/XSdk.png",
 	Button_Continue   = "image/Button_Continue_0.png",
 	Button_Home       = "image/Button_Home_0.png",

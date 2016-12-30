@@ -374,7 +374,7 @@ function MatrixStar:initTitles()
         :setScale(0.8)
         :addTo(node_title)
 
-         --道具 4 消除全屏选中颜色的星星
+        --道具 4 消除全屏选中颜色的星星
     self.Prop4Btn =  BubbleButton.new({
             image = GAME_IMAGE.Button_Same_1,
             sound = GAME_SOUND.pselect,
@@ -470,7 +470,7 @@ function MatrixStar:ShowPauseView()
     -- body
     if node_paseview == nil then 
         node_paseview = display.newNode()
-        :setPosition(display.left,display.top  + 20)
+        :setPosition(display.left,display.top  + 150)
         self:addChild(node_paseview , 3)
 
     node_paseview:addNodeEventListener(cc.NODE_TOUCH_EVENT,function(event)
@@ -657,7 +657,7 @@ end
 
 function MatrixStar:ContinueButton_onClick( )
     -- body
-     transition.moveTo(node_paseview, {time = 0.5 , x = display.left , y = display.top + 10 ,easing = "EXPONENTIALIN"})
+     transition.moveTo(node_paseview, {time = 0.5 , x = display.left , y = display.top + 150 ,easing = "EXPONENTIALIN"})
 end
 
 function MatrixStar:SetVolume_onClick( )
@@ -699,11 +699,6 @@ function MatrixStar:Prop1_onclick()
     if DIAMOND >= 5 then
         GAMESTATE = 0
         self:SetBtnsState(false)
-        -- self:setTouchEnabled(false)
-        -- self.Prop1Btn:setButtonEnabled(false)
-        -- self.Prop2Btn:setButtonEnabled(false)
-        -- self.Prop3Btn:setButtonEnabled(false)
-        -- self.Prop4Btn:setButtonEnabled(false)
         self:ResetStar() 
         DIAMOND = DIAMOND - 5 
         GameData.DIAMOND     = DIAMOND
@@ -1858,7 +1853,7 @@ function MatrixStar:ClearLeftStarOneByOne()
 
     if num < LEFT_STAR then
         local left = LEFT_STAR - num 
-        getscore = left * left * STARGAIN
+        getscore = 2000 - num * num * 10 --left * left * STARGAIN 
         
     else
 
