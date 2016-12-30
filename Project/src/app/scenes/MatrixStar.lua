@@ -315,7 +315,7 @@ function MatrixStar:initTitles()
             end,
         })
         :align(display.CENTER,  display.right - 50, display.top - 30)
-        :setScale(0.8)
+        :setScale(0.7)
         :addTo(node_title)
     local sp_coinbar01 = display.newSprite(GAME_IMAGE.coin_bar, self.Prop1Btn:getPositionX() - 5, self.Prop1Btn:getPositionY() - 36) 
         :addTo(node_title) 
@@ -343,7 +343,7 @@ function MatrixStar:initTitles()
             end,
         })
         :align(display.CENTER,  display.right - 50, display.top - 100)
-        :setScale(0.8)
+        :setScale(0.7)
         :addTo(node_title)
     local sp_coinbar02 = display.newSprite(GAME_IMAGE.coin_bar, self.Prop2Btn:getPositionX() - 5, self.Prop2Btn:getPositionY() - 36) 
         :addTo(node_title) 
@@ -371,7 +371,7 @@ function MatrixStar:initTitles()
             end,
         })
         :align(display.CENTER,  display.right - 50, display.top - 170)
-        :setScale(0.8)
+        :setScale(0.7)
         :addTo(node_title)
 
         --道具 4 消除全屏选中颜色的星星
@@ -385,9 +385,23 @@ function MatrixStar:initTitles()
                 self:Prop4_onclick()
             end,
         })
-        :align(display.CENTER,  display.left + 120, display.top - 130)
-        :setScale(0.8)
+        :align(display.CENTER,  display.left + 120, display.top - 140)
+        :setScale(0.7)
         :addTo(node_title)
+
+    local sp_coinbar04 = display.newSprite(GAME_IMAGE.coin_bar, self.Prop4Btn:getPositionX() - 5, self.Prop4Btn:getPositionY() - 36) 
+        :addTo(node_title) 
+        :setScale(0.5)  
+
+    local lbl_prop4 = cc.ui.UILabel.new({
+        UILabelType = 1,
+        text  = 15,
+        font = GAME_FONT,
+        size = 18,
+    })
+    :align(cc.ui.TEXT_VALIGN_CENTER,self.Prop4Btn:getPositionX(), self.Prop4Btn:getPositionY() - 34)
+     :setScale(0.4)
+    :addTo(node_title)
 
     local sequenceAction = transition.sequence({
         cc.RotateBy:create(1, 90)
@@ -729,8 +743,8 @@ function MatrixStar:Prop2_onclick()
         end
 
         local sequenceAction = transition.sequence({
-                cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
-                cc.ScaleTo:create(0.5, 1, 1, 1), 
+                 cc.ScaleTo:create(0.5, 0.5, 0.5, 1), 
+                cc.ScaleTo:create(0.5, 0.7, 0.7, 1), 
                 })
         self.Prop2Btn_sequenceAction = transition.execute(self.Prop2Btn, cc.RepeatForever:create( sequenceAction ))
         DIAMOND = DIAMOND - 5
@@ -761,8 +775,8 @@ function MatrixStar:Prop3_onclick()
             self.Prop2Btn_sequenceAction = nil
         end
         local sequenceAction = transition.sequence({
-                cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
-                cc.ScaleTo:create(0.5, 1, 1, 1), 
+                cc.ScaleTo:create(0.5, 0.5, 0.5, 1), 
+                cc.ScaleTo:create(0.5, 0.7, 0.7, 1), 
                 })
 
        self.Prop3Btn_sequenceAction = transition.execute(self.Prop3Btn, cc.RepeatForever:create( sequenceAction ))
@@ -801,8 +815,8 @@ function MatrixStar:Prop4_onclick()
         self.Prop4Btn:setButtonEnabled(false)
        
         local sequenceAction = transition.sequence({
-                cc.ScaleTo:create(0.5, 0.8, 0.8, 1), 
-                cc.ScaleTo:create(0.5, 1, 1, 1), 
+                cc.ScaleTo:create(0.5, 0.5, 0.5, 1), 
+                cc.ScaleTo:create(0.5, 0.7, 0.7, 1),
                 })
 
        self.Prop4Btn_sequenceAction = transition.execute(self.Prop4Btn, cc.RepeatForever:create( sequenceAction ))
@@ -1145,7 +1159,7 @@ function MatrixStar:UsePropClear( i,j )
     if self.Prop4Btn_sequenceAction ~= nil then
             transition.stopTarget(self.Prop4Btn)
             self.Prop4Btn_sequenceAction = nil
-            self.Prop4Btn:setScale(0.8)
+            self.Prop4Btn:setScale(0.7)
             local sequenceAction = transition.sequence({
                 cc.RotateBy:create(1, 90)
                 })
@@ -1309,6 +1323,9 @@ function MatrixStar:initMatrix()
                 onComplete = function()  
                     self.nums = self.nums + 1
                     if self.nums >= self:getStarNum() then
+                        if CURLEVEL == 1  then
+                            self:PauseBtn_onclick()
+                        end
                        self:SetBtnsState(true) 
                        GAMESTATE = 3
                     end
