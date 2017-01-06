@@ -861,9 +861,6 @@ end
 
 --暂停按钮响应事件
 function MatrixStar:PauseBtn_onclick( )
-    -- body
-    -- local sp_mark = display.newScale9Sprite(GAME_IMAGE.sp_mask ,display.cx, display.cy, cc.size(display.widthInPixels, display.heightInPixels) )
-    -- :addTo(node_paseview,-1)
     transition.moveTo(node_paseview, {time = 0.5 , x = display.left , y = display.bottom ,easing = "EXPONENTIALOUT"})
 end
 
@@ -2156,11 +2153,12 @@ function MatrixStar:ShowResult( )
             if GameData.SOUND == 1 then
                 audio.playSound(GAME_SOUND.pselect)
             end
-                self:removeChild(layer_result)
-                self.Cscore  = CURSCORE
-                layer_result = nil 
-                GAMESTATE = 0
-                self:Show()
+               
+                node_paseview  = nil 
+                node_faileView = nil 
+                self:removeAllChildren()
+                app:StartNewGame()
+             
         end)
         :setScale(0.8)
         :addTo(layer_result)   
